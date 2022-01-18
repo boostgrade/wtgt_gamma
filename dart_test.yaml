@@ -1,0 +1,5 @@
+file_reporters:
+  json: reports/tests.json
+
+tags:
+  golden:
