@@ -1,0 +1,66 @@
+name: where_to_go_today
+description: Куда пойти сегодня?
+
+# Prevent accidental publishing to pub.dev.
+publish_to: 'none'
+
+version: 0.0.0+1
+
+environment:
+  sdk: ">=2.12.0 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_localizations:
+    sdk: flutter
+  
+  # Architect
+  mobx: ^2.0.0
+  flutter_mobx: ^2.0.0
+  bloc: ^7.2.0
+  flutter_bloc: ^7.3.0
+
+  # DI
+  provider: ^6.0.0
+
+  # util
+  equatable: ^2.0.3
+  rxdart: ^0.27.2
+
+  # network
+  retrofit: ^2.0.1
+  json_annotation: ^4.1.0
+  dio: ^4.0.1
+
+  #navigation
+  routemaster: ^0.9.5
+
+  # testing
+  bloc_test: ^8.5.0
+  freezed_annotation: ^0.15.0
+  mocktail: ^0.2.0
+
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  
+  # Команда: flutter packages pub run build_runner build
+  build_runner: ^2.1.2
+  mobx_codegen: ^2.0.0
+  flutter_lints: ^1.0.0
+  dart_code_metrics: ^4.2.1
+  retrofit_generator: ^2.0.1
+  json_serializable: ^5.0.2
+  freezed: ^0.15.1+1
+
+flutter:
+  uses-material-design: true
+
+  # Enable generation of localized Strings from arb files.
+  generate: true
+
+  assets:
+    # Add assets from the images directory to the application.
+    - assets/images/

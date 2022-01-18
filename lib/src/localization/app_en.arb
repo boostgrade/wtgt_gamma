@@ -1,0 +1,9 @@
+{
+  "appTitle": "where_to_go_today",
+  "@appTitle": {
+    "description": "The title of the application"
+  },
+  "placesTabName": "Places",
+  "cardTabName": "My Card",
+  "profileTabName": "Profile"
+}

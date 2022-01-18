@@ -1,0 +1,52 @@
+# This file configures the analyzer, which statically analyzes Dart code to
+# check for errors, warnings, and lints.
+#
+# The issues identified by the analyzer are surfaced in the UI of Dart-enabled
+# IDEs (https://dart.dev/tools#ides-and-editors). The analyzer can also be
+# invoked from the command line by running `flutter analyze`.
+
+# The following line activates a set of recommended lints for Flutter apps,
+# packages, and plugins designed to encourage good coding practices.
+include: package:flutter_lints/flutter.yaml
+
+analyzer:
+  plugins:
+    - dart_code_metrics
+  exclude:
+    - "build/**"
+    - "script/**"
+    - "**/*.g.dart"
+
+linter:
+  rules:
+    avoid_print: true # Uncomment to disable the `avoid_print` rule
+    prefer_single_quotes: true # Uncomment to enable the `prefer_single_quotes` rule
+    noop_primitive_operations: true
+
+dart_code_metrics:
+  metrics:
+    cyclomatic-complexity: 20
+    number-of-arguments: 4
+    maximum-nesting-level: 5
+  metrics-exclude:
+    - test/**
+  rules:
+    - newline-before-return
+    - no-boolean-literal-compare
+    - no-empty-block
+    - prefer-trailing-comma
+    - prefer-conditional-expressions
+    - no-equal-then-else
+    - always-remove-listener
+    - avoid-unused-parameters
+    - avoid-unnecessary-setstate
+    - avoid-wrapping-in-padding
+    - double-literal-format
+    - prefer-const-border-radius
+    - prefer_extracting_callbacks
+    - member-ordering-extended
+    - prefer-extracting-callbacks
+    - no-object-declaration
+  anti-patterns:
+    - long-method
+    - long-parameter-list
