@@ -8,8 +8,8 @@ import 'main_screen_vm.dart';
 class MainScreenRoute extends MaterialPage {
   MainScreenRoute()
       : super(
-          child: Provider(
-            create: MainScreenVm,
+          child: Provider<MainScreenVm>(
+            create: MainScreenVm.new,
             child: Builder(
               builder: (context) => MainScreen(
                 vm: context.read<MainScreenVm>(),
