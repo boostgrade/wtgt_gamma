@@ -11,7 +11,7 @@ class ServerErrorMapper {
 
   static Exception fromDioError(DioError error) {
     final statusCode = error.response?.statusCode!;
-    
+
     /// Для обработки остальных серверных ошибок
     /// нужно написать дополнительные блоки в условном выражении,
     /// предварительно создав классы исключений.

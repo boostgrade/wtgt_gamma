@@ -6,7 +6,6 @@ import 'main_screen_vm.dart';
 
 /// Глвный экран с табами
 class MainScreen extends StatelessWidget {
-
   final MainScreenVm vm;
 
   static const double _labelSize = 12.0;
@@ -39,7 +38,9 @@ class MainScreen extends StatelessWidget {
             // TODO: поменять иконки из дизайна, когда они появятся
             BottomNavigationBarItem(
               icon: const Icon(Icons.search),
-              activeIcon: const Icon(Icons.search,),
+              activeIcon: const Icon(
+                Icons.search,
+              ),
               label: AppLocalizations.of(context)!.placesTabName,
             ),
             BottomNavigationBarItem(

@@ -1,7 +1,6 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:where_to_go_today/src/features/auth/ui/register/register_vm.dart';
 
-
 void main() {
   group(
     'Тесты вью модель регистрации',

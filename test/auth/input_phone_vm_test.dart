@@ -1,7 +1,6 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:where_to_go_today/src/features/auth/ui/phone/input_phone_vm.dart';
 
-
 void main() {
   group('Тесты вью меодли ввода номера телефона', () {
     final InputPhoneVm vm = InputPhoneVm();

@@ -7,12 +7,11 @@ import 'package:where_to_go_today/src/core/ui/res/colors/colors.dart';
 /// Если прогресс равен единице - показывается иконка с галочкой
 class ProgressIconWidget extends StatelessWidget {
   final double progress;
-  
+
   const ProgressIconWidget({
     Key? key,
     required this.progress,
   }) : super(key: key);
-
 
   @override
   Widget build(BuildContext context) {

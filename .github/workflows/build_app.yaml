@@ -1,0 +1,49 @@
+name: "Build application"
+
+on:
+  pull_request:
+    branches:
+      - main
+  push:
+    branches:
+      - main
+
+jobs:
+  analysis:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Validate semantic changelog update
+        if: ${{ github.event_name == 'pull_request' }}
+        uses: GetStream/verify-semantic-changelog-update@v1.0.0
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Install Flutter
+        uses: subosito/flutter-action@v1
+        with:
+          channel: "stable"
+
+      - name: Install dependencies
+        run: flutter pub get
+
+      - name: Run dependency validator
+        run: |
+          flutter pub global activate dependency_validator
+          flutter pub global run dependency_validator:dependency_validator
+
+      - name: Analyze project
+        uses: invertase/github-action-dart-analyzer@v1
+
+      - name: dart-code-metrics
+        uses: dart-code-checker/dart-code-metrics-action@v1
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          folders: "lib, test"
+          pull_request_comment: true
+
+      - name: Verify formatting
+        run: flutter format --set-exit-if-changed .
