@@ -1,10 +1,10 @@
-import 'package:where_to_go_today/src/features/settings/service/event/event.dart';
-import 'package:where_to_go_today/src/features/settings/service/settings_bloc.dart';
-import 'package:where_to_go_today/src/features/settings/service/state/state.dart';
 import 'package:flutter/material.dart';
 import 'package:mobx/mobx.dart';
 import 'package:where_to_go_today/src/core/ui/base/view_model.dart';
 import 'package:where_to_go_today/src/core/ui/errors_handling/error_handler.dart';
+import 'package:where_to_go_today/src/features/settings/service/event/event.dart';
+import 'package:where_to_go_today/src/features/settings/service/settings_bloc.dart';
+import 'package:where_to_go_today/src/features/settings/service/state/state.dart';
 
 part 'settings_vm.g.dart';
 

@@ -10,7 +10,7 @@ void main() {
         'Если передаем loading==true должны увидеть лоадер',
         (tester) async {
           const text = 'hello!';
-          bool loading = false;
+          var loading = false;
 
           final btn = WtgtButton(
             onTap: null,

@@ -1,12 +1,11 @@
-import 'package:provider/provider.dart';
-import 'package:routemaster/routemaster.dart';
-import 'package:where_to_go_today/src/features/app/ui/app_vm.dart';
-import 'package:where_to_go_today/src/di/app_dependency.dart';
-import 'package:where_to_go_today/src/navigation/navigation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:provider/provider.dart';
+import 'package:routemaster/routemaster.dart';
 import 'package:where_to_go_today/src/core/ui/base/view_model_disposer_mixin.dart';
+import 'package:where_to_go_today/src/features/app/ui/app_vm.dart';
+import 'package:where_to_go_today/src/navigation/navigation.dart';
 
 /// The Widget that configures your application.
 class App extends StatefulWidget {

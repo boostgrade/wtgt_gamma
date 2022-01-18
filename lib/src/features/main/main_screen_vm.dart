@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:mobx/mobx.dart';
 import 'package:routemaster/routemaster.dart';
 import 'package:where_to_go_today/src/features/main/main_screen.dart';
-import 'package:mobx/mobx.dart';
 import 'package:where_to_go_today/src/features/settings/ui/settings_route.dart';
 
 part 'main_screen_vm.g.dart';
