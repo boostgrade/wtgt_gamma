@@ -26,4 +26,3 @@ abstract class ProjectColors {
   static const Color _dustyBlue = Color(0xFFA8DADC);
   static const Color _black = Color(0xFF242424);
 }
-

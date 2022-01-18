@@ -1,7 +1,6 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:where_to_go_today/src/features/auth/ui/sms/sms_code_vm.dart';
 
-
 void main() {
   group('Тесты вью меодли ввода кода СМС', () {
     final SmsCodeVm vm = SmsCodeVm();

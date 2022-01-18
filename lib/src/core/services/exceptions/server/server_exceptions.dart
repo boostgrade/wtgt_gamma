@@ -14,4 +14,3 @@ class ImageSoLargeException implements Exception {}
 
 /// Ошибка при протухшем токене
 class UnauthorizedException implements Exception {}
-

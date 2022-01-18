@@ -1,3 +1,1 @@
-abstract class AppTypography {
-  
-}
+abstract class AppTypography {}

@@ -17,7 +17,6 @@ class App extends StatefulWidget {
     required this.vm,
   }) : super(key: key);
 
-  
   @override
   State<App> createState() => _AppState();
 }

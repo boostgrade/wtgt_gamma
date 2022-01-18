@@ -1,7 +1,6 @@
 enum ScreenState { idle, loading, error }
 
 class InputPhoneVm {
-
   ScreenState state = ScreenState.idle;
   bool isButtonEnabled = false;
 

@@ -12,8 +12,8 @@ class ViewModel {
   ViewModel(this.errorHandler);
 
   /// Подписывает вьюмодель на блок
-  /// 
-  /// Любой блок в приложении пропускем именно через эжту функцию. 
+  ///
+  /// Любой блок в приложении пропускем именно через эжту функцию.
   /// Автоматически подписывает на событие ошибок.
   void observeBloc<S, B extends CanThrowExceptionBlocMixin<Object, S>>(
     B bloc,

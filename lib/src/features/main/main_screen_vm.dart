@@ -10,9 +10,8 @@ part 'main_screen_vm.g.dart';
 class MainScreenVm = _MainScreenVm with _$MainScreenVm;
 
 abstract class _MainScreenVm with Store {
-
   final BuildContext context;
-  
+
   @observable
   int currentIndex = 0;
 
