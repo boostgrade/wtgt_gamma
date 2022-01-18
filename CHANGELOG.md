@@ -8,7 +8,7 @@
 * chore: setup dependabot
 * chore: automate PR author auto assign
 * chore: setup VSCode spellchecker project dictionary
-* chore: tune build app workflow
+* chore: tune build app workflows
 
 ## 0.0.0+1
 

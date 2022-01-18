@@ -1,7 +1,7 @@
-import 'package:where_to_go_today/src/features/settings/ui/settings_vm.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:where_to_go_today/src/core/ui/base/view_model_disposer_mixin.dart';
+import 'package:where_to_go_today/src/features/settings/ui/settings_vm.dart';
 
 /// Пример экрана в приложении
 class SettingsView extends StatefulWidget {

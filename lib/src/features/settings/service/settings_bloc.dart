@@ -1,7 +1,7 @@
 import 'package:bloc/bloc.dart';
-import 'package:where_to_go_today/src/features/settings/service/state/state.dart';
 import 'package:flutter/material.dart';
 import 'package:where_to_go_today/src/core/services/base/throw_exception_bloc.dart';
+import 'package:where_to_go_today/src/features/settings/service/state/state.dart';
 
 import 'event/event.dart';
 import 'repository/settings_repository.dart';

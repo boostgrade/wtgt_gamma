@@ -3,7 +3,7 @@ import 'package:where_to_go_today/src/features/auth/ui/phone/input_phone_vm.dart
 
 void main() {
   group('Тесты вью меодли ввода номера телефона', () {
-    final InputPhoneVm vm = InputPhoneVm();
+    final vm = InputPhoneVm();
 
     test('Если ввели номер полностью, кнопка должна быть активна', () {
       final phone = '+7911 111 1111'.replaceAll(' ', '');

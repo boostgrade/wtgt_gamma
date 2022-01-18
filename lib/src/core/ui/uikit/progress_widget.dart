@@ -27,21 +27,22 @@ class ProgressIconWidget extends StatelessWidget {
             color: ProjectColors.activeColor,
             backgroundColor: ProjectColors.divider,
           ),
-          progress < 1
-              ? Text(
-                  '${(progress * 100).toInt()}%',
-                  textAlign: TextAlign.center,
-                  style: const TextStyle(
-                    fontSize: 8.0,
-                  ),
-                )
-              : const Center(
-                  child: Icon(
-                    Icons.check,
-                    color: ProjectColors.activeColor,
-                    size: 16.0,
-                  ),
-                ),
+          if (progress < 1)
+            Text(
+              '${(progress * 100).toInt()}%',
+              textAlign: TextAlign.center,
+              style: const TextStyle(
+                fontSize: 8.0,
+              ),
+            )
+          else
+            const Center(
+              child: Icon(
+                Icons.check,
+                color: ProjectColors.activeColor,
+                size: 16.0,
+              ),
+            ),
         ],
       ),
     );

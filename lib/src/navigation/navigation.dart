@@ -9,8 +9,10 @@ import 'package:where_to_go_today/src/features/settings/ui/settings_route.dart';
 class AppRouter {
   static const initialRoute = '/';
 
-  static final routes = RouteMap(routes: {
-    initialRoute: (_) => MainScreenRoute(),
-    SettingsRoute.routeName: (_) => SettingsRoute(),
-  });
+  static final routes = RouteMap(
+    routes: {
+      initialRoute: (_) => MainScreenRoute(),
+      SettingsRoute.routeName: (_) => SettingsRoute(),
+    },
+  );
 }
