@@ -44,3 +44,9 @@ app.*.map.json
 /android/app/debug
 /android/app/profile
 /android/app/release
+
+# Flutter tests related
+**/failures/
+/coverage/
+/reports/
+/test/fake_test.dart

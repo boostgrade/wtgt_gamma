@@ -10,7 +10,7 @@ class ServerErrorMapper {
   static const int _notFound = 404;
 
   static Exception fromDioError(DioError error) {
-    final statusCode = error.response?.statusCode!;
+    final statusCode = error.response?.statusCode;
 
     /// Для обработки остальных серверных ошибок
     /// нужно написать дополнительные блоки в условном выражении,

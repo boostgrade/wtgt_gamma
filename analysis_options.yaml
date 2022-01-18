@@ -154,7 +154,9 @@ linter:
     unawaited_futures: true
     unnecessary_await_in_return: true
     unnecessary_constructor_name: true
+    unnecessary_lambdas: true
     unnecessary_null_aware_assignments: true
+    unnecessary_null_checks: true
     unnecessary_nullable_for_final_variable_declarations: true
     unnecessary_parenthesis: true
     unnecessary_raw_strings: true
