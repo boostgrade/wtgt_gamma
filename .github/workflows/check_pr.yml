@@ -26,7 +26,7 @@ jobs:
         uses: subosito/flutter-action@v1.5.3
         with:
           # The Flutter version to make available on the path
-          flutter-version: 2.5.0
+          flutter-version: 2.8.0
 
       # Runs a single command using the runners shell
       - name: Getting deps
