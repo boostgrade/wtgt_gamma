@@ -5,7 +5,7 @@ import 'main_screen.dart';
 import 'main_screen_vm.dart';
 
 /// Рроут экрана [MainScreen]
-class MainScreenRoute extends MaterialPage {
+class MainScreenRoute extends MaterialPage<void> {
   MainScreenRoute()
       : super(
           child: Provider<MainScreenVm>(

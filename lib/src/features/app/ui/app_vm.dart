@@ -11,10 +11,10 @@ class AppVm = _AppVm with _$AppVm;
 
 /// Данный класс также использует ChangeNotifier для работы с анимациями
 abstract class _AppVm extends ViewModel with Store, ChangeNotifier {
+  final SettingsBloc _bloc;
+
   @observable
   ThemeMode? themeMode;
-
-  final SettingsBloc _bloc;
 
   _AppVm(this._bloc, ErrorHandler errorHandler) : super(errorHandler) {
     observeBloc<SettingsState, SettingsBloc>(

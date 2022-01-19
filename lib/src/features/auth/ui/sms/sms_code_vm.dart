@@ -1,5 +1,3 @@
-// ignore_for_file: no-empty-block
-
 enum ScreenState { idle, loading, error }
 
 class SmsCodeVm {
@@ -8,9 +6,12 @@ class SmsCodeVm {
 
   int countdownToRequest = 30;
 
+  // ignore: no-empty-block, avoid-unused-parameters
   void onChangeCode(String code) {}
 
+  // ignore: no-empty-block
   void sendCode() {}
 
+  // ignore: no-empty-block
   void requestCode() {}
 }

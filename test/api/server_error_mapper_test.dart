@@ -11,11 +11,11 @@ void main() {
 
       DioError _makeDioError(
         int statusCode, {
-        dynamic data,
+        Object? data,
       }) {
         return DioError(
           requestOptions: requestOptions,
-          response: Response(
+          response: Response<Object?>(
             statusCode: statusCode,
             requestOptions: requestOptions,
             data: data,

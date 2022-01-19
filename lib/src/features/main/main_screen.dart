@@ -6,9 +6,10 @@ import 'main_screen_vm.dart';
 
 /// Глвный экран с табами
 class MainScreen extends StatelessWidget {
+  static const double _labelSize = 12.0;
+
   final MainScreenVm vm;
 
-  static const double _labelSize = 12.0;
   // TODO(artem-zaitsev): здесь будут храниться экраны, когда появятся
   final List<Widget> _screens = [
     const Center(

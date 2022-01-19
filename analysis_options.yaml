@@ -8,6 +8,7 @@ analyzer:
     - "**/*.freezed.dart"
   language:
     strict-inference: true
+    strict-raw-types: true
   plugins:
     - dart_code_metrics
   strong-mode:
@@ -76,6 +77,7 @@ dart_code_metrics:
     - avoid-unnecessary-setstate
     - avoid-unnecessary-type-assertions
     - avoid-unnecessary-type-casts
+    - avoid-unused-parameters
     - binary-expression-operand-order
     - double-literal-format
     - newline-before-return
@@ -84,6 +86,12 @@ dart_code_metrics:
     - no-equal-then-else
     - prefer-conditional-expressions
     - prefer-const-border-radius
+    - prefer-correct-identifier-length:
+        exclude:
+          - test/**
+        exceptions:
+          - id
+          - vm
     - prefer-correct-type-name
     - prefer-extracting-callbacks
     - prefer-first
@@ -91,6 +99,29 @@ dart_code_metrics:
     - prefer-last
     - prefer-single-widget-per-file
     - provide-correct-intl-args
+    - member-ordering-extended:
+        order:
+          - public-static-const-fields
+          - private-static-const-fields
+          - public-static-final-fields
+          - private-static-final-fields
+          - public-static-fields
+          - private-static-fields
+          - public-final-fields
+          - private-final-fields
+          - public-fields
+          - public-getters-setters
+          - private-fields
+          - private-getters-setters
+          - constructors
+          - named-constructors
+          - factory-constructors
+          - overridden-methods
+          - public-static-methods
+          - public-methods
+          - protected-methods
+          - private-static-methods
+          - private-methods
 
 linter:
   rules:
@@ -115,6 +146,7 @@ linter:
     # Style rules.
     always_declare_return_types: true
     always_put_required_named_parameters_first: false
+    avoid_annotating_with_dynamic: true
     avoid_bool_literals_in_conditional_expressions: true
     avoid_catches_without_on_clauses: true
     avoid_catching_errors: true
