@@ -9,7 +9,9 @@ class SmsCodeVm {
   // ignore: no-empty-block, avoid-unused-parameters
   void onChangeCode(String code) {}
 
+  // ignore: no-empty-block
   void sendCode() {}
 
+  // ignore: no-empty-block
   void requestCode() {}
 }

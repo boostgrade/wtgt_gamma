@@ -90,6 +90,7 @@ dart_code_metrics:
         exclude:
           - test/**
         exceptions:
+          - id
           - vm
     - prefer-correct-type-name
     - prefer-extracting-callbacks
