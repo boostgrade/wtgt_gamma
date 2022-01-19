@@ -1,40 +1,62 @@
 import 'package:flutter/material.dart';
 
+const montserratFont = 'Montserrat';
+
 abstract class AppTypography {
-  static const TextStyle subtitle1 = TextStyle(
-    fontFamily: 'Montserrat500',
-    fontSize: 16,
-  );
-
-  static const TextStyle headline2 = TextStyle(
-    fontFamily: 'Montserrat600',
+  //* Сортировка шрифтов по fontSize
+  static TextStyle headline2 = TextStyle(
+    fontFamily: montserratFont,
     fontSize: 24,
+    fontWeight: FontWeight.w600,
+    height: calculateLineHeight(20, 24),
   );
 
-  static const TextStyle body1 = TextStyle(
-    fontFamily: 'Montserrat',
-    fontSize: 16,
-    letterSpacing: 0.08,
-  );
-
-  static const TextStyle body2 = TextStyle(
-    fontFamily: 'Montserrat',
+  static TextStyle body2 = TextStyle(
+    fontFamily: montserratFont,
     fontSize: 18,
-    letterSpacing: 0.08,
+    fontWeight: FontWeight.w500,
+    height: calculateLineHeight(20, 18),
+    letterSpacing: convertEMtoPX(0.005, 18),
   );
 
-  static const TextStyle caption = TextStyle(
-    fontFamily: 'Montserrat',
+  static TextStyle promoBold = TextStyle(
+    fontFamily: montserratFont,
     fontSize: 16,
+    fontWeight: FontWeight.w700,
+    height: calculateLineHeight(20, 16),
   );
 
-  static const TextStyle label = TextStyle(
-    fontFamily: 'Montserrat',
+  static TextStyle subtitle1 = TextStyle(
+    fontFamily: montserratFont,
+    fontSize: 16,
+    fontWeight: FontWeight.w500,
+    height: calculateLineHeight(20, 16),
+  );
+
+  static TextStyle body1 = TextStyle(
+    fontFamily: montserratFont,
+    fontSize: 16,
+    height: calculateLineHeight(20, 16),
+    letterSpacing: convertEMtoPX(0.005, 16),
+  );
+
+  static TextStyle caption = TextStyle(
+    fontFamily: montserratFont,
+    fontSize: 16,
+    height: calculateLineHeight(20, 16),
+  );
+
+  static TextStyle label = TextStyle(
+    fontFamily: montserratFont,
     fontSize: 12,
+    height: calculateLineHeight(20, 12),
   );
 
-  static const TextStyle promoBold = TextStyle(
-    fontFamily: 'Montserrat700',
-    fontSize: 16,
-  );
+  static double calculateLineHeight(int lineHeight, int fontSize) {
+    return lineHeight / fontSize;
+  }
+
+  static double convertEMtoPX(double letterSpacing, int fontSize) {
+    return fontSize * letterSpacing;
+  }
 }
