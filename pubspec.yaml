@@ -64,3 +64,4 @@ flutter:
       fonts:
         - asset: assets/fonts/montserrat-v21-latin_cyrillic-700.ttf
           weight: 700
+          
