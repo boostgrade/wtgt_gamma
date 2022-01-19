@@ -302,7 +302,7 @@ packages:
     source: hosted
     version: "2.0.2"
   golden_toolkit:
-    dependency: "direct main"
+    dependency: "direct dev"
     description:
       name: golden_toolkit
       url: "https://pub.dartlang.org"
