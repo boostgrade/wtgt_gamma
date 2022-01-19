@@ -55,7 +55,6 @@ jobs:
     defaults:
       run:
         shell: bash
-        working-directory: packages/health_diary_watches_app
 
     steps:
       - name: Checkout
@@ -82,6 +81,6 @@ jobs:
         if: success() || failure() # run this step even if previous step failed
         with:
           name: Tests result
-          path: packages/health_diary_watches_app/reports/tests.json
+          path: reports/tests.json
           reporter: dart-json
           token: ${{ secrets.GITHUB_TOKEN }}
