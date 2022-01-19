@@ -47,3 +47,41 @@ jobs:
 
       - name: Verify formatting
         run: flutter format --set-exit-if-changed .
+
+  testing:
+    needs: analysis
+    runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        shell: bash
+        working-directory: packages/health_diary_watches_app
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Install lcov
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y lcov
+
+      - name: Install Flutter
+        uses: subosito/flutter-action@v2.2.0
+        with:
+          channel: "stable"
+
+      - name: Install dependencies
+        run: flutter pub get
+
+      - name: Run tests
+        run: flutter test --exclude-tags=golden --reporter=expanded --coverage
+
+      - name: Publish test results
+        uses: dorny/test-reporter@v1
+        if: success() || failure() # run this step even if previous step failed
+        with:
+          name: Tests result
+          path: packages/health_diary_watches_app/reports/tests.json
+          reporter: dart-json
+          token: ${{ secrets.GITHUB_TOKEN }}
