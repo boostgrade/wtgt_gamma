@@ -47,3 +47,20 @@ flutter:
   assets:
     # Add assets from the images directory to the application.
     - assets/images/
+  
+  fonts:
+    - family: Montserrat
+      fonts:
+        - asset: assets/fonts/montserrat-v21-latin_cyrillic-regular.ttf
+    - family: Montserrat500
+      fonts:
+        - asset: assets/fonts/montserrat-v21-latin_cyrillic-500.ttf
+          weight: 500
+    - family: Montserrat600
+      fonts:
+        - asset: assets/fonts/montserrat-v21-latin_cyrillic-600.ttf
+          weight: 600
+    - family: Montserrat700
+      fonts:
+        - asset: assets/fonts/montserrat-v21-latin_cyrillic-700.ttf
+          weight: 700
