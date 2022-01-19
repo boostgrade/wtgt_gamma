@@ -12,10 +12,10 @@ part 'settings_vm.g.dart';
 class SettingsVm = _SettingsVm with _$SettingsVm;
 
 abstract class _SettingsVm extends ViewModel with Store {
+  final SettingsBloc _bloc;
+
   @observable
   ThemeMode themeMode = ThemeMode.system;
-
-  final SettingsBloc _bloc;
 
   _SettingsVm(
     this._bloc,
