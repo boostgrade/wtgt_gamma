@@ -9,6 +9,7 @@
 * chore: automate PR author auto assign
 * chore: setup VSCode spellchecker project dictionary
 * chore: tune build app workflow
+* feat: app typography
 
 ## 0.0.0+1
 
