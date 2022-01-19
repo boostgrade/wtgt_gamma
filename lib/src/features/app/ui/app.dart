@@ -4,9 +4,9 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:provider/provider.dart';
 import 'package:routemaster/routemaster.dart';
 import 'package:where_to_go_today/src/core/ui/base/view_model_disposer_mixin.dart';
-import 'package:where_to_go_today/src/di/app_dependency.dart';
+import 'package:where_to_go_today/src/di/app_dependencies.dart';
 import 'package:where_to_go_today/src/features/app/ui/app_vm.dart';
-import 'package:where_to_go_today/src/navigation/navigation.dart';
+import 'package:where_to_go_today/src/navigation/app_router.dart';
 
 /// The Widget that configures your application.
 class App extends StatefulWidget {
@@ -29,7 +29,7 @@ class _AppState extends State<App> with ViewModelDisposerMixin<App, AppVm> {
   Widget build(BuildContext context) {
     return AnimatedBuilder(
       animation: vm,
-      builder: (BuildContext context, Widget? child) {
+      builder: (context, child) {
         return MaterialApp.router(
           scaffoldMessengerKey:
               context.read<AppDependencies>().messageController.scaffoldKey,
@@ -49,8 +49,7 @@ class _AppState extends State<App> with ViewModelDisposerMixin<App, AppVm> {
             Locale('ru', ''), // Russia, no country code
             Locale('RU', ''), // Russia, no country code
           ],
-          onGenerateTitle: (BuildContext context) =>
-              AppLocalizations.of(context)!.appTitle,
+          onGenerateTitle: (context) => AppLocalizations.of(context)!.appTitle,
           theme: ThemeData(),
           darkTheme: ThemeData.dark(),
           themeMode: widget.vm.themeMode,

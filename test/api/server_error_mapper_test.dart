@@ -1,7 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:where_to_go_today/src/core/services/exceptions/server/server_error_exception.dart';
 import 'package:where_to_go_today/src/core/services/exceptions/server/server_error_mapper.dart';
-import 'package:where_to_go_today/src/core/services/exceptions/server/server_exceptions.dart';
 
 void main() {
   group(

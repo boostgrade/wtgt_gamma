@@ -13,6 +13,7 @@ analyzer:
     - dart_code_metrics
   strong-mode:
     implicit-casts: false
+    implicit-dynamic: false
   errors:
     avoid_dynamic_calls: error
     avoid_empty_else: error
@@ -97,6 +98,9 @@ dart_code_metrics:
     - prefer-first
     - prefer-intl-name
     - prefer-last
+    - prefer-match-file-name:
+        exclude:
+          - test/**
     - prefer-single-widget-per-file
     - provide-correct-intl-args
     - member-ordering-extended:
@@ -157,13 +161,19 @@ linter:
     avoid_js_rounded_ints: true
     avoid_multiple_declarations_per_line: true
     avoid_private_typedef_functions: true
+    avoid_redundant_argument_values: true
     avoid_returning_null: true
     avoid_returning_this: true
     avoid_setters_without_getters: true
+    avoid_types_on_closure_parameters: true
+    avoid_unused_constructor_parameters: true
+    avoid_void_async: true
+    cascade_invocations: true
     deprecated_consistency: true
     directives_ordering: true
     do_not_use_environment: true
     eol_at_end_of_file: true
+    flutter_style_todos: true
     leading_newlines_in_multiline_strings: true
     lines_longer_than_80_chars: false
     missing_whitespace_between_adjacent_strings: true

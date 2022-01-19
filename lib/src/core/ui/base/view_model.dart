@@ -1,5 +1,5 @@
 import 'package:rxdart/rxdart.dart';
-import 'package:where_to_go_today/src/core/services/base/throw_exception_bloc.dart';
+import 'package:where_to_go_today/src/core/services/base/can_throw_exception_bloc_mixin.dart';
 import 'package:where_to_go_today/src/core/ui/errors_handling/error_handler.dart';
 
 /// Базовый класс для всех делегатов презентационной логики
@@ -30,8 +30,9 @@ class ViewModel {
       onError: onError,
     );
 
-    _compositeSubscription.add(subs);
-    _compositeSubscription.add(errorSubs);
+    _compositeSubscription
+      ..add(subs)
+      ..add(errorSubs);
   }
 
   /// Подписывает на изменения стрима некоторую функцию.

@@ -1,1 +1,1 @@
-const String baseUrl = ''; //TODO: вставить адрес сервера
+const String baseUrl = ''; // TODO(any): вставить адрес сервера

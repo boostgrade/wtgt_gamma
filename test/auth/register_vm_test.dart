@@ -17,11 +17,12 @@ void main() {
       test(
         'Если ввели чекбокс  принят и поля заполнены, кнопка должна быть активна',
         () {
-          vm.onEmailChanged('test.e@gmail.com');
-          vm.onNameChanged('Иdан');
-          vm.onLastNameChanged('Иванов');
-          vm.onBirthdateChanged(DateTime.now());
-          vm.acceptAgreement(true);
+          vm
+            ..onEmailChanged('test.e@gmail.com')
+            ..onNameChanged('Иdан')
+            ..onLastNameChanged('Иванов')
+            ..onBirthdateChanged(DateTime.now())
+            ..acceptAgreement(true);
 
           expect(vm.isButtonEnabled, true);
         },

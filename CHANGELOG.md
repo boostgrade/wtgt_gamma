@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased
+## 0.0.0+2
 
 * chore: tune analysis options
 * chore: tune dart test runner
@@ -8,7 +8,7 @@
 * chore: setup dependabot
 * chore: automate PR author auto assign
 * chore: setup VSCode spellchecker project dictionary
-* chore: tune build app workflows
+* chore: tune build app workflow
 
 ## 0.0.0+1
 

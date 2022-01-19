@@ -1,7 +1,7 @@
 import 'package:flutter/widgets.dart';
 import 'package:provider/provider.dart';
 
-import 'app_dependency.dart';
+import 'app_dependencies.dart';
 
 class AppProvider extends StatelessWidget {
   final Widget child;

@@ -1,5 +1,3 @@
-enum ScreenState { idle, loading, error }
-
 class InputPhoneVm {
   ScreenState state = ScreenState.idle;
   bool isButtonEnabled = false;
@@ -10,3 +8,5 @@ class InputPhoneVm {
   //ignore: no-empty-block
   void sendPhone() {}
 }
+
+enum ScreenState { idle, loading, error }

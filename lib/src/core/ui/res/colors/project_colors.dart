@@ -14,7 +14,7 @@ abstract class ProjectColors {
   static const Color secondaryColor = _dustyBlue;
   static const Color textColorPrimary = _black;
 
-//TODO: Основная палитра
+// TODO(any): Основная палитра
 
   static const Color _white = Color(0xFFFFFFFF);
   static const Color _grey = Color(0xFFDFDFDF);

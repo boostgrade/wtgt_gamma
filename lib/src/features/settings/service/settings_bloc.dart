@@ -1,9 +1,9 @@
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
-import 'package:where_to_go_today/src/core/services/base/throw_exception_bloc.dart';
-import 'package:where_to_go_today/src/features/settings/service/state/state.dart';
+import 'package:where_to_go_today/src/core/services/base/can_throw_exception_bloc_mixin.dart';
+import 'package:where_to_go_today/src/features/settings/service/state/settings_state.dart';
 
-import 'event/event.dart';
+import 'event/settings_event.dart';
 import 'repository/settings_repository.dart';
 
 /// A class that many Widgets can interact with to read user settings, update

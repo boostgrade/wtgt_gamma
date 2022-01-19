@@ -13,7 +13,6 @@ void main() {
           var loading = false;
 
           final btn = WtgtButton(
-            onTap: null,
             child: const Text(text),
             loading: loading,
           );

@@ -34,9 +34,8 @@ class MainScreen extends StatelessWidget {
           onTap: vm.tabClicked,
           currentIndex: vm.currentIndex,
           selectedFontSize: _labelSize,
-          unselectedFontSize: _labelSize,
           items: [
-            // TODO: поменять иконки из дизайна, когда они появятся
+            // TODO(any): поменять иконки из дизайна, когда они появятся
             BottomNavigationBarItem(
               icon: const Icon(Icons.search),
               activeIcon: const Icon(

@@ -1,5 +1,3 @@
-enum ScreenState { idle, loading, error }
-
 class SmsCodeVm {
   ScreenState state = ScreenState.idle;
   bool isButtonEnabled = false;
@@ -15,3 +13,5 @@ class SmsCodeVm {
   // ignore: no-empty-block
   void requestCode() {}
 }
+
+enum ScreenState { idle, loading, error }

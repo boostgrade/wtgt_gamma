@@ -1,6 +1,6 @@
 import 'package:dio/dio.dart';
 
-import 'server_exceptions.dart';
+import 'server_error_exception.dart';
 
 /// Сущность, которая преобразует ошибки сервера в ошибки приложенния
 /// для дальнейшей обработки.

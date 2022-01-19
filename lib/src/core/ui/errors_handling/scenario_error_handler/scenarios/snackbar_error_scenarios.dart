@@ -1,4 +1,4 @@
-import 'package:where_to_go_today/src/core/services/exceptions/server/server_exceptions.dart';
+import 'package:where_to_go_today/src/core/services/exceptions/server/server_error_exception.dart';
 import 'package:where_to_go_today/src/core/ui/messages/message_controller.dart';
 import 'package:where_to_go_today/src/core/ui/messages/types/error_snackbar.dart';
 
@@ -28,7 +28,7 @@ class SnackBarErrorScenarios implements ErrorScenario {
   /// Устанавливаем поведение в виде отображения (Map)
   void _setBehavior() {
     behaviors = {
-      // TODO: добавить новые исключения и соспоставить им текст ошибки
+      // TODO(any): добавить новые исключения и соспоставить им текст ошибки
       NotFoundException: () =>
           messageController.show(ErrorSnackBar('Not found')),
     };
@@ -37,6 +37,7 @@ class SnackBarErrorScenarios implements ErrorScenario {
   /// Следует указать действие по умолчанию,
   /// для ошибок, которые на данные момент не предусмотрены
   void Function() _defaultBehavior() {
-    return () => {};
+    // ignore: no-empty-block
+    return () {};
   }
 }

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:where_to_go_today/src/core/ui/res/colors/colors.dart';
+import 'package:where_to_go_today/src/core/ui/res/colors/project_colors.dart';
 
 /// Виджет, отображающий прогресс
 /// Требуется передать  в конструкторе вещественное число

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:where_to_go_today/src/di/app_dependency.dart';
+import 'package:where_to_go_today/src/di/app_dependencies.dart';
 import 'package:where_to_go_today/src/features/settings/ui/settings_view.dart';
 import 'package:where_to_go_today/src/features/settings/ui/settings_vm.dart';
 

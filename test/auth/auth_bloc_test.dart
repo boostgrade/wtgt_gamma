@@ -7,7 +7,7 @@ import 'package:where_to_go_today/src/features/auth/services/bloc/auth_state.dar
 
 void main() {
   group('Тесты на блок авторизации', () {
-    //TODO: раскомментировать тесты когда сделан блок авторизации
+    // TODO(any): раскомментировать тесты когда сделан блок авторизации
     // blocTest<AuthBloc, AuthState>(
     //   'Если отправляем номер телефона, то сначала получаем загрузку, потом состояние с необходимостью подтверждения',
     //   build: () => AuthBloc(),
