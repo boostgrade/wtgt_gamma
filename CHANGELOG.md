@@ -1,5 +1,9 @@
 # Changelog
 
+## Unreleased
+
+* feat: server error interceptor
+
 ## 0.0.0+2
 
 * chore: tune analysis options
