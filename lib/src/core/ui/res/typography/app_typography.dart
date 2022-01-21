@@ -1,62 +1,91 @@
 import 'package:flutter/material.dart';
+import 'package:where_to_go_today/src/core/ui/res/colors/project_colors.dart';
 
-const montserratFont = 'Montserrat';
+const _defaultFontFamily = 'Montserrat';
+const _defaultFontStyle = FontStyle.normal;
+const _defaultFontWeight = FontWeight.w400;
+const _defaultLetterSpacing = 0.08;
+const _defaultColor = ProjectColors.textColorPrimary;
 
-abstract class AppTypography {
-  //* Сортировка шрифтов по fontSize
-  static TextStyle headline2 = TextStyle(
-    fontFamily: montserratFont,
-    fontSize: 24,
-    fontWeight: FontWeight.w600,
-    height: calculateLineHeight(20, 24),
-  );
+class AppTypography extends TextStyle {
+  const AppTypography({
+    required double height,
+    required double fontSize,
+    FontStyle fontStyle = _defaultFontStyle,
+    Color color = _defaultColor,
+    FontWeight fontWeight = _defaultFontWeight,
+    String fontFamily = _defaultFontFamily,
+    double letterSpacing = _defaultLetterSpacing,
+  }) : super(
+          letterSpacing: letterSpacing,
+          fontFamily: fontFamily,
+          height: height,
+          fontSize: fontSize,
+          fontStyle: fontStyle,
+          color: color,
+          fontWeight: fontWeight,
+        );
 
-  static TextStyle body2 = TextStyle(
-    fontFamily: montserratFont,
-    fontSize: 18,
-    fontWeight: FontWeight.w500,
-    height: calculateLineHeight(20, 18),
-    letterSpacing: convertEMtoPX(0.005, 18),
-  );
+  const AppTypography.headline2({
+    Color color = _defaultColor,
+  }) : this(
+          height: 20 / 24,
+          fontSize: 24,
+          fontWeight: FontWeight.w600,
+          color: color,
+        );
 
-  static TextStyle promoBold = TextStyle(
-    fontFamily: montserratFont,
-    fontSize: 16,
-    fontWeight: FontWeight.w700,
-    height: calculateLineHeight(20, 16),
-  );
+  const AppTypography.body2({
+    Color color = _defaultColor,
+  }) : this(
+          height: 20 / 18,
+          fontSize: 18,
+          fontWeight: FontWeight.w500,
+          color: color,
+          letterSpacing: 0.005 * 18,
+        );
 
-  static TextStyle subtitle1 = TextStyle(
-    fontFamily: montserratFont,
-    fontSize: 16,
-    fontWeight: FontWeight.w500,
-    height: calculateLineHeight(20, 16),
-  );
+  const AppTypography.promoBold({
+    Color color = _defaultColor,
+  }) : this(
+          height: 20 / 16,
+          fontSize: 16,
+          fontWeight: FontWeight.w700,
+          color: color,
+        );
 
-  static TextStyle body1 = TextStyle(
-    fontFamily: montserratFont,
-    fontSize: 16,
-    height: calculateLineHeight(20, 16),
-    letterSpacing: convertEMtoPX(0.005, 16),
-  );
+  const AppTypography.subtitle1({
+    Color color = _defaultColor,
+  }) : this(
+          height: 20 / 16,
+          fontSize: 16,
+          fontWeight: FontWeight.w500,
+          color: color,
+        );
 
-  static TextStyle caption = TextStyle(
-    fontFamily: montserratFont,
-    fontSize: 16,
-    height: calculateLineHeight(20, 16),
-  );
+  const AppTypography.body1({
+    Color color = _defaultColor,
+  }) : this(
+          height: 20 / 16,
+          fontSize: 16,
+          letterSpacing: 0.005 * 16,
+          fontWeight: FontWeight.w500,
+          color: color,
+        );
 
-  static TextStyle label = TextStyle(
-    fontFamily: montserratFont,
-    fontSize: 12,
-    height: calculateLineHeight(20, 12),
-  );
+  const AppTypography.caption({
+    Color color = _defaultColor,
+  }) : this(
+          height: 20 / 16,
+          fontSize: 16,
+          color: color,
+        );
 
-  static double calculateLineHeight(int lineHeight, int fontSize) {
-    return lineHeight / fontSize;
-  }
-
-  static double convertEMtoPX(double letterSpacing, int fontSize) {
-    return fontSize * letterSpacing;
-  }
+  const AppTypography.label({
+    Color color = _defaultColor,
+  }) : this(
+          height: 20 / 12,
+          fontSize: 12,
+          color: color,
+        );
 }
