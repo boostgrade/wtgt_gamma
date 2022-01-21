@@ -26,7 +26,7 @@ class AppTypography extends TextStyle {
           fontWeight: fontWeight,
         );
 
-  const AppTypography.headline2({
+  const AppTypography.s24w600h20({
     Color color = _defaultColor,
   }) : this(
           height: 20 / 24,
@@ -35,7 +35,7 @@ class AppTypography extends TextStyle {
           color: color,
         );
 
-  const AppTypography.body2({
+  const AppTypography.s18w500h20ls({
     Color color = _defaultColor,
   }) : this(
           height: 20 / 18,
@@ -45,7 +45,7 @@ class AppTypography extends TextStyle {
           letterSpacing: 0.005 * 18,
         );
 
-  const AppTypography.promoBold({
+  const AppTypography.s16w700h20({
     Color color = _defaultColor,
   }) : this(
           height: 20 / 16,
@@ -54,7 +54,7 @@ class AppTypography extends TextStyle {
           color: color,
         );
 
-  const AppTypography.subtitle1({
+  const AppTypography.s16w500h20({
     Color color = _defaultColor,
   }) : this(
           height: 20 / 16,
@@ -63,7 +63,7 @@ class AppTypography extends TextStyle {
           color: color,
         );
 
-  const AppTypography.body1({
+  const AppTypography.s16w500h20ls({
     Color color = _defaultColor,
   }) : this(
           height: 20 / 16,
@@ -73,7 +73,7 @@ class AppTypography extends TextStyle {
           color: color,
         );
 
-  const AppTypography.caption({
+  const AppTypography.s16w400h20({
     Color color = _defaultColor,
   }) : this(
           height: 20 / 16,
@@ -81,7 +81,7 @@ class AppTypography extends TextStyle {
           color: color,
         );
 
-  const AppTypography.label({
+  const AppTypography.s12w400h20({
     Color color = _defaultColor,
   }) : this(
           height: 20 / 12,
