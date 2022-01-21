@@ -1,5 +1,9 @@
 # Changelog
 
+## Unrealesed
+
+* feat: app typography
+
 ## 0.0.0+2
 
 * chore: tune analysis options
