@@ -53,7 +53,10 @@ flutter:
     - family: Montserrat
       fonts:
         - asset: assets/fonts/montserrat-v21-latin_cyrillic-regular.ttf
+          weight: 400
         - asset: assets/fonts/montserrat-v21-latin_cyrillic-500.ttf
+          weight: 500
         - asset: assets/fonts/montserrat-v21-latin_cyrillic-600.ttf
+          weight: 600
         - asset: assets/fonts/montserrat-v21-latin_cyrillic-700.ttf
-          
+          weight: 700
