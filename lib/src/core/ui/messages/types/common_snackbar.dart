@@ -9,6 +9,6 @@ class CommonSnackBar extends SnackBarMessageType {
 
   @override
   SnackBar create() {
-    return SnackBar(content: Text(message, ));
+    return SnackBar(content: Text(message));
   }
 }
