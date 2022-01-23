@@ -50,7 +50,42 @@ class _AppState extends State<App> with ViewModelDisposerMixin<App, AppVm> {
             Locale('RU', ''), // Russia, no country code
           ],
           onGenerateTitle: (context) => AppLocalizations.of(context)!.appTitle,
-          theme: ThemeData(),
+          theme: ThemeData(
+            progressIndicatorTheme: const ProgressIndicatorThemeData(
+              color: Color(0xFF184E9E),
+            ),
+            textButtonTheme: TextButtonThemeData(
+              style: ButtonStyle(
+                padding: MaterialStateProperty.all(
+                  const EdgeInsets.symmetric(horizontal: 16),
+                ),
+                fixedSize: MaterialStateProperty.all(
+                  const Size(double.infinity, 46),
+                ),
+                backgroundColor: MaterialStateProperty.all(
+                  const Color(0xFFEBCE0C),
+                ),
+                foregroundColor: MaterialStateProperty.resolveWith(
+                  (states) => states.contains(MaterialState.disabled)
+                      ? const Color(0xFF8D7C07)
+                      : Colors.black,
+                ),
+                shape: MaterialStateProperty.all(
+                  const RoundedRectangleBorder(
+                    side: BorderSide(color: Color(0xFF184E9E)),
+                    borderRadius: BorderRadius.all(Radius.circular(12)),
+                  ),
+                ),
+                textStyle: MaterialStateProperty.all(
+                  const TextStyle(
+                    height: 20 / 16,
+                    fontSize: 16,
+                    fontWeight: FontWeight.w500,
+                  ),
+                ),
+              ),
+            ),
+          ),
           darkTheme: ThemeData.dark(),
           themeMode: widget.vm.themeMode,
         );
