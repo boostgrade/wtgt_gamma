@@ -1,4 +1,16 @@
 {
+    "actionButtons": {
+        "defaultColor": "#ff0034",
+        "loadNpmCommands": false,
+        "reloadButton": "♻️",
+        "commands": [
+            {
+                "name": "Regenerate goldens 🏆",
+                "color": "yellow",
+                "command": "flutter test --update-goldens --tags=golden"
+            }
+        ]
+    },
     "cSpell.words": [
         "amannn",
         "bools",
