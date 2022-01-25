@@ -7,6 +7,7 @@ import 'package:where_to_go_today/src/core/ui/base/view_model_disposer_mixin.dar
 import 'package:where_to_go_today/src/di/app_dependencies.dart';
 import 'package:where_to_go_today/src/features/app/ui/app_vm.dart';
 import 'package:where_to_go_today/src/navigation/app_router.dart';
+import 'package:where_to_go_today/src/res/theme/app_theme.dart';
 
 /// The Widget that configures your application.
 class App extends StatefulWidget {
@@ -31,8 +32,7 @@ class _AppState extends State<App> with ViewModelDisposerMixin<App, AppVm> {
       animation: vm,
       builder: (context, child) {
         return MaterialApp.router(
-          scaffoldMessengerKey:
-              context.read<AppDependencies>().messageController.scaffoldKey,
+          scaffoldMessengerKey: context.read<AppDependencies>().messageController.scaffoldKey,
           routerDelegate: RoutemasterDelegate(
             routesBuilder: (_) => AppRouter.routes,
           ),
@@ -50,7 +50,7 @@ class _AppState extends State<App> with ViewModelDisposerMixin<App, AppVm> {
             Locale('RU', ''), // Russia, no country code
           ],
           onGenerateTitle: (context) => AppLocalizations.of(context)!.appTitle,
-          theme: ThemeData(),
+          theme: AppTheme.lightTheme,
           darkTheme: ThemeData.dark(),
           themeMode: widget.vm.themeMode,
         );

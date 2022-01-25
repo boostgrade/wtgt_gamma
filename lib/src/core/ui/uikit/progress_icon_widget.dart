@@ -24,8 +24,7 @@ class ProgressIconWidget extends StatelessWidget {
           CircularProgressIndicator(
             value: progress,
             strokeWidth: 1.0,
-            color: ProjectColors.activeColor,
-            backgroundColor: ProjectColors.divider,
+            backgroundColor: ProjectColors.backgroundColor,
           ),
           if (progress < 1)
             Text(
@@ -39,7 +38,7 @@ class ProgressIconWidget extends StatelessWidget {
             const Center(
               child: Icon(
                 Icons.check,
-                color: ProjectColors.activeColor,
+                color: ProjectColors.secondaryColor,
                 size: 16.0,
               ),
             ),
