@@ -20,7 +20,6 @@ void main() {
           const label = 'hello!';
           var button = const WtgtButton(
             label: label,
-            loading: false,
           );
           await tester.pumpWidget(_wrapper(button));
           final normalFinder = find.text(label);
