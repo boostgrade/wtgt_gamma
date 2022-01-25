@@ -4,6 +4,7 @@
 
 * feat: app typography
 * feat: server error interceptor
+* feat: app theme
 
 ## 0.0.0+2
 
