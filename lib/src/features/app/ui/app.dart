@@ -32,7 +32,8 @@ class _AppState extends State<App> with ViewModelDisposerMixin<App, AppVm> {
       animation: vm,
       builder: (context, child) {
         return MaterialApp.router(
-          scaffoldMessengerKey: context.read<AppDependencies>().messageController.scaffoldKey,
+          scaffoldMessengerKey:
+              context.read<AppDependencies>().messageController.scaffoldKey,
           routerDelegate: RoutemasterDelegate(
             routesBuilder: (_) => AppRouter.routes,
           ),
