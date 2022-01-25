@@ -13,8 +13,8 @@ class WtgtCircularProgressIndicator extends StatelessWidget {
     return SizedBox(
       width: side,
       height: side,
-      child: const CircularProgressIndicator(
-        strokeWidth: 3,
+      child: CircularProgressIndicator(
+        strokeWidth: side / 10,
       ),
     );
   }
