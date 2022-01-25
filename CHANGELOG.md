@@ -1,8 +1,9 @@
 # Changelog
 
-## Unrealesed
+## Unreleased
 
 * feat: app typography
+* feat: server error interceptor
 
 ## 0.0.0+2
 
