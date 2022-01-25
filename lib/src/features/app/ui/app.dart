@@ -7,6 +7,7 @@ import 'package:where_to_go_today/src/core/ui/base/view_model_disposer_mixin.dar
 import 'package:where_to_go_today/src/di/app_dependencies.dart';
 import 'package:where_to_go_today/src/features/app/ui/app_vm.dart';
 import 'package:where_to_go_today/src/navigation/app_router.dart';
+import 'package:where_to_go_today/src/res/theme/app_theme.dart';
 
 /// The Widget that configures your application.
 class App extends StatefulWidget {
@@ -31,8 +32,7 @@ class _AppState extends State<App> with ViewModelDisposerMixin<App, AppVm> {
       animation: vm,
       builder: (context, child) {
         return MaterialApp.router(
-          scaffoldMessengerKey:
-              context.read<AppDependencies>().messageController.scaffoldKey,
+          scaffoldMessengerKey: context.read<AppDependencies>().messageController.scaffoldKey,
           routerDelegate: RoutemasterDelegate(
             routesBuilder: (_) => AppRouter.routes,
           ),
@@ -50,42 +50,7 @@ class _AppState extends State<App> with ViewModelDisposerMixin<App, AppVm> {
             Locale('RU', ''), // Russia, no country code
           ],
           onGenerateTitle: (context) => AppLocalizations.of(context)!.appTitle,
-          theme: ThemeData(
-            progressIndicatorTheme: const ProgressIndicatorThemeData(
-              color: Color(0xFF184E9E),
-            ),
-            textButtonTheme: TextButtonThemeData(
-              style: ButtonStyle(
-                padding: MaterialStateProperty.all(
-                  const EdgeInsets.symmetric(horizontal: 16),
-                ),
-                fixedSize: MaterialStateProperty.all(
-                  const Size(double.infinity, 46),
-                ),
-                backgroundColor: MaterialStateProperty.all(
-                  const Color(0xFFEBCE0C),
-                ),
-                foregroundColor: MaterialStateProperty.resolveWith(
-                  (states) => states.contains(MaterialState.disabled)
-                      ? const Color(0xFF8D7C07)
-                      : Colors.black,
-                ),
-                shape: MaterialStateProperty.all(
-                  const RoundedRectangleBorder(
-                    side: BorderSide(color: Color(0xFF184E9E)),
-                    borderRadius: BorderRadius.all(Radius.circular(12)),
-                  ),
-                ),
-                textStyle: MaterialStateProperty.all(
-                  const TextStyle(
-                    height: 20 / 16,
-                    fontSize: 16,
-                    fontWeight: FontWeight.w500,
-                  ),
-                ),
-              ),
-            ),
-          ),
+          theme: AppTheme.lightTheme,
           darkTheme: ThemeData.dark(),
           themeMode: widget.vm.themeMode,
         );

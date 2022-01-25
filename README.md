@@ -20,3 +20,11 @@ images](https://flutter.dev/docs/development/ui/assets-and-images#resolution-awa
 Доп. информация:
 [Internationalizing Flutter
 apps](https://flutter.dev/docs/development/accessibility-and-localization/internationalization)
+
+## Golden tests
+
+To regenerate goldens to capture your new reference images use command:
+
+```bash
+flutter test --update-goldens --tags=golden
+```
