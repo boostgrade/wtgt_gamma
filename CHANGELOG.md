@@ -2,6 +2,7 @@
 
 ## Unreleased
 
+* feat: base button
 * feat: app typography
 * feat: server error interceptor
 * feat: app theme
