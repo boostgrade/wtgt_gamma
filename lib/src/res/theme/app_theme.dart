@@ -79,6 +79,9 @@ class AppTheme {
             ? ProjectColors.onPrimaryColor.withAlpha(130)
             : ProjectColors.onPrimaryColor,
       ),
+      overlayColor: MaterialStateProperty.all(
+        ProjectColors.secondaryColor.withOpacity(0.1),
+      ),
       padding: MaterialStateProperty.all(
         const EdgeInsets.symmetric(horizontal: 16),
       ),
