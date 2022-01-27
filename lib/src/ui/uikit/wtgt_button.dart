@@ -20,6 +20,7 @@ class WtgtButton extends StatelessWidget {
     return SizedBox(
       width: width,
       child: TextButton(
+        // ignore: no-empty-block
         onPressed: loading ? () {} : onPressed,
         child: loading
             ? const WtgtCircularProgressIndicator()
