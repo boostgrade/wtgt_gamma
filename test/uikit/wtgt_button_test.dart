@@ -5,13 +5,13 @@ import 'package:where_to_go_today/src/ui/uikit/wtgt_button.dart';
 
 void main() {
   testGoldens('WtgtButton test', (tester) async {
-    const label = 'Hello';
+    const text = 'Hello';
     const width = 200.0;
     final builder = GoldenBuilder.column()
       ..addScenario(
         'Enable',
         WtgtButton(
-          label: label,
+          label: text,
           width: width,
           onPressed: () => debugPrint('onPressed'),
         ),
@@ -19,14 +19,14 @@ void main() {
       ..addScenario(
         'Disable',
         const WtgtButton(
-          label: label,
+          label: text,
           width: width,
         ),
       )
       ..addScenario(
         'Loading',
         const WtgtButton(
-          label: label,
+          label: text,
           width: width,
           loading: true,
         ),
