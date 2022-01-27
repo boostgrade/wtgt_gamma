@@ -1,41 +1,48 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_test/flutter_test.dart';
+import 'package:golden_toolkit/golden_toolkit.dart';
+import 'package:where_to_go_today/src/res/theme/app_theme.dart';
 import 'package:where_to_go_today/src/ui/uikit/wtgt_button.dart';
-import 'package:where_to_go_today/src/ui/uikit/wtgt_circular_progress_indicator.dart';
 
 void main() {
-  Widget _wrapper(Widget child) {
-    return Directionality(
-      textDirection: TextDirection.ltr,
-      child: child,
-    );
-  }
-
-  group(
-    'WtgtButton tests',
-    () {
-      testWidgets(
-        'Если передаем loading==true должны увидеть лоадер',
-        (tester) async {
-          const label = 'hello!';
-          var button = const WtgtButton(
-            label: label,
-          );
-          await tester.pumpWidget(_wrapper(button));
-          final normalFinder = find.text(label);
-          final indicatorFinder = find.byType(WtgtCircularProgressIndicator);
-          expect(normalFinder, findsOneWidget);
-          expect(indicatorFinder, findsNothing);
-
-          button = const WtgtButton(
-            label: label,
-            loading: true,
-          );
-          await tester.pumpWidget(_wrapper(button));
-          expect(normalFinder, findsNothing);
-          expect(indicatorFinder, findsOneWidget);
-        },
+  testGoldens('WtgtButton test', (tester) async {
+    const label = 'Hello';
+    const width = 200.0;
+    final builder = GoldenBuilder.column()
+      ..addScenario(
+        'Enable',
+        WtgtButton(
+          label: label,
+          width: width,
+          onPressed: () => debugPrint('onPressed'),
+        ),
+      )
+      ..addScenario(
+        'Disable',
+        const WtgtButton(
+          label: label,
+          width: width,
+        ),
+      )
+      ..addScenario(
+        'Loading',
+        const WtgtButton(
+          label: label,
+          width: width,
+          loading: true,
+        ),
       );
-    },
-  );
+    await tester.pumpWidgetBuilder(
+      builder.build(),
+      wrapper: materialAppWrapper(
+        theme: AppTheme.lightTheme,
+      ),
+    );
+    await screenMatchesGolden(
+      tester,
+      'wtgt_button',
+      customPump: (widget) => widget.pump(
+        const Duration(milliseconds: 500),
+      ),
+    );
+  });
 }
