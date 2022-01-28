@@ -2,6 +2,7 @@
 
 ## 0.1.0
 
+* feat: sign_in_screen
 * feat: base button
 * feat: app typography
 * feat: server error interceptor
