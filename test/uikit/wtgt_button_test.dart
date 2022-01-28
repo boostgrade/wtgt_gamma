@@ -1,34 +1,48 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_test/flutter_test.dart';
+import 'package:golden_toolkit/golden_toolkit.dart';
+import 'package:where_to_go_today/src/res/theme/app_theme.dart';
 import 'package:where_to_go_today/src/ui/uikit/wtgt_button.dart';
 
 void main() {
-  group(
-    'WtgtButton tests',
-    () {
-      testWidgets(
-        'Если передаем loading==true должны увидеть лоадер',
-        (tester) async {
-          const text = 'hello!';
-          var loading = false;
-
-          final btn = WtgtButton(
-            child: const Text(text),
-            loading: loading,
-          );
-
-          await tester.pumpWidget(btn);
-          final normalFinder = find.text(text);
-
-          expect(normalFinder, findsOneWidget);
-
-          loading = true;
-
-          await tester.pump();
-
-          expect(normalFinder, findsNothing);
-        },
+  testGoldens('WtgtButton test', (tester) async {
+    const text = 'Hello';
+    const width = 200.0;
+    final builder = GoldenBuilder.column()
+      ..addScenario(
+        'Enable',
+        WtgtButton(
+          label: text,
+          width: width,
+          onPressed: () => debugPrint('onPressed'),
+        ),
+      )
+      ..addScenario(
+        'Disable',
+        const WtgtButton(
+          label: text,
+          width: width,
+        ),
+      )
+      ..addScenario(
+        'Loading',
+        const WtgtButton(
+          label: text,
+          width: width,
+          loading: true,
+        ),
       );
-    },
-  );
+    await tester.pumpWidgetBuilder(
+      builder.build(),
+      wrapper: materialAppWrapper(
+        theme: AppTheme.lightTheme,
+      ),
+    );
+    await screenMatchesGolden(
+      tester,
+      'wtgt_button',
+      customPump: (widget) => widget.pump(
+        const Duration(milliseconds: 500),
+      ),
+    );
+  });
 }
