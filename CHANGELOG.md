@@ -1,5 +1,9 @@
 # Changelog
 
+## Unreleased
+
+* feat: token storage
+
 ## 0.1.0
 
 * feat: base button
