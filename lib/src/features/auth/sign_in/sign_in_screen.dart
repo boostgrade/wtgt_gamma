@@ -36,53 +36,51 @@ class _SignInScreenState extends State<SignInScreen> {
     return SafeArea(
       child: Scaffold(
         body: SingleChildScrollView(
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                Image.asset(
-                  Asset.png.logoWtgt,
-                  height: 254,
+          padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Image.asset(
+                Asset.png.logoWtgt,
+                height: 254,
+              ),
+              const SizedBox(height: 22),
+              TextField(
+                onChanged: (_) => _validatePhone(),
+                decoration: InputDecoration(
+                  labelText: context.l10n.phoneNumberLabel,
+                  prefixText: '+7 ',
+                  hintText: '(XXX) XXX-XX-XX',
                 ),
-                const SizedBox(height: 22),
-                TextField(
-                  onChanged: (_) => _validatePhone(),
-                  decoration: InputDecoration(
-                    labelText: context.l10n.phoneNumberLabel,
-                    prefixText: '+7 ',
-                    hintText: '(XXX) XXX-XX-XX',
+                keyboardType: TextInputType.number,
+                inputFormatters: [
+                  _maskFormatter,
+                ],
+              ),
+              const SizedBox(height: 32),
+              WtgtButton(
+                label: context.l10n.sendButtonLabel,
+                onPressed: _isValidPhone ? _onSendCode : null,
+              ),
+              SizedBox(height: bottomPadding),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  SotialLoginButton(
+                    imageAsset: Asset.svg.iconFacebook,
+                    onPressed: _onFacebookLogin,
                   ),
-                  keyboardType: TextInputType.number,
-                  inputFormatters: [
-                    _maskFormatter,
-                  ],
-                ),
-                const SizedBox(height: 32),
-                WtgtButton(
-                  label: context.l10n.sendButtonLabel,
-                  onPressed: _isValidPhone ? _onSendCode : null,
-                ),
-                SizedBox(height: bottomPadding),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    SotialLoginButton(
-                      imageAsset: Asset.svg.iconFacebook,
-                      onPressed: _onFacebookLogin,
-                    ),
-                    SotialLoginButton(
-                      imageAsset: Asset.svg.iconVkontakte,
-                      onPressed: _onVkontakteLogin,
-                    ),
-                    SotialLoginButton(
-                      imageAsset: Asset.svg.iconGoogle,
-                      onPressed: _onGoogleLogin,
-                    ),
-                  ],
-                ),
-              ],
-            ),
+                  SotialLoginButton(
+                    imageAsset: Asset.svg.iconVkontakte,
+                    onPressed: _onVkontakteLogin,
+                  ),
+                  SotialLoginButton(
+                    imageAsset: Asset.svg.iconGoogle,
+                    onPressed: _onGoogleLogin,
+                  ),
+                ],
+              ),
+            ],
           ),
         ),
       ),
