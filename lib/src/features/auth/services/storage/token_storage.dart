@@ -1,29 +1,29 @@
 import 'package:hive_flutter/hive_flutter.dart';
 
-const String keyToken = 'auth_token';
-const String tokenBox = 'tokenBox';
+const String _keyToken = 'auth_token';
+const String _tokenBox = 'tokenBox';
 
 class TokenStorage {
   late final Box<String> _box;
 
   Future<void> init() async {
     await Hive.initFlutter();
-    await openBox();
+    await openBox(_tokenBox);
   }
 
-  Future<void> openBox() async {
-    _box = await Hive.openBox(tokenBox);
+  Future<void> openBox(String boxName) async {
+    _box = await Hive.openBox(boxName);
   }
 
   void storeToken(String token) {
-    _box.put(keyToken, token);
+    _box.put(_keyToken, token);
   }
 
   String? getToken() {
-    return _box.get(keyToken);
+    return _box.get(_keyToken);
   }
 
   void clearToken() {
-    _box.delete(keyToken);
+    _box.delete(_keyToken);
   }
 }

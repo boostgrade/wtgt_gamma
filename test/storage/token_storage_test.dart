@@ -12,7 +12,7 @@ void main() {
     setUpAll(() async {
       final path = Directory.current.path;
       Hive.init('$path/test/storage');
-      await tokenStorage.openBox();
+      await tokenStorage.openBox('testBox');
     });
 
     test('Cохранение токена', () {
