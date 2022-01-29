@@ -5,5 +5,7 @@
   },
   "placesTabName": "Places",
   "cardTabName": "My Card",
-  "profileTabName": "Profile"
+  "profileTabName": "Profile",
+  "phoneNumberLabel": "Phone number",
+  "sendButtonLabel": "Send"
 }

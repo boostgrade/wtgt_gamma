@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 import 'package:where_to_go_today/src/features/auth/sign_in/sotial_login_button.dart';
+import 'package:where_to_go_today/src/localization/l10n.dart';
 import 'package:where_to_go_today/src/res/asset.dart';
 import 'package:where_to_go_today/src/ui/uikit/wtgt_button.dart';
 
@@ -47,8 +48,8 @@ class _SignInScreenState extends State<SignInScreen> {
                 const SizedBox(height: 22),
                 TextField(
                   onChanged: (_) => _validatePhone(),
-                  decoration: const InputDecoration(
-                    labelText: 'Номер телефона',
+                  decoration: InputDecoration(
+                    labelText: context.l10n.phoneNumberLabel,
                     prefixText: '+7 ',
                     hintText: '(XXX) XXX-XX-XX',
                   ),
@@ -59,7 +60,7 @@ class _SignInScreenState extends State<SignInScreen> {
                 ),
                 const SizedBox(height: 32),
                 WtgtButton(
-                  label: 'Отправить',
+                  label: context.l10n.sendButtonLabel,
                   onPressed: _isValidPhone ? _onSendCode : null,
                 ),
                 SizedBox(height: bottomPadding),
@@ -67,15 +68,15 @@ class _SignInScreenState extends State<SignInScreen> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     SotialLoginButton(
-                      imageAsset: Asset.png.iconFacebook,
+                      imageAsset: Asset.svg.iconFacebook,
                       onPressed: _onFacebookLogin,
                     ),
                     SotialLoginButton(
-                      imageAsset: Asset.png.iconVkontakte,
+                      imageAsset: Asset.svg.iconVkontakte,
                       onPressed: _onVkontakteLogin,
                     ),
                     SotialLoginButton(
-                      imageAsset: Asset.png.iconGoogle,
+                      imageAsset: Asset.svg.iconGoogle,
                       onPressed: _onGoogleLogin,
                     ),
                   ],

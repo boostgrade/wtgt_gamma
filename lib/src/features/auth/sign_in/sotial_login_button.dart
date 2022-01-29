@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class SotialLoginButton extends StatelessWidget {
   final String imageAsset;
@@ -16,7 +17,7 @@ class SotialLoginButton extends StatelessWidget {
       padding: EdgeInsets.zero,
       splashRadius: 24,
       onPressed: onPressed,
-      icon: Image.asset(
+      icon: SvgPicture.asset(
         imageAsset,
         width: 48,
         height: 48,
