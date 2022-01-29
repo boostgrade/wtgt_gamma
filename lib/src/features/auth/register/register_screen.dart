@@ -44,9 +44,9 @@ class _RegisterScreenState extends State<RegisterScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        body: SingleChildScrollView(
+    return Scaffold(
+      body: SafeArea(
+        child: SingleChildScrollView(
           padding: const EdgeInsets.only(left: 24, right: 24, top: 125),
           child: Form(
             autovalidateMode: AutovalidateMode.onUserInteraction,
@@ -96,17 +96,17 @@ class _RegisterScreenState extends State<RegisterScreen> {
             ),
           ),
         ),
-        floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
-        floatingActionButton: _isKeyboardVisible
-            ? null
-            : Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 24),
-                child: TextButton(
-                  onPressed: _registerBtnClicked,
-                  child: Text(AppLocalizations.of(context)!.signUp),
-                ),
-              ),
       ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+      floatingActionButton: _isKeyboardVisible
+          ? null
+          : Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 24),
+              child: TextButton(
+                onPressed: _registerBtnClicked,
+                child: Text(AppLocalizations.of(context)!.signUp),
+              ),
+            ),
     );
   }
 
@@ -121,7 +121,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
   }
 
   String? _fullNameValidator(String? value) {
-    const regexConst = '[а-яё-]';
+    const regexConst = r'[А-Яа-яёЁ\-]';
 
     final regex = RegExp(regexConst);
 
