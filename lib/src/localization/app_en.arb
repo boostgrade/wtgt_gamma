@@ -5,5 +5,9 @@
   },
   "placesTabName": "Places",
   "cardTabName": "My Card",
-  "profileTabName": "Profile"
+  "profileTabName": "Profile",
+  "codeFromSms": "Code from sms",
+  "sendCode": "Send",
+  "newCodeIn": "New code in: ",
+  "seconds": " sec"
 }

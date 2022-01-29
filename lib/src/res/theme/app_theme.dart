@@ -71,9 +71,9 @@ class AppTheme {
       backgroundColor: MaterialStateProperty.all(
         ProjectColors.primaryColor,
       ),
-      fixedSize: MaterialStateProperty.all(
-        const Size(double.infinity, 46),
-      ),
+      minimumSize: MaterialStateProperty.all(
+         const Size(double.infinity, 46),
+       ),
       foregroundColor: MaterialStateProperty.resolveWith(
         (states) => states.contains(MaterialState.disabled)
             ? ProjectColors.onPrimaryColor.withAlpha(130)

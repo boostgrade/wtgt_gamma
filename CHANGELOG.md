@@ -6,6 +6,7 @@
 * feat: app typography
 * feat: server error interceptor
 * feat: app theme
+* faet: code_screen layout
 
 ## 0.0.0+2
 
