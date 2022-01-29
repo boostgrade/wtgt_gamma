@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
 const String _keyToken = 'auth_token';
@@ -8,9 +9,11 @@ class TokenStorage {
 
   Future<void> init() async {
     await Hive.initFlutter();
-    await openBox(_tokenBox);
+
+    return openBox(_tokenBox);
   }
 
+  @visibleForTesting
   Future<void> openBox(String boxName) async {
     _box = await Hive.openBox(boxName);
   }
