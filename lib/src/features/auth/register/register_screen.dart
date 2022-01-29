@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import './keyboard_listener.dart' as keyboard_listener;
 
@@ -44,17 +45,28 @@ class _RegisterScreenState extends State<RegisterScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final _isFormEntered = _nameController.text.isNotEmpty &&
+        _surnameController.text.isNotEmpty &&
+        _emailController.text.isNotEmpty &&
+        _birthdayController.text.isNotEmpty &&
+        _checkboxValue;
+
     return Scaffold(
       body: SafeArea(
         child: SingleChildScrollView(
           padding: const EdgeInsets.only(left: 24, right: 24, top: 125),
           child: Form(
-            autovalidateMode: AutovalidateMode.onUserInteraction,
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: [
                 TextFormField(
+                  autovalidateMode: AutovalidateMode.onUserInteraction,
                   controller: _nameController,
+                  keyboardType: TextInputType.name,
+                  textInputAction: TextInputAction.next,
+                  inputFormatters: [
+                    FilteringTextInputFormatter.allow(RegExp('[А-Яа-яёЁ]')),
+                  ],
                   validator: _fullNameValidator,
                   decoration: InputDecoration(
                     hintText: AppLocalizations.of(context)?.name,
@@ -62,7 +74,13 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 ),
                 const SizedBox(height: 36),
                 TextFormField(
+                  autovalidateMode: AutovalidateMode.onUserInteraction,
                   controller: _surnameController,
+                  keyboardType: TextInputType.text,
+                  textInputAction: TextInputAction.next,
+                  inputFormatters: [
+                    FilteringTextInputFormatter.allow(RegExp('[А-Яа-яёЁ-]')),
+                  ],
                   validator: _fullNameValidator,
                   decoration: InputDecoration(
                     hintText: AppLocalizations.of(context)?.surname,
@@ -70,15 +88,21 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 ),
                 const SizedBox(height: 36),
                 TextFormField(
+                  autovalidateMode: AutovalidateMode.onUserInteraction,
                   controller: _emailController,
                   validator: _emailValidator,
+                  keyboardType: TextInputType.emailAddress,
+                  textInputAction: TextInputAction.next,
                   decoration: InputDecoration(
                     hintText: AppLocalizations.of(context)?.email,
                   ),
                 ),
                 const SizedBox(height: 36),
                 TextFormField(
+                  autovalidateMode: AutovalidateMode.onUserInteraction,
                   controller: _birthdayController,
+                  keyboardType: TextInputType.datetime,
+                  textInputAction: TextInputAction.done,
                   decoration: InputDecoration(
                     hintText: AppLocalizations.of(context)?.birthday,
                   ),
@@ -103,7 +127,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
           : Padding(
               padding: const EdgeInsets.symmetric(horizontal: 24),
               child: TextButton(
-                onPressed: _registerBtnClicked,
+                onPressed: !_isFormEntered ? null : _registerBtnClicked,
                 child: Text(AppLocalizations.of(context)!.signUp),
               ),
             ),
@@ -121,11 +145,10 @@ class _RegisterScreenState extends State<RegisterScreen> {
   }
 
   String? _fullNameValidator(String? value) {
-    const regexConst = r'[А-Яа-яёЁ\-]';
-
-    final regex = RegExp(regexConst);
-
-    if (value == null || value.isEmpty || !regex.hasMatch(value)) {
+    if (value == null ||
+        value.isEmpty ||
+        value.characters.first == '-' ||
+        value.characters.last == '-') {
       return AppLocalizations.of(context)?.fullnameError;
     }
 
