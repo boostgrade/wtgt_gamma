@@ -5,6 +5,7 @@
 * feat: app typography
 * feat: server error interceptor
 * feat: app theme
+* feat: registration layout
 
 ## 0.0.0+2
 

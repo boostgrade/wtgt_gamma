@@ -2,5 +2,13 @@
   "appTitle": "Куда пойти сегодня?",
   "placesTabName": "Заведения",
   "cardTabName": "Моя Карта",
-  "profileTabName": "Профиль"
+  "profileTabName": "Профиль",
+  "name": "Имя",
+  "surname": "Фамилия",
+  "email": "E-mail",
+  "birthday": "День рождения",
+  "acceptUserAgreement": "Я принимаю\nпользовательское\nсоглашение",
+  "signUp": "Зарегистрироваться",
+  "emailError": "Введите действительный\nадрес электронной почты",
+  "fullnameError": "Неправильно\nвведено имя или фамилия"
 }

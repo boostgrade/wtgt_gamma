@@ -5,5 +5,13 @@
   },
   "placesTabName": "Places",
   "cardTabName": "My Card",
-  "profileTabName": "Profile"
+  "profileTabName": "Profile",
+  "name": "Name",
+  "surname": "Surname",
+  "email": "E-mail",
+  "birthday": "Birthday",
+  "acceptUserAgreement": "I accept the\nuser agreement",
+  "signUp": "Sign up",
+  "emailError": "Enter a valid email address",
+  "fullnameError": "Incorrect first or last name entered"
 }

@@ -71,7 +71,7 @@ class AppTheme {
       backgroundColor: MaterialStateProperty.all(
         ProjectColors.primaryColor,
       ),
-      fixedSize: MaterialStateProperty.all(
+      minimumSize: MaterialStateProperty.all(
         const Size(double.infinity, 46),
       ),
       foregroundColor: MaterialStateProperty.resolveWith(
