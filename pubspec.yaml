@@ -4,7 +4,7 @@ description: Куда пойти сегодня?
 # Prevent accidental publishing to pub.dev.
 publish_to: "none"
 
-version: 0.0.0+2
+version: 0.1.0
 
 environment:
   sdk: ">=2.15.0 <3.0.0"
@@ -22,6 +22,7 @@ dependencies:
     sdk: flutter
 
   flutter_mobx: ^2.0.0
+  hive_flutter: ^1.1.0
   mobx: ^2.0.0
   provider: ^6.0.0
   routemaster: ^0.9.0
@@ -48,7 +49,7 @@ flutter:
   assets:
     # Add assets from the images directory to the application.
     - assets/images/
-  
+
   fonts:
     - family: Montserrat
       fonts:

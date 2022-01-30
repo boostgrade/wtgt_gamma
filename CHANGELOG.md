@@ -2,6 +2,11 @@
 
 ## Unreleased
 
+* feat: token storage
+
+## 0.1.0
+
+* feat: base button
 * feat: app typography
 * feat: server error interceptor
 * feat: app theme
