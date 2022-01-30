@@ -10,8 +10,7 @@
   "surname": "Surname",
   "email": "E-mail",
   "birthday": "Birthday",
+  "valueIsIncorrect": "Value is incorrect",
   "acceptUserAgreement": "I accept the\nuser agreement",
-  "signUp": "Sign up",
-  "emailError": "Enter a valid email address",
-  "fullnameError": "Incorrect first or last name entered"
+  "signUp": "Sign up"
 }
