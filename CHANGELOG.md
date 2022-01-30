@@ -1,8 +1,11 @@
 # Changelog
 
-## 0.1.0
+## Unreleased
 
 * feat: sign_in_screen
+
+## 0.1.0
+
 * feat: base button
 * feat: app typography
 * feat: server error interceptor
