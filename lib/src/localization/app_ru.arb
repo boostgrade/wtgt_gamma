@@ -6,5 +6,6 @@
   "codeFromSms": "Код из смс",
   "sendCode": "Отправить",
   "newCodeIn": "Новый код через: ",
-  "seconds": " сек"
+  "seconds": " сек",
+  "valueIsIncorrect": "Значение некорректно"
 }

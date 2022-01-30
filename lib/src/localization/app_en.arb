@@ -9,5 +9,6 @@
   "codeFromSms": "Code from sms",
   "sendCode": "Send",
   "newCodeIn": "New code in: ",
-  "seconds": " sec"
+  "seconds": " sec",
+  "valueIsIncorrect": "Value is incorrect"
 }

@@ -1,12 +1,17 @@
 # Changelog
 
+## Unreleased
+
+* feat: token storage
+* feat: code_screen layout
+
 ## 0.1.0
 
 * feat: base button
 * feat: app typography
 * feat: server error interceptor
 * feat: app theme
-* faet: code_screen layout
+
 
 ## 0.0.0+2
 

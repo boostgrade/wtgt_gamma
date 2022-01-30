@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:where_to_go_today/src/core/ui/res/colors/project_colors.dart';
 import 'package:where_to_go_today/src/core/ui/res/typography/app_typography.dart';
-import '../keyboard_listener.dart' as keyboard_listener;
 
 class CodeScreen extends StatefulWidget {
   const CodeScreen({Key? key}) : super(key: key);
@@ -16,24 +16,6 @@ class _CodeScreenState extends State<CodeScreen> {
 
   final int _timerSecs = 30;
 
-  late bool _isKeyboardVisible;
-  late keyboard_listener.KeyboardListener _keyboardListener;
-
-  @override
-  void initState() {
-    super.initState();
-    _isKeyboardVisible = false;
-
-    _keyboardListener = keyboard_listener.KeyboardListener()
-      ..addListener(onChange: _keyboardHandle);
-  }
-
-  @override
-  void dispose() {
-    _keyboardListener.dispose();
-    super.dispose();
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -43,23 +25,31 @@ class _CodeScreenState extends State<CodeScreen> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Image.asset('assets/images/3.0x/wtgt_logo.png'),
+              Center(child: Image.asset('assets/images/3.0x/wtgt_logo.png')),
               const SizedBox(height: 22),
-              TextField(
+              TextFormField(
+                autovalidateMode: AutovalidateMode.onUserInteraction,
                 controller: _codeController,
                 keyboardType: TextInputType.number,
+                textInputAction: TextInputAction.done,
+                validator: _codeValidator,
+                maxLength: 6,
+                inputFormatters: [
+                  FilteringTextInputFormatter.allow(RegExp('[0-9]+')),
+                ],
                 decoration: InputDecoration(
                   hintText: AppLocalizations.of(context)?.codeFromSms,
+                  helperText: '',
                 ),
-                maxLength: 6,
               ),
-              // TODO(any): поменять статичный таймер
+              const SizedBox(height: 12),
               RichText(
                 text: TextSpan(
                   text: AppLocalizations.of(context)?.newCodeIn,
                   style: const AppTypography.s16w400h20(),
                   children: [
                     TextSpan(
+                      // TODO(any): поменять статичный таймер
                       text: '$_timerSecs',
                       style: const AppTypography.s16w500h20(
                         color: ProjectColors.cardColor,
@@ -73,29 +63,45 @@ class _CodeScreenState extends State<CodeScreen> {
                     )
                   ],
                 ),
-              )
+              ),
+              SizedBox(height: _calcBottomPadding()),
+              TextButton(
+                onPressed: _onSendCode,
+                child: Text(AppLocalizations.of(context)!.sendCode),
+              ),
             ],
           ),
         ),
       ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
-      floatingActionButton: _isKeyboardVisible
-          ? null
-          : Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 24.0),
-              child: TextButton(
-                onPressed: () {
-                  // TODO(any): реализовать функционал отправки кода
-                },
-                child: Text(AppLocalizations.of(context)!.sendCode),
-              ),
-            ),
     );
   }
 
-  void _keyboardHandle(bool isVisible) {
-    setState(() {
-      _isKeyboardVisible = isVisible;
-    });
+  String? _codeValidator(String? value) {
+    if (value == null || value.isEmpty || value.length != 6) {
+      return AppLocalizations.of(context)?.valueIsIncorrect;
+    }
+
+    return null;
+  }
+
+  void _onSendCode() {
+    if (_codeController.text.isNotEmpty && _codeController.text.length == 6) {
+      // ignore: avoid_print
+      print('send code');
+    } else {
+      // ignore: avoid_print
+      print('not send code');
+    }
+  }
+
+  double _calcBottomPadding() {
+    const topBlockHeight = 300;
+    const bottomBlockHeight = 220;
+    final screenHeight = MediaQuery.of(context).size.height;
+    final viewInsets = MediaQuery.of(context).viewInsets;
+    final bottomPadding =
+        screenHeight - topBlockHeight - bottomBlockHeight - viewInsets.bottom;
+
+    return bottomPadding < 24 ? 24 : bottomPadding;
   }
 }
