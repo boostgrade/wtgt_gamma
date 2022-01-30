@@ -32,7 +32,6 @@ class _SignInScreenState extends State<SignInScreen> {
         body: SingleChildScrollView(
           padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
           child: Column(
-            mainAxisSize: MainAxisSize.min,
             children: [
               Image.asset(
                 Asset.png.logoWtgt,
