@@ -27,12 +27,6 @@ class _SignInScreenState extends State<SignInScreen> {
 
   @override
   Widget build(BuildContext context) {
-    // values from the Figma
-    const topBlockHeight = 422;
-    const bottomBlockHeight = 164;
-    final screenHeight = MediaQuery.of(context).size.height;
-    final bottomPadding = screenHeight - topBlockHeight - bottomBlockHeight;
-
     return SafeArea(
       child: Scaffold(
         body: SingleChildScrollView(
@@ -62,7 +56,9 @@ class _SignInScreenState extends State<SignInScreen> {
                 label: context.l10n.sendButtonLabel,
                 onPressed: _isValidPhone ? _onSendCode : null,
               ),
-              SizedBox(height: bottomPadding),
+              SizedBox(
+                height: _calcBottomPadding(),
+              ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -85,6 +81,18 @@ class _SignInScreenState extends State<SignInScreen> {
         ),
       ),
     );
+  }
+
+  double _calcBottomPadding() {
+    // values from the Figma
+    const topBlockHeight = 422;
+    const bottomBlockHeight = 164;
+    final screenHeight = MediaQuery.of(context).size.height;
+    final viewInsets = MediaQuery.of(context).viewInsets;
+    final bottomPadding =
+        screenHeight - topBlockHeight - bottomBlockHeight - viewInsets.bottom;
+
+    return bottomPadding < 24 ? 24 : bottomPadding;
   }
 
   void _onSendCode() {
