@@ -12,5 +12,6 @@
   "birthday": "Birthday",
   "valueIsIncorrect": "Value is incorrect",
   "acceptUserAgreement": "I accept the\nuser agreement",
-  "signUp": "Sign up"
+  "signUp": "Sign up",
+  "birthdayMask": "DD/MM/YYYY"
 }

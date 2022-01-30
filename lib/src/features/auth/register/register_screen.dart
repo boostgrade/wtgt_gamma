@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:intl/intl.dart';
 import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 import 'package:where_to_go_today/src/ui/uikit/wtgt_button.dart';
 
@@ -95,12 +96,13 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 TextFormField(
                   autovalidateMode: AutovalidateMode.onUserInteraction,
                   controller: _birthdayController,
+                  validator: _birthdayValidator,
                   keyboardType: TextInputType.datetime,
                   textInputAction: TextInputAction.done,
                   inputFormatters: [_maskFormatter],
                   decoration: InputDecoration(
                     label: Text(AppLocalizations.of(context)!.birthday),
-                    hintText: '##/##/####',
+                    hintText: AppLocalizations.of(context)!.birthdayMask,
                     helperText: '',
                   ),
                 ),
@@ -123,6 +125,22 @@ class _RegisterScreenState extends State<RegisterScreen> {
         ),
       ),
     );
+  }
+
+  String? _birthdayValidator(String? value) {
+    if (!_maskFormatter.isFill()) return null;
+    try {
+      final birthday = DateFormat('dd/MM/yyyy').parseStrict(value ?? '');
+      final now = DateTime.now();
+      final hundredYearsAgo = now.subtract(const Duration(days: 365 * 100));
+      if (birthday.isAfter(now) || birthday.isBefore(hundredYearsAgo)) {
+        return AppLocalizations.of(context)?.valueIsIncorrect;
+      }
+
+      return null;
+    } on FormatException {
+      return AppLocalizations.of(context)?.valueIsIncorrect;
+    }
   }
 
   double _calcBottomPadding() {
