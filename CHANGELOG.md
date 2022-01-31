@@ -3,6 +3,7 @@
 ## Unreleased
 
 * feat: sign_in_screen
+* feat: token storage
 
 ## 0.1.0
 
