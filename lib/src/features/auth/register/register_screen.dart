@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
+import 'package:where_to_go_today/src/features/auth/register/register_button_state.dart';
 import 'package:where_to_go_today/src/features/auth/register/register_screen_vm.dart';
 import 'package:where_to_go_today/src/ui/uikit/wtgt_button.dart';
 
@@ -27,6 +28,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
             child: SingleChildScrollView(
               padding: const EdgeInsets.only(left: 24, right: 24, top: 125),
               child: Form(
+                key: widget.vm.formKey,
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   children: [
@@ -97,11 +99,13 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     ),
                     SizedBox(height: _calcBottomPadding()),
                     WtgtButton(
+                      buttonState: widget.vm.buttonState,
+                      label: AppLocalizations.of(context)!.signUp,
+                      loading:
+                          widget.vm.buttonState == RegisterButtonState.success,
                       onPressed: widget.vm.isFormEntered
                           ? widget.vm.registerBtnClicked
                           : null,
-                          
-                      label: AppLocalizations.of(context)!.signUp,
                     ),
                   ],
                 ),
