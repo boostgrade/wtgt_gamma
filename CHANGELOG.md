@@ -2,6 +2,7 @@
 
 ## Unreleased
 
+- feat: auth bloc
 - feat: token storage
 - feat: sign_in_screen
 - feat: registration layout
