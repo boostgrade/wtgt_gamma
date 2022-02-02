@@ -7,12 +7,12 @@ class WtgtButton extends StatelessWidget {
   final VoidCallback? onPressed;
   final bool loading;
   final double width;
-  final RegisterButtonState buttonState;
+  final RegisterButtonState? buttonState;
 
   const WtgtButton({
     Key? key,
     required this.label,
-    required this.buttonState,
+    this.buttonState,
     this.onPressed,
     this.loading = false,
     this.width = double.infinity,

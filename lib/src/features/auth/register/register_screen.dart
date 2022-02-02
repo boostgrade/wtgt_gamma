@@ -28,7 +28,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
             child: SingleChildScrollView(
               padding: const EdgeInsets.only(left: 24, right: 24, top: 125),
               child: Form(
-                key: widget.vm.formKey,
+                // key: widget.vm.formKey,
+
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   children: [
@@ -80,7 +81,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       autovalidateMode: AutovalidateMode.onUserInteraction,
                       controller: widget.vm.birthdayController,
                       validator: widget.vm.birthdayValidator,
-                      keyboardType: TextInputType.datetime,
+                      keyboardType: TextInputType.number,
                       textInputAction: TextInputAction.done,
                       inputFormatters: [widget.vm.maskFormatter],
                       decoration: InputDecoration(
@@ -99,7 +100,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     ),
                     SizedBox(height: _calcBottomPadding()),
                     WtgtButton(
-                      buttonState: widget.vm.buttonState,
+                      // buttonState: widget.vm.buttonState,
                       label: AppLocalizations.of(context)!.signUp,
                       loading:
                           widget.vm.buttonState == RegisterButtonState.success,

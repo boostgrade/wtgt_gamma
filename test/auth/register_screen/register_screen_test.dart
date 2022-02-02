@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:golden_toolkit/golden_toolkit.dart';
+import 'package:where_to_go_today/src/features/auth/register/register_button_state.dart';
 import 'package:where_to_go_today/src/res/theme/app_theme.dart';
 import 'package:where_to_go_today/src/ui/uikit/wtgt_button.dart';
 

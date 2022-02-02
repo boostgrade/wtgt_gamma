@@ -113,7 +113,7 @@ abstract class _RegisterScreenVm with Store {
       debugPrint('userAgreement: $checkboxValue');
     }
 
-    if (!formKey.currentState!.validate()) {
+    if (!formKey.currentState!.validate() ) {
       debugPrint('validate error');
 
       buttonState = RegisterButtonState.validateError;
