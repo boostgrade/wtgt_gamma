@@ -7,7 +7,7 @@ import 'src/features/app/ui/app.dart';
 
 Future<void> main() async {
   final globalDeps = AppDependencies();
-  await globalDeps.init(); 
+  await globalDeps.init();
 
   runApp(
     Provider(
