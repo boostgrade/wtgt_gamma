@@ -86,11 +86,9 @@ class _CodeScreenState extends State<CodeScreen> {
 
   void _onSendCode() {
     if (_codeController.text.isNotEmpty && _codeController.text.length == 6) {
-      // ignore: avoid_print
-      print('send code');
+      debugPrint('send code');
     } else {
-      // ignore: avoid_print
-      print('not send code');
+      debugPrint('not send code');
     }
   }
 
