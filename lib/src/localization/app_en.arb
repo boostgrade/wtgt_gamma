@@ -10,5 +10,7 @@
   "sendCode": "Send",
   "newCodeIn": "New code in: ",
   "seconds": " sec",
-  "valueIsIncorrect": "Value is incorrect"
+  "valueIsIncorrect": "Value is incorrect",
+  "phoneNumberLabel": "Phone number",
+  "sendButtonLabel": "Send"
 }

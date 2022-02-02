@@ -2,6 +2,7 @@
 
 ## Unreleased
 
+* feat: sign_in_screen
 * feat: token storage
 * feat: code_screen layout
 

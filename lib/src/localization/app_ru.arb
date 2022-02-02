@@ -7,5 +7,7 @@
   "sendCode": "Отправить",
   "newCodeIn": "Новый код через: ",
   "seconds": " сек",
-  "valueIsIncorrect": "Значение некорректно"
+  "valueIsIncorrect": "Значение некорректно",
+  "phoneNumberLabel": "Номер телефона",
+  "sendButtonLabel": "Отправить"
 }

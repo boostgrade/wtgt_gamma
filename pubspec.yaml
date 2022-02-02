@@ -22,7 +22,9 @@ dependencies:
     sdk: flutter
 
   flutter_mobx: ^2.0.0
+  flutter_svg: ^1.0.3
   hive_flutter: ^1.1.0
+  mask_text_input_formatter: ^2.1.0
   mobx: ^2.0.0
   provider: ^6.0.0
   routemaster: ^0.9.0
@@ -51,6 +53,7 @@ flutter:
     # Add assets from the images directory to the application.
     - assets/images/
     - assets/images/3.0x/
+    - assets/images/auth/sign_in/
 
   fonts:
     - family: Montserrat
