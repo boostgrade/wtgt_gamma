@@ -6,6 +6,14 @@
   "placesTabName": "Places",
   "cardTabName": "My Card",
   "profileTabName": "Profile",
+  "name": "Name",
+  "surname": "Surname",
+  "email": "E-mail",
+  "birthday": "Birthday",
+  "valueIsIncorrect": "Value is incorrect",
+  "acceptUserAgreement": "I accept the\nuser agreement",
+  "signUp": "Sign up",
+  "birthdayMask": "DD/MM/YYYY",
   "phoneNumberLabel": "Phone number",
   "sendButtonLabel": "Send"
 }

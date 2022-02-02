@@ -3,6 +3,14 @@
   "placesTabName": "Заведения",
   "cardTabName": "Моя Карта",
   "profileTabName": "Профиль",
+  "name": "Имя",
+  "surname": "Фамилия",
+  "email": "E-mail",
+  "birthday": "День рождения",
+  "valueIsIncorrect": "Значение некорректно",
+  "acceptUserAgreement": "Я принимаю\nпользовательское\nсоглашение",
+  "signUp": "Зарегистрироваться",
+  "birthdayMask": "ДД/ММ/ГГГГ",
   "phoneNumberLabel": "Номер телефона",
   "sendButtonLabel": "Отправить"
 }
