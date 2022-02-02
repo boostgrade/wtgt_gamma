@@ -13,5 +13,7 @@
   "valueIsIncorrect": "Value is incorrect",
   "acceptUserAgreement": "I accept the\nuser agreement",
   "signUp": "Sign up",
-  "birthdayMask": "DD/MM/YYYY"
+  "birthdayMask": "DD/MM/YYYY",
+  "phoneNumberLabel": "Phone number",
+  "sendButtonLabel": "Send"
 }

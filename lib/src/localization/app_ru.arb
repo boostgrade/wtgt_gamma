@@ -10,5 +10,7 @@
   "valueIsIncorrect": "Значение некорректно",
   "acceptUserAgreement": "Я принимаю\nпользовательское\nсоглашение",
   "signUp": "Зарегистрироваться",
-  "birthdayMask": "ДД/ММ/ГГГГ"
+  "birthdayMask": "ДД/ММ/ГГГГ",
+  "phoneNumberLabel": "Номер телефона",
+  "sendButtonLabel": "Отправить"
 }
