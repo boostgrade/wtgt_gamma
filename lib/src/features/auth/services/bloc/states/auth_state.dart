@@ -12,5 +12,6 @@ class AuthState with _$AuthState {
 
   const factory AuthState.success() = AuthStateSuccess;
 
+  // ignore: avoid_annotating_with_dynamic
   const factory AuthState.error(dynamic error) = AuthStateError;
 }

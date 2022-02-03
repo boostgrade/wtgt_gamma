@@ -41,14 +41,18 @@ class _$AuthEventTearOff {
     return const AuthEventLoginViaGoogle();
   }
 
-  AuthEventRegister register(String name, String surname, String email,
-      DateTime birthdate, bool agree) {
+  AuthEventRegister register(
+      {required String name,
+      required String surname,
+      required String email,
+      required DateTime birthdate,
+      required bool agree}) {
     return AuthEventRegister(
-      name,
-      surname,
-      email,
-      birthdate,
-      agree,
+      name: name,
+      surname: surname,
+      email: email,
+      birthdate: birthdate,
+      agree: agree,
     );
   }
 
@@ -958,23 +962,23 @@ class _$AuthEventRegisterCopyWithImpl<$Res>
     Object? agree = freezed,
   }) {
     return _then(AuthEventRegister(
-      name == freezed
+      name: name == freezed
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
-      surname == freezed
+      surname: surname == freezed
           ? _value.surname
           : surname // ignore: cast_nullable_to_non_nullable
               as String,
-      email == freezed
+      email: email == freezed
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
               as String,
-      birthdate == freezed
+      birthdate: birthdate == freezed
           ? _value.birthdate
           : birthdate // ignore: cast_nullable_to_non_nullable
               as DateTime,
-      agree == freezed
+      agree: agree == freezed
           ? _value.agree
           : agree // ignore: cast_nullable_to_non_nullable
               as bool,
@@ -986,7 +990,11 @@ class _$AuthEventRegisterCopyWithImpl<$Res>
 
 class _$AuthEventRegister implements AuthEventRegister {
   const _$AuthEventRegister(
-      this.name, this.surname, this.email, this.birthdate, this.agree);
+      {required this.name,
+      required this.surname,
+      required this.email,
+      required this.birthdate,
+      required this.agree});
 
   @override
   final String name;
@@ -1131,8 +1139,12 @@ class _$AuthEventRegister implements AuthEventRegister {
 }
 
 abstract class AuthEventRegister implements AuthEvent {
-  const factory AuthEventRegister(String name, String surname, String email,
-      DateTime birthdate, bool agree) = _$AuthEventRegister;
+  const factory AuthEventRegister(
+      {required String name,
+      required String surname,
+      required String email,
+      required DateTime birthdate,
+      required bool agree}) = _$AuthEventRegister;
 
   String get name;
   String get surname;

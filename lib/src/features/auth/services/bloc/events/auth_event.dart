@@ -14,13 +14,13 @@ class AuthEvent with _$AuthEvent {
 
   const factory AuthEvent.loginViaGoogle() = AuthEventLoginViaGoogle;
 
-  const factory AuthEvent.register(
-    String name,
-    String surname,
-    String email,
-    DateTime birthdate,
-    bool agree,
-  ) = AuthEventRegister;
+  const factory AuthEvent.register({
+    required String name,
+    required String surname,
+    required String email,
+    required DateTime birthdate,
+    required bool agree,
+  }) = AuthEventRegister;
 
   const factory AuthEvent.logout() = AuthEventLogout;
 }

@@ -1,3 +1,4 @@
+// ignore_for_file: cascade_invocations
 import 'package:bloc_test/bloc_test.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:where_to_go_today/src/features/auth/services/auth_bloc.dart';
@@ -46,11 +47,11 @@ void main() {
             DateTime.now().subtract(const Duration(days: 365 * 18));
         bloc.add(
           AuthEvent.register(
-            'Ivan',
-            'Ivanov',
-            '',
-            birthdate,
-            true,
+            name: 'Ivan',
+            surname: 'Ivanov',
+            email: '',
+            birthdate: birthdate,
+            agree: true,
           ),
         );
       },
