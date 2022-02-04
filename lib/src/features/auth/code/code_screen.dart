@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
@@ -25,7 +27,12 @@ class _CodeScreenState extends State<CodeScreen> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Center(child: Image.asset('assets/images/3.0x/wtgt_logo.png')),
+              Center(
+                child: Image.asset(
+                  'assets/images/3.0x/wtgt_logo.png',
+                  height: 254,
+                ),
+              ),
               const SizedBox(height: 22),
               TextFormField(
                 autovalidateMode: AutovalidateMode.onUserInteraction,
@@ -64,7 +71,7 @@ class _CodeScreenState extends State<CodeScreen> {
                   ],
                 ),
               ),
-              SizedBox(height: _calcBottomPadding()),
+              SizedBox(height: _calcBottomPadding(context)),
               TextButton(
                 onPressed: _onSendCode,
                 child: Text(AppLocalizations.of(context)!.sendCode),
@@ -92,14 +99,17 @@ class _CodeScreenState extends State<CodeScreen> {
     }
   }
 
-  double _calcBottomPadding() {
-    const topBlockHeight = 300;
-    const bottomBlockHeight = 220;
-    final screenHeight = MediaQuery.of(context).size.height;
-    final viewInsets = MediaQuery.of(context).viewInsets;
-    final bottomPadding =
-        screenHeight - topBlockHeight - bottomBlockHeight - viewInsets.bottom;
+  double _calcBottomPadding(BuildContext buildContext) {
+    const topBlockHeight = 450;
+    const bottomBlockHeight = 70;
+    final screenHeight = MediaQuery.of(buildContext).size.height;
+    final viewInsets = MediaQuery.of(buildContext).viewInsets;
+    final bottomPadding = screenHeight -
+        topBlockHeight -
+        bottomBlockHeight -
+        viewInsets.bottom -
+        viewInsets.top;
 
-    return bottomPadding < 24 ? 24 : bottomPadding;
+    return max(bottomPadding, 24);
   }
 }
