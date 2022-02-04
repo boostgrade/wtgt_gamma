@@ -5,6 +5,7 @@
 - feat: token storage
 - feat: sign_in_screen
 - feat: registration layout
+- feat: phone auth service
 
 ## 0.1.0
 
