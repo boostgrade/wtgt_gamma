@@ -60,7 +60,8 @@ class DefaultFirebaseOptions {
     projectId: 'flash-chat-54033',
     databaseURL: 'https://flash-chat-54033.firebaseio.com',
     storageBucket: 'flash-chat-54033.appspot.com',
-    iosClientId: '1070687734019-3ljjejjqr8i3k4dhg4sj73b60fea9k3j.apps.googleusercontent.com',
+    iosClientId:
+        '1070687734019-3ljjejjqr8i3k4dhg4sj73b60fea9k3j.apps.googleusercontent.com',
     iosBundleId: 'ru.boostgrade.wtgt',
   );
 
@@ -71,7 +72,8 @@ class DefaultFirebaseOptions {
     projectId: 'flash-chat-54033',
     databaseURL: 'https://flash-chat-54033.firebaseio.com',
     storageBucket: 'flash-chat-54033.appspot.com',
-    iosClientId: '1070687734019-3ljjejjqr8i3k4dhg4sj73b60fea9k3j.apps.googleusercontent.com',
+    iosClientId:
+        '1070687734019-3ljjejjqr8i3k4dhg4sj73b60fea9k3j.apps.googleusercontent.com',
     iosBundleId: 'ru.boostgrade.wtgt',
   );
 }
