@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:where_to_go_today/src/core/services/exceptions/server/server_error_exception.dart';
 import 'package:where_to_go_today/src/core/services/network/firebase_options.dart';
 
 class PhoneAuth {
@@ -21,13 +22,17 @@ class PhoneAuth {
     required PhoneCodeSent onCodeSent,
     required PhoneCodeAutoRetrievalTimeout onCodeTimeout,
   }) {
-    return _auth.verifyPhoneNumber(
-      phoneNumber: phoneNumber,
-      verificationCompleted: onVerificationCompleted,
-      verificationFailed: onVerificationFailed,
-      codeSent: onCodeSent,
-      codeAutoRetrievalTimeout: onCodeTimeout,
-    );
+    if (_auth.currentUser != null) {
+      throw ActiveSessionException();
+    } else {
+      return _auth.verifyPhoneNumber(
+        phoneNumber: phoneNumber,
+        verificationCompleted: onVerificationCompleted,
+        verificationFailed: onVerificationFailed,
+        codeSent: onCodeSent,
+        codeAutoRetrievalTimeout: onCodeTimeout,
+      );
+    }
   }
 
   Future<UserCredential> enterCode({
