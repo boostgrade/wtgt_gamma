@@ -2,8 +2,9 @@
 
 ## Unreleased
 
-- feat: token storage
 - feat: sign_in_screen
+- feat: token storage
+- feat: code_screen layout
 - feat: registration layout
 
 ## 0.1.0

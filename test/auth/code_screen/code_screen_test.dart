@@ -1,13 +1,13 @@
-import 'package:flutter/material.dart';
+import 'package:flutter/cupertino.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:golden_toolkit/golden_toolkit.dart';
-import 'package:where_to_go_today/src/features/auth/register/register_screen.dart';
-import 'package:where_to_go_today/src/localization/l10n.dart';
+import 'package:where_to_go_today/src/features/auth/code/code_screen.dart';
 import 'package:where_to_go_today/src/res/theme/app_theme.dart';
 
 void main() {
   testGoldens(
-    'Register screen test',
+    'Code screen test',
     (tester) async {
       await tester.pumpWidgetBuilder(
         Localizations(
@@ -18,12 +18,12 @@ void main() {
             GlobalCupertinoLocalizations.delegate,
           ],
           locale: const Locale('ru'),
-          child: const RegisterScreen(),
+          child: const CodeScreen(),
         ),
         wrapper: materialAppWrapper(theme: AppTheme.lightTheme),
       );
 
-      await multiScreenGolden(tester, 'register_screen');
+      await multiScreenGolden(tester, 'code_screen');
     },
   );
 }
