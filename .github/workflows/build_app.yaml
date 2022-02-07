@@ -37,6 +37,9 @@ jobs:
 
       - name: Analyze project
         uses: invertase/github-action-dart-analyzer@v1
+        with:
+          fatal-infos: true
+          fatal-warnings: true
 
       - name: dart-code-metrics
         uses: dart-code-checker/dart-code-metrics-action@v1
