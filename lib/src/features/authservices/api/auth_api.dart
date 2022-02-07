@@ -15,19 +15,27 @@ abstract class AuthApi {
   factory AuthApi(Dio dio, {String baseUrl}) = _AuthApi;
 
   @POST('/login/phone')
-  Future<LoginResponse> loginWithPhone(@Body() PhoneLoginRequest phoneLoginRequest);
+  Future<LoginResponse> loginWithPhone(
+    @Body() PhoneLoginRequest phoneLoginRequest,
+  );
 
   @POST('/login/vk')
   Future<LoginResponse> loginWithVk(@Body() VkLoginRequest vkLoginRequest);
 
   @POST('/login/meta')
-  Future<LoginResponse> loginWithMeta(@Body() MetaLoginRequest metaLoginRequest);
+  Future<LoginResponse> loginWithMeta(
+    @Body() MetaLoginRequest metaLoginRequest,
+  );
 
   @POST('/login/apple')
-  Future<LoginResponse> loginWithApple(@Body() AppleLoginRequest appleLoginRequest);
+  Future<LoginResponse> loginWithApple(
+    @Body() AppleLoginRequest appleLoginRequest,
+  );
 
   @POST('/login/google')
-  Future<LoginResponse> loginWithGoogle(@Body() GoogleLoginRequest googleLoginRequest);
+  Future<LoginResponse> loginWithGoogle(
+    @Body() GoogleLoginRequest googleLoginRequest,
+  );
 
   @POST('/register')
   Future<void> register(@Body() RegisterRequest registerRequest);

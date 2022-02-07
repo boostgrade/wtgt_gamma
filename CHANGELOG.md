@@ -3,6 +3,7 @@
 ## Unreleased
 
 * feat: token storage
+* feat: auth repository
 
 ## 0.1.0
 

@@ -1,36 +1,32 @@
 import 'dart:convert';
 
-import 'package:dio/dio.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:http_mock_adapter/http_mock_adapter.dart';
-import 'package:mockito/annotations.dart';
-import 'package:mockito/mockito.dart';
-import 'package:where_to_go_today/src/features/authapi/models/login_object.dart';
+import 'package:mocktail/mocktail.dart';
+import 'package:where_to_go_today/src/features/authapi/models/requests/apple_login_request.dart';
+import 'package:where_to_go_today/src/features/authapi/models/requests/google_login_request.dart';
+import 'package:where_to_go_today/src/features/authapi/models/requests/meta_login_request.dart';
+import 'package:where_to_go_today/src/features/authapi/models/requests/phone_login_request.dart';
+import 'package:where_to_go_today/src/features/authapi/models/requests/register_request.dart';
 import 'package:where_to_go_today/src/features/authapi/models/requests/vk_login_request.dart';
 import 'package:where_to_go_today/src/features/authapi/models/responses/login_response.dart';
 import 'package:where_to_go_today/src/features/authservices/api/auth_api.dart';
 import 'package:where_to_go_today/src/features/authservices/repository/auth_repository.dart';
 
-import 'repository_test.mocks.dart';
+class AuthApiMock extends Mock implements AuthApi {}
 
-@GenerateMocks([AuthApi, LoginResponse, LoginObject])
-void main() async {
-  final dio = Dio();
-  final dioAdapter = DioAdapter(dio: dio);
+class AppleLoginRequestFake extends Fake implements AppleLoginRequest {}
 
-  dio.httpClientAdapter = dioAdapter;
+class GoogleLoginRequestFake extends Fake implements GoogleLoginRequest {}
 
-  late AuthRepository tAuthRepository;
+class MetaLoginRequestFake extends Fake implements MetaLoginRequest {}
 
-  const path = 'https://stoplight.io/mocks/softech/wtgt/75539';
+class PhoneLoginRequestFake extends Fake implements PhoneLoginRequest {}
 
-  setUp(() {
-    tAuthRepository = AuthRepository(AuthApi(dio));
-  });
+class RegisterRequestFake extends Fake implements RegisterRequest {}
 
-  const mockToken = '12345';
+class VkLoginRequestFake extends Fake implements VkLoginRequest {}
 
-  const loginJsonResponse = '''
+const loginJsonResponse = '''
       {
         "user": {
           "id": 10201,
@@ -46,68 +42,126 @@ void main() async {
       }
     ''';
 
-  const voidJsonResponse = '''
-    {
-      "name": "https://stoplight.io/prism/errors#UNPROCESSABLE_ENTITY",
-      "status": 422,
-      "detail": "Route resolved, but no method matched",
-      "additional": {
-        "workspaceSlug": "softech",
-        "projectSlug": "wtgt",
-        "url": "/logout",
-        "dynamic": false
-      }
-    }
-  ''';
+final loginResponse = LoginResponse.fromJson(
+  jsonDecode(loginJsonResponse) as Map<String, dynamic>,
+);
 
-  final loginResponse = LoginResponse.fromJson(
-    jsonDecode(loginJsonResponse) as Map<String, dynamic>,
-  );
-  final loginObjectResponse = loginResponse.toDomain();
+final loginObject = loginResponse.toDomain();
 
-  final loginHttpResponse = ResponseBody.fromString(
-    loginJsonResponse,
-    200,
-    headers: {
-      Headers.contentTypeHeader: [Headers.jsonContentType],
-    },
-  );
+Future<void> main() async {
+  setUpAll(() {
+    registerFallbackValue(AppleLoginRequestFake());
+    registerFallbackValue(GoogleLoginRequestFake());
+    registerFallbackValue(MetaLoginRequestFake());
+    registerFallbackValue(PhoneLoginRequestFake());
+    registerFallbackValue(RegisterRequestFake());
+    registerFallbackValue(VkLoginRequestFake());
+  });
 
-  final voidHttpResponse = ResponseBody.fromString(
-    voidJsonResponse,
-    200,
-    headers: {
-      Headers.contentTypeHeader: [Headers.jsonContentType],
-    },
-  );
+  group('Тесты для репозитория авторизации', () {
+    late AuthApiMock apiMock;
 
-  dioAdapter.onPost(
-    '$path/login/vk',
-    (request) => request.reply(
-      200,
-      jsonDecode(loginJsonResponse),
-    ),
-  );
+    late AuthRepository authRepository;
 
-  group(
-    'Тесты для репозитория авторизации',
-    () {
-      test('Метод Логин с VK', () async {
-        when(
-          await tAuthRepository.loginWithVk(
-            VkLoginRequest(token: mockToken),
-          ),
-        ).thenAnswer(
-          (_) => loginObjectResponse,
-        );
-        final res = await tAuthRepository.loginWithVk(
-          VkLoginRequest(token: mockToken),
-        );
-        expect(
-          res,
-          loginObjectResponse,
-        );
-      });
-    },
-  );
+    setUp(() {
+      apiMock = AuthApiMock();
+
+      authRepository = AuthRepository(apiMock);
+    });
+
+    test('Метод Логин c Apple', () async {
+      when(() => apiMock.loginWithApple(any())).thenAnswer(
+        (_) => Future.value(loginResponse),
+      );
+
+      final response = await authRepository.loginWithApple(
+        AppleLoginRequest(token: ''),
+      );
+
+      expect(response.user.id, equals(loginObject.user.id));
+      expect(response.user.name, equals(loginObject.user.name));
+      expect(response.user.lastName, equals(loginObject.user.lastName));
+      expect(response.user.phone, equals(loginObject.user.phone));
+      expect(response.user.birthDate, equals(loginObject.user.birthDate));
+      expect(
+          response.token.refreshToken, equals(loginObject.token.refreshToken));
+      expect(response.token.token, equals(loginObject.token.token));
+    });
+
+    test('Метод Логин c Google', () async {
+      when(() => apiMock.loginWithGoogle(any())).thenAnswer(
+        (_) => Future.value(loginResponse),
+      );
+
+      final response = await authRepository.loginWithGoogle(
+        GoogleLoginRequest(token: ''),
+      );
+
+      expect(response.user.id, equals(loginObject.user.id));
+      expect(response.user.name, equals(loginObject.user.name));
+      expect(response.user.lastName, equals(loginObject.user.lastName));
+      expect(response.user.phone, equals(loginObject.user.phone));
+      expect(response.user.birthDate, equals(loginObject.user.birthDate));
+      expect(
+          response.token.refreshToken, equals(loginObject.token.refreshToken));
+      expect(response.token.token, equals(loginObject.token.token));
+    });
+
+    test('Метод Логин с Meta', () async {
+      when(() => apiMock.loginWithMeta(any())).thenAnswer(
+        (_) => Future.value(loginResponse),
+      );
+
+      final response = await authRepository.loginWithMeta(
+        MetaLoginRequest(token: ''),
+      );
+
+      expect(response.user.id, equals(loginObject.user.id));
+      expect(response.user.name, equals(loginObject.user.name));
+      expect(response.user.lastName, equals(loginObject.user.lastName));
+      expect(response.user.phone, equals(loginObject.user.phone));
+      expect(response.user.birthDate, equals(loginObject.user.birthDate));
+      expect(
+          response.token.refreshToken, equals(loginObject.token.refreshToken));
+      expect(response.token.token, equals(loginObject.token.token));
+    });
+
+    test('Метод Логин по телефону', () async {
+      when(() => apiMock.loginWithPhone(any())).thenAnswer(
+        (_) => Future.value(loginResponse),
+      );
+
+      final response = await authRepository.loginWithPhone(
+        PhoneLoginRequest(firebaseToken: '', phone: ''),
+      );
+
+      expect(response.user.id, equals(loginObject.user.id));
+      expect(response.user.name, equals(loginObject.user.name));
+      expect(response.user.lastName, equals(loginObject.user.lastName));
+      expect(response.user.phone, equals(loginObject.user.phone));
+      expect(response.user.birthDate, equals(loginObject.user.birthDate));
+      expect(
+          response.token.refreshToken, equals(loginObject.token.refreshToken));
+      expect(response.token.token, equals(loginObject.token.token));
+    });
+
+    test('Метод Логин с VK', () async {
+      when(() => apiMock.loginWithVk(any())).thenAnswer(
+        (_) => Future.value(loginResponse),
+      );
+
+      final response = await authRepository.loginWithVk(
+        VkLoginRequest(token: ''),
+      );
+
+      expect(response.user.id, equals(loginObject.user.id));
+      expect(response.user.name, equals(loginObject.user.name));
+      expect(response.user.lastName, equals(loginObject.user.lastName));
+      expect(response.user.phone, equals(loginObject.user.phone));
+      expect(response.user.birthDate, equals(loginObject.user.birthDate));
+      expect(
+          response.token.refreshToken, equals(loginObject.token.refreshToken));
+      expect(response.token.token, equals(loginObject.token.token));
+    });
+  });
 }
