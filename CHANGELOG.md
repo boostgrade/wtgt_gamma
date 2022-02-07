@@ -1,9 +1,10 @@
 # Changelog
 
-## Unreleased
+## 0.2.0
 
-- feat: token storage
 - feat: sign_in_screen
+- feat: token storage
+- feat: code_screen layout
 - feat: registration layout
 - feat: phone auth service
 

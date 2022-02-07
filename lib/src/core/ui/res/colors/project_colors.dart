@@ -11,9 +11,9 @@ abstract class ProjectColors {
     onSecondary: ProjectColors.onSecondaryColor,
     onSurface: ProjectColors.onSurfaceColor,
     primary: ProjectColors.primaryColor,
-    primaryVariant: ProjectColors.primaryColor,
+    primaryContainer: ProjectColors.primaryColor,
     secondary: ProjectColors.secondaryColor,
-    secondaryVariant: ProjectColors.secondaryColor,
+    secondaryContainer: ProjectColors.secondaryColor,
     surface: ProjectColors.surfaceColor,
   );
 
