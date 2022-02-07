@@ -1,1 +1,1 @@
-const String baseUrl = ''; // TODO(any): вставить адрес сервера
+const String baseUrl = 'https://'; // TODO(any): вставить адрес сервера
