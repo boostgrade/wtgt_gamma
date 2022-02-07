@@ -1,8 +1,11 @@
 # Changelog
 
-## 0.2.0
+## 0.3.0
 
 - feat: auth repository
+
+## 0.2.0
+
 - feat: sign_in_screen
 - feat: token storage
 - feat: code_screen layout

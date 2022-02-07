@@ -84,7 +84,9 @@ Future<void> main() async {
       expect(response.user.phone, equals(loginObject.user.phone));
       expect(response.user.birthDate, equals(loginObject.user.birthDate));
       expect(
-          response.token.refreshToken, equals(loginObject.token.refreshToken));
+        response.token.refreshToken,
+        equals(loginObject.token.refreshToken),
+      );
       expect(response.token.token, equals(loginObject.token.token));
     });
 
@@ -103,7 +105,9 @@ Future<void> main() async {
       expect(response.user.phone, equals(loginObject.user.phone));
       expect(response.user.birthDate, equals(loginObject.user.birthDate));
       expect(
-          response.token.refreshToken, equals(loginObject.token.refreshToken));
+        response.token.refreshToken,
+        equals(loginObject.token.refreshToken),
+      );
       expect(response.token.token, equals(loginObject.token.token));
     });
 
@@ -122,7 +126,9 @@ Future<void> main() async {
       expect(response.user.phone, equals(loginObject.user.phone));
       expect(response.user.birthDate, equals(loginObject.user.birthDate));
       expect(
-          response.token.refreshToken, equals(loginObject.token.refreshToken));
+        response.token.refreshToken,
+        equals(loginObject.token.refreshToken),
+      );
       expect(response.token.token, equals(loginObject.token.token));
     });
 
@@ -141,7 +147,9 @@ Future<void> main() async {
       expect(response.user.phone, equals(loginObject.user.phone));
       expect(response.user.birthDate, equals(loginObject.user.birthDate));
       expect(
-          response.token.refreshToken, equals(loginObject.token.refreshToken));
+        response.token.refreshToken,
+        equals(loginObject.token.refreshToken),
+      );
       expect(response.token.token, equals(loginObject.token.token));
     });
 
@@ -160,7 +168,9 @@ Future<void> main() async {
       expect(response.user.phone, equals(loginObject.user.phone));
       expect(response.user.birthDate, equals(loginObject.user.birthDate));
       expect(
-          response.token.refreshToken, equals(loginObject.token.refreshToken));
+        response.token.refreshToken,
+        equals(loginObject.token.refreshToken),
+      );
       expect(response.token.token, equals(loginObject.token.token));
     });
   });
