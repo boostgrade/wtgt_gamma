@@ -100,6 +100,7 @@ dart_code_metrics:
     - prefer-last
     - prefer-match-file-name:
         exclude:
+          - lib/src/core/services/network/firebase_options.dart
           - test/**
     - prefer-single-widget-per-file
     - provide-correct-intl-args
