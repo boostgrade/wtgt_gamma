@@ -2,6 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:where_to_go_today/src/core/services/exceptions/server/server_error_exception.dart';
 import 'package:where_to_go_today/src/core/services/network/firebase_options.dart';
+import 'package:where_to_go_today/src/features/auth/services/phone_service/phone_verification_callback.dart';
 
 class PhoneAuth {
   late FirebaseAuth _auth;
@@ -17,20 +18,19 @@ class PhoneAuth {
   ///prefixed with plus sign ('+')
   Future<void> verifyPhoneNumber({
     required String phoneNumber,
-    required PhoneVerificationCompleted onVerificationCompleted,
-    required PhoneVerificationFailed onVerificationFailed,
-    required PhoneCodeSent onCodeSent,
-    required PhoneCodeAutoRetrievalTimeout onCodeTimeout,
+    required PhoneVerificationCallback callback,
+    int? forceResendingToken,
   }) {
     if (_auth.currentUser != null) {
       throw ActiveSessionException();
     } else {
       return _auth.verifyPhoneNumber(
         phoneNumber: phoneNumber,
-        verificationCompleted: onVerificationCompleted,
-        verificationFailed: onVerificationFailed,
-        codeSent: onCodeSent,
-        codeAutoRetrievalTimeout: onCodeTimeout,
+        verificationCompleted: callback.onVerificationCompleted,
+        verificationFailed: callback.onVerificationFailed,
+        codeSent: callback.onCodeSent,
+        codeAutoRetrievalTimeout: callback.onCodeTimeout,
+        forceResendingToken: forceResendingToken,
       );
     }
   }
