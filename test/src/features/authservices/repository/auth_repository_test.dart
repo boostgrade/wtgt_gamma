@@ -183,7 +183,9 @@ Future<void> main() async {
     });
 
     test('Метод Регистрация', () async {
-      when(() => apiMock.register(any())).thenAnswer((_) async => Future.value());
+      when(() => apiMock.register(any())).thenAnswer(
+        (_) async => Future.value(),
+      );
 
       final registerRequest = RegisterRequest(
         name: '',
