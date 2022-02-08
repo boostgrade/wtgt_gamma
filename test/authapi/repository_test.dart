@@ -173,5 +173,30 @@ Future<void> main() async {
       );
       expect(response.token.token, equals(loginObject.token.token));
     });
+
+    test('Метод Логаут', () async {
+      when(apiMock.logout).thenAnswer((_) async => Future.value());
+
+      await authRepository.logout();
+
+      verify(() => apiMock.logout()).called(1);
+    });
+
+    test('Метод Регистрация', () async {
+      when(() => apiMock.register(any())).thenAnswer((_) async => Future.value());
+
+      final registerRequest = RegisterRequest(
+        name: '',
+        lastName: '',
+        phone: '',
+        birthDate: '',
+      );
+
+      await authRepository.register(
+        registerRequest,
+      );
+
+      verify(() => apiMock.register(registerRequest)).called(1);
+    });
   });
 }
