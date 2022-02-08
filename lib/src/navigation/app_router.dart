@@ -11,7 +11,7 @@ class AppRouter {
 
   static final routes = RouteMap(
     routes: {
-      initialRoute: (_) => MainScreenRoute(),
+      initialRoute: (_) => const MainScreenRoute(),
       SettingsRoute.routeName: (_) => SettingsRoute(),
     },
   );
