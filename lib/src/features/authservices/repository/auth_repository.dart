@@ -53,11 +53,8 @@ class AuthRepository {
     return loginResponse.toDomain();
   }
 
-  Future<void> register(RegisterRequest registerRequest) async {
-    await _authApi.register(registerRequest);
-  }
+  Future<void> register(RegisterRequest registerRequest) =>
+      _authApi.register(registerRequest);
 
-  Future<void> logout() async {
-    await _authApi.logout();
-  }
+  Future<void> logout() => _authApi.logout();
 }

@@ -60,18 +60,16 @@ Future<void> main() async {
 
   group('Тесты для репозитория авторизации', () {
     late AuthApiMock apiMock;
-
     late AuthRepository authRepository;
 
     setUp(() {
       apiMock = AuthApiMock();
-
       authRepository = AuthRepository(apiMock);
     });
 
     test('Метод Логин c Apple', () async {
       when(() => apiMock.loginWithApple(any())).thenAnswer(
-        (_) => Future.value(loginResponse),
+        (_) async => loginResponse,
       );
 
       final response = await authRepository.loginWithApple(
@@ -92,7 +90,7 @@ Future<void> main() async {
 
     test('Метод Логин c Google', () async {
       when(() => apiMock.loginWithGoogle(any())).thenAnswer(
-        (_) => Future.value(loginResponse),
+        (_) async => loginResponse,
       );
 
       final response = await authRepository.loginWithGoogle(
@@ -113,7 +111,7 @@ Future<void> main() async {
 
     test('Метод Логин с Meta', () async {
       when(() => apiMock.loginWithMeta(any())).thenAnswer(
-        (_) => Future.value(loginResponse),
+        (_) async => loginResponse,
       );
 
       final response = await authRepository.loginWithMeta(
@@ -134,7 +132,7 @@ Future<void> main() async {
 
     test('Метод Логин по телефону', () async {
       when(() => apiMock.loginWithPhone(any())).thenAnswer(
-        (_) => Future.value(loginResponse),
+        (_) async => loginResponse,
       );
 
       final response = await authRepository.loginWithPhone(
@@ -155,7 +153,7 @@ Future<void> main() async {
 
     test('Метод Логин с VK', () async {
       when(() => apiMock.loginWithVk(any())).thenAnswer(
-        (_) => Future.value(loginResponse),
+        (_) async => loginResponse,
       );
 
       final response = await authRepository.loginWithVk(
@@ -175,7 +173,7 @@ Future<void> main() async {
     });
 
     test('Метод Логаут', () async {
-      when(apiMock.logout).thenAnswer((_) async => Future.value());
+      when(apiMock.logout).thenAnswer((_) => Future.value());
 
       await authRepository.logout();
 
@@ -184,7 +182,7 @@ Future<void> main() async {
 
     test('Метод Регистрация', () async {
       when(() => apiMock.register(any())).thenAnswer(
-        (_) async => Future.value(),
+        (_) => Future.value(),
       );
 
       final registerRequest = RegisterRequest(
