@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.3.0
+
+- fix: flutter 2.10 android support
+
 ## 0.2.0
 
 - feat: sign_in_screen
