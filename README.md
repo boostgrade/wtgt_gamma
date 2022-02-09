@@ -28,3 +28,11 @@ To regenerate goldens to capture your new reference images use command:
 ```bash
 flutter test --update-goldens --tags=golden
 ```
+
+## Code generation
+
+To start code generation:
+
+```bash
+flutter pub run build_runner build --delete-conflicting-outputs
+```

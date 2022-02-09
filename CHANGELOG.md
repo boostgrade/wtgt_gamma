@@ -2,6 +2,7 @@
 
 ## 0.3.0
 
+- feat: auth bloc
 - fix: flutter 2.10 android support
 
 ## 0.2.0
