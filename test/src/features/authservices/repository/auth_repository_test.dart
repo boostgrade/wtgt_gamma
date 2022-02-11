@@ -73,7 +73,7 @@ Future<void> main() async {
       );
 
       final response = await authRepository.loginWithApple(
-        AppleLoginRequest(token: ''),
+        const AppleLoginRequest(token: ''),
       );
 
       expect(response.user.id, equals(loginObject.user.id));
@@ -94,7 +94,7 @@ Future<void> main() async {
       );
 
       final response = await authRepository.loginWithGoogle(
-        GoogleLoginRequest(token: ''),
+        const GoogleLoginRequest(token: ''),
       );
 
       expect(response.user.id, equals(loginObject.user.id));
@@ -115,7 +115,7 @@ Future<void> main() async {
       );
 
       final response = await authRepository.loginWithMeta(
-        MetaLoginRequest(token: ''),
+        const MetaLoginRequest(token: ''),
       );
 
       expect(response.user.id, equals(loginObject.user.id));
@@ -136,7 +136,7 @@ Future<void> main() async {
       );
 
       final response = await authRepository.loginWithPhone(
-        PhoneLoginRequest(firebaseToken: '', phone: ''),
+        const PhoneLoginRequest(firebaseToken: '', phone: ''),
       );
 
       expect(response.user.id, equals(loginObject.user.id));
@@ -157,7 +157,7 @@ Future<void> main() async {
       );
 
       final response = await authRepository.loginWithVk(
-        VkLoginRequest(token: ''),
+        const VkLoginRequest(token: ''),
       );
 
       expect(response.user.id, equals(loginObject.user.id));
@@ -185,7 +185,7 @@ Future<void> main() async {
         (_) => Future.value(),
       );
 
-      final registerRequest = RegisterRequest(
+      const registerRequest = RegisterRequest(
         name: '',
         lastName: '',
         phone: '',

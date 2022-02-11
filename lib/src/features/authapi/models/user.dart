@@ -2,7 +2,7 @@ import 'package:json_annotation/json_annotation.dart';
 
 part 'user.g.dart';
 
-@JsonSerializable()
+@JsonSerializable(checked: true)
 class User {
   final int id;
   final String name;
@@ -10,7 +10,7 @@ class User {
   final String phone;
   final DateTime birthDate;
 
-  User({
+  const User({
     required this.id,
     required this.name,
     required this.lastName,

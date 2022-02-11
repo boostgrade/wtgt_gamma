@@ -6,9 +6,18 @@ part of 'login_object.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-LoginObject _$LoginObjectFromJson(Map<String, dynamic> json) => LoginObject(
-      user: User.fromJson(json['user'] as Map<String, dynamic>),
-      token: Tokens.fromJson(json['token'] as Map<String, dynamic>),
+LoginObject _$LoginObjectFromJson(Map<String, dynamic> json) => $checkedCreate(
+      'LoginObject',
+      json,
+      ($checkedConvert) {
+        final val = LoginObject(
+          user: $checkedConvert(
+              'user', (v) => User.fromJson(v as Map<String, dynamic>)),
+          token: $checkedConvert(
+              'token', (v) => Tokens.fromJson(v as Map<String, dynamic>)),
+        );
+        return val;
+      },
     );
 
 Map<String, dynamic> _$LoginObjectToJson(LoginObject instance) =>

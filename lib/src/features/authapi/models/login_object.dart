@@ -5,12 +5,12 @@ import 'user.dart';
 
 part 'login_object.g.dart';
 
-@JsonSerializable()
+@JsonSerializable(checked: true)
 class LoginObject {
   final User user;
   final Tokens token;
 
-  LoginObject({
+  const LoginObject({
     required this.user,
     required this.token,
   });

@@ -3,7 +3,7 @@ import 'package:where_to_go_today/src/features/authapi/models/user.dart';
 
 part 'user_dto.g.dart';
 
-@JsonSerializable()
+@JsonSerializable(checked: true)
 class UserDTO {
   final int id;
   final String name;
@@ -11,7 +11,7 @@ class UserDTO {
   final String phone;
   final String birthDate;
 
-  UserDTO({
+  const UserDTO({
     required this.id,
     required this.name,
     required this.lastName,

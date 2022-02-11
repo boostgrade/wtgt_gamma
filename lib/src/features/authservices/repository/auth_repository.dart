@@ -11,7 +11,7 @@ import '../../authapi/models/requests/vk_login_request.dart';
 class AuthRepository {
   final AuthApi _authApi;
 
-  AuthRepository(this._authApi);
+  const AuthRepository(this._authApi);
 
   Future<LoginObject> loginWithPhone(
     PhoneLoginRequest phoneLoginRequest,

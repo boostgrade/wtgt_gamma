@@ -2,12 +2,12 @@ import 'package:json_annotation/json_annotation.dart';
 
 part 'error_response.g.dart';
 
-@JsonSerializable()
+@JsonSerializable(checked: true, createToJson: false)
 class ErrorResponse {
   final int code;
   final String message;
 
-  ErrorResponse({
+  const ErrorResponse({
     required this.code,
     required this.message,
   });

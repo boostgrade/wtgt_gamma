@@ -7,13 +7,16 @@ part of 'login_response.dart';
 // **************************************************************************
 
 LoginResponse _$LoginResponseFromJson(Map<String, dynamic> json) =>
-    LoginResponse(
-      user: UserDTO.fromJson(json['user'] as Map<String, dynamic>),
-      token: Tokens.fromJson(json['token'] as Map<String, dynamic>),
+    $checkedCreate(
+      'LoginResponse',
+      json,
+      ($checkedConvert) {
+        final val = LoginResponse(
+          user: $checkedConvert(
+              'user', (v) => UserDTO.fromJson(v as Map<String, dynamic>)),
+          token: $checkedConvert(
+              'token', (v) => Tokens.fromJson(v as Map<String, dynamic>)),
+        );
+        return val;
+      },
     );
-
-Map<String, dynamic> _$LoginResponseToJson(LoginResponse instance) =>
-    <String, dynamic>{
-      'user': instance.user,
-      'token': instance.token,
-    };

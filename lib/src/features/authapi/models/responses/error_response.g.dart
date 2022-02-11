@@ -7,13 +7,14 @@ part of 'error_response.dart';
 // **************************************************************************
 
 ErrorResponse _$ErrorResponseFromJson(Map<String, dynamic> json) =>
-    ErrorResponse(
-      code: json['code'] as int,
-      message: json['message'] as String,
+    $checkedCreate(
+      'ErrorResponse',
+      json,
+      ($checkedConvert) {
+        final val = ErrorResponse(
+          code: $checkedConvert('code', (v) => v as int),
+          message: $checkedConvert('message', (v) => v as String),
+        );
+        return val;
+      },
     );
-
-Map<String, dynamic> _$ErrorResponseToJson(ErrorResponse instance) =>
-    <String, dynamic>{
-      'code': instance.code,
-      'message': instance.message,
-    };

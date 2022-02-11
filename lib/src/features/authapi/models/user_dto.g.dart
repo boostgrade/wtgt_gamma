@@ -6,12 +6,19 @@ part of 'user_dto.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-UserDTO _$UserDTOFromJson(Map<String, dynamic> json) => UserDTO(
-      id: json['id'] as int,
-      name: json['name'] as String,
-      lastName: json['lastName'] as String,
-      phone: json['phone'] as String,
-      birthDate: json['birthDate'] as String,
+UserDTO _$UserDTOFromJson(Map<String, dynamic> json) => $checkedCreate(
+      'UserDTO',
+      json,
+      ($checkedConvert) {
+        final val = UserDTO(
+          id: $checkedConvert('id', (v) => v as int),
+          name: $checkedConvert('name', (v) => v as String),
+          lastName: $checkedConvert('lastName', (v) => v as String),
+          phone: $checkedConvert('phone', (v) => v as String),
+          birthDate: $checkedConvert('birthDate', (v) => v as String),
+        );
+        return val;
+      },
     );
 
 Map<String, dynamic> _$UserDTOToJson(UserDTO instance) => <String, dynamic>{

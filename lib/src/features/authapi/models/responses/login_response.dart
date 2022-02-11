@@ -6,12 +6,12 @@ import '../user_dto.dart';
 
 part 'login_response.g.dart';
 
-@JsonSerializable()
+@JsonSerializable(checked: true, createToJson: false)
 class LoginResponse {
   final UserDTO user;
   final Tokens token;
 
-  LoginResponse({
+  const LoginResponse({
     required this.user,
     required this.token,
   });
