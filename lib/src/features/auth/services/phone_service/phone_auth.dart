@@ -1,18 +1,11 @@
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebase_core/firebase_core.dart';
 import 'package:where_to_go_today/src/core/services/exceptions/server/server_error_exception.dart';
-import 'package:where_to_go_today/src/core/services/network/firebase_options.dart';
 import 'package:where_to_go_today/src/features/auth/services/phone_service/phone_verification_callback.dart';
 
 class PhoneAuth {
-  late FirebaseAuth _auth;
+  final FirebaseAuth _auth;
 
-  Future<void> init() async {
-    await Firebase.initializeApp(
-      options: DefaultFirebaseOptions.currentPlatform,
-    );
-    _auth = FirebaseAuth.instance;
-  }
+  PhoneAuth(this._auth);
 
   ///Make sure to pass in a phone number with country code
   ///prefixed with plus sign ('+')
@@ -21,7 +14,7 @@ class PhoneAuth {
     required PhoneVerificationCallback callback,
     int? forceResendingToken,
   }) {
-    if (_auth.currentUser != null) {
+    if (signedIn()) {
       throw ActiveSessionException();
     } else {
       return _auth.verifyPhoneNumber(
@@ -45,5 +38,11 @@ class PhoneAuth {
     );
 
     return _auth.signInWithCredential(credential);
+  }
+
+  bool signedIn() => _auth.currentUser != null;
+
+  Future<void> signOut() async {
+    return _auth.signOut();
   }
 }
