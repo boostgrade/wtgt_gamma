@@ -32,3 +32,4 @@ class AppDependencies extends DependencyBundle {
       options: DefaultFirebaseOptions.currentPlatform,
     );
   }
+}
