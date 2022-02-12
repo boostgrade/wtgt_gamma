@@ -46,9 +46,13 @@ void main() {
     );
 
     test('Отправка номера', () {
+      // ignore: no-empty-block, avoid-unused-parameters
       void _verificationCompleted(PhoneAuthCredential credential) {}
+      // ignore: no-empty-block, avoid-unused-parameters
       void _verificationFailed(FirebaseAuthException exception) {}
+      // ignore: no-empty-block, avoid-unused-parameters
       void _codeSent(String verificationId, int? forceResendingToken) {}
+      // ignore: no-empty-block, avoid-unused-parameters
       void _codeAutoRetrievalTimeout(String verificationId) {}
 
       when(
