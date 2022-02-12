@@ -19,19 +19,21 @@ class PhoneAuth {
     } else {
       return _auth.verifyPhoneNumber(
         phoneNumber: phoneNumber,
-        verificationCompleted: callback.onVerificationCompleted,
-        verificationFailed: callback.onVerificationFailed,
-        codeSent: callback.onCodeSent,
-        codeAutoRetrievalTimeout: callback.onCodeTimeout,
+        verificationCompleted: callback.verificationCompleted,
+        verificationFailed: callback.verificationFailed,
+        codeSent: callback.codeSent,
+        codeAutoRetrievalTimeout: callback.codeAutoRetrievalTimeout,
         forceResendingToken: forceResendingToken,
       );
     }
   }
 
+  bool signedIn() => _auth.currentUser != null;
+
   Future<UserCredential> enterCode({
     required String code,
     required String verificationId,
-  }) async {
+  }) {
     final credential = PhoneAuthProvider.credential(
       verificationId: verificationId,
       smsCode: code,
@@ -40,9 +42,7 @@ class PhoneAuth {
     return _auth.signInWithCredential(credential);
   }
 
-  bool signedIn() => _auth.currentUser != null;
-
-  Future<void> signOut() async {
+  Future<void> signOut() {
     return _auth.signOut();
   }
 }

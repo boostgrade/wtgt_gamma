@@ -1,15 +1,15 @@
 import 'package:firebase_auth/firebase_auth.dart';
 
 class PhoneVerificationCallback {
-  final PhoneVerificationCompleted onVerificationCompleted;
-  final PhoneVerificationFailed onVerificationFailed;
-  final PhoneCodeSent onCodeSent;
-  final PhoneCodeAutoRetrievalTimeout onCodeTimeout;
+  final PhoneVerificationCompleted verificationCompleted;
+  final PhoneVerificationFailed verificationFailed;
+  final PhoneCodeSent codeSent;
+  final PhoneCodeAutoRetrievalTimeout codeAutoRetrievalTimeout;
 
   PhoneVerificationCallback({
-    required this.onVerificationCompleted,
-    required this.onVerificationFailed,
-    required this.onCodeSent,
-    required this.onCodeTimeout,
+    required this.verificationCompleted,
+    required this.verificationFailed,
+    required this.codeSent,
+    required this.codeAutoRetrievalTimeout,
   });
 }
