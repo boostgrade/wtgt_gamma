@@ -1,20 +1,33 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
+import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
+import 'package:where_to_go_today/src/core/ui/base/view_model_disposer_mixin.dart';
+import 'package:where_to_go_today/src/features/auth/sign_in/sign_in_vm.dart';
 import 'package:where_to_go_today/src/features/auth/sign_in/sotial_login_button.dart';
 import 'package:where_to_go_today/src/localization/l10n.dart';
 import 'package:where_to_go_today/src/res/asset.dart';
 import 'package:where_to_go_today/src/ui/uikit/wtgt_button.dart';
 
 class SignInScreen extends StatefulWidget {
-  const SignInScreen({Key? key}) : super(key: key);
+  final SignInVm store;
+
+  const SignInScreen({Key? key, required this.store}) : super(key: key);
 
   @override
   State<SignInScreen> createState() => _SignInScreenState();
 }
 
-class _SignInScreenState extends State<SignInScreen> {
+class _SignInScreenState extends State<SignInScreen>
+    with ViewModelDisposerMixin<SignInScreen, SignInVm> {
+
   late final MaskTextInputFormatter _maskFormatter;
-  late bool _isValidPhone;
+
+  @override
+  SignInVm get vm => widget.store;
+
+  String get _fullPhoneNumber => '+7${_maskFormatter.getUnmaskedText()}';
 
   @override
   void initState() {
@@ -22,7 +35,6 @@ class _SignInScreenState extends State<SignInScreen> {
     _maskFormatter = MaskTextInputFormatter(
       mask: '(###) ###-##-##',
     );
-    _isValidPhone = false;
   }
 
   @override
@@ -39,7 +51,7 @@ class _SignInScreenState extends State<SignInScreen> {
               ),
               const SizedBox(height: 22),
               TextField(
-                onChanged: (_) => _validatePhone(),
+                onChanged: (_) => vm.verifyPhone(_fullPhoneNumber),
                 decoration: InputDecoration(
                   labelText: context.l10n.phoneNumberLabel,
                   prefixText: '+7 ',
@@ -51,9 +63,17 @@ class _SignInScreenState extends State<SignInScreen> {
                 ],
               ),
               const SizedBox(height: 32),
-              WtgtButton(
-                label: context.l10n.sendButtonLabel,
-                onPressed: _isValidPhone ? _onSendCode : null,
+              Observer(
+                name: 'SignIn',
+                builder: (context) {
+                  return WtgtButton(
+                    label: context.l10n.sendButtonLabel,
+                    onPressed: vm.isPhoneValid
+                        ? () => vm.requestCode(_fullPhoneNumber)
+                        : null,
+                    loading: vm.vmState == VmState.loading,
+                  );
+                },
               ),
               SizedBox(
                 height: _calcBottomPadding(),
@@ -91,12 +111,7 @@ class _SignInScreenState extends State<SignInScreen> {
     final bottomPadding =
         screenHeight - topBlockHeight - bottomBlockHeight - viewInsets.bottom;
 
-    return bottomPadding < 24 ? 24 : bottomPadding;
-  }
-
-  void _onSendCode() {
-    // TODO(any): обработать нажатие на кнопку
-    debugPrint('Phone number = +7${_maskFormatter.getUnmaskedText()}');
+    return max(24, bottomPadding);
   }
 
   void _onFacebookLogin() {
@@ -112,11 +127,5 @@ class _SignInScreenState extends State<SignInScreen> {
   void _onGoogleLogin() {
     // TODO(any): обработать нажатие на кнопку
     debugPrint('_onGoogleLogin()');
-  }
-
-  void _validatePhone() {
-    setState(() {
-      _isValidPhone = _maskFormatter.isFill();
-    });
   }
 }

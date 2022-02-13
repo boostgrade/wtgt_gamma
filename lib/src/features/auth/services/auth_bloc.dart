@@ -1,4 +1,6 @@
 import 'package:bloc/bloc.dart';
+import 'package:flutter/foundation.dart';
+import 'package:where_to_go_today/src/core/services/base/can_throw_exception_bloc_mixin.dart';
 import 'package:where_to_go_today/src/features/auth/services/bloc/events/auth_event.dart';
 import 'package:where_to_go_today/src/features/auth/services/bloc/states/auth_state.dart';
 
@@ -9,20 +11,27 @@ import 'package:where_to_go_today/src/features/auth/services/bloc/states/auth_st
 ///   - провести заполнение данных профиля при регистрации
 ///   - произвести логаут
 ///
-class AuthBloc extends Bloc<AuthEvent, AuthState> {
+class AuthBloc extends Bloc<AuthEvent, AuthState>
+    with CanThrowExceptionBlocMixin {
   bool firstSending = true;
 
   AuthBloc() : super(const AuthState.init()) {
     on<AuthEventSendPhone>((event, emit) async {
+      debugPrint('Phone number = ${event.phone}');
       if (firstSending) {
         emit(const AuthState.idle());
         // TODO(any): handle first incoming `AuthEventSendPhone` event
+        await Future.delayed(
+          const Duration(seconds: 1),
+          () => debugPrint('Request done'),
+        );
         emit(const AuthState.needOtp());
         firstSending = false;
       } else {
         emit(const AuthState.idle());
         // TODO(any): handle next incoming `AuthEventSendPhone` event
-        emit(const AuthState.success());
+        emit(const AuthState.error('Something wrong'));
+        // emit(const AuthState.success());
       }
     });
 
