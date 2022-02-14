@@ -2,6 +2,7 @@
 
 ## 0.3.0
 
+- feat: vk login
 - feat: auth repository
 - feat: phone auth service
 - feat: auth bloc
