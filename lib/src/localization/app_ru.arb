@@ -16,5 +16,6 @@
   "signUp": "Зарегистрироваться",
   "birthdayMask": "ДД/ММ/ГГГГ",
   "phoneNumberLabel": "Номер телефона",
-  "sendButtonLabel": "Отправить"
+  "sendButtonLabel": "Отправить",
+  "authError": "Авторизация не удалась! Попробуйте еще раз"
 }

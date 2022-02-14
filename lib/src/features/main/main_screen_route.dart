@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:where_to_go_today/src/features/auth/code/code_screen.dart';
+import 'package:where_to_go_today/src/features/auth/sign_in/sign_in_screen.dart';
 
 import 'main_screen.dart';
 
@@ -8,7 +8,7 @@ import 'main_screen.dart';
 class MainScreenRoute extends MaterialPage<void> {
   const MainScreenRoute()
       : super(
-          child: const CodeScreen(),
+          child: const SignInScreen(),
 
           //  Provider<MainScreenVm>(
           //   create: MainScreenVm.new,
