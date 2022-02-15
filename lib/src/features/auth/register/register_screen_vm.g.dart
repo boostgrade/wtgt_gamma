@@ -9,6 +9,44 @@ part of 'register_screen_vm.dart';
 // ignore_for_file: non_constant_identifier_names, unnecessary_brace_in_string_interps, unnecessary_lambdas, prefer_expression_function_bodies, lines_longer_than_80_chars, avoid_as, avoid_annotating_with_dynamic
 
 mixin _$RegisterScreenVm on _RegisterScreenVm, Store {
+  Computed<bool>? _$isFormEnteredComputed;
+
+  @override
+  bool get isFormEntered =>
+      (_$isFormEnteredComputed ??= Computed<bool>(() => super.isFormEntered,
+              name: '_RegisterScreenVm.isFormEntered'))
+          .value;
+
+  final _$vmStateAtom = Atom(name: '_RegisterScreenVm.vmState');
+
+  @override
+  VmState get vmState {
+    _$vmStateAtom.reportRead();
+    return super.vmState;
+  }
+
+  @override
+  set vmState(VmState value) {
+    _$vmStateAtom.reportWrite(value, super.vmState, () {
+      super.vmState = value;
+    });
+  }
+
+  final _$formKeyAtom = Atom(name: '_RegisterScreenVm.formKey');
+
+  @override
+  GlobalKey<FormState> get formKey {
+    _$formKeyAtom.reportRead();
+    return super.formKey;
+  }
+
+  @override
+  set formKey(GlobalKey<FormState> value) {
+    _$formKeyAtom.reportWrite(value, super.formKey, () {
+      super.formKey = value;
+    });
+  }
+
   final _$nameControllerAtom = Atom(name: '_RegisterScreenVm.nameController');
 
   @override
@@ -101,15 +139,65 @@ mixin _$RegisterScreenVm on _RegisterScreenVm, Store {
     });
   }
 
+  final _$_RegisterScreenVmActionController =
+      ActionController(name: '_RegisterScreenVm');
+
+  @override
+  String? emailValidator(String? value) {
+    final _$actionInfo = _$_RegisterScreenVmActionController.startAction(
+        name: '_RegisterScreenVm.emailValidator');
+    try {
+      return super.emailValidator(value);
+    } finally {
+      _$_RegisterScreenVmActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
+  String? fullNameValidator(String? value) {
+    final _$actionInfo = _$_RegisterScreenVmActionController.startAction(
+        name: '_RegisterScreenVm.fullNameValidator');
+    try {
+      return super.fullNameValidator(value);
+    } finally {
+      _$_RegisterScreenVmActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
+  void onChangedCheckbox(bool? value) {
+    final _$actionInfo = _$_RegisterScreenVmActionController.startAction(
+        name: '_RegisterScreenVm.onChangedCheckbox');
+    try {
+      return super.onChangedCheckbox(value);
+    } finally {
+      _$_RegisterScreenVmActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
+  void registerBtnClicked() {
+    final _$actionInfo = _$_RegisterScreenVmActionController.startAction(
+        name: '_RegisterScreenVm.registerBtnClicked');
+    try {
+      return super.registerBtnClicked();
+    } finally {
+      _$_RegisterScreenVmActionController.endAction(_$actionInfo);
+    }
+  }
+
   @override
   String toString() {
     return '''
+vmState: ${vmState},
+formKey: ${formKey},
 nameController: ${nameController},
 surnameController: ${surnameController},
 emailController: ${emailController},
 birthdayController: ${birthdayController},
 checkboxValue: ${checkboxValue},
-maskFormatter: ${maskFormatter}
+maskFormatter: ${maskFormatter},
+isFormEntered: ${isFormEntered}
     ''';
   }
 }

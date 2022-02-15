@@ -3,11 +3,13 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:intl/intl.dart';
 import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 import 'package:mobx/mobx.dart';
-import 'package:where_to_go_today/src/features/auth/register/register_button_state.dart';
+import 'package:where_to_go_today/src/core/ui/base/view_model.dart';
+import 'package:where_to_go_today/src/core/ui/errors_handling/error_handler.dart';
+import 'package:where_to_go_today/src/features/auth/services/auth_bloc.dart';
+import 'package:where_to_go_today/src/features/auth/services/bloc/events/auth_event.dart';
+import 'package:where_to_go_today/src/features/auth/services/bloc/states/auth_state.dart';
 
 part 'register_screen_vm.g.dart';
-
-// ignore: prefer-match-file-name
 
 /// ViewModel экрана [RegisterScreen]
 class RegisterScreenVm = _RegisterScreenVm with _$RegisterScreenVm;
@@ -15,7 +17,13 @@ class RegisterScreenVm = _RegisterScreenVm with _$RegisterScreenVm;
 abstract class _RegisterScreenVm with Store {
   static const _emailRegexp =
       r'''(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])''';
+
   final BuildContext context;
+
+  // final AuthBloc _bloc;
+
+  @observable
+  VmState vmState = VmState.idle;
 
   @observable
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
@@ -40,9 +48,6 @@ abstract class _RegisterScreenVm with Store {
     mask: '##/##/####',
   );
 
-  @observable
-  RegisterButtonState buttonState = RegisterButtonState.fieldsNotEnteredError;
-
   @computed
   bool get isFormEntered =>
       nameController.text.isNotEmpty &&
@@ -52,6 +57,11 @@ abstract class _RegisterScreenVm with Store {
       checkboxValue;
 
   _RegisterScreenVm(this.context);
+
+  // _RegisterScreenVm(this._bloc, ErrorHandler errorHandler, this.context)
+  //     : super(errorHandler) {
+  //   observeBloc<AuthState, AuthBloc>(_bloc, _handleBlocStates);
+  // }
 
   @action
   String? emailValidator(String? value) {
@@ -82,6 +92,7 @@ abstract class _RegisterScreenVm with Store {
       final birthday = DateFormat('dd/MM/yyyy').parseStrict(value ?? '');
       final now = DateTime.now();
       final hundredYearsAgo = now.subtract(const Duration(days: 365 * 100));
+
       if (birthday.isAfter(now) || birthday.isBefore(hundredYearsAgo)) {
         return AppLocalizations.of(context)?.valueIsIncorrect;
       }
@@ -100,23 +111,25 @@ abstract class _RegisterScreenVm with Store {
   }
 
   @action
+  @action
   void registerBtnClicked() {
     if (isFormEntered) {
-      debugPrint('register');
+      // _bloc.add(
+      //   AuthEvent.register(
+      //     name: nameController.text,
+      //     surname: surnameController.text,
+      //     email: emailController.text,
+      //     birthdate: DateTime.parse(maskFormatter.getUnmaskedText()),
+      //     agree: checkboxValue,
+      //   ),
+      // );
 
-      buttonState = RegisterButtonState.success;
-
-      debugPrint('name: ${nameController.text}');
-      debugPrint('surname: ${surnameController.text}');
-      debugPrint('email: ${emailController.text}');
-      debugPrint('birthday: ${maskFormatter.getUnmaskedText()}');
-      debugPrint('userAgreement: $checkboxValue');
+      // ignore: avoid_print
+      print(DateTime.parse(maskFormatter.getUnmaskedText()));
     }
 
-    if (!formKey.currentState!.validate() ) {
+    if (!formKey.currentState!.validate()) {
       debugPrint('validate error');
-
-      buttonState = RegisterButtonState.validateError;
 
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(
@@ -127,19 +140,29 @@ abstract class _RegisterScreenVm with Store {
       return;
     }
 
-    // TODO(Dima): при появлении блока добавить состояние ошибки запроса
     // if (error) {
-    //   buttonState = RegisterButtonState.queryError;
-
     //   ScaffoldMessenger.of(context).showSnackBar(
     //     SnackBar(
     //       content: Text(error.message),
     //     ),
     //   );
 
-    //   buttonState = RegisterButtonState.fieldsNotEnteredError;
-
     //   return;
     // }
   }
+
+  void _handleBlocStates(AuthState blocState) {
+    debugPrint('blocState = ${blocState.runtimeType}');
+    if (blocState is AuthStateIdle) {
+      vmState = VmState.loading;
+    } else if (blocState is AuthStateError) {
+      vmState = VmState.error;
+      vmState = VmState.idle;
+    } else {
+      vmState = VmState.idle;
+    }
+  }
 }
+
+// ignore: prefer-match-file-name
+enum VmState { idle, loading, error }

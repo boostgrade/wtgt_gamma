@@ -1,4 +1,5 @@
 import 'package:routemaster/routemaster.dart';
+import 'package:where_to_go_today/src/features/auth/register/register_route.dart';
 import 'package:where_to_go_today/src/features/main/main_screen_route.dart';
 import 'package:where_to_go_today/src/features/settings/ui/settings_route.dart';
 
@@ -11,8 +12,9 @@ class AppRouter {
 
   static final routes = RouteMap(
     routes: {
-      initialRoute: (_) => const MainScreenRoute(),
+      initialRoute: (_) => RegisterRoute(),
       SettingsRoute.routeName: (_) => SettingsRoute(),
+      // RegisterRoute.routeName: (_) => RegisterRoute(),
     },
   );
 }
