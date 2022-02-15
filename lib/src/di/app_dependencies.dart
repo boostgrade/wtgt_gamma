@@ -1,3 +1,4 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:where_to_go_today/src/core/services/network/dio/dio_module.dart';
 import 'package:where_to_go_today/src/core/ui/errors_handling/scenario_error_handler/scenario_error_handler.dart';
 import 'package:where_to_go_today/src/core/ui/errors_handling/scenario_error_handler/scenarios/snackbar_error_scenarios.dart';
@@ -9,6 +10,7 @@ import 'package:where_to_go_today/src/features/settings/service/event/settings_e
 import 'package:where_to_go_today/src/features/settings/service/repository/settings_repository.dart';
 import 'package:where_to_go_today/src/features/settings/service/settings_bloc.dart';
 
+import '../core/services/network/firebase_options.dart';
 import 'base/dependency_bundle.dart';
 
 /// Класс с глобальными зависимостями приложения
@@ -33,5 +35,8 @@ class AppDependencies extends DependencyBundle {
     await tokenStorage.init();
 
     authBloc = AuthBloc();
+    await Firebase.initializeApp(
+      options: DefaultFirebaseOptions.currentPlatform,
+    );
   }
 }

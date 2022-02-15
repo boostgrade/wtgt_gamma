@@ -17,3 +17,6 @@ class UnauthorizedException implements Exception {}
 
 /// Ошибка при авторизации
 class AuthorizationException implements Exception {}
+
+/// Ошибка при наличии у пользователя активной сессии
+class ActiveSessionException implements Exception {}
