@@ -1,4 +1,5 @@
 import 'package:bloc/bloc.dart';
+import 'package:where_to_go_today/src/core/services/base/can_throw_exception_bloc_mixin.dart';
 import 'package:where_to_go_today/src/features/auth/services/bloc/events/auth_event.dart';
 import 'package:where_to_go_today/src/features/auth/services/bloc/states/auth_state.dart';
 
@@ -9,7 +10,8 @@ import 'package:where_to_go_today/src/features/auth/services/bloc/states/auth_st
 ///   - провести заполнение данных профиля при регистрации
 ///   - произвести логаут
 ///
-class AuthBloc extends Bloc<AuthEvent, AuthState> {
+class AuthBloc extends Bloc<AuthEvent, AuthState>
+    with CanThrowExceptionBlocMixin {
   bool firstSending = true;
 
   AuthBloc() : super(const AuthState.init()) {

@@ -33,9 +33,10 @@ class _$AuthStateTearOff {
     return const AuthStateSuccess();
   }
 
-  AuthStateError error(dynamic error) {
+  AuthStateError error(dynamic error, StackTrace stackTrace) {
     return AuthStateError(
       error,
+      stackTrace,
     );
   }
 }
@@ -51,7 +52,7 @@ mixin _$AuthState {
     required TResult Function() needOtp,
     required TResult Function() idle,
     required TResult Function() success,
-    required TResult Function(dynamic error) error,
+    required TResult Function(dynamic error, StackTrace stackTrace) error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -60,7 +61,7 @@ mixin _$AuthState {
     TResult Function()? needOtp,
     TResult Function()? idle,
     TResult Function()? success,
-    TResult Function(dynamic error)? error,
+    TResult Function(dynamic error, StackTrace stackTrace)? error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -69,7 +70,7 @@ mixin _$AuthState {
     TResult Function()? needOtp,
     TResult Function()? idle,
     TResult Function()? success,
-    TResult Function(dynamic error)? error,
+    TResult Function(dynamic error, StackTrace stackTrace)? error,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -162,7 +163,7 @@ class _$AuthStateInit implements AuthStateInit {
     required TResult Function() needOtp,
     required TResult Function() idle,
     required TResult Function() success,
-    required TResult Function(dynamic error) error,
+    required TResult Function(dynamic error, StackTrace stackTrace) error,
   }) {
     return init();
   }
@@ -174,7 +175,7 @@ class _$AuthStateInit implements AuthStateInit {
     TResult Function()? needOtp,
     TResult Function()? idle,
     TResult Function()? success,
-    TResult Function(dynamic error)? error,
+    TResult Function(dynamic error, StackTrace stackTrace)? error,
   }) {
     return init?.call();
   }
@@ -186,7 +187,7 @@ class _$AuthStateInit implements AuthStateInit {
     TResult Function()? needOtp,
     TResult Function()? idle,
     TResult Function()? success,
-    TResult Function(dynamic error)? error,
+    TResult Function(dynamic error, StackTrace stackTrace)? error,
     required TResult orElse(),
   }) {
     if (init != null) {
@@ -284,7 +285,7 @@ class _$AuthStateNeedOtp implements AuthStateNeedOtp {
     required TResult Function() needOtp,
     required TResult Function() idle,
     required TResult Function() success,
-    required TResult Function(dynamic error) error,
+    required TResult Function(dynamic error, StackTrace stackTrace) error,
   }) {
     return needOtp();
   }
@@ -296,7 +297,7 @@ class _$AuthStateNeedOtp implements AuthStateNeedOtp {
     TResult Function()? needOtp,
     TResult Function()? idle,
     TResult Function()? success,
-    TResult Function(dynamic error)? error,
+    TResult Function(dynamic error, StackTrace stackTrace)? error,
   }) {
     return needOtp?.call();
   }
@@ -308,7 +309,7 @@ class _$AuthStateNeedOtp implements AuthStateNeedOtp {
     TResult Function()? needOtp,
     TResult Function()? idle,
     TResult Function()? success,
-    TResult Function(dynamic error)? error,
+    TResult Function(dynamic error, StackTrace stackTrace)? error,
     required TResult orElse(),
   }) {
     if (needOtp != null) {
@@ -406,7 +407,7 @@ class _$AuthStateIdle implements AuthStateIdle {
     required TResult Function() needOtp,
     required TResult Function() idle,
     required TResult Function() success,
-    required TResult Function(dynamic error) error,
+    required TResult Function(dynamic error, StackTrace stackTrace) error,
   }) {
     return idle();
   }
@@ -418,7 +419,7 @@ class _$AuthStateIdle implements AuthStateIdle {
     TResult Function()? needOtp,
     TResult Function()? idle,
     TResult Function()? success,
-    TResult Function(dynamic error)? error,
+    TResult Function(dynamic error, StackTrace stackTrace)? error,
   }) {
     return idle?.call();
   }
@@ -430,7 +431,7 @@ class _$AuthStateIdle implements AuthStateIdle {
     TResult Function()? needOtp,
     TResult Function()? idle,
     TResult Function()? success,
-    TResult Function(dynamic error)? error,
+    TResult Function(dynamic error, StackTrace stackTrace)? error,
     required TResult orElse(),
   }) {
     if (idle != null) {
@@ -528,7 +529,7 @@ class _$AuthStateSuccess implements AuthStateSuccess {
     required TResult Function() needOtp,
     required TResult Function() idle,
     required TResult Function() success,
-    required TResult Function(dynamic error) error,
+    required TResult Function(dynamic error, StackTrace stackTrace) error,
   }) {
     return success();
   }
@@ -540,7 +541,7 @@ class _$AuthStateSuccess implements AuthStateSuccess {
     TResult Function()? needOtp,
     TResult Function()? idle,
     TResult Function()? success,
-    TResult Function(dynamic error)? error,
+    TResult Function(dynamic error, StackTrace stackTrace)? error,
   }) {
     return success?.call();
   }
@@ -552,7 +553,7 @@ class _$AuthStateSuccess implements AuthStateSuccess {
     TResult Function()? needOtp,
     TResult Function()? idle,
     TResult Function()? success,
-    TResult Function(dynamic error)? error,
+    TResult Function(dynamic error, StackTrace stackTrace)? error,
     required TResult orElse(),
   }) {
     if (success != null) {
@@ -611,7 +612,7 @@ abstract class $AuthStateErrorCopyWith<$Res> {
   factory $AuthStateErrorCopyWith(
           AuthStateError value, $Res Function(AuthStateError) then) =
       _$AuthStateErrorCopyWithImpl<$Res>;
-  $Res call({dynamic error});
+  $Res call({dynamic error, StackTrace stackTrace});
 }
 
 /// @nodoc
@@ -627,12 +628,17 @@ class _$AuthStateErrorCopyWithImpl<$Res> extends _$AuthStateCopyWithImpl<$Res>
   @override
   $Res call({
     Object? error = freezed,
+    Object? stackTrace = freezed,
   }) {
     return _then(AuthStateError(
       error == freezed
           ? _value.error
           : error // ignore: cast_nullable_to_non_nullable
               as dynamic,
+      stackTrace == freezed
+          ? _value.stackTrace
+          : stackTrace // ignore: cast_nullable_to_non_nullable
+              as StackTrace,
     ));
   }
 }
@@ -640,14 +646,16 @@ class _$AuthStateErrorCopyWithImpl<$Res> extends _$AuthStateCopyWithImpl<$Res>
 /// @nodoc
 
 class _$AuthStateError implements AuthStateError {
-  const _$AuthStateError(this.error);
+  const _$AuthStateError(this.error, this.stackTrace);
 
-  @override
+  @override // ignore: avoid_annotating_with_dynamic
   final dynamic error;
+  @override
+  final StackTrace stackTrace;
 
   @override
   String toString() {
-    return 'AuthState.error(error: $error)';
+    return 'AuthState.error(error: $error, stackTrace: $stackTrace)';
   }
 
   @override
@@ -655,12 +663,16 @@ class _$AuthStateError implements AuthStateError {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is AuthStateError &&
-            const DeepCollectionEquality().equals(other.error, error));
+            const DeepCollectionEquality().equals(other.error, error) &&
+            const DeepCollectionEquality()
+                .equals(other.stackTrace, stackTrace));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(error));
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(error),
+      const DeepCollectionEquality().hash(stackTrace));
 
   @JsonKey(ignore: true)
   @override
@@ -674,9 +686,9 @@ class _$AuthStateError implements AuthStateError {
     required TResult Function() needOtp,
     required TResult Function() idle,
     required TResult Function() success,
-    required TResult Function(dynamic error) error,
+    required TResult Function(dynamic error, StackTrace stackTrace) error,
   }) {
-    return error(this.error);
+    return error(this.error, stackTrace);
   }
 
   @override
@@ -686,9 +698,9 @@ class _$AuthStateError implements AuthStateError {
     TResult Function()? needOtp,
     TResult Function()? idle,
     TResult Function()? success,
-    TResult Function(dynamic error)? error,
+    TResult Function(dynamic error, StackTrace stackTrace)? error,
   }) {
-    return error?.call(this.error);
+    return error?.call(this.error, stackTrace);
   }
 
   @override
@@ -698,11 +710,11 @@ class _$AuthStateError implements AuthStateError {
     TResult Function()? needOtp,
     TResult Function()? idle,
     TResult Function()? success,
-    TResult Function(dynamic error)? error,
+    TResult Function(dynamic error, StackTrace stackTrace)? error,
     required TResult orElse(),
   }) {
     if (error != null) {
-      return error(this.error);
+      return error(this.error, stackTrace);
     }
     return orElse();
   }
@@ -749,9 +761,12 @@ class _$AuthStateError implements AuthStateError {
 }
 
 abstract class AuthStateError implements AuthState {
-  const factory AuthStateError(dynamic error) = _$AuthStateError;
+  const factory AuthStateError(dynamic error, StackTrace stackTrace) =
+      _$AuthStateError;
 
+// ignore: avoid_annotating_with_dynamic
   dynamic get error;
+  StackTrace get stackTrace;
   @JsonKey(ignore: true)
   $AuthStateErrorCopyWith<AuthStateError> get copyWith =>
       throw _privateConstructorUsedError;
