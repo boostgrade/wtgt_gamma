@@ -1,8 +1,18 @@
 # Changelog
 
-## Unreleased
+## 0.3.0
 
+- feat: auth repository
+- feat: phone auth service
+- feat: auth bloc
+- fix: flutter 2.10 android support
+- feat: registration logic
+
+## 0.2.0
+
+- feat: sign_in_screen
 - feat: token storage
+- feat: code_screen layout
 - feat: registration layout
 
 ## 0.1.0

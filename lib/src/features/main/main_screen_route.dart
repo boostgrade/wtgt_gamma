@@ -4,9 +4,9 @@ import 'package:where_to_go_today/src/features/auth/register/register_screen.dar
 import 'package:where_to_go_today/src/features/auth/register/register_screen_vm.dart';
 
 import 'main_screen.dart';
-import 'main_screen_vm.dart';
 
-/// Рроут экрана [MainScreen]
+/// Роут экрана [MainScreen]
+@immutable
 class MainScreenRoute extends MaterialPage<void> {
   MainScreenRoute()
       : super(
