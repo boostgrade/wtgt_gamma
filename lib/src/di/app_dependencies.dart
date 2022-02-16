@@ -11,17 +11,23 @@ import 'package:where_to_go_today/src/features/settings/service/repository/setti
 import 'package:where_to_go_today/src/features/settings/service/settings_bloc.dart';
 
 import '../core/services/network/firebase_options.dart';
+import '../features/authservices/api/auth_api.dart';
+import '../features/authservices/repository/auth_repository.dart';
 import 'base/dependency_bundle.dart';
 
 /// Класс с глобальными зависимостями приложения
-/// Здесь бужем описывать то, что является синглтонами.
+/// Здесь будем описывать то, что является синглтонами.
 class AppDependencies extends DependencyBundle {
   final dio = DioModule().dio;
   final settingsController = SettingsBloc(SettingsRepository());
   final tokenStorage = TokenStorage();
   final googleAuth = GoogleAuth();
 
-  late final AuthBloc authBloc;
+  late final authRepository = AuthRepository(AuthApi(dio));
+  late final authBloc = AuthBloc(
+    authRepository: authRepository,
+    googleAuth: googleAuth,
+  );
 
   late final messageController = DefaultMessageController();
   late final errorHandler = ScenarioErrorHandler(
@@ -34,7 +40,6 @@ class AppDependencies extends DependencyBundle {
     settingsController.add(LoadSettings());
     await tokenStorage.init();
 
-    authBloc = AuthBloc();
     await Firebase.initializeApp(
       options: DefaultFirebaseOptions.currentPlatform,
     );

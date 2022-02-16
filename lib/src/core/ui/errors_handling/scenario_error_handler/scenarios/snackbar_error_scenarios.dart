@@ -4,7 +4,7 @@ import 'package:where_to_go_today/src/core/ui/messages/types/error_snackbar.dart
 
 import '../scenario_error_handler.dart';
 
-/// Реализация сценария, при котором при каждой ошибке всплывает снекбар
+// / Реализация сценария, при котором при каждой ошибке всплывает снекбар
 class SnackBarErrorScenarios implements ErrorScenario {
   /// Отображение вида {тип ошибки: функция, для выполнения}
   late final Map<Type, void Function()> behaviors;
@@ -15,7 +15,7 @@ class SnackBarErrorScenarios implements ErrorScenario {
   /// Случай, когда поведение задается с помощью приватного метода, для того
   /// чтобы имелась возможность задать его в коде самого класса
   ///
-  /// Также необхомо в конструкторе передать менеджер сообщений
+  /// Также необходимо в конструкторе передать менеджер сообщений
   SnackBarErrorScenarios(this.messageController) {
     _setBehavior();
   }
@@ -28,12 +28,11 @@ class SnackBarErrorScenarios implements ErrorScenario {
   /// Устанавливаем поведение в виде отображения (Map)
   void _setBehavior() {
     behaviors = {
-      // TODO(any): добавить новые исключения и соспоставить им текст ошибки
+      // TODO(any): добавить новые исключения и сопоставить им текст ошибки
       NotFoundException: () =>
           messageController.show(ErrorSnackBar('Not found')),
-      AuthorizationException: () => messageController.show(
-            ErrorSnackBar('Авторизация не удалась! Попробуйте еще раз'),
-          ),
+      AuthorizationException: () => messageController
+          .show(ErrorSnackBar('Авторизация не удалась! Попробуйте еще раз')),
     };
   }
 

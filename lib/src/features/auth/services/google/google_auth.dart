@@ -7,7 +7,6 @@ class GoogleAuth {
 
   Future<String?> signIn() async {
     final googleSignInAccount = await _googleSignIn.signIn();
-    // TODO(Denis): выводить ошибку или ничего не делать при отмене?
     if (googleSignInAccount == null) return null;
 
     final authentication = await googleSignInAccount.authentication;

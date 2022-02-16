@@ -1,7 +1,12 @@
 import 'package:bloc/bloc.dart';
+import 'package:flutter/services.dart';
 import 'package:where_to_go_today/src/core/services/base/can_throw_exception_bloc_mixin.dart';
+import 'package:where_to_go_today/src/core/services/exceptions/server/server_error_exception.dart';
 import 'package:where_to_go_today/src/features/auth/services/bloc/events/auth_event.dart';
 import 'package:where_to_go_today/src/features/auth/services/bloc/states/auth_state.dart';
+import 'package:where_to_go_today/src/features/auth/services/google/google_auth.dart';
+import 'package:where_to_go_today/src/features/authapi/models/requests/google_login_request.dart';
+import 'package:where_to_go_today/src/features/authservices/repository/auth_repository.dart';
 
 /// Сервис позволяющий:
 ///   - обработать номер телефона пользователя
@@ -12,9 +17,15 @@ import 'package:where_to_go_today/src/features/auth/services/bloc/states/auth_st
 ///
 class AuthBloc extends Bloc<AuthEvent, AuthState>
     with CanThrowExceptionBlocMixin {
+  final AuthRepository authRepository;
+  final GoogleAuth googleAuth;
+
   bool firstSending = true;
 
-  AuthBloc() : super(const AuthState.init()) {
+  AuthBloc({
+    required this.authRepository,
+    required this.googleAuth,
+  }) : super(const AuthState.init()) {
     on<AuthEventSendPhone>((event, emit) async {
       if (firstSending) {
         emit(const AuthState.idle());
@@ -47,9 +58,24 @@ class AuthBloc extends Bloc<AuthEvent, AuthState>
     });
 
     on<AuthEventLoginViaGoogle>((event, emit) async {
-      emit(const AuthState.idle());
-      // TODO(any): handle incoming `AuthEventLoginViaGoogle` event
-      emit(const AuthState.success());
+      try {
+        emit(const AuthState.idle());
+
+        final token = await googleAuth.signIn();
+        if (token == null) {
+          return;
+        }
+
+        await authRepository.loginWithGoogle(
+          GoogleLoginRequest(token: token),
+        );
+
+        emit(const AuthState.success());
+      } on PlatformException catch (e, s) {
+        emit(AuthState.error(AuthorizationException(), s));
+      } on Exception catch (e, s) {
+        emit(AuthState.error(Exception(), s));
+      }
     });
 
     on<AuthEventRegister>((event, emit) async {

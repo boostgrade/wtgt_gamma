@@ -2,6 +2,7 @@
 
 ## 0.3.0
 
+- feat: google sign in
 - fix: iOS build support
 - feat: auth repository
 - feat: phone auth service
