@@ -6,7 +6,8 @@ import 'package:where_to_go_today/src/core/ui/base/view_model.dart';
 import 'package:where_to_go_today/src/core/ui/errors_handling/error_handler.dart';
 import 'package:where_to_go_today/src/features/auth/services/auth_bloc.dart';
 import 'package:where_to_go_today/src/features/auth/services/bloc/events/auth_event.dart';
-import 'package:where_to_go_today/src/features/auth/services/bloc/states/auth_state.dart';
+
+import '../services/bloc/states/auth_state.dart';
 
 part 'sign_in_screen_vm.g.dart';
 
@@ -25,7 +26,7 @@ abstract class _SignInScreenVm extends ViewModel with Store {
   }
 
   @action
-  Future<void> signInWithGoogle() async {
+  void signInWithGoogle() {
     _bloc.add(const AuthEventLoginViaGoogle());
   }
 

@@ -3,7 +3,7 @@ import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 import 'package:where_to_go_today/src/core/ui/base/view_model_disposer_mixin.dart';
 import 'package:where_to_go_today/src/features/auth/sign_in/sign_in_screen_vm.dart';
-import 'package:where_to_go_today/src/features/auth/sign_in/sotial_login_button.dart';
+import 'package:where_to_go_today/src/features/auth/sign_in/social_login_button.dart';
 import 'package:where_to_go_today/src/localization/l10n.dart';
 import 'package:where_to_go_today/src/res/asset.dart';
 import 'package:where_to_go_today/src/ui/uikit/wtgt_button.dart';
@@ -72,15 +72,15 @@ class _SignInScreenState extends State<SignInScreen>
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    SotialLoginButton(
+                    SocialLoginButton(
                       imageAsset: Asset.svg.iconFacebook,
                       onPressed: _onFacebookLogin,
                     ),
-                    SotialLoginButton(
+                    SocialLoginButton(
                       imageAsset: Asset.svg.iconVkontakte,
                       onPressed: _onVkontakteLogin,
                     ),
-                    SotialLoginButton(
+                    SocialLoginButton(
                       imageAsset: Asset.svg.iconGoogle,
                       onPressed: vm.signInWithGoogle,
                     ),

@@ -57,6 +57,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState>
       emit(const AuthState.success());
     });
 
+    // Пример обработчика в блоке
     on<AuthEventLoginViaGoogle>((event, emit) async {
       try {
         emit(const AuthState.idle());

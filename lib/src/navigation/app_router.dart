@@ -11,6 +11,7 @@ class AppRouter {
 
   static final routes = RouteMap(
     routes: {
+      // Временно заменил initalRoute для тестирования SignInScreen
       initialRoute: (_) => SignInRoute(),
       SettingsRoute.routeName: (_) => SettingsRoute(),
     },
