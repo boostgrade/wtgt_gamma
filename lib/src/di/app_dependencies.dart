@@ -15,7 +15,6 @@ import 'package:where_to_go_today/src/features/settings/service/settings_bloc.da
 import '../core/services/network/firebase_options.dart';
 import '../features/authservices/api/auth_api.dart';
 import '../features/authservices/repository/auth_repository.dart';
-import '../features/auth/services/auth_bloc.dart';
 import 'base/dependency_bundle.dart';
 
 /// Класс с глобальными зависимостями приложения
@@ -31,9 +30,6 @@ class AppDependencies extends DependencyBundle {
     authRepository: authRepository,
     googleAuth: googleAuth,
   );
-
-  late final authRepository = AuthRepository(AuthApi(dio));
-  late final authBloc = AuthBloc(authRepository: authRepository);
 
   late final messageController = DefaultMessageController();
   late final errorHandler = ScenarioErrorHandler(
