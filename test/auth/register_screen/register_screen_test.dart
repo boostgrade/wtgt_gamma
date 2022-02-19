@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:golden_toolkit/golden_toolkit.dart';
 import 'package:where_to_go_today/src/features/auth/register/register_screen.dart';
+import 'package:where_to_go_today/src/features/auth/register/register_screen_vm.dart';
 import 'package:where_to_go_today/src/localization/l10n.dart';
 import 'package:where_to_go_today/src/res/theme/app_theme.dart';
 
@@ -18,7 +19,7 @@ void main() {
             GlobalCupertinoLocalizations.delegate,
           ],
           locale: const Locale('ru'),
-          child: const RegisterScreen(),
+          child: RegisterScreen(),
         ),
         wrapper: materialAppWrapper(theme: AppTheme.lightTheme),
       );

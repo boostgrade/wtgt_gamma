@@ -27,8 +27,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
             child: SingleChildScrollView(
               padding: const EdgeInsets.only(left: 24, right: 24, top: 125),
               child: Form(
-                // key: widget.vm.formKey,
-
+                key: widget.vm.formKey,
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   children: [
