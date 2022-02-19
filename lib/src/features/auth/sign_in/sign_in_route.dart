@@ -2,23 +2,26 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:where_to_go_today/src/di/app_dependencies.dart';
 import 'package:where_to_go_today/src/features/auth/sign_in/sign_in_screen.dart';
-import 'package:where_to_go_today/src/features/auth/sign_in/sign_in_vm.dart';
+import 'package:where_to_go_today/src/features/auth/sign_in/sign_in_screen_vm.dart';
 
-/// Роут экрана [SignInScreen]
+/// Маршрут для навигации к экрану авторизации
 class SignInRoute extends MaterialPage<void> {
-  static const routeName = '/sign_in';
+  static const routeName = '/signIn';
 
   SignInRoute()
       : super(
-          child: Provider<SignInVm>(
-            create: (ctx) => SignInVm(
+          child: Provider<SignInScreenVm>(
+            create: (ctx) => SignInScreenVm(
               ctx.read<AppDependencies>().authBloc,
-              ctx.read<AppDependencies>().errorHandler,
+              errorHandler: ctx.read<AppDependencies>().errorHandler,
+              context: ctx,
             ),
             child: Builder(
-              builder: (context) => SignInScreen(
-                store: context.read<SignInVm>(),
-              ),
+              builder: (context) {
+                return SignInScreen(
+                  vm: context.read<SignInScreenVm>(),
+                );
+              },
             ),
           ),
         );

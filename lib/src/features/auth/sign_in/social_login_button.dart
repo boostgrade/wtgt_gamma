@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-class SotialLoginButton extends StatelessWidget {
+class SocialLoginButton extends StatelessWidget {
   final String imageAsset;
   final VoidCallback? onPressed;
 
-  const SotialLoginButton({
+  const SocialLoginButton({
     Key? key,
     required this.imageAsset,
     this.onPressed,

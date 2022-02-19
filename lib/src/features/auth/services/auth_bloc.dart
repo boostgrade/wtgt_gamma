@@ -1,8 +1,8 @@
 import 'package:bloc/bloc.dart';
-import 'package:flutter/foundation.dart';
 import 'package:where_to_go_today/src/core/services/base/can_throw_exception_bloc_mixin.dart';
 import 'package:where_to_go_today/src/features/auth/services/bloc/events/auth_event.dart';
 import 'package:where_to_go_today/src/features/auth/services/bloc/states/auth_state.dart';
+import 'package:where_to_go_today/src/features/authservices/repository/auth_repository.dart';
 
 /// Сервис позволяющий:
 ///   - обработать номер телефона пользователя
@@ -13,25 +13,21 @@ import 'package:where_to_go_today/src/features/auth/services/bloc/states/auth_st
 ///
 class AuthBloc extends Bloc<AuthEvent, AuthState>
     with CanThrowExceptionBlocMixin {
+  final AuthRepository authRepository;
+
   bool firstSending = true;
 
-  AuthBloc() : super(const AuthState.init()) {
+  AuthBloc({required this.authRepository}) : super(const AuthState.init()) {
     on<AuthEventSendPhone>((event, emit) async {
-      debugPrint('Phone number = ${event.phone}');
       if (firstSending) {
         emit(const AuthState.idle());
         // TODO(any): handle first incoming `AuthEventSendPhone` event
-        await Future.delayed(
-          const Duration(seconds: 1),
-          () => debugPrint('Request done'),
-        );
         emit(const AuthState.needOtp());
         firstSending = false;
       } else {
         emit(const AuthState.idle());
         // TODO(any): handle next incoming `AuthEventSendPhone` event
-        emit(const AuthState.error('Something wrong'));
-        // emit(const AuthState.success());
+        emit(const AuthState.success());
       }
     });
 
@@ -53,10 +49,17 @@ class AuthBloc extends Bloc<AuthEvent, AuthState>
       emit(const AuthState.success());
     });
 
+    // Пример обработчика в блоке
     on<AuthEventLoginViaGoogle>((event, emit) async {
-      emit(const AuthState.idle());
-      // TODO(any): handle incoming `AuthEventLoginViaGoogle` event
-      emit(const AuthState.success());
+      try {
+        emit(const AuthState.idle());
+
+        // TODO(Denis): отправить запрос в сервис google и передать токен в репозиторий
+
+        emit(const AuthState.success());
+      } on Exception catch (e, s) {
+        emit(AuthState.error(e, s));
+      }
     });
 
     on<AuthEventRegister>((event, emit) async {
