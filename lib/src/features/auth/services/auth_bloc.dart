@@ -1,6 +1,8 @@
 import 'package:bloc/bloc.dart';
 import 'package:where_to_go_today/src/features/auth/services/bloc/events/auth_event.dart';
 import 'package:where_to_go_today/src/features/auth/services/bloc/states/auth_state.dart';
+import 'package:where_to_go_today/src/features/auth/services/facebook/facebook_auth_service.dart';
+import 'package:where_to_go_today/src/features/authservices/repository/auth_repository.dart';
 
 /// Сервис позволяющий:
 ///   - обработать номер телефона пользователя
@@ -10,9 +12,15 @@ import 'package:where_to_go_today/src/features/auth/services/bloc/states/auth_st
 ///   - произвести логаут
 ///
 class AuthBloc extends Bloc<AuthEvent, AuthState> {
+  final FacebookAuthService facebookAuthService;
+  final AuthRepository authRepository;
+
   bool firstSending = true;
 
-  AuthBloc() : super(const AuthState.init()) {
+  AuthBloc({
+    required this.authRepository,
+    required this.facebookAuthService,
+  }) : super(const AuthState.init()) {
     on<AuthEventSendPhone>((event, emit) async {
       if (firstSending) {
         emit(const AuthState.idle());

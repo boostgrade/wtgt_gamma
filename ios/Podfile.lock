@@ -1,10 +1,18 @@
 PODS:
+  - FBAEMKit (12.2.1):
+    - FBSDKCoreKit_Basics (= 12.2.1)
+  - FBSDKCoreKit (12.2.1):
+    - FBAEMKit (= 12.2.1)
+    - FBSDKCoreKit_Basics (= 12.2.1)
+  - FBSDKCoreKit_Basics (12.2.1)
+  - FBSDKLoginKit (12.2.1):
+    - FBSDKCoreKit (= 12.2.1)
   - Firebase/Auth (8.11.0):
     - Firebase/CoreOnly
     - FirebaseAuth (~> 8.11.0)
   - Firebase/CoreOnly (8.11.0):
     - FirebaseCore (= 8.11.0)
-  - firebase_auth (3.3.7):
+  - firebase_auth (3.3.6):
     - Firebase/Auth (= 8.11.0)
     - firebase_core
     - Flutter
@@ -26,6 +34,10 @@ PODS:
     - GoogleUtilities/Logger (~> 7.7)
     - nanopb (~> 2.30908.0)
   - Flutter (1.0.0)
+  - flutter_facebook_auth (3.5.3):
+    - FBSDKCoreKit (~> 12.2.1)
+    - FBSDKLoginKit (~> 12.2.1)
+    - Flutter
   - GoogleDataTransport (9.1.2):
     - GoogleUtilities/Environment (~> 7.2)
     - nanopb (~> 2.30908.0)
@@ -59,10 +71,15 @@ DEPENDENCIES:
   - firebase_auth (from `.symlinks/plugins/firebase_auth/ios`)
   - firebase_core (from `.symlinks/plugins/firebase_core/ios`)
   - Flutter (from `Flutter`)
+  - flutter_facebook_auth (from `.symlinks/plugins/flutter_facebook_auth/ios`)
   - path_provider_ios (from `.symlinks/plugins/path_provider_ios/ios`)
 
 SPEC REPOS:
   trunk:
+    - FBAEMKit
+    - FBSDKCoreKit
+    - FBSDKCoreKit_Basics
+    - FBSDKLoginKit
     - Firebase
     - FirebaseAuth
     - FirebaseCore
@@ -80,17 +97,24 @@ EXTERNAL SOURCES:
     :path: ".symlinks/plugins/firebase_core/ios"
   Flutter:
     :path: Flutter
+  flutter_facebook_auth:
+    :path: ".symlinks/plugins/flutter_facebook_auth/ios"
   path_provider_ios:
     :path: ".symlinks/plugins/path_provider_ios/ios"
 
 SPEC CHECKSUMS:
+  FBAEMKit: 4cea610d0bc1680572f2aad7b25db7a2f2690d82
+  FBSDKCoreKit: 5b1992fe65802ca26be7e68bc4fac5f59fa39908
+  FBSDKCoreKit_Basics: a6a92ca628e05f86f458a4721574c5ddfb058ba3
+  FBSDKLoginKit: 7467b7f988ca4fdf48f12a839bcfce4264752429
   Firebase: 44dd9724c84df18b486639e874f31436eaa9a20c
-  firebase_auth: 20bf788012988ef04ce608fada5b8d8cd1069302
+  firebase_auth: ccdb84a0d52a2d7897898ae8121689da6e13d71f
   firebase_core: 443bccfd6aa6b42f07be365b500773dc69db2d87
   FirebaseAuth: d96d73aba85d192d7a7aa0b86dd6d7f8ec170b4b
   FirebaseCore: 2f4f85b453cc8fea4bb2b37e370007d2bcafe3f0
   FirebaseCoreDiagnostics: 3b40dfadef5b90433a60ae01f01e90fe87aa76aa
   Flutter: 50d75fe2f02b26cc09d224853bb45737f8b3214a
+  flutter_facebook_auth: dbc47556cbdc61ced50e14473bd32461386a1425
   GoogleDataTransport: 629c20a4d363167143f30ea78320d5a7eb8bd940
   GoogleUtilities: e0913149f6b0625b553d70dae12b49fc62914fd1
   GTMSessionFetcher: 43748f93435c2aa068b1cbe39655aaf600652e91

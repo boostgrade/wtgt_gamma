@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
+import 'package:where_to_go_today/src/features/auth/services/facebook/facebook_auth_service.dart';
 import 'package:where_to_go_today/src/features/auth/sign_in/sotial_login_button.dart';
 import 'package:where_to_go_today/src/localization/l10n.dart';
 import 'package:where_to_go_today/src/res/asset.dart';
@@ -16,9 +17,12 @@ class _SignInScreenState extends State<SignInScreen> {
   late final MaskTextInputFormatter _maskFormatter;
   late bool _isValidPhone;
 
+  Map? userData;
+
   @override
   void initState() {
     super.initState();
+
     _maskFormatter = MaskTextInputFormatter(
       mask: '(###) ###-##-##',
     );
@@ -100,8 +104,9 @@ class _SignInScreenState extends State<SignInScreen> {
   }
 
   void _onFacebookLogin() {
-    // TODO(any): обработать нажатие на кнопку
     debugPrint('_onFacebookLogin()');
+
+    FacebookAuthService.login();
   }
 
   void _onVkontakteLogin() {
