@@ -21,7 +21,6 @@ class AppDependencies extends DependencyBundle {
   final dio = DioModule().dio;
   final settingsController = SettingsBloc(SettingsRepository());
   final tokenStorage = TokenStorage();
-  final authBloc = AuthBloc();
 
   late final authRepository = AuthRepository(AuthApi(dio));
   late final authBloc = AuthBloc(authRepository: authRepository);
