@@ -1,5 +1,7 @@
 # Changelog
 
+- feat: SignInScreenVm - add phone authorization
+
 ## 0.3.0
 
 - feat: SignInScreenVm
