@@ -1,17 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
-import 'package:provider/provider.dart';
-import 'package:where_to_go_today/src/core/ui/messages/types/error_snackbar.dart';
-import 'package:where_to_go_today/src/features/auth/sign_in/sotial_login_button.dart';
 import 'package:where_to_go_today/src/core/ui/base/view_model_disposer_mixin.dart';
 import 'package:where_to_go_today/src/features/auth/sign_in/sign_in_screen_vm.dart';
 import 'package:where_to_go_today/src/features/auth/sign_in/social_login_button.dart';
 import 'package:where_to_go_today/src/localization/l10n.dart';
 import 'package:where_to_go_today/src/res/asset.dart';
 import 'package:where_to_go_today/src/ui/uikit/wtgt_button.dart';
-
-import '../../../di/app_dependencies.dart';
 
 class SignInScreen extends StatefulWidget {
   final SignInScreenVm vm;
@@ -83,7 +78,7 @@ class _SignInScreenState extends State<SignInScreen>
                     ),
                     SocialLoginButton(
                       imageAsset: Asset.svg.iconVkontakte,
-                      onPressed: _onVkontakteLogin,
+                      onPressed: vm.signInWithVk,
                     ),
                     SocialLoginButton(
                       imageAsset: Asset.svg.iconGoogle,
@@ -119,21 +114,6 @@ class _SignInScreenState extends State<SignInScreen>
   void _onFacebookLogin() {
     // TODO(any): обработать нажатие на кнопку
     debugPrint('_onFacebookLogin()');
-  }
-
-  Future<void> _onVkontakteLogin() async {
-    // TODO(any): обработать нажатие на кнопку
-    debugPrint('_onVkontakteLogin()');
-    final token = await context.read<AppDependencies>().vkAuth.logIn();
-    if (token.isNotEmpty) {
-      debugPrint('Access token: $token');
-    } else {
-      if (!mounted) return;
-      context
-          .read<AppDependencies>()
-          .messageController
-          .show(ErrorSnackBar(context.l10n.authError));
-    }
   }
 
   void _validatePhone() {

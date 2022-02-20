@@ -24,7 +24,8 @@ class AppDependencies extends DependencyBundle {
   final vkAuth = VKAuth();
 
   late final authRepository = AuthRepository(AuthApi(dio));
-  late final authBloc = AuthBloc(authRepository: authRepository);
+  late final authBloc =
+      AuthBloc(authRepository: authRepository, vkAuth: vkAuth);
 
   late final messageController = DefaultMessageController();
   late final errorHandler = ScenarioErrorHandler(
