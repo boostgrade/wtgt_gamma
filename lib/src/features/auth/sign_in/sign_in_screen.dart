@@ -42,12 +42,6 @@ class _SignInScreenState extends State<SignInScreen>
   }
 
   @override
-  void dispose() {
-    debugPrint('SignInScreen dispose()');
-    super.dispose();
-  }
-
-  @override
   Widget build(BuildContext context) {
     return ReactionBuilder(
       builder: (_) => reaction<SignInVmState>(
@@ -117,9 +111,10 @@ class _SignInScreenState extends State<SignInScreen>
 
   void _vmStateHandler(SignInVmState state) {
     if (state == SignInVmState.needOtp) {
-      Routemaster.of(context).replace(CodeRoute.routeName);
+      Routemaster.of(context)
+          .replace('${CodeRoute.routeName}/$_fullPhoneNumber');
     }
-    if (state == SignInVmState.success) {
+    if (state == SignInVmState.successSocial) {
       Routemaster.of(context).replace(RegisterRoute.routeName);
     }
   }
@@ -133,6 +128,6 @@ class _SignInScreenState extends State<SignInScreen>
     final bottomPadding =
         screenHeight - topBlockHeight - bottomBlockHeight - viewInsets.bottom;
 
-    return max(24, bottomPadding);
+    return max(bottomPadding, 24);
   }
 }

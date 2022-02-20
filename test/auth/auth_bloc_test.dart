@@ -26,28 +26,28 @@ void main() {
     );
 
     blocTest<AuthBloc, AuthState>(
-      'Если повторно отправляем номер телефона, то сначала получаем загрузку, потом состояние успеха',
+      'Если повторно отправляем номер телефона, то сначала получаем загрузку, потом состояние состояние с необходимостью подтверждения',
       build: () => authBloc,
       act: (bloc) {
         bloc.add(const AuthEvent.sendPhone(''));
         bloc.add(const AuthEvent.sendPhone(''));
       },
       skip: 2,
-      expect: () => [const AuthState.idle(), const AuthState.success()],
+      expect: () => [const AuthState.idle(), const AuthState.needOtp()],
     );
 
     blocTest<AuthBloc, AuthState>(
       'Если отправляем смс-код, то сначала получаем загрузку, потом состояние успеха',
       build: () => authBloc,
       act: (bloc) => bloc.add(const AuthEvent.sendOtp('')),
-      expect: () => [const AuthState.idle(), const AuthState.success()],
+      expect: () => [const AuthState.idle(), const AuthState.successViaOtp()],
     );
 
     blocTest<AuthBloc, AuthState>(
       'Если отправляем событие входа через соц.сеть, то сначала получаем загрузку, потом состояние успеха',
       build: () => authBloc,
       act: (bloc) => bloc.add(const AuthEvent.loginViaFacebook()),
-      expect: () => [const AuthState.idle(), const AuthState.success()],
+      expect: () => [const AuthState.idle(), const AuthState.successViaSocial()],
     );
 
     blocTest<AuthBloc, AuthState>(
@@ -66,14 +66,14 @@ void main() {
           ),
         );
       },
-      expect: () => [const AuthState.idle(), const AuthState.success()],
+      expect: () => [const AuthState.idle(), const AuthState.register()],
     );
 
     blocTest<AuthBloc, AuthState>(
       'Если отправляем событие логаута, то сначала получаем загрузку, потом состояние успеха',
       build: () => authBloc,
       act: (bloc) => bloc.add(const AuthEvent.logout()),
-      expect: () => [const AuthState.idle(), const AuthState.success()],
+      expect: () => [const AuthState.idle(), const AuthState.logout()],
     );
   });
 }

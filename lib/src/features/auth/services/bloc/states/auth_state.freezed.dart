@@ -29,8 +29,20 @@ class _$AuthStateTearOff {
     return const AuthStateIdle();
   }
 
-  AuthStateSuccess success() {
-    return const AuthStateSuccess();
+  AuthStateSuccessViaSocial successViaSocial() {
+    return const AuthStateSuccessViaSocial();
+  }
+
+  AuthStateSuccessViaOtp successViaOtp() {
+    return const AuthStateSuccessViaOtp();
+  }
+
+  AuthStateRegister register() {
+    return const AuthStateRegister();
+  }
+
+  AuthStateLogout logout() {
+    return const AuthStateLogout();
   }
 
   AuthStateError error(dynamic error, StackTrace stackTrace) {
@@ -51,58 +63,71 @@ mixin _$AuthState {
     required TResult Function() init,
     required TResult Function() needOtp,
     required TResult Function() idle,
-    required TResult Function() success,
+    required TResult Function() successViaSocial,
+    required TResult Function() successViaOtp,
+    required TResult Function() register,
+    required TResult Function() logout,
     required TResult Function(dynamic error, StackTrace stackTrace) error,
   }) =>
       throw _privateConstructorUsedError;
-
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? init,
     TResult Function()? needOtp,
     TResult Function()? idle,
-    TResult Function()? success,
+    TResult Function()? successViaSocial,
+    TResult Function()? successViaOtp,
+    TResult Function()? register,
+    TResult Function()? logout,
     TResult Function(dynamic error, StackTrace stackTrace)? error,
   }) =>
       throw _privateConstructorUsedError;
-
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? init,
     TResult Function()? needOtp,
     TResult Function()? idle,
-    TResult Function()? success,
+    TResult Function()? successViaSocial,
+    TResult Function()? successViaOtp,
+    TResult Function()? register,
+    TResult Function()? logout,
     TResult Function(dynamic error, StackTrace stackTrace)? error,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
-
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(AuthStateInit value) init,
     required TResult Function(AuthStateNeedOtp value) needOtp,
     required TResult Function(AuthStateIdle value) idle,
-    required TResult Function(AuthStateSuccess value) success,
+    required TResult Function(AuthStateSuccessViaSocial value) successViaSocial,
+    required TResult Function(AuthStateSuccessViaOtp value) successViaOtp,
+    required TResult Function(AuthStateRegister value) register,
+    required TResult Function(AuthStateLogout value) logout,
     required TResult Function(AuthStateError value) error,
   }) =>
       throw _privateConstructorUsedError;
-
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(AuthStateInit value)? init,
     TResult Function(AuthStateNeedOtp value)? needOtp,
     TResult Function(AuthStateIdle value)? idle,
-    TResult Function(AuthStateSuccess value)? success,
+    TResult Function(AuthStateSuccessViaSocial value)? successViaSocial,
+    TResult Function(AuthStateSuccessViaOtp value)? successViaOtp,
+    TResult Function(AuthStateRegister value)? register,
+    TResult Function(AuthStateLogout value)? logout,
     TResult Function(AuthStateError value)? error,
   }) =>
       throw _privateConstructorUsedError;
-
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(AuthStateInit value)? init,
     TResult Function(AuthStateNeedOtp value)? needOtp,
     TResult Function(AuthStateIdle value)? idle,
-    TResult Function(AuthStateSuccess value)? success,
+    TResult Function(AuthStateSuccessViaSocial value)? successViaSocial,
+    TResult Function(AuthStateSuccessViaOtp value)? successViaOtp,
+    TResult Function(AuthStateRegister value)? register,
+    TResult Function(AuthStateLogout value)? logout,
     TResult Function(AuthStateError value)? error,
     required TResult orElse(),
   }) =>
@@ -120,7 +145,6 @@ class _$AuthStateCopyWithImpl<$Res> implements $AuthStateCopyWith<$Res> {
   _$AuthStateCopyWithImpl(this._value, this._then);
 
   final AuthState _value;
-
   // ignore: unused_field
   final $Res Function(AuthState) _then;
 }
@@ -168,7 +192,10 @@ class _$AuthStateInit implements AuthStateInit {
     required TResult Function() init,
     required TResult Function() needOtp,
     required TResult Function() idle,
-    required TResult Function() success,
+    required TResult Function() successViaSocial,
+    required TResult Function() successViaOtp,
+    required TResult Function() register,
+    required TResult Function() logout,
     required TResult Function(dynamic error, StackTrace stackTrace) error,
   }) {
     return init();
@@ -180,7 +207,10 @@ class _$AuthStateInit implements AuthStateInit {
     TResult Function()? init,
     TResult Function()? needOtp,
     TResult Function()? idle,
-    TResult Function()? success,
+    TResult Function()? successViaSocial,
+    TResult Function()? successViaOtp,
+    TResult Function()? register,
+    TResult Function()? logout,
     TResult Function(dynamic error, StackTrace stackTrace)? error,
   }) {
     return init?.call();
@@ -192,7 +222,10 @@ class _$AuthStateInit implements AuthStateInit {
     TResult Function()? init,
     TResult Function()? needOtp,
     TResult Function()? idle,
-    TResult Function()? success,
+    TResult Function()? successViaSocial,
+    TResult Function()? successViaOtp,
+    TResult Function()? register,
+    TResult Function()? logout,
     TResult Function(dynamic error, StackTrace stackTrace)? error,
     required TResult orElse(),
   }) {
@@ -208,7 +241,10 @@ class _$AuthStateInit implements AuthStateInit {
     required TResult Function(AuthStateInit value) init,
     required TResult Function(AuthStateNeedOtp value) needOtp,
     required TResult Function(AuthStateIdle value) idle,
-    required TResult Function(AuthStateSuccess value) success,
+    required TResult Function(AuthStateSuccessViaSocial value) successViaSocial,
+    required TResult Function(AuthStateSuccessViaOtp value) successViaOtp,
+    required TResult Function(AuthStateRegister value) register,
+    required TResult Function(AuthStateLogout value) logout,
     required TResult Function(AuthStateError value) error,
   }) {
     return init(this);
@@ -220,7 +256,10 @@ class _$AuthStateInit implements AuthStateInit {
     TResult Function(AuthStateInit value)? init,
     TResult Function(AuthStateNeedOtp value)? needOtp,
     TResult Function(AuthStateIdle value)? idle,
-    TResult Function(AuthStateSuccess value)? success,
+    TResult Function(AuthStateSuccessViaSocial value)? successViaSocial,
+    TResult Function(AuthStateSuccessViaOtp value)? successViaOtp,
+    TResult Function(AuthStateRegister value)? register,
+    TResult Function(AuthStateLogout value)? logout,
     TResult Function(AuthStateError value)? error,
   }) {
     return init?.call(this);
@@ -232,7 +271,10 @@ class _$AuthStateInit implements AuthStateInit {
     TResult Function(AuthStateInit value)? init,
     TResult Function(AuthStateNeedOtp value)? needOtp,
     TResult Function(AuthStateIdle value)? idle,
-    TResult Function(AuthStateSuccess value)? success,
+    TResult Function(AuthStateSuccessViaSocial value)? successViaSocial,
+    TResult Function(AuthStateSuccessViaOtp value)? successViaOtp,
+    TResult Function(AuthStateRegister value)? register,
+    TResult Function(AuthStateLogout value)? logout,
     TResult Function(AuthStateError value)? error,
     required TResult orElse(),
   }) {
@@ -290,7 +332,10 @@ class _$AuthStateNeedOtp implements AuthStateNeedOtp {
     required TResult Function() init,
     required TResult Function() needOtp,
     required TResult Function() idle,
-    required TResult Function() success,
+    required TResult Function() successViaSocial,
+    required TResult Function() successViaOtp,
+    required TResult Function() register,
+    required TResult Function() logout,
     required TResult Function(dynamic error, StackTrace stackTrace) error,
   }) {
     return needOtp();
@@ -302,7 +347,10 @@ class _$AuthStateNeedOtp implements AuthStateNeedOtp {
     TResult Function()? init,
     TResult Function()? needOtp,
     TResult Function()? idle,
-    TResult Function()? success,
+    TResult Function()? successViaSocial,
+    TResult Function()? successViaOtp,
+    TResult Function()? register,
+    TResult Function()? logout,
     TResult Function(dynamic error, StackTrace stackTrace)? error,
   }) {
     return needOtp?.call();
@@ -314,7 +362,10 @@ class _$AuthStateNeedOtp implements AuthStateNeedOtp {
     TResult Function()? init,
     TResult Function()? needOtp,
     TResult Function()? idle,
-    TResult Function()? success,
+    TResult Function()? successViaSocial,
+    TResult Function()? successViaOtp,
+    TResult Function()? register,
+    TResult Function()? logout,
     TResult Function(dynamic error, StackTrace stackTrace)? error,
     required TResult orElse(),
   }) {
@@ -330,7 +381,10 @@ class _$AuthStateNeedOtp implements AuthStateNeedOtp {
     required TResult Function(AuthStateInit value) init,
     required TResult Function(AuthStateNeedOtp value) needOtp,
     required TResult Function(AuthStateIdle value) idle,
-    required TResult Function(AuthStateSuccess value) success,
+    required TResult Function(AuthStateSuccessViaSocial value) successViaSocial,
+    required TResult Function(AuthStateSuccessViaOtp value) successViaOtp,
+    required TResult Function(AuthStateRegister value) register,
+    required TResult Function(AuthStateLogout value) logout,
     required TResult Function(AuthStateError value) error,
   }) {
     return needOtp(this);
@@ -342,7 +396,10 @@ class _$AuthStateNeedOtp implements AuthStateNeedOtp {
     TResult Function(AuthStateInit value)? init,
     TResult Function(AuthStateNeedOtp value)? needOtp,
     TResult Function(AuthStateIdle value)? idle,
-    TResult Function(AuthStateSuccess value)? success,
+    TResult Function(AuthStateSuccessViaSocial value)? successViaSocial,
+    TResult Function(AuthStateSuccessViaOtp value)? successViaOtp,
+    TResult Function(AuthStateRegister value)? register,
+    TResult Function(AuthStateLogout value)? logout,
     TResult Function(AuthStateError value)? error,
   }) {
     return needOtp?.call(this);
@@ -354,7 +411,10 @@ class _$AuthStateNeedOtp implements AuthStateNeedOtp {
     TResult Function(AuthStateInit value)? init,
     TResult Function(AuthStateNeedOtp value)? needOtp,
     TResult Function(AuthStateIdle value)? idle,
-    TResult Function(AuthStateSuccess value)? success,
+    TResult Function(AuthStateSuccessViaSocial value)? successViaSocial,
+    TResult Function(AuthStateSuccessViaOtp value)? successViaOtp,
+    TResult Function(AuthStateRegister value)? register,
+    TResult Function(AuthStateLogout value)? logout,
     TResult Function(AuthStateError value)? error,
     required TResult orElse(),
   }) {
@@ -412,7 +472,10 @@ class _$AuthStateIdle implements AuthStateIdle {
     required TResult Function() init,
     required TResult Function() needOtp,
     required TResult Function() idle,
-    required TResult Function() success,
+    required TResult Function() successViaSocial,
+    required TResult Function() successViaOtp,
+    required TResult Function() register,
+    required TResult Function() logout,
     required TResult Function(dynamic error, StackTrace stackTrace) error,
   }) {
     return idle();
@@ -424,7 +487,10 @@ class _$AuthStateIdle implements AuthStateIdle {
     TResult Function()? init,
     TResult Function()? needOtp,
     TResult Function()? idle,
-    TResult Function()? success,
+    TResult Function()? successViaSocial,
+    TResult Function()? successViaOtp,
+    TResult Function()? register,
+    TResult Function()? logout,
     TResult Function(dynamic error, StackTrace stackTrace)? error,
   }) {
     return idle?.call();
@@ -436,7 +502,10 @@ class _$AuthStateIdle implements AuthStateIdle {
     TResult Function()? init,
     TResult Function()? needOtp,
     TResult Function()? idle,
-    TResult Function()? success,
+    TResult Function()? successViaSocial,
+    TResult Function()? successViaOtp,
+    TResult Function()? register,
+    TResult Function()? logout,
     TResult Function(dynamic error, StackTrace stackTrace)? error,
     required TResult orElse(),
   }) {
@@ -452,7 +521,10 @@ class _$AuthStateIdle implements AuthStateIdle {
     required TResult Function(AuthStateInit value) init,
     required TResult Function(AuthStateNeedOtp value) needOtp,
     required TResult Function(AuthStateIdle value) idle,
-    required TResult Function(AuthStateSuccess value) success,
+    required TResult Function(AuthStateSuccessViaSocial value) successViaSocial,
+    required TResult Function(AuthStateSuccessViaOtp value) successViaOtp,
+    required TResult Function(AuthStateRegister value) register,
+    required TResult Function(AuthStateLogout value) logout,
     required TResult Function(AuthStateError value) error,
   }) {
     return idle(this);
@@ -464,7 +536,10 @@ class _$AuthStateIdle implements AuthStateIdle {
     TResult Function(AuthStateInit value)? init,
     TResult Function(AuthStateNeedOtp value)? needOtp,
     TResult Function(AuthStateIdle value)? idle,
-    TResult Function(AuthStateSuccess value)? success,
+    TResult Function(AuthStateSuccessViaSocial value)? successViaSocial,
+    TResult Function(AuthStateSuccessViaOtp value)? successViaOtp,
+    TResult Function(AuthStateRegister value)? register,
+    TResult Function(AuthStateLogout value)? logout,
     TResult Function(AuthStateError value)? error,
   }) {
     return idle?.call(this);
@@ -476,7 +551,10 @@ class _$AuthStateIdle implements AuthStateIdle {
     TResult Function(AuthStateInit value)? init,
     TResult Function(AuthStateNeedOtp value)? needOtp,
     TResult Function(AuthStateIdle value)? idle,
-    TResult Function(AuthStateSuccess value)? success,
+    TResult Function(AuthStateSuccessViaSocial value)? successViaSocial,
+    TResult Function(AuthStateSuccessViaOtp value)? successViaOtp,
+    TResult Function(AuthStateRegister value)? register,
+    TResult Function(AuthStateLogout value)? logout,
     TResult Function(AuthStateError value)? error,
     required TResult orElse(),
   }) {
@@ -492,37 +570,40 @@ abstract class AuthStateIdle implements AuthState {
 }
 
 /// @nodoc
-abstract class $AuthStateSuccessCopyWith<$Res> {
-  factory $AuthStateSuccessCopyWith(
-          AuthStateSuccess value, $Res Function(AuthStateSuccess) then) =
-      _$AuthStateSuccessCopyWithImpl<$Res>;
+abstract class $AuthStateSuccessViaSocialCopyWith<$Res> {
+  factory $AuthStateSuccessViaSocialCopyWith(AuthStateSuccessViaSocial value,
+          $Res Function(AuthStateSuccessViaSocial) then) =
+      _$AuthStateSuccessViaSocialCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class _$AuthStateSuccessCopyWithImpl<$Res> extends _$AuthStateCopyWithImpl<$Res>
-    implements $AuthStateSuccessCopyWith<$Res> {
-  _$AuthStateSuccessCopyWithImpl(
-      AuthStateSuccess _value, $Res Function(AuthStateSuccess) _then)
-      : super(_value, (v) => _then(v as AuthStateSuccess));
+class _$AuthStateSuccessViaSocialCopyWithImpl<$Res>
+    extends _$AuthStateCopyWithImpl<$Res>
+    implements $AuthStateSuccessViaSocialCopyWith<$Res> {
+  _$AuthStateSuccessViaSocialCopyWithImpl(AuthStateSuccessViaSocial _value,
+      $Res Function(AuthStateSuccessViaSocial) _then)
+      : super(_value, (v) => _then(v as AuthStateSuccessViaSocial));
 
   @override
-  AuthStateSuccess get _value => super._value as AuthStateSuccess;
+  AuthStateSuccessViaSocial get _value =>
+      super._value as AuthStateSuccessViaSocial;
 }
 
 /// @nodoc
 
-class _$AuthStateSuccess implements AuthStateSuccess {
-  const _$AuthStateSuccess();
+class _$AuthStateSuccessViaSocial implements AuthStateSuccessViaSocial {
+  const _$AuthStateSuccessViaSocial();
 
   @override
   String toString() {
-    return 'AuthState.success()';
+    return 'AuthState.successViaSocial()';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is AuthStateSuccess);
+        (other.runtimeType == runtimeType &&
+            other is AuthStateSuccessViaSocial);
   }
 
   @override
@@ -534,10 +615,13 @@ class _$AuthStateSuccess implements AuthStateSuccess {
     required TResult Function() init,
     required TResult Function() needOtp,
     required TResult Function() idle,
-    required TResult Function() success,
+    required TResult Function() successViaSocial,
+    required TResult Function() successViaOtp,
+    required TResult Function() register,
+    required TResult Function() logout,
     required TResult Function(dynamic error, StackTrace stackTrace) error,
   }) {
-    return success();
+    return successViaSocial();
   }
 
   @override
@@ -546,10 +630,13 @@ class _$AuthStateSuccess implements AuthStateSuccess {
     TResult Function()? init,
     TResult Function()? needOtp,
     TResult Function()? idle,
-    TResult Function()? success,
+    TResult Function()? successViaSocial,
+    TResult Function()? successViaOtp,
+    TResult Function()? register,
+    TResult Function()? logout,
     TResult Function(dynamic error, StackTrace stackTrace)? error,
   }) {
-    return success?.call();
+    return successViaSocial?.call();
   }
 
   @override
@@ -558,12 +645,15 @@ class _$AuthStateSuccess implements AuthStateSuccess {
     TResult Function()? init,
     TResult Function()? needOtp,
     TResult Function()? idle,
-    TResult Function()? success,
+    TResult Function()? successViaSocial,
+    TResult Function()? successViaOtp,
+    TResult Function()? register,
+    TResult Function()? logout,
     TResult Function(dynamic error, StackTrace stackTrace)? error,
     required TResult orElse(),
   }) {
-    if (success != null) {
-      return success();
+    if (successViaSocial != null) {
+      return successViaSocial();
     }
     return orElse();
   }
@@ -574,10 +664,13 @@ class _$AuthStateSuccess implements AuthStateSuccess {
     required TResult Function(AuthStateInit value) init,
     required TResult Function(AuthStateNeedOtp value) needOtp,
     required TResult Function(AuthStateIdle value) idle,
-    required TResult Function(AuthStateSuccess value) success,
+    required TResult Function(AuthStateSuccessViaSocial value) successViaSocial,
+    required TResult Function(AuthStateSuccessViaOtp value) successViaOtp,
+    required TResult Function(AuthStateRegister value) register,
+    required TResult Function(AuthStateLogout value) logout,
     required TResult Function(AuthStateError value) error,
   }) {
-    return success(this);
+    return successViaSocial(this);
   }
 
   @override
@@ -586,10 +679,13 @@ class _$AuthStateSuccess implements AuthStateSuccess {
     TResult Function(AuthStateInit value)? init,
     TResult Function(AuthStateNeedOtp value)? needOtp,
     TResult Function(AuthStateIdle value)? idle,
-    TResult Function(AuthStateSuccess value)? success,
+    TResult Function(AuthStateSuccessViaSocial value)? successViaSocial,
+    TResult Function(AuthStateSuccessViaOtp value)? successViaOtp,
+    TResult Function(AuthStateRegister value)? register,
+    TResult Function(AuthStateLogout value)? logout,
     TResult Function(AuthStateError value)? error,
   }) {
-    return success?.call(this);
+    return successViaSocial?.call(this);
   }
 
   @override
@@ -598,19 +694,444 @@ class _$AuthStateSuccess implements AuthStateSuccess {
     TResult Function(AuthStateInit value)? init,
     TResult Function(AuthStateNeedOtp value)? needOtp,
     TResult Function(AuthStateIdle value)? idle,
-    TResult Function(AuthStateSuccess value)? success,
+    TResult Function(AuthStateSuccessViaSocial value)? successViaSocial,
+    TResult Function(AuthStateSuccessViaOtp value)? successViaOtp,
+    TResult Function(AuthStateRegister value)? register,
+    TResult Function(AuthStateLogout value)? logout,
     TResult Function(AuthStateError value)? error,
     required TResult orElse(),
   }) {
-    if (success != null) {
-      return success(this);
+    if (successViaSocial != null) {
+      return successViaSocial(this);
     }
     return orElse();
   }
 }
 
-abstract class AuthStateSuccess implements AuthState {
-  const factory AuthStateSuccess() = _$AuthStateSuccess;
+abstract class AuthStateSuccessViaSocial implements AuthState {
+  const factory AuthStateSuccessViaSocial() = _$AuthStateSuccessViaSocial;
+}
+
+/// @nodoc
+abstract class $AuthStateSuccessViaOtpCopyWith<$Res> {
+  factory $AuthStateSuccessViaOtpCopyWith(AuthStateSuccessViaOtp value,
+          $Res Function(AuthStateSuccessViaOtp) then) =
+      _$AuthStateSuccessViaOtpCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class _$AuthStateSuccessViaOtpCopyWithImpl<$Res>
+    extends _$AuthStateCopyWithImpl<$Res>
+    implements $AuthStateSuccessViaOtpCopyWith<$Res> {
+  _$AuthStateSuccessViaOtpCopyWithImpl(AuthStateSuccessViaOtp _value,
+      $Res Function(AuthStateSuccessViaOtp) _then)
+      : super(_value, (v) => _then(v as AuthStateSuccessViaOtp));
+
+  @override
+  AuthStateSuccessViaOtp get _value => super._value as AuthStateSuccessViaOtp;
+}
+
+/// @nodoc
+
+class _$AuthStateSuccessViaOtp implements AuthStateSuccessViaOtp {
+  const _$AuthStateSuccessViaOtp();
+
+  @override
+  String toString() {
+    return 'AuthState.successViaOtp()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is AuthStateSuccessViaOtp);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() init,
+    required TResult Function() needOtp,
+    required TResult Function() idle,
+    required TResult Function() successViaSocial,
+    required TResult Function() successViaOtp,
+    required TResult Function() register,
+    required TResult Function() logout,
+    required TResult Function(dynamic error, StackTrace stackTrace) error,
+  }) {
+    return successViaOtp();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? init,
+    TResult Function()? needOtp,
+    TResult Function()? idle,
+    TResult Function()? successViaSocial,
+    TResult Function()? successViaOtp,
+    TResult Function()? register,
+    TResult Function()? logout,
+    TResult Function(dynamic error, StackTrace stackTrace)? error,
+  }) {
+    return successViaOtp?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? init,
+    TResult Function()? needOtp,
+    TResult Function()? idle,
+    TResult Function()? successViaSocial,
+    TResult Function()? successViaOtp,
+    TResult Function()? register,
+    TResult Function()? logout,
+    TResult Function(dynamic error, StackTrace stackTrace)? error,
+    required TResult orElse(),
+  }) {
+    if (successViaOtp != null) {
+      return successViaOtp();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(AuthStateInit value) init,
+    required TResult Function(AuthStateNeedOtp value) needOtp,
+    required TResult Function(AuthStateIdle value) idle,
+    required TResult Function(AuthStateSuccessViaSocial value) successViaSocial,
+    required TResult Function(AuthStateSuccessViaOtp value) successViaOtp,
+    required TResult Function(AuthStateRegister value) register,
+    required TResult Function(AuthStateLogout value) logout,
+    required TResult Function(AuthStateError value) error,
+  }) {
+    return successViaOtp(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(AuthStateInit value)? init,
+    TResult Function(AuthStateNeedOtp value)? needOtp,
+    TResult Function(AuthStateIdle value)? idle,
+    TResult Function(AuthStateSuccessViaSocial value)? successViaSocial,
+    TResult Function(AuthStateSuccessViaOtp value)? successViaOtp,
+    TResult Function(AuthStateRegister value)? register,
+    TResult Function(AuthStateLogout value)? logout,
+    TResult Function(AuthStateError value)? error,
+  }) {
+    return successViaOtp?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(AuthStateInit value)? init,
+    TResult Function(AuthStateNeedOtp value)? needOtp,
+    TResult Function(AuthStateIdle value)? idle,
+    TResult Function(AuthStateSuccessViaSocial value)? successViaSocial,
+    TResult Function(AuthStateSuccessViaOtp value)? successViaOtp,
+    TResult Function(AuthStateRegister value)? register,
+    TResult Function(AuthStateLogout value)? logout,
+    TResult Function(AuthStateError value)? error,
+    required TResult orElse(),
+  }) {
+    if (successViaOtp != null) {
+      return successViaOtp(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class AuthStateSuccessViaOtp implements AuthState {
+  const factory AuthStateSuccessViaOtp() = _$AuthStateSuccessViaOtp;
+}
+
+/// @nodoc
+abstract class $AuthStateRegisterCopyWith<$Res> {
+  factory $AuthStateRegisterCopyWith(
+          AuthStateRegister value, $Res Function(AuthStateRegister) then) =
+      _$AuthStateRegisterCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class _$AuthStateRegisterCopyWithImpl<$Res>
+    extends _$AuthStateCopyWithImpl<$Res>
+    implements $AuthStateRegisterCopyWith<$Res> {
+  _$AuthStateRegisterCopyWithImpl(
+      AuthStateRegister _value, $Res Function(AuthStateRegister) _then)
+      : super(_value, (v) => _then(v as AuthStateRegister));
+
+  @override
+  AuthStateRegister get _value => super._value as AuthStateRegister;
+}
+
+/// @nodoc
+
+class _$AuthStateRegister implements AuthStateRegister {
+  const _$AuthStateRegister();
+
+  @override
+  String toString() {
+    return 'AuthState.register()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is AuthStateRegister);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() init,
+    required TResult Function() needOtp,
+    required TResult Function() idle,
+    required TResult Function() successViaSocial,
+    required TResult Function() successViaOtp,
+    required TResult Function() register,
+    required TResult Function() logout,
+    required TResult Function(dynamic error, StackTrace stackTrace) error,
+  }) {
+    return register();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? init,
+    TResult Function()? needOtp,
+    TResult Function()? idle,
+    TResult Function()? successViaSocial,
+    TResult Function()? successViaOtp,
+    TResult Function()? register,
+    TResult Function()? logout,
+    TResult Function(dynamic error, StackTrace stackTrace)? error,
+  }) {
+    return register?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? init,
+    TResult Function()? needOtp,
+    TResult Function()? idle,
+    TResult Function()? successViaSocial,
+    TResult Function()? successViaOtp,
+    TResult Function()? register,
+    TResult Function()? logout,
+    TResult Function(dynamic error, StackTrace stackTrace)? error,
+    required TResult orElse(),
+  }) {
+    if (register != null) {
+      return register();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(AuthStateInit value) init,
+    required TResult Function(AuthStateNeedOtp value) needOtp,
+    required TResult Function(AuthStateIdle value) idle,
+    required TResult Function(AuthStateSuccessViaSocial value) successViaSocial,
+    required TResult Function(AuthStateSuccessViaOtp value) successViaOtp,
+    required TResult Function(AuthStateRegister value) register,
+    required TResult Function(AuthStateLogout value) logout,
+    required TResult Function(AuthStateError value) error,
+  }) {
+    return register(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(AuthStateInit value)? init,
+    TResult Function(AuthStateNeedOtp value)? needOtp,
+    TResult Function(AuthStateIdle value)? idle,
+    TResult Function(AuthStateSuccessViaSocial value)? successViaSocial,
+    TResult Function(AuthStateSuccessViaOtp value)? successViaOtp,
+    TResult Function(AuthStateRegister value)? register,
+    TResult Function(AuthStateLogout value)? logout,
+    TResult Function(AuthStateError value)? error,
+  }) {
+    return register?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(AuthStateInit value)? init,
+    TResult Function(AuthStateNeedOtp value)? needOtp,
+    TResult Function(AuthStateIdle value)? idle,
+    TResult Function(AuthStateSuccessViaSocial value)? successViaSocial,
+    TResult Function(AuthStateSuccessViaOtp value)? successViaOtp,
+    TResult Function(AuthStateRegister value)? register,
+    TResult Function(AuthStateLogout value)? logout,
+    TResult Function(AuthStateError value)? error,
+    required TResult orElse(),
+  }) {
+    if (register != null) {
+      return register(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class AuthStateRegister implements AuthState {
+  const factory AuthStateRegister() = _$AuthStateRegister;
+}
+
+/// @nodoc
+abstract class $AuthStateLogoutCopyWith<$Res> {
+  factory $AuthStateLogoutCopyWith(
+          AuthStateLogout value, $Res Function(AuthStateLogout) then) =
+      _$AuthStateLogoutCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class _$AuthStateLogoutCopyWithImpl<$Res> extends _$AuthStateCopyWithImpl<$Res>
+    implements $AuthStateLogoutCopyWith<$Res> {
+  _$AuthStateLogoutCopyWithImpl(
+      AuthStateLogout _value, $Res Function(AuthStateLogout) _then)
+      : super(_value, (v) => _then(v as AuthStateLogout));
+
+  @override
+  AuthStateLogout get _value => super._value as AuthStateLogout;
+}
+
+/// @nodoc
+
+class _$AuthStateLogout implements AuthStateLogout {
+  const _$AuthStateLogout();
+
+  @override
+  String toString() {
+    return 'AuthState.logout()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is AuthStateLogout);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() init,
+    required TResult Function() needOtp,
+    required TResult Function() idle,
+    required TResult Function() successViaSocial,
+    required TResult Function() successViaOtp,
+    required TResult Function() register,
+    required TResult Function() logout,
+    required TResult Function(dynamic error, StackTrace stackTrace) error,
+  }) {
+    return logout();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? init,
+    TResult Function()? needOtp,
+    TResult Function()? idle,
+    TResult Function()? successViaSocial,
+    TResult Function()? successViaOtp,
+    TResult Function()? register,
+    TResult Function()? logout,
+    TResult Function(dynamic error, StackTrace stackTrace)? error,
+  }) {
+    return logout?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? init,
+    TResult Function()? needOtp,
+    TResult Function()? idle,
+    TResult Function()? successViaSocial,
+    TResult Function()? successViaOtp,
+    TResult Function()? register,
+    TResult Function()? logout,
+    TResult Function(dynamic error, StackTrace stackTrace)? error,
+    required TResult orElse(),
+  }) {
+    if (logout != null) {
+      return logout();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(AuthStateInit value) init,
+    required TResult Function(AuthStateNeedOtp value) needOtp,
+    required TResult Function(AuthStateIdle value) idle,
+    required TResult Function(AuthStateSuccessViaSocial value) successViaSocial,
+    required TResult Function(AuthStateSuccessViaOtp value) successViaOtp,
+    required TResult Function(AuthStateRegister value) register,
+    required TResult Function(AuthStateLogout value) logout,
+    required TResult Function(AuthStateError value) error,
+  }) {
+    return logout(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(AuthStateInit value)? init,
+    TResult Function(AuthStateNeedOtp value)? needOtp,
+    TResult Function(AuthStateIdle value)? idle,
+    TResult Function(AuthStateSuccessViaSocial value)? successViaSocial,
+    TResult Function(AuthStateSuccessViaOtp value)? successViaOtp,
+    TResult Function(AuthStateRegister value)? register,
+    TResult Function(AuthStateLogout value)? logout,
+    TResult Function(AuthStateError value)? error,
+  }) {
+    return logout?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(AuthStateInit value)? init,
+    TResult Function(AuthStateNeedOtp value)? needOtp,
+    TResult Function(AuthStateIdle value)? idle,
+    TResult Function(AuthStateSuccessViaSocial value)? successViaSocial,
+    TResult Function(AuthStateSuccessViaOtp value)? successViaOtp,
+    TResult Function(AuthStateRegister value)? register,
+    TResult Function(AuthStateLogout value)? logout,
+    TResult Function(AuthStateError value)? error,
+    required TResult orElse(),
+  }) {
+    if (logout != null) {
+      return logout(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class AuthStateLogout implements AuthState {
+  const factory AuthStateLogout() = _$AuthStateLogout;
 }
 
 /// @nodoc
@@ -618,7 +1139,6 @@ abstract class $AuthStateErrorCopyWith<$Res> {
   factory $AuthStateErrorCopyWith(
           AuthStateError value, $Res Function(AuthStateError) then) =
       _$AuthStateErrorCopyWithImpl<$Res>;
-
   $Res call({dynamic error, StackTrace stackTrace});
 }
 
@@ -692,7 +1212,10 @@ class _$AuthStateError implements AuthStateError {
     required TResult Function() init,
     required TResult Function() needOtp,
     required TResult Function() idle,
-    required TResult Function() success,
+    required TResult Function() successViaSocial,
+    required TResult Function() successViaOtp,
+    required TResult Function() register,
+    required TResult Function() logout,
     required TResult Function(dynamic error, StackTrace stackTrace) error,
   }) {
     return error(this.error, stackTrace);
@@ -704,7 +1227,10 @@ class _$AuthStateError implements AuthStateError {
     TResult Function()? init,
     TResult Function()? needOtp,
     TResult Function()? idle,
-    TResult Function()? success,
+    TResult Function()? successViaSocial,
+    TResult Function()? successViaOtp,
+    TResult Function()? register,
+    TResult Function()? logout,
     TResult Function(dynamic error, StackTrace stackTrace)? error,
   }) {
     return error?.call(this.error, stackTrace);
@@ -716,7 +1242,10 @@ class _$AuthStateError implements AuthStateError {
     TResult Function()? init,
     TResult Function()? needOtp,
     TResult Function()? idle,
-    TResult Function()? success,
+    TResult Function()? successViaSocial,
+    TResult Function()? successViaOtp,
+    TResult Function()? register,
+    TResult Function()? logout,
     TResult Function(dynamic error, StackTrace stackTrace)? error,
     required TResult orElse(),
   }) {
@@ -732,7 +1261,10 @@ class _$AuthStateError implements AuthStateError {
     required TResult Function(AuthStateInit value) init,
     required TResult Function(AuthStateNeedOtp value) needOtp,
     required TResult Function(AuthStateIdle value) idle,
-    required TResult Function(AuthStateSuccess value) success,
+    required TResult Function(AuthStateSuccessViaSocial value) successViaSocial,
+    required TResult Function(AuthStateSuccessViaOtp value) successViaOtp,
+    required TResult Function(AuthStateRegister value) register,
+    required TResult Function(AuthStateLogout value) logout,
     required TResult Function(AuthStateError value) error,
   }) {
     return error(this);
@@ -744,7 +1276,10 @@ class _$AuthStateError implements AuthStateError {
     TResult Function(AuthStateInit value)? init,
     TResult Function(AuthStateNeedOtp value)? needOtp,
     TResult Function(AuthStateIdle value)? idle,
-    TResult Function(AuthStateSuccess value)? success,
+    TResult Function(AuthStateSuccessViaSocial value)? successViaSocial,
+    TResult Function(AuthStateSuccessViaOtp value)? successViaOtp,
+    TResult Function(AuthStateRegister value)? register,
+    TResult Function(AuthStateLogout value)? logout,
     TResult Function(AuthStateError value)? error,
   }) {
     return error?.call(this);
@@ -756,7 +1291,10 @@ class _$AuthStateError implements AuthStateError {
     TResult Function(AuthStateInit value)? init,
     TResult Function(AuthStateNeedOtp value)? needOtp,
     TResult Function(AuthStateIdle value)? idle,
-    TResult Function(AuthStateSuccess value)? success,
+    TResult Function(AuthStateSuccessViaSocial value)? successViaSocial,
+    TResult Function(AuthStateSuccessViaOtp value)? successViaOtp,
+    TResult Function(AuthStateRegister value)? register,
+    TResult Function(AuthStateLogout value)? logout,
     TResult Function(AuthStateError value)? error,
     required TResult orElse(),
   }) {
@@ -773,9 +1311,7 @@ abstract class AuthStateError implements AuthState {
 
 // ignore: avoid_annotating_with_dynamic
   dynamic get error;
-
   StackTrace get stackTrace;
-
   @JsonKey(ignore: true)
   $AuthStateErrorCopyWith<AuthStateError> get copyWith =>
       throw _privateConstructorUsedError;

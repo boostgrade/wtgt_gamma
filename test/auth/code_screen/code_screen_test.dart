@@ -2,10 +2,14 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:golden_toolkit/golden_toolkit.dart';
+import 'package:where_to_go_today/src/di/app_dependencies.dart';
 import 'package:where_to_go_today/src/features/auth/code/code_screen.dart';
+import 'package:where_to_go_today/src/features/auth/code/code_vm.dart';
 import 'package:where_to_go_today/src/res/theme/app_theme.dart';
 
 void main() {
+  final di = AppDependencies();
+
   testGoldens(
     'Code screen test',
     (tester) async {
@@ -18,7 +22,13 @@ void main() {
             GlobalCupertinoLocalizations.delegate,
           ],
           locale: const Locale('ru'),
-          child: const CodeScreen(),
+          child: CodeScreen(
+            vm: CodeVm(
+              di.authBloc,
+              errorHandler: di.errorHandler,
+            ),
+            phone: '',
+          ),
         ),
         wrapper: materialAppWrapper(theme: AppTheme.lightTheme),
       );
