@@ -3,6 +3,4 @@
    <string name="app_name">wtgt_auth</string>
    <string name="facebook_app_id">321585666565525</string>
    <string name="fb_login_protocol_scheme">fb321585666565525</string>
-   <string name="facebook_client_token">c1ddc3aaa8607457d313fcb27f253a6d</string>
-
 </resources>

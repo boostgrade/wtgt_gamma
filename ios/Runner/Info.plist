@@ -7,7 +7,7 @@
 			<dict>
 				<key>CFBundleURLSchemes</key>
 				<array>
-					<string>321585666565525</string>
+					<string>fb321585666565525</string>
 				</array>
 			</dict>
 		</array>
@@ -31,7 +31,9 @@
 			<string>fbapi20150629</string>
 			<string>fbapi20160328</string>
 			<string>fbauth</string>
+			<string>fb-messenger-share-api</string>
 			<string>fbauth2</string>
+			<string>fbshareextension</string>
 		</array>
 		<key>CFBundleDevelopmentRegion</key>
 		<string>$(DEVELOPMENT_LANGUAGE)</string>

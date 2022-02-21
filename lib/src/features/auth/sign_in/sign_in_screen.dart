@@ -39,9 +39,9 @@ class _SignInScreenState extends State<SignInScreen>
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        body: SingleChildScrollView(
+    return Scaffold(
+      body: SafeArea(
+        child: SingleChildScrollView(
           padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
           child: Observer(
             builder: (_) => Column(
@@ -76,7 +76,7 @@ class _SignInScreenState extends State<SignInScreen>
                   children: [
                     SocialLoginButton(
                       imageAsset: Asset.svg.iconFacebook,
-                      onPressed: _onFacebookLogin,
+                      onPressed: vm.signInWithFacebook,
                     ),
                     SocialLoginButton(
                       imageAsset: Asset.svg.iconVkontakte,
@@ -111,12 +111,6 @@ class _SignInScreenState extends State<SignInScreen>
   void _onSendCode() {
     // TODO(any): обработать нажатие на кнопку
     debugPrint('Phone number = +7${_maskFormatter.getUnmaskedText()}');
-  }
-
-  void _onFacebookLogin() {
-    debugPrint('_onFacebookLogin()');
-
-    FacebookAuthService.login();
   }
 
   void _onVkontakteLogin() {

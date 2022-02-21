@@ -1,8 +1,10 @@
 import 'package:bloc/bloc.dart';
+import 'package:flutter/services.dart';
 import 'package:where_to_go_today/src/core/services/base/can_throw_exception_bloc_mixin.dart';
 import 'package:where_to_go_today/src/features/auth/services/bloc/events/auth_event.dart';
 import 'package:where_to_go_today/src/features/auth/services/bloc/states/auth_state.dart';
 import 'package:where_to_go_today/src/features/auth/services/facebook/facebook_auth_service.dart';
+import 'package:where_to_go_today/src/features/authapi/models/requests/meta_login_request.dart';
 import 'package:where_to_go_today/src/features/authservices/repository/auth_repository.dart';
 
 /// Сервис позволяющий:
@@ -46,12 +48,17 @@ class AuthBloc extends Bloc<AuthEvent, AuthState>
     on<AuthEventLoginViaFacebook>((event, emit) async {
       emit(const AuthState.idle());
 
-      // final token = await facebookAuthService.login();
+      try {
+        final token = await facebookAuthService.login();
 
-      // // ignore: avoid_print
-      // print(token);
+        if (token != null && token.isNotEmpty) {
+          await authRepository.loginWithMeta(MetaLoginRequest(token: token));
 
-      emit(const AuthState.success());
+          emit(const AuthState.success());
+        }
+      } on PlatformException catch (e, stackTrace) {
+        emit(AuthState.error(e, stackTrace));
+      }
     });
 
     on<AuthEventLoginViaVkontakte>((event, emit) async {

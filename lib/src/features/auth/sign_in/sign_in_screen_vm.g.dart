@@ -24,6 +24,17 @@ mixin _$SignInScreenVm on _SignInScreenVm, Store {
   }
 
   @override
+  void signInWithFacebook() {
+    final _$actionInfo = _$_SignInScreenVmActionController.startAction(
+        name: '_SignInScreenVm.signInWithFacebook');
+    try {
+      return super.signInWithFacebook();
+    } finally {
+      _$_SignInScreenVmActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
   String toString() {
     return '''
 

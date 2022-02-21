@@ -20,6 +20,7 @@ dependencies:
   firebase_core_web: ^1.5.4
   flutter:
     sdk: flutter
+  flutter_facebook_auth: ^4.1.1
   flutter_localizations:
     sdk: flutter
   flutter_mobx: ^2.0.0
@@ -42,7 +43,7 @@ dev_dependencies:
   bloc_test: ^9.0.0
   build_runner: ^2.1.2
   dart_code_metrics: ^4.9.1
-  flutter_facebook_auth: ^4.0.1
+
   flutter_lints: ^1.0.0
   flutter_test:
     sdk: flutter
