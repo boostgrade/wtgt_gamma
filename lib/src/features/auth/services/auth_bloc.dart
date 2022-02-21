@@ -1,4 +1,5 @@
 import 'package:bloc/bloc.dart';
+import 'package:where_to_go_today/src/core/services/base/can_throw_exception_bloc_mixin.dart';
 import 'package:where_to_go_today/src/features/auth/services/bloc/events/auth_event.dart';
 import 'package:where_to_go_today/src/features/auth/services/bloc/states/auth_state.dart';
 import 'package:where_to_go_today/src/features/auth/services/facebook/facebook_auth_service.dart';
@@ -11,9 +12,11 @@ import 'package:where_to_go_today/src/features/authservices/repository/auth_repo
 ///   - провести заполнение данных профиля при регистрации
 ///   - произвести логаут
 ///
-class AuthBloc extends Bloc<AuthEvent, AuthState> {
-  final FacebookAuthService facebookAuthService;
+
+class AuthBloc extends Bloc<AuthEvent, AuthState>
+    with CanThrowExceptionBlocMixin {
   final AuthRepository authRepository;
+  final FacebookAuthService facebookAuthService;
 
   bool firstSending = true;
 
@@ -52,10 +55,17 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
       emit(const AuthState.success());
     });
 
+    // Пример обработчика в блоке
     on<AuthEventLoginViaGoogle>((event, emit) async {
-      emit(const AuthState.idle());
-      // TODO(any): handle incoming `AuthEventLoginViaGoogle` event
-      emit(const AuthState.success());
+      try {
+        emit(const AuthState.idle());
+
+        // TODO(Denis): отправить запрос в сервис google и передать токен в репозиторий
+
+        emit(const AuthState.success());
+      } on Exception catch (e, s) {
+        emit(AuthState.error(e, s));
+      }
     });
 
     on<AuthEventRegister>((event, emit) async {

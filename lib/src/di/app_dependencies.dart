@@ -13,6 +13,7 @@ import 'package:where_to_go_today/src/features/settings/service/repository/setti
 import 'package:where_to_go_today/src/features/settings/service/settings_bloc.dart';
 
 import '../core/services/network/firebase_options.dart';
+import '../features/auth/services/auth_bloc.dart';
 import 'base/dependency_bundle.dart';
 
 /// Класс с глобальными зависимостями приложения
@@ -28,6 +29,9 @@ class AppDependencies extends DependencyBundle {
     facebookAuthService: facebookAuthService,
     authRepository: authRepository,
   );
+
+  late final authRepository = AuthRepository(AuthApi(dio));
+  late final authBloc = AuthBloc(authRepository: authRepository);
 
   late final messageController = DefaultMessageController();
   late final errorHandler = ScenarioErrorHandler(
