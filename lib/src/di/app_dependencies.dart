@@ -30,9 +30,6 @@ class AppDependencies extends DependencyBundle {
     authRepository: authRepository,
   );
 
-  late final authRepository = AuthRepository(AuthApi(dio));
-  late final authBloc = AuthBloc(authRepository: authRepository);
-
   late final messageController = DefaultMessageController();
   late final errorHandler = ScenarioErrorHandler(
     SnackBarErrorScenarios(

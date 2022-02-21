@@ -45,7 +45,12 @@ class AuthBloc extends Bloc<AuthEvent, AuthState>
 
     on<AuthEventLoginViaFacebook>((event, emit) async {
       emit(const AuthState.idle());
-      // TODO(any): handle incoming `AuthEventLoginViaFacebook` event
+
+      // final token = await facebookAuthService.login();
+
+      // // ignore: avoid_print
+      // print(token);
+
       emit(const AuthState.success());
     });
 

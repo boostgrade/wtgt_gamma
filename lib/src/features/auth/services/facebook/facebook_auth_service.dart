@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
 
@@ -7,17 +8,20 @@ class FacebookAuthService {
       permissions: ['public_profile', 'email'],
     );
 
-    if (result.status == LoginStatus.success) {
-      final requestData = await FacebookAuth.i.getUserData(
-        fields: 'email, name',
-      );
+    // ignore: avoid_print
+    print(result);
 
-      debugPrint(requestData.toString());
+    // if (result.status == LoginStatus.success) {
+    //   final requestData = await FacebookAuth.i.getUserData(
+    //     fields: 'email, name',
+    //   );
 
-      return requestData;
-    }
+    //   debugPrint(requestData.toString());
 
-    return null;
+    //   return requestData;
+    // }
+
+    // return null;
   }
 
   static Future<void> logout() async => FacebookAuth.i.logOut();

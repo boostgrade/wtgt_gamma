@@ -2,6 +2,7 @@
 
 ## 0.3.0
 
+- feat: facebook sign in
 - feat: SignInScreenVm
 - fix: iOS build support
 - feat: auth repository

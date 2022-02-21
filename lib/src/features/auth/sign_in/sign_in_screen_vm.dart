@@ -30,6 +30,11 @@ abstract class _SignInScreenVm extends ViewModel with Store {
     _bloc.add(const AuthEventLoginViaGoogle());
   }
 
+  @action
+  void signInWithFacebook() {
+    _bloc.add(const AuthEventLoginViaFacebook());
+  }
+
   void _handleStates(AuthState state) {
     if (state is AuthStateSuccess) {
       Routemaster.of(context).push('/');

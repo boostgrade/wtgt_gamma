@@ -5,6 +5,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:where_to_go_today/src/features/auth/services/auth_bloc.dart';
 import 'package:where_to_go_today/src/features/auth/services/bloc/events/auth_event.dart';
 import 'package:where_to_go_today/src/features/auth/services/bloc/states/auth_state.dart';
+import 'package:where_to_go_today/src/features/auth/services/facebook/facebook_auth_service.dart';
 import 'package:where_to_go_today/src/features/authservices/api/auth_api.dart';
 import 'package:where_to_go_today/src/features/authservices/repository/auth_repository.dart';
 
@@ -12,10 +13,15 @@ void main() {
   group('Тесты на блок авторизации', () {
     late AuthRepository authRepository;
     late AuthBloc authBloc;
+    late FacebookAuthService facebookAuthService;
 
     setUp(() {
       authRepository = AuthRepository(AuthApi(Dio()));
-      authBloc = AuthBloc(authRepository: authRepository);
+      facebookAuthService = FacebookAuthService();
+      authBloc = AuthBloc(
+        authRepository: authRepository,
+        facebookAuthService: facebookAuthService,
+      );
     });
 
     blocTest<AuthBloc, AuthState>(
