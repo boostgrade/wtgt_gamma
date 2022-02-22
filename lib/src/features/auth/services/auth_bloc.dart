@@ -35,6 +35,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState>
       } else {
         emit(const AuthState.idle());
         // TODO(any): handle next incoming `AuthEventSendPhone` event
+        // emit(const AuthState.error('Something wrong', StackTrace.empty));
         emit(const AuthState.success());
       }
     });
