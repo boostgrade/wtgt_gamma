@@ -1,10 +1,6 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
-import 'package:mobx/mobx.dart';
-import 'package:routemaster/routemaster.dart';
 import 'package:where_to_go_today/src/core/ui/base/view_model_disposer_mixin.dart';
 import 'package:where_to_go_today/src/features/auth/code/code_route.dart';
 import 'package:where_to_go_today/src/features/auth/register/register_route.dart';
@@ -39,6 +35,7 @@ class _SignInScreenState extends State<SignInScreen>
     _maskFormatter = MaskTextInputFormatter(
       mask: '(###) ###-##-##',
     );
+    _isValidPhone = false;
   }
 
   @override

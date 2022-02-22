@@ -70,6 +70,7 @@ mixin _$AuthState {
     required TResult Function(dynamic error, StackTrace stackTrace) error,
   }) =>
       throw _privateConstructorUsedError;
+
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? init,
@@ -82,6 +83,7 @@ mixin _$AuthState {
     TResult Function(dynamic error, StackTrace stackTrace)? error,
   }) =>
       throw _privateConstructorUsedError;
+
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? init,
@@ -95,6 +97,7 @@ mixin _$AuthState {
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
+
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(AuthStateInit value) init,
@@ -107,6 +110,7 @@ mixin _$AuthState {
     required TResult Function(AuthStateError value) error,
   }) =>
       throw _privateConstructorUsedError;
+
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(AuthStateInit value)? init,
@@ -119,6 +123,7 @@ mixin _$AuthState {
     TResult Function(AuthStateError value)? error,
   }) =>
       throw _privateConstructorUsedError;
+
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(AuthStateInit value)? init,
@@ -145,6 +150,7 @@ class _$AuthStateCopyWithImpl<$Res> implements $AuthStateCopyWith<$Res> {
   _$AuthStateCopyWithImpl(this._value, this._then);
 
   final AuthState _value;
+
   // ignore: unused_field
   final $Res Function(AuthState) _then;
 }
@@ -1139,6 +1145,7 @@ abstract class $AuthStateErrorCopyWith<$Res> {
   factory $AuthStateErrorCopyWith(
           AuthStateError value, $Res Function(AuthStateError) then) =
       _$AuthStateErrorCopyWithImpl<$Res>;
+
   $Res call({dynamic error, StackTrace stackTrace});
 }
 
@@ -1311,7 +1318,9 @@ abstract class AuthStateError implements AuthState {
 
 // ignore: avoid_annotating_with_dynamic
   dynamic get error;
+
   StackTrace get stackTrace;
+
   @JsonKey(ignore: true)
   $AuthStateErrorCopyWith<AuthStateError> get copyWith =>
       throw _privateConstructorUsedError;
