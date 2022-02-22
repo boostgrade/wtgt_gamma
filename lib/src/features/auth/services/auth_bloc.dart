@@ -20,7 +20,6 @@ class AuthBloc extends Bloc<AuthEvent, AuthState>
     on<AuthEventSendPhone>((event, emit) async {
       emit(const AuthState.idle());
       try {
-
         // TODO(any): handle incoming `AuthEventSendPhone` event
 
         await Future.delayed(const Duration(seconds: 1), () {
@@ -36,7 +35,6 @@ class AuthBloc extends Bloc<AuthEvent, AuthState>
     on<AuthEventSendOtp>((event, emit) async {
       emit(const AuthState.idle());
       try {
-
         // TODO(any): handle incoming `AuthEventSendOtp` event
 
         await Future.delayed(const Duration(seconds: 1), () {
