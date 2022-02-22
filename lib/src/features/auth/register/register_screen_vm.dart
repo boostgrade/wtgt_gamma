@@ -51,10 +51,10 @@ abstract class _RegisterScreenVm extends ViewModel with Store {
   bool isFormEntered = false;
 
   _RegisterScreenVm(
-    this._bloc,
-    ErrorHandler errorHandler,
-    this.context,
-  ) : super(errorHandler) {
+    this._bloc, {
+    required ErrorHandler errorHandler,
+    required this.context,
+  }) : super(errorHandler) {
     observeBloc<AuthState, AuthBloc>(_bloc, _handleBlocStates);
   }
 

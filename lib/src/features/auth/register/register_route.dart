@@ -14,8 +14,8 @@ class RegisterRoute extends MaterialPage<void> {
           child: Provider<RegisterScreenVm>(
             create: (context) => RegisterScreenVm(
               context.read<AppDependencies>().authBloc,
-              context.read<AppDependencies>().errorHandler,
-              context,
+              errorHandler: context.read<AppDependencies>().errorHandler,
+              context: context,
             ),
             child: Builder(
               builder: (context) => RegisterScreen(
