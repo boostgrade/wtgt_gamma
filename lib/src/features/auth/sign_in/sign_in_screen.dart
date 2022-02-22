@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 import 'package:where_to_go_today/src/core/ui/base/view_model_disposer_mixin.dart';
-import 'package:where_to_go_today/src/features/auth/services/facebook/facebook_auth_service.dart';
 import 'package:where_to_go_today/src/features/auth/sign_in/sign_in_screen_vm.dart';
 import 'package:where_to_go_today/src/features/auth/sign_in/social_login_button.dart';
 import 'package:where_to_go_today/src/localization/l10n.dart';
