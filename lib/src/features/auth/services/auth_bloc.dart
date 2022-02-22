@@ -1,4 +1,5 @@
 import 'package:bloc/bloc.dart';
+import 'package:flutter/foundation.dart';
 import 'package:where_to_go_today/src/core/services/base/can_throw_exception_bloc_mixin.dart';
 import 'package:where_to_go_today/src/features/auth/services/bloc/events/auth_event.dart';
 import 'package:where_to_go_today/src/features/auth/services/bloc/states/auth_state.dart';
@@ -64,7 +65,10 @@ class AuthBloc extends Bloc<AuthEvent, AuthState>
 
     on<AuthEventRegister>((event, emit) async {
       emit(const AuthState.idle());
-      // TODO(any): handle incoming `AuthEventRegister` event
+      debugPrint(
+        '${event.name}, ${event.surname}, ${event.email}, '
+        '${event.birthdate}, ${event.agree}',
+      );
       emit(const AuthState.success());
     });
 

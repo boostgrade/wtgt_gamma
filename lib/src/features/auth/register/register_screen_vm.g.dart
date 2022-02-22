@@ -9,41 +9,18 @@ part of 'register_screen_vm.dart';
 // ignore_for_file: non_constant_identifier_names, unnecessary_brace_in_string_interps, unnecessary_lambdas, prefer_expression_function_bodies, lines_longer_than_80_chars, avoid_as, avoid_annotating_with_dynamic
 
 mixin _$RegisterScreenVm on _RegisterScreenVm, Store {
-  Computed<bool>? _$isFormEnteredComputed;
-
-  @override
-  bool get isFormEntered =>
-      (_$isFormEnteredComputed ??= Computed<bool>(() => super.isFormEntered,
-              name: '_RegisterScreenVm.isFormEntered'))
-          .value;
-
   final _$vmStateAtom = Atom(name: '_RegisterScreenVm.vmState');
 
   @override
-  VmState get vmState {
+  RegisterVmState get vmState {
     _$vmStateAtom.reportRead();
     return super.vmState;
   }
 
   @override
-  set vmState(VmState value) {
+  set vmState(RegisterVmState value) {
     _$vmStateAtom.reportWrite(value, super.vmState, () {
       super.vmState = value;
-    });
-  }
-
-  final _$formKeyAtom = Atom(name: '_RegisterScreenVm.formKey');
-
-  @override
-  GlobalKey<FormState> get formKey {
-    _$formKeyAtom.reportRead();
-    return super.formKey;
-  }
-
-  @override
-  set formKey(GlobalKey<FormState> value) {
-    _$formKeyAtom.reportWrite(value, super.formKey, () {
-      super.formKey = value;
     });
   }
 
@@ -139,6 +116,21 @@ mixin _$RegisterScreenVm on _RegisterScreenVm, Store {
     });
   }
 
+  final _$isFormEnteredAtom = Atom(name: '_RegisterScreenVm.isFormEntered');
+
+  @override
+  bool get isFormEntered {
+    _$isFormEnteredAtom.reportRead();
+    return super.isFormEntered;
+  }
+
+  @override
+  set isFormEntered(bool value) {
+    _$isFormEnteredAtom.reportWrite(value, super.isFormEntered, () {
+      super.isFormEntered = value;
+    });
+  }
+
   final _$_RegisterScreenVmActionController =
       ActionController(name: '_RegisterScreenVm');
 
@@ -190,7 +182,6 @@ mixin _$RegisterScreenVm on _RegisterScreenVm, Store {
   String toString() {
     return '''
 vmState: ${vmState},
-formKey: ${formKey},
 nameController: ${nameController},
 surnameController: ${surnameController},
 emailController: ${emailController},

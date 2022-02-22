@@ -3,9 +3,12 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:intl/intl.dart';
 import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 import 'package:mobx/mobx.dart';
+import 'package:where_to_go_today/src/core/services/exceptions/server/server_error_exception.dart';
 import 'package:where_to_go_today/src/core/ui/base/view_model.dart';
 import 'package:where_to_go_today/src/core/ui/errors_handling/error_handler.dart';
+import 'package:where_to_go_today/src/features/auth/register/register_vm_state.dart';
 import 'package:where_to_go_today/src/features/auth/services/auth_bloc.dart';
+import 'package:where_to_go_today/src/features/auth/services/bloc/events/auth_event.dart';
 import 'package:where_to_go_today/src/features/auth/services/bloc/states/auth_state.dart';
 
 part 'register_screen_vm.g.dart';
@@ -22,10 +25,7 @@ abstract class _RegisterScreenVm extends ViewModel with Store {
   final AuthBloc _bloc;
 
   @observable
-  VmState vmState = VmState.idle;
-
-  @observable
-  GlobalKey<FormState> formKey = GlobalKey<FormState>();
+  RegisterVmState vmState = RegisterVmState.idle;
 
   @observable
   TextEditingController nameController = TextEditingController();
@@ -47,15 +47,8 @@ abstract class _RegisterScreenVm extends ViewModel with Store {
     mask: '##/##/####',
   );
 
-  @computed
-  bool get isFormEntered =>
-      nameController.text.isNotEmpty &&
-      surnameController.text.isNotEmpty &&
-      emailController.text.isNotEmpty &&
-      birthdayController.text.isNotEmpty &&
-      checkboxValue;
-
-  // _RegisterScreenVm(this.context);
+  @observable
+  bool isFormEntered = false;
 
   _RegisterScreenVm(
     this._bloc,
@@ -109,51 +102,48 @@ abstract class _RegisterScreenVm extends ViewModel with Store {
   void onChangedCheckbox(bool? value) {
     if (value != null) {
       checkboxValue = value;
+
+      // ignore: prefer-conditional-expressions
+      if (nameController.text.isNotEmpty &&
+          surnameController.text.isNotEmpty &&
+          emailController.text.isNotEmpty &&
+          birthdayController.text.isNotEmpty &&
+          checkboxValue) {
+        isFormEntered = true;
+      } else {
+        isFormEntered = false;
+      }
     }
   }
 
   @action
-  @action
   void registerBtnClicked() {
     if (isFormEntered) {
-      // _bloc.add(
-      //   AuthEvent.register(
-      //     name: nameController.text,
-      //     surname: surnameController.text,
-      //     email: emailController.text,
-      //     birthdate: DateTime.parse(maskFormatter.getUnmaskedText()),
-      //     agree: checkboxValue,
-      //   ),
-      // );
-
-      // ignore: avoid_print
-      print(DateTime.parse(maskFormatter.getUnmaskedText()));
-    }
-
-    if (!formKey.currentState!.validate()) {
-      debugPrint('validate error');
-
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
-          content: Text('Заполните поля'),
+      _bloc.add(
+        AuthEvent.register(
+          name: nameController.text,
+          surname: surnameController.text,
+          email: emailController.text,
+          agree: checkboxValue,
+          birthdate: DateFormat('dd/MM/yyyy').parse(
+            maskFormatter.getMaskedText(),
+          ),
         ),
       );
-
-      return;
     }
   }
 
   void _handleBlocStates(AuthState blocState) {
     if (blocState is AuthStateIdle) {
-      vmState = VmState.loading;
+      vmState = RegisterVmState.loading;
+    } else if (blocState is AuthStateSuccess) {
+      vmState = RegisterVmState.success;
     } else if (blocState is AuthStateError) {
-      vmState = VmState.error;
-      vmState = VmState.idle;
+      vmState = RegisterVmState.error;
+      _bloc.onError(AuthorizationException(), blocState.stackTrace);
+      vmState = RegisterVmState.idle;
     } else {
-      vmState = VmState.idle;
+      vmState = RegisterVmState.idle;
     }
   }
 }
-
-// ignore: prefer-match-file-name
-enum VmState { idle, loading, error }
