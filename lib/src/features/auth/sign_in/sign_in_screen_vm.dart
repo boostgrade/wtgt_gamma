@@ -1,9 +1,11 @@
-import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:mobx/mobx.dart';
 import 'package:routemaster/routemaster.dart';
 import 'package:where_to_go_today/src/core/services/exceptions/server/server_error_exception.dart';
 import 'package:where_to_go_today/src/core/ui/base/view_model.dart';
 import 'package:where_to_go_today/src/core/ui/errors_handling/error_handler.dart';
+import 'package:where_to_go_today/src/features/auth/code/code_route.dart';
+import 'package:where_to_go_today/src/features/auth/register/register_route.dart';
 import 'package:where_to_go_today/src/features/auth/services/auth_bloc.dart';
 import 'package:where_to_go_today/src/features/auth/services/bloc/events/auth_event.dart';
 import 'package:where_to_go_today/src/features/auth/services/bloc/states/auth_state.dart';
@@ -14,7 +16,7 @@ part 'sign_in_screen_vm.g.dart';
 class SignInScreenVm = _SignInScreenVm with _$SignInScreenVm;
 
 abstract class _SignInScreenVm extends ViewModel with Store {
-  final BuildContext context;
+  final BuildContext _context;
   final AuthBloc _bloc;
 
   @observable
@@ -23,10 +25,15 @@ abstract class _SignInScreenVm extends ViewModel with Store {
   @observable
   bool isPhoneValid = false;
 
+  @computed
+  bool get isLoading => vmState == SignInVmState.loading;
+
+  String? _phone;
+
   _SignInScreenVm(
+    this._context,
     this._bloc, {
     required ErrorHandler errorHandler,
-    required this.context,
   }) : super(errorHandler) {
     observeBloc<AuthState, AuthBloc>(_bloc, _handleStates);
   }
@@ -38,6 +45,7 @@ abstract class _SignInScreenVm extends ViewModel with Store {
 
   @action
   Future<void> requestCode(String phone) async {
+    _phone = phone;
     _bloc.add(AuthEvent.sendPhone(phone));
   }
 
@@ -61,8 +69,12 @@ abstract class _SignInScreenVm extends ViewModel with Store {
       vmState = SignInVmState.loading;
     } else if (state is AuthStateNeedOtp) {
       vmState = SignInVmState.needOtp;
+      if (_phone != null) {
+        Routemaster.of(_context).replace('${CodeRoute.routeName}/$_phone');
+      }
     } else if (state is AuthStateSuccessViaSocial) {
       vmState = SignInVmState.successSocial;
+      Routemaster.of(_context).replace(RegisterRoute.routeName);
     } else if (state is AuthStateError) {
       vmState = SignInVmState.error;
       _bloc.onError(AuthorizationException(), state.stackTrace);

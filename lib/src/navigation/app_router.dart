@@ -13,7 +13,6 @@ class AppRouter {
 
   static final routes = RouteMap(
     routes: {
-      // Временно заменил initalRoute для тестирования SignInScreen
       initialRoute: (_) => SignInRoute(),
       SignInRoute.routeName: (_) => SignInRoute(),
       '${CodeRoute.routeName}/:phone': (route) =>

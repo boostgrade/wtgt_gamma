@@ -12,6 +12,7 @@ class CodeRoute extends MaterialPage<void> {
       : super(
           child: Provider<CodeVm>(
             create: (ctx) => CodeVm(
+              ctx,
               ctx.read<AppDependencies>().authBloc,
               errorHandler: ctx.read<AppDependencies>().errorHandler,
             ),

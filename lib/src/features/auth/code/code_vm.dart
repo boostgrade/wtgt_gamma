@@ -1,10 +1,13 @@
 import 'dart:async';
 
+import 'package:flutter/widgets.dart';
 import 'package:mobx/mobx.dart';
+import 'package:routemaster/routemaster.dart';
 import 'package:where_to_go_today/src/core/services/exceptions/server/server_error_exception.dart';
 import 'package:where_to_go_today/src/core/ui/base/view_model.dart';
 import 'package:where_to_go_today/src/core/ui/errors_handling/error_handler.dart';
 import 'package:where_to_go_today/src/features/auth/code/code_vm_state.dart';
+import 'package:where_to_go_today/src/features/auth/register/register_route.dart';
 import 'package:where_to_go_today/src/features/auth/services/auth_bloc.dart';
 import 'package:where_to_go_today/src/features/auth/services/bloc/events/auth_event.dart';
 import 'package:where_to_go_today/src/features/auth/services/bloc/states/auth_state.dart';
@@ -15,6 +18,7 @@ class CodeVm = _CodeVm with _$CodeVm;
 
 abstract class _CodeVm extends ViewModel with Store {
   static const int _resendingTimeout = 30;
+  final BuildContext _context;
   final AuthBloc _bloc;
 
   @observable
@@ -32,11 +36,25 @@ abstract class _CodeVm extends ViewModel with Store {
   @computed
   bool get isLoading => vmState == CodeVmState.loading;
 
+  Timer? _timer;
+
   _CodeVm(
+    this._context,
     this._bloc, {
     required ErrorHandler errorHandler,
   }) : super(errorHandler) {
     observeBloc<AuthState, AuthBloc>(_bloc, _handleStates);
+  }
+
+  @override
+  void dispose() {
+    _timer?.cancel();
+    super.dispose();
+  }
+
+  @action
+  void startTimer() {
+    _startTimer();
   }
 
   @action
@@ -57,7 +75,7 @@ abstract class _CodeVm extends ViewModel with Store {
 
   void _startTimer() {
     countdown = _resendingTimeout;
-    Timer.periodic(const Duration(seconds: 1), (timer) {
+    _timer = Timer.periodic(const Duration(seconds: 1), (timer) {
       countdown--;
       if (countdown == 0) timer.cancel();
     });
@@ -70,6 +88,7 @@ abstract class _CodeVm extends ViewModel with Store {
       vmState = CodeVmState.needOtp;
     } else if (state is AuthStateSuccessViaOtp) {
       vmState = CodeVmState.successOtp;
+      Routemaster.of(_context).replace(RegisterRoute.routeName);
     } else if (state is AuthStateError) {
       vmState = CodeVmState.error;
       _bloc.onError(AuthorizationException(), state.stackTrace);

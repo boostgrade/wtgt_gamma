@@ -1,4 +1,5 @@
 import 'package:bloc/bloc.dart';
+import 'package:flutter/foundation.dart';
 import 'package:where_to_go_today/src/core/services/base/can_throw_exception_bloc_mixin.dart';
 import 'package:where_to_go_today/src/features/auth/services/bloc/events/auth_event.dart';
 import 'package:where_to_go_today/src/features/auth/services/bloc/states/auth_state.dart';
@@ -18,15 +19,34 @@ class AuthBloc extends Bloc<AuthEvent, AuthState>
   AuthBloc({required this.authRepository}) : super(const AuthState.init()) {
     on<AuthEventSendPhone>((event, emit) async {
       emit(const AuthState.idle());
-      // TODO(any): handle incoming `AuthEventSendPhone` event
-      emit(const AuthState.needOtp());
+      try {
+
+        // TODO(any): handle incoming `AuthEventSendPhone` event
+
+        await Future.delayed(const Duration(seconds: 1), () {
+          debugPrint('SendPhone complete');
+          // throw Exception('Something wrong');
+        });
+        emit(const AuthState.needOtp());
+      } on Exception catch (e, s) {
+        emit(AuthState.error(e, s));
+      }
     });
 
     on<AuthEventSendOtp>((event, emit) async {
       emit(const AuthState.idle());
-      // TODO(any): handle incoming `AuthEventSendOtp` event
-      // emit(const AuthState.error('Something wrong', StackTrace.empty));
-      emit(const AuthState.successViaOtp());
+      try {
+
+        // TODO(any): handle incoming `AuthEventSendOtp` event
+
+        await Future.delayed(const Duration(seconds: 1), () {
+          debugPrint('SendOtp complete');
+          // throw Exception('Something wrong');
+        });
+        emit(const AuthState.successViaOtp());
+      } on Exception catch (e, s) {
+        emit(AuthState.error(e, s));
+      }
     });
 
     on<AuthEventLoginViaFacebook>((event, emit) async {

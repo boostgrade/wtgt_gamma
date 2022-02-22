@@ -78,6 +78,17 @@ mixin _$CodeVm on _CodeVm, Store {
   final _$_CodeVmActionController = ActionController(name: '_CodeVm');
 
   @override
+  void startTimer() {
+    final _$actionInfo =
+        _$_CodeVmActionController.startAction(name: '_CodeVm.startTimer');
+    try {
+      return super.startTimer();
+    } finally {
+      _$_CodeVmActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
   void validateCode(String? value) {
     final _$actionInfo =
         _$_CodeVmActionController.startAction(name: '_CodeVm.validateCode');

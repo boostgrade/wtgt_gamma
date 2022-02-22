@@ -1,15 +1,22 @@
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:golden_toolkit/golden_toolkit.dart';
-import 'package:where_to_go_today/src/di/app_dependencies.dart';
+import 'package:mocktail/mocktail.dart';
+import 'package:where_to_go_today/src/core/ui/errors_handling/scenario_error_handler/scenario_error_handler.dart';
 import 'package:where_to_go_today/src/features/auth/code/code_screen.dart';
 import 'package:where_to_go_today/src/features/auth/code/code_vm.dart';
+import 'package:where_to_go_today/src/features/auth/services/auth_bloc.dart';
+import 'package:where_to_go_today/src/features/authservices/repository/auth_repository.dart';
 import 'package:where_to_go_today/src/res/theme/app_theme.dart';
 
-void main() {
-  final di = AppDependencies();
+class FakeBuildContext extends Mock implements BuildContext {}
 
+class FakeAuthRepository extends Mock implements AuthRepository {}
+
+class FakeScenarioErrorHandler extends Mock implements ScenarioErrorHandler {}
+
+void main() {
   testGoldens(
     'Code screen test',
     (tester) async {
@@ -24,8 +31,9 @@ void main() {
           locale: const Locale('ru'),
           child: CodeScreen(
             vm: CodeVm(
-              di.authBloc,
-              errorHandler: di.errorHandler,
+              FakeBuildContext(),
+              AuthBloc(authRepository: FakeAuthRepository()),
+              errorHandler: FakeScenarioErrorHandler(),
             ),
             phone: '',
           ),
