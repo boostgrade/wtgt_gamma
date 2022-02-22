@@ -21,6 +21,7 @@ dependencies:
   flutter:
     sdk: flutter
   flutter_facebook_auth: ^4.1.1
+  flutter_facebook_auth_web: ^3.0.0+1
   flutter_localizations:
     sdk: flutter
   flutter_mobx: ^2.0.0

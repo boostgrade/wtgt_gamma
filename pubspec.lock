@@ -322,7 +322,7 @@ packages:
     source: hosted
     version: "3.0.1"
   flutter_facebook_auth_web:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: flutter_facebook_auth_web
       url: "https://pub.dartlang.org"
