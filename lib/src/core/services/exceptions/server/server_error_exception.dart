@@ -15,5 +15,8 @@ class ImageSoLargeException implements Exception {}
 /// Ошибка при протухшем токене
 class UnauthorizedException implements Exception {}
 
+/// Ошибка при авторизации
+class AuthorizationException implements Exception {}
+
 /// Ошибка при наличии у пользователя активной сессии
 class ActiveSessionException implements Exception {}

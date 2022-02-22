@@ -31,6 +31,8 @@ class SnackBarErrorScenarios implements ErrorScenario {
       // TODO(any): добавить новые исключения и соспоставить им текст ошибки
       NotFoundException: () =>
           messageController.show(ErrorSnackBar('Not found')),
+      AuthorizationException: () => messageController
+          .show(ErrorSnackBar('Авторизация не удалась! Попробуйте еще раз')),
     };
   }
 
