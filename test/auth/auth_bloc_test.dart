@@ -2,6 +2,7 @@
 import 'package:bloc_test/bloc_test.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:mocktail/mocktail.dart';
 import 'package:where_to_go_today/src/features/auth/services/auth_bloc.dart';
 import 'package:where_to_go_today/src/features/auth/services/bloc/events/auth_event.dart';
 import 'package:where_to_go_today/src/features/auth/services/bloc/states/auth_state.dart';
@@ -9,15 +10,17 @@ import 'package:where_to_go_today/src/features/auth/services/google/google_auth.
 import 'package:where_to_go_today/src/features/authservices/api/auth_api.dart';
 import 'package:where_to_go_today/src/features/authservices/repository/auth_repository.dart';
 
+class MockGoogleAuth extends Mock implements GoogleAuth {}
+
 void main() {
   group('Тесты на блок авторизации', () {
     late AuthRepository authRepository;
-    late GoogleAuth googleAuth;
+    late MockGoogleAuth googleAuth;
     late AuthBloc authBloc;
 
     setUp(() {
       authRepository = AuthRepository(AuthApi(Dio()));
-      googleAuth = GoogleAuth();
+      googleAuth = MockGoogleAuth();
       authBloc =
           AuthBloc(authRepository: authRepository, googleAuth: googleAuth);
     });

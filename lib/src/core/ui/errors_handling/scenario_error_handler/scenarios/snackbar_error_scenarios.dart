@@ -4,7 +4,7 @@ import 'package:where_to_go_today/src/core/ui/messages/types/error_snackbar.dart
 
 import '../scenario_error_handler.dart';
 
-// / Реализация сценария, при котором при каждой ошибке всплывает снекбар
+/// Реализация сценария, при котором при каждой ошибке всплывает снекбар
 class SnackBarErrorScenarios implements ErrorScenario {
   /// Отображение вида {тип ошибки: функция, для выполнения}
   late final Map<Type, void Function()> behaviors;

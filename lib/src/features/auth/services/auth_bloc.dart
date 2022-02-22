@@ -75,7 +75,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState>
       } on PlatformException catch (e, s) {
         emit(AuthState.error(AuthorizationException(), s));
       } on Exception catch (e, s) {
-        emit(AuthState.error(Exception(), s));
+        emit(AuthState.error(e, s));
       }
     });
 
