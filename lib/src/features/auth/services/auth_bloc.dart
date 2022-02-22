@@ -1,6 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:flutter/services.dart';
 import 'package:where_to_go_today/src/core/services/base/can_throw_exception_bloc_mixin.dart';
+import 'package:where_to_go_today/src/core/services/exceptions/server/server_error_exception.dart';
 import 'package:where_to_go_today/src/features/auth/services/bloc/events/auth_event.dart';
 import 'package:where_to_go_today/src/features/auth/services/bloc/states/auth_state.dart';
 import 'package:where_to_go_today/src/features/auth/services/facebook/facebook_auth_service.dart';
@@ -46,9 +47,9 @@ class AuthBloc extends Bloc<AuthEvent, AuthState>
     });
 
     on<AuthEventLoginViaFacebook>((event, emit) async {
-      emit(const AuthState.idle());
-
       try {
+        emit(const AuthState.idle());
+
         final token = await facebookAuthService.login();
 
         if (token != null && token.isNotEmpty) {
@@ -57,7 +58,9 @@ class AuthBloc extends Bloc<AuthEvent, AuthState>
           emit(const AuthState.success());
         }
       } on PlatformException catch (e, stackTrace) {
-        emit(AuthState.error(e, stackTrace));
+        emit(AuthState.error(AuthorizationException(), stackTrace));
+      } on Exception catch (e, stackTrace) {
+        emit(AuthState.error(Exception(), stackTrace));
       }
     });
 
