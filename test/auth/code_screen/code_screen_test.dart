@@ -7,14 +7,17 @@ import 'package:where_to_go_today/src/core/ui/errors_handling/scenario_error_han
 import 'package:where_to_go_today/src/features/auth/code/code_screen.dart';
 import 'package:where_to_go_today/src/features/auth/code/code_vm.dart';
 import 'package:where_to_go_today/src/features/auth/services/auth_bloc.dart';
+import 'package:where_to_go_today/src/features/auth/services/google/google_auth.dart';
 import 'package:where_to_go_today/src/features/authservices/repository/auth_repository.dart';
 import 'package:where_to_go_today/src/res/theme/app_theme.dart';
 
-class FakeBuildContext extends Mock implements BuildContext {}
+class MockBuildContext extends Mock implements BuildContext {}
 
-class FakeAuthRepository extends Mock implements AuthRepository {}
+class MockAuthRepository extends Mock implements AuthRepository {}
 
-class FakeScenarioErrorHandler extends Mock implements ScenarioErrorHandler {}
+class MockGoogleAuth extends Mock implements GoogleAuth {}
+
+class MockScenarioErrorHandler extends Mock implements ScenarioErrorHandler {}
 
 void main() {
   testGoldens(
@@ -31,9 +34,12 @@ void main() {
           locale: const Locale('ru'),
           child: CodeScreen(
             vm: CodeVm(
-              FakeBuildContext(),
-              AuthBloc(authRepository: FakeAuthRepository()),
-              errorHandler: FakeScenarioErrorHandler(),
+              MockBuildContext(),
+              AuthBloc(
+                authRepository: MockAuthRepository(),
+                googleAuth: MockGoogleAuth(),
+              ),
+              errorHandler: MockScenarioErrorHandler(),
             ),
             phone: '',
           ),
