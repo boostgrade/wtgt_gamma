@@ -27,6 +27,8 @@ dependencies:
   flutter_web_plugins:
     sdk: flutter
   freezed_annotation: ^1.1.0
+  google_sign_in: ^5.2.3
+  google_sign_in_web: ^0.10.0+4
   hive_flutter: ^1.1.0
   intl: ^0.17.0
   json_annotation: ^4.4.0
