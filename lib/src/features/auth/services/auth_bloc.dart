@@ -1,8 +1,11 @@
 import 'package:bloc/bloc.dart';
-import 'package:flutter/foundation.dart';
+import 'package:flutter/services.dart';
 import 'package:where_to_go_today/src/core/services/base/can_throw_exception_bloc_mixin.dart';
+import 'package:where_to_go_today/src/core/services/exceptions/server/server_error_exception.dart';
 import 'package:where_to_go_today/src/features/auth/services/bloc/events/auth_event.dart';
 import 'package:where_to_go_today/src/features/auth/services/bloc/states/auth_state.dart';
+import 'package:where_to_go_today/src/features/auth/services/google/google_auth.dart';
+import 'package:where_to_go_today/src/features/authapi/models/requests/google_login_request.dart';
 import 'package:where_to_go_today/src/features/authservices/repository/auth_repository.dart';
 
 /// Сервис позволяющий:
@@ -15,8 +18,14 @@ import 'package:where_to_go_today/src/features/authservices/repository/auth_repo
 class AuthBloc extends Bloc<AuthEvent, AuthState>
     with CanThrowExceptionBlocMixin {
   final AuthRepository authRepository;
+  final GoogleAuth googleAuth;
 
-  AuthBloc({required this.authRepository}) : super(const AuthState.init()) {
+  bool firstSending = true;
+
+  AuthBloc({
+    required this.authRepository,
+    required this.googleAuth,
+  }) : super(const AuthState.init()) {
     on<AuthEventSendPhone>((event, emit) async {
       emit(const AuthState.idle());
       try {
@@ -64,9 +73,18 @@ class AuthBloc extends Bloc<AuthEvent, AuthState>
       try {
         emit(const AuthState.idle());
 
-        // TODO(Denis): отправить запрос в сервис google и передать токен в репозиторий
+        final token = await googleAuth.signIn();
+        if (token == null) {
+          return;
+        }
+
+        await authRepository.loginWithGoogle(
+          GoogleLoginRequest(token: token),
+        );
 
         emit(const AuthState.successViaSocial());
+      } on PlatformException catch (e, s) {
+        emit(AuthState.error(AuthorizationException(), s));
       } on Exception catch (e, s) {
         emit(AuthState.error(e, s));
       }
