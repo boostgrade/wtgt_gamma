@@ -58,14 +58,17 @@ class AuthBloc extends Bloc<AuthEvent, AuthState>
 
     on<AuthEventLoginViaVkontakte>((event, emit) async {
       try {
-        emit(const AuthState.idle());
         final token = await vkAuth.logIn();
         if (token.isNotEmpty) {
-          await authRepository.loginWithVk(VkLoginRequest(token: token));
+          await authRepository.loginWithVk(
+            VkLoginRequest(token: token),
+          );
           emit(const AuthState.success());
         }
       } on PlatformException catch (e, s) {
         emit(AuthState.error(AuthorizationException(), s));
+      } on Exception catch (e, s) {
+        emit(AuthState.error(e, s));
       }
     });
 

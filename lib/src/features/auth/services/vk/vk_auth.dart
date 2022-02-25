@@ -17,6 +17,12 @@ class VKAuth {
         token = accessToken.token;
       }
     }
+    if (token.isEmpty) {
+      throw PlatformException(
+        code: 'sign_in_canceled',
+        message: 'Sign in was cancelled',
+      );
+    }
 
     return token;
   }
