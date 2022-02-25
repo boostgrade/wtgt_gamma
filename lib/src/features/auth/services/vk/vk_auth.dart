@@ -1,16 +1,11 @@
+import 'package:flutter/services.dart';
 import 'package:flutter_login_vk/flutter_login_vk.dart';
 
 class VKAuth {
-  late VKLogin _vkLogin;
+  final _vkLogin = VKLogin();
 
-  Future<void> init() {
-    _vkLogin = VKLogin();
-
-    return _vkLogin.initSdk(
-      scope: [
-        VKScope.email,
-      ],
-    );
+  VKAuth() {
+    _init();
   }
 
   Future<String> logIn() async {
@@ -28,5 +23,13 @@ class VKAuth {
 
   Future<void> logout() {
     return _vkLogin.logOut();
+  }
+
+  Future<void> _init() async {
+    await _vkLogin.initSdk(
+      scope: [
+        VKScope.email,
+      ],
+    );
   }
 }

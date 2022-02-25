@@ -25,7 +25,7 @@ class AppDependencies extends DependencyBundle {
   final settingsController = SettingsBloc(SettingsRepository());
   final tokenStorage = TokenStorage();
   final googleAuth = GoogleAuth();
-  final vkAuth = VKAuth();
+  late final vkAuth = VKAuth();
 
   late final authRepository = AuthRepository(AuthApi(dio));
   late final authBloc = AuthBloc(
@@ -48,6 +48,5 @@ class AppDependencies extends DependencyBundle {
     await Firebase.initializeApp(
       options: DefaultFirebaseOptions.currentPlatform,
     );
-    await vkAuth.init();
   }
 }
