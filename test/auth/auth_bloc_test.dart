@@ -2,25 +2,34 @@
 import 'package:bloc_test/bloc_test.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:mocktail/mocktail.dart';
 import 'package:where_to_go_today/src/features/auth/services/auth_bloc.dart';
 import 'package:where_to_go_today/src/features/auth/services/bloc/events/auth_event.dart';
 import 'package:where_to_go_today/src/features/auth/services/bloc/states/auth_state.dart';
+import 'package:where_to_go_today/src/features/auth/services/google/google_auth.dart';
 import 'package:where_to_go_today/src/features/auth/services/vk/vk_auth.dart';
 import 'package:where_to_go_today/src/features/authservices/api/auth_api.dart';
 import 'package:where_to_go_today/src/features/authservices/repository/auth_repository.dart';
 
+class MockGoogleAuth extends Mock implements GoogleAuth {}
+
 void main() {
   group('Тесты на блок авторизации', () {
     late AuthRepository authRepository;
+    late MockGoogleAuth googleAuth;
     late VKAuth vkAuth;
     late AuthBloc authBloc;
 
     setUp(() {
       authRepository = AuthRepository(AuthApi(Dio()));
+      googleAuth = MockGoogleAuth();
       vkAuth = VKAuth();
-      authBloc = AuthBloc(authRepository: authRepository, vkAuth: vkAuth);
+      authBloc = AuthBloc(
+        authRepository: authRepository,
+        googleAuth: googleAuthy,
+        vkAuth: vkAuth,
+      );
     });
-
     blocTest<AuthBloc, AuthState>(
       'Если отправляем номер телефона, то сначала получаем загрузку, потом состояние с необходимостью подтверждения',
       build: () => authBloc,

@@ -15,7 +15,7 @@ class SnackBarErrorScenarios implements ErrorScenario {
   /// Случай, когда поведение задается с помощью приватного метода, для того
   /// чтобы имелась возможность задать его в коде самого класса
   ///
-  /// Также необхомо в конструкторе передать менеджер сообщений
+  /// Также необходимо в конструкторе передать менеджер сообщений
   SnackBarErrorScenarios(this.messageController) {
     _setBehavior();
   }
@@ -28,7 +28,7 @@ class SnackBarErrorScenarios implements ErrorScenario {
   /// Устанавливаем поведение в виде отображения (Map)
   void _setBehavior() {
     behaviors = {
-      // TODO(any): добавить новые исключения и соспоставить им текст ошибки
+      // TODO(any): добавить новые исключения и сопоставить им текст ошибки
       NotFoundException: () =>
           messageController.show(ErrorSnackBar('Not found')),
       AuthorizationException: () => messageController

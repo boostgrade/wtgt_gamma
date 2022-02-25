@@ -4,6 +4,8 @@ import 'package:where_to_go_today/src/core/services/base/can_throw_exception_blo
 import 'package:where_to_go_today/src/core/services/exceptions/server/server_error_exception.dart';
 import 'package:where_to_go_today/src/features/auth/services/bloc/events/auth_event.dart';
 import 'package:where_to_go_today/src/features/auth/services/bloc/states/auth_state.dart';
+import 'package:where_to_go_today/src/features/auth/services/google/google_auth.dart';
+import 'package:where_to_go_today/src/features/authapi/models/requests/google_login_request.dart';
 import 'package:where_to_go_today/src/features/auth/services/vk/vk_auth.dart';
 import 'package:where_to_go_today/src/features/authapi/models/requests/vk_login_request.dart';
 import 'package:where_to_go_today/src/features/authservices/repository/auth_repository.dart';
@@ -18,12 +20,14 @@ import 'package:where_to_go_today/src/features/authservices/repository/auth_repo
 class AuthBloc extends Bloc<AuthEvent, AuthState>
     with CanThrowExceptionBlocMixin {
   final AuthRepository authRepository;
+  final GoogleAuth googleAuth;
   final VKAuth vkAuth;
 
   bool firstSending = true;
 
   AuthBloc({
     required this.authRepository,
+    required this.googleAuth,
     required this.vkAuth,
   }) : super(const AuthState.init()) {
     on<AuthEventSendPhone>((event, emit) async {
@@ -35,6 +39,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState>
       } else {
         emit(const AuthState.idle());
         // TODO(any): handle next incoming `AuthEventSendPhone` event
+        // emit(const AuthState.error('Something wrong', StackTrace.empty));
         emit(const AuthState.success());
       }
     });
@@ -69,9 +74,18 @@ class AuthBloc extends Bloc<AuthEvent, AuthState>
       try {
         emit(const AuthState.idle());
 
-        // TODO(Denis): отправить запрос в сервис google и передать токен в репозиторий
+        final token = await googleAuth.signIn();
+        if (token == null) {
+          return;
+        }
+
+        await authRepository.loginWithGoogle(
+          GoogleLoginRequest(token: token),
+        );
 
         emit(const AuthState.success());
+      } on PlatformException catch (e, s) {
+        emit(AuthState.error(AuthorizationException(), s));
       } on Exception catch (e, s) {
         emit(AuthState.error(e, s));
       }

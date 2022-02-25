@@ -1,8 +1,15 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
+import 'package:mobx/mobx.dart';
+import 'package:routemaster/routemaster.dart';
 import 'package:where_to_go_today/src/core/ui/base/view_model_disposer_mixin.dart';
+import 'package:where_to_go_today/src/features/auth/code/code_route.dart';
+import 'package:where_to_go_today/src/features/auth/register/register_route.dart';
 import 'package:where_to_go_today/src/features/auth/sign_in/sign_in_screen_vm.dart';
+import 'package:where_to_go_today/src/features/auth/sign_in/sign_in_vm_state.dart';
 import 'package:where_to_go_today/src/features/auth/sign_in/social_login_button.dart';
 import 'package:where_to_go_today/src/localization/l10n.dart';
 import 'package:where_to_go_today/src/res/asset.dart';
@@ -24,7 +31,7 @@ class _SignInScreenState extends State<SignInScreen>
   @override
   SignInScreenVm get vm => widget.vm;
 
-  late bool _isValidPhone;
+  String get _fullPhoneNumber => '+7${_maskFormatter.getUnmaskedText()}';
 
   @override
   void initState() {
@@ -32,17 +39,26 @@ class _SignInScreenState extends State<SignInScreen>
     _maskFormatter = MaskTextInputFormatter(
       mask: '(###) ###-##-##',
     );
-    _isValidPhone = false;
+  }
+
+  @override
+  void dispose() {
+    debugPrint('SignInScreen dispose()');
+    super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        body: SingleChildScrollView(
-          padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
-          child: Observer(
-            builder: (_) => Column(
+    return ReactionBuilder(
+      builder: (_) => reaction<SignInVmState>(
+        (_) => vm.vmState,
+        _vmStateHandler,
+      ),
+      child: SafeArea(
+        child: Scaffold(
+          body: SingleChildScrollView(
+            padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
+            child: Column(
               children: [
                 Image.asset(
                   Asset.png.logoWtgt,
@@ -50,7 +66,7 @@ class _SignInScreenState extends State<SignInScreen>
                 ),
                 const SizedBox(height: 22),
                 TextField(
-                  onChanged: (_) => _validatePhone(),
+                  onChanged: (_) => vm.verifyPhone(_fullPhoneNumber),
                   decoration: InputDecoration(
                     labelText: context.l10n.phoneNumberLabel,
                     prefixText: '+7 ',
@@ -62,9 +78,14 @@ class _SignInScreenState extends State<SignInScreen>
                   ],
                 ),
                 const SizedBox(height: 32),
-                WtgtButton(
-                  label: context.l10n.sendButtonLabel,
-                  onPressed: _isValidPhone ? _onSendCode : null,
+                Observer(
+                  builder: (_) => WtgtButton(
+                    label: context.l10n.sendButtonLabel,
+                    onPressed: vm.isPhoneValid
+                        ? () => vm.requestCode(_fullPhoneNumber)
+                        : null,
+                    loading: vm.vmState == SignInVmState.loading,
+                  ),
                 ),
                 SizedBox(
                   height: _calcBottomPadding(),
@@ -74,11 +95,11 @@ class _SignInScreenState extends State<SignInScreen>
                   children: [
                     SocialLoginButton(
                       imageAsset: Asset.svg.iconFacebook,
-                      onPressed: _onFacebookLogin,
+                      onPressed: vm.signInWithFacebook,
                     ),
                     SocialLoginButton(
                       imageAsset: Asset.svg.iconVkontakte,
-                      onPressed: vm.signInWithVk,
+                      onPressed: vm.signInWithVkontakte,
                     ),
                     SocialLoginButton(
                       imageAsset: Asset.svg.iconGoogle,
@@ -94,6 +115,15 @@ class _SignInScreenState extends State<SignInScreen>
     );
   }
 
+  void _vmStateHandler(SignInVmState state) {
+    if (state == SignInVmState.needOtp) {
+      Routemaster.of(context).replace(CodeRoute.routeName);
+    }
+    if (state == SignInVmState.success) {
+      Routemaster.of(context).replace(RegisterRoute.routeName);
+    }
+  }
+
   double _calcBottomPadding() {
     // values from the Figma
     const topBlockHeight = 422;
@@ -103,22 +133,6 @@ class _SignInScreenState extends State<SignInScreen>
     final bottomPadding =
         screenHeight - topBlockHeight - bottomBlockHeight - viewInsets.bottom;
 
-    return bottomPadding < 24 ? 24 : bottomPadding;
-  }
-
-  void _onSendCode() {
-    // TODO(any): обработать нажатие на кнопку
-    debugPrint('Phone number = +7${_maskFormatter.getUnmaskedText()}');
-  }
-
-  void _onFacebookLogin() {
-    // TODO(any): обработать нажатие на кнопку
-    debugPrint('_onFacebookLogin()');
-  }
-
-  void _validatePhone() {
-    setState(() {
-      _isValidPhone = _maskFormatter.isFill();
-    });
+    return max(24, bottomPadding);
   }
 }

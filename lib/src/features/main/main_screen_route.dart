@@ -1,22 +1,21 @@
 import 'package:flutter/material.dart';
-import 'package:where_to_go_today/src/features/auth/code/code_screen.dart';
+import 'package:provider/provider.dart';
+import 'package:where_to_go_today/src/features/main/main_screen_vm.dart';
 
 import 'main_screen.dart';
 
 /// Роут экрана [MainScreen]
 @immutable
 class MainScreenRoute extends MaterialPage<void> {
-  const MainScreenRoute()
+  MainScreenRoute()
       : super(
-          child: const CodeScreen(),
-
-          //  Provider<MainScreenVm>(
-          //   create: MainScreenVm.new,
-          //   child: Builder(
-          //     builder: (context) => MainScreen(
-          //       vm: context.read<MainScreenVm>(),
-          //     ),
-          //   ),
-          // ),
+          child: Provider<MainScreenVm>(
+            create: MainScreenVm.new,
+            child: Builder(
+              builder: (context) => MainScreen(
+                vm: context.read<MainScreenVm>(),
+              ),
+            ),
+          ),
         );
 }
