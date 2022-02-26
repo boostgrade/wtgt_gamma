@@ -13,20 +13,22 @@ import 'package:where_to_go_today/src/features/authservices/repository/auth_repo
 
 class MockGoogleAuth extends Mock implements GoogleAuth {}
 
+class MockVKAuth extends Mock implements VKAuth {}
+
 void main() {
   group('Тесты на блок авторизации', () {
     late AuthRepository authRepository;
     late MockGoogleAuth googleAuth;
-    late VKAuth vkAuth;
+    late MockVKAuth vkAuth;
     late AuthBloc authBloc;
 
     setUp(() {
       authRepository = AuthRepository(AuthApi(Dio()));
       googleAuth = MockGoogleAuth();
-      vkAuth = VKAuth();
+      vkAuth = MockVKAuth();
       authBloc = AuthBloc(
         authRepository: authRepository,
-        googleAuth: googleAuthy,
+        googleAuth: googleAuth,
         vkAuth: vkAuth,
       );
     });
