@@ -1,5 +1,6 @@
 # Changelog
 
+- feat: CodeVm - add authorization via OTP
 - feat: SignInScreenVm - add phone authorization
 
 ## 0.3.0

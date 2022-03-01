@@ -10,7 +10,13 @@ class AuthState with _$AuthState {
 
   const factory AuthState.idle() = AuthStateIdle;
 
-  const factory AuthState.success() = AuthStateSuccess;
+  const factory AuthState.successViaSocial() = AuthStateSuccessViaSocial;
+
+  const factory AuthState.successViaOtp() = AuthStateSuccessViaOtp;
+
+  const factory AuthState.register() = AuthStateRegister;
+
+  const factory AuthState.logout() = AuthStateLogout;
 
   const factory AuthState.error(
     // ignore: avoid_annotating_with_dynamic

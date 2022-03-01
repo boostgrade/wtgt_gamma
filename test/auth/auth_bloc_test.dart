@@ -1,6 +1,7 @@
 // ignore_for_file: cascade_invocations
 import 'package:bloc_test/bloc_test.dart';
 import 'package:dio/dio.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:where_to_go_today/src/features/auth/services/auth_bloc.dart';
@@ -28,32 +29,39 @@ void main() {
       'Если отправляем номер телефона, то сначала получаем загрузку, потом состояние с необходимостью подтверждения',
       build: () => authBloc,
       act: (bloc) => bloc.add(const AuthEvent.sendPhone('')),
+      wait: const Duration(seconds: 2),
       expect: () => [const AuthState.idle(), const AuthState.needOtp()],
     );
 
     blocTest<AuthBloc, AuthState>(
-      'Если повторно отправляем номер телефона, то сначала получаем загрузку, потом состояние успеха',
+      'Если повторно отправляем номер телефона, то сначала получаем загрузку, потом состояние состояние с необходимостью подтверждения',
       build: () => authBloc,
-      act: (bloc) {
+      act: (bloc) async {
         bloc.add(const AuthEvent.sendPhone(''));
+        await Future.delayed(const Duration(seconds: 2), () {
+          debugPrint('Future complete');
+        });
         bloc.add(const AuthEvent.sendPhone(''));
       },
+      wait: const Duration(seconds: 2),
       skip: 2,
-      expect: () => [const AuthState.idle(), const AuthState.success()],
+      expect: () => [const AuthState.idle(), const AuthState.needOtp()],
     );
 
     blocTest<AuthBloc, AuthState>(
       'Если отправляем смс-код, то сначала получаем загрузку, потом состояние успеха',
       build: () => authBloc,
       act: (bloc) => bloc.add(const AuthEvent.sendOtp('')),
-      expect: () => [const AuthState.idle(), const AuthState.success()],
+      wait: const Duration(seconds: 2),
+      expect: () => [const AuthState.idle(), const AuthState.successViaOtp()],
     );
 
     blocTest<AuthBloc, AuthState>(
       'Если отправляем событие входа через соц.сеть, то сначала получаем загрузку, потом состояние успеха',
       build: () => authBloc,
       act: (bloc) => bloc.add(const AuthEvent.loginViaFacebook()),
-      expect: () => [const AuthState.idle(), const AuthState.success()],
+      expect: () =>
+          [const AuthState.idle(), const AuthState.successViaSocial()],
     );
 
     blocTest<AuthBloc, AuthState>(
@@ -72,14 +80,14 @@ void main() {
           ),
         );
       },
-      expect: () => [const AuthState.idle(), const AuthState.success()],
+      expect: () => [const AuthState.idle(), const AuthState.register()],
     );
 
     blocTest<AuthBloc, AuthState>(
       'Если отправляем событие логаута, то сначала получаем загрузку, потом состояние успеха',
       build: () => authBloc,
       act: (bloc) => bloc.add(const AuthEvent.logout()),
-      expect: () => [const AuthState.idle(), const AuthState.success()],
+      expect: () => [const AuthState.idle(), const AuthState.logout()],
     );
   });
 }
