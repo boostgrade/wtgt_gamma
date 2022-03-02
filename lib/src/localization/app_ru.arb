@@ -4,6 +4,7 @@
   "cardTabName": "Моя Карта",
   "profileTabName": "Профиль",
   "codeFromSms": "Код из смс",
+  "requestCode": "Запросить код",
   "sendCode": "Отправить",
   "newCodeIn": "Новый код через: ",
   "seconds": " сек",

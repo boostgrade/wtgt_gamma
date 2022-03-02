@@ -1,1 +1,1 @@
-enum SignInVmState { idle, loading, needOtp, success, error }
+enum SignInVmState { idle, loading, needOtp, successSocial, error }
