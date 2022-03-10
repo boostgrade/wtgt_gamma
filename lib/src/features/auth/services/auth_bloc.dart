@@ -8,7 +8,9 @@ import 'package:where_to_go_today/src/core/services/exceptions/server/server_err
 import 'package:where_to_go_today/src/features/auth/services/bloc/events/auth_event.dart';
 import 'package:where_to_go_today/src/features/auth/services/bloc/states/auth_state.dart';
 import 'package:where_to_go_today/src/features/auth/services/google/google_auth.dart';
+import 'package:where_to_go_today/src/features/auth/services/vk/vk_auth.dart';
 import 'package:where_to_go_today/src/features/authapi/models/requests/google_login_request.dart';
+import 'package:where_to_go_today/src/features/authapi/models/requests/vk_login_request.dart';
 import 'package:where_to_go_today/src/features/authservices/repository/auth_repository.dart';
 
 /// Сервис позволяющий:
@@ -22,10 +24,12 @@ class AuthBloc extends Bloc<AuthEvent, AuthState>
     with CanThrowExceptionBlocMixin {
   final AuthRepository authRepository;
   final GoogleAuth googleAuth;
+  final VKAuth vkAuth;
 
   AuthBloc({
     required this.authRepository,
     required this.googleAuth,
+    required this.vkAuth,
   }) : super(const AuthState.init()) {
     on<AuthEventSendPhone>(_onSendPhone);
     on<AuthEventSendOtp>(_onSendOtp);
@@ -83,9 +87,19 @@ class AuthBloc extends Bloc<AuthEvent, AuthState>
     AuthEventLoginViaVkontakte _,
     Emitter<AuthState> emit,
   ) async {
-    emit(const AuthState.idle());
-    // TODO(any): handle incoming `AuthEventLoginViaVkontakte` event
-    emit(const AuthState.successViaSocial());
+    try {
+      final token = await vkAuth.logIn();
+      if (token.isNotEmpty) {
+        await authRepository.loginWithVk(
+          VkLoginRequest(token: token),
+        );
+        emit(const AuthState.successViaSocial());
+      }
+    } on PlatformException catch (e, s) {
+      emit(AuthState.error(AuthorizationException(), s));
+    } on Exception catch (e, s) {
+      emit(AuthState.error(e, s));
+    }
   }
 
   FutureOr<void> _onLoginViaGoogle(

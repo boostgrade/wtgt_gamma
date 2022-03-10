@@ -20,5 +20,6 @@
   "signUp": "Sign up",
   "birthdayMask": "DD/MM/YYYY",
   "phoneNumberLabel": "Phone number",
-  "sendButtonLabel": "Send"
+  "sendButtonLabel": "Send",
+  "authError": "Authorization failed! Try again"
 }

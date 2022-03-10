@@ -6,6 +6,7 @@ import 'package:where_to_go_today/src/core/ui/messages/default_message_controlle
 import 'package:where_to_go_today/src/features/auth/services/auth_bloc.dart';
 import 'package:where_to_go_today/src/features/auth/services/google/google_auth.dart';
 import 'package:where_to_go_today/src/features/auth/services/storage/token_storage.dart';
+import 'package:where_to_go_today/src/features/auth/services/vk/vk_auth.dart';
 import 'package:where_to_go_today/src/features/authservices/api/auth_api.dart';
 import 'package:where_to_go_today/src/features/authservices/repository/auth_repository.dart';
 import 'package:where_to_go_today/src/features/settings/service/event/settings_event.dart';
@@ -24,11 +25,13 @@ class AppDependencies extends DependencyBundle {
   final settingsController = SettingsBloc(SettingsRepository());
   final tokenStorage = TokenStorage();
   final googleAuth = GoogleAuth();
+  late final vkAuth = VKAuth();
 
   late final authRepository = AuthRepository(AuthApi(dio));
   late final authBloc = AuthBloc(
     authRepository: authRepository,
     googleAuth: googleAuth,
+    vkAuth: vkAuth,
   );
 
   late final messageController = DefaultMessageController();
