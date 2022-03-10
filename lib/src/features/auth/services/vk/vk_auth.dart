@@ -2,9 +2,9 @@ import 'package:flutter/services.dart';
 import 'package:flutter_login_vk/flutter_login_vk.dart';
 
 class VKAuth {
-  final _vkLogin = VKLogin();
+  final VKLogin _vkLogin;
 
-  VKAuth() {
+  VKAuth({VKLogin? vkLogin}) : _vkLogin = vkLogin ?? VKLogin() {
     _init();
   }
 
