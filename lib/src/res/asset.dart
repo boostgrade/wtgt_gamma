@@ -10,7 +10,10 @@ class _Png {
 
 class _Svg {
   static const _pathSignIn = 'assets/images/auth/sign_in/';
+  static const _pathProfile = 'assets/images/profile/';
   final iconFacebook = '${_pathSignIn}icon_facebook.svg';
   final iconGoogle = '${_pathSignIn}icon_google.svg';
   final iconVkontakte = '${_pathSignIn}icon_vkontakte.svg';
+  final edit = '${_pathProfile}edit.svg';
+  final settings = '${_pathProfile}settings.svg';
 }

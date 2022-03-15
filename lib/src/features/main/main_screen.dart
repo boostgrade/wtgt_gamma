@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
+import 'package:where_to_go_today/src/features/profile/ui/profile/profile_screen.dart';
+import '../../core/domain/user.dart';
 import 'main_screen_vm.dart';
 
 /// Глвный экран с табами
@@ -17,8 +19,17 @@ class MainScreen extends StatelessWidget {
     const Center(
       child: Text('Screen 1'),
     ),
-    const Center(
-      child: Text('Screen 2'),
+    ProfileScreen(
+      User(
+        id: 1,
+        name: 'Мирон',
+        lastName: 'Бункеров',
+        birthDate: '',
+        email: '',
+        phone: '',
+        photoUrl:
+            'https://s3-alpha-sig.figma.com/img/2fb3/141e/57d3910fcca978d11b1ea71e2e0802b1?Expires=1648425600&Signature=EY1EftdoecTgb6U8YPE0ylxQNUNWMbpu8UTFdWIhNpu7mvi-pBBuB30FROSp~wjx49ncN0eZbTTNDcwh4phloshpFiU~WdFJ~G8uizIr0zXFmig7sNfmi2aTA4m1FXvEth66oGTbSGFEeksUAwsmbE7pcIol6gWYFUMfFP~GRQ2Fc0xt4w9JRNbq8NvmBMCy5AT-PbtVsFH3fD2DipslSOPEHWkHY1RzPfUZC8nt4qKrB-JIY6tkQN48xF~BmZ2pTiwRwHZvBuHuxeS2eVD4Sz5r5LzILeunUeYeZi3p3VjZnc8l0zlQpz721rS-0bTSs29udXuxUUjH5O9NfGxHGA__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA',
+      ),
     ),
   ];
 

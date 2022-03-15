@@ -19,8 +19,6 @@ abstract class _MainScreenVm with Store {
 
   @action
   void tabClicked(int index) {
-    Routemaster.of(context).push(SettingsRoute.routeName);
-
     currentIndex = index;
   }
 }
