@@ -22,11 +22,14 @@ dependencies:
     sdk: flutter
   flutter_localizations:
     sdk: flutter
+  flutter_login_vk: ^2.2.0
   flutter_mobx: ^2.0.0
   flutter_svg: ^1.0.3
   flutter_web_plugins:
     sdk: flutter
   freezed_annotation: ^1.1.0
+  google_sign_in: ^5.2.3
+  google_sign_in_web: ^0.10.0+4
   hive_flutter: ^1.1.0
   intl: ^0.17.0
   json_annotation: ^4.4.0
@@ -40,6 +43,7 @@ dependencies:
   rxdart: ^0.27.0
 
 dev_dependencies:
+  async: ^2.8.2
   bloc_test: ^9.0.0
   build_runner: ^2.1.2
   dart_code_metrics: ^4.9.1

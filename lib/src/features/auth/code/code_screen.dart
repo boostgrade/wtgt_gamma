@@ -2,79 +2,94 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:where_to_go_today/src/core/ui/res/colors/project_colors.dart';
-import 'package:where_to_go_today/src/core/ui/res/typography/app_typography.dart';
+import 'package:flutter_mobx/flutter_mobx.dart';
+import 'package:where_to_go_today/src/core/ui/base/view_model_disposer_mixin.dart';
+import 'package:where_to_go_today/src/features/auth/code/code_vm.dart';
+import 'package:where_to_go_today/src/features/auth/code/widgets/request_code_button.dart';
+import 'package:where_to_go_today/src/localization/l10n.dart';
+import 'package:where_to_go_today/src/res/asset.dart';
+import 'package:where_to_go_today/src/ui/uikit/wtgt_button.dart';
 
 class CodeScreen extends StatefulWidget {
-  const CodeScreen({Key? key}) : super(key: key);
+  final CodeVm vm;
+  final String phone;
+
+  const CodeScreen({
+    Key? key,
+    required this.vm,
+    required this.phone,
+  }) : super(key: key);
 
   @override
   State<CodeScreen> createState() => _CodeScreenState();
 }
 
-class _CodeScreenState extends State<CodeScreen> {
-  final _codeController = TextEditingController();
+class _CodeScreenState extends State<CodeScreen>
+    with ViewModelDisposerMixin<CodeScreen, CodeVm> {
+  late final TextEditingController _codeController;
 
-  final int _timerSecs = 30;
+  @override
+  CodeVm get vm => widget.vm;
+
+  @override
+  void initState() {
+    super.initState();
+    _codeController = TextEditingController();
+    vm.startTimer();
+  }
+
+  @override
+  void dispose() {
+    _codeController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
         child: SingleChildScrollView(
-          padding: const EdgeInsets.symmetric(horizontal: 24),
+          padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Center(
                 child: Image.asset(
-                  'assets/images/3.0x/wtgt_logo.png',
+                  Asset.png.logoWtgt,
                   height: 254,
                 ),
               ),
               const SizedBox(height: 22),
               TextFormField(
-                autovalidateMode: AutovalidateMode.onUserInteraction,
                 controller: _codeController,
+                onChanged: vm.validateCode,
                 keyboardType: TextInputType.number,
                 textInputAction: TextInputAction.done,
-                validator: _codeValidator,
                 maxLength: 6,
                 inputFormatters: [
                   FilteringTextInputFormatter.allow(RegExp('[0-9]+')),
                 ],
                 decoration: InputDecoration(
-                  hintText: AppLocalizations.of(context)?.codeFromSms,
+                  hintText: context.l10n.codeFromSms,
                   helperText: '',
                 ),
               ),
               const SizedBox(height: 12),
-              RichText(
-                text: TextSpan(
-                  text: AppLocalizations.of(context)?.newCodeIn,
-                  style: const AppTypography.s16w400h20(),
-                  children: [
-                    TextSpan(
-                      // TODO(any): поменять статичный таймер
-                      text: '$_timerSecs',
-                      style: const AppTypography.s16w500h20(
-                        color: ProjectColors.cardColor,
-                      ),
-                    ),
-                    TextSpan(
-                      text: AppLocalizations.of(context)?.seconds,
-                      style: const AppTypography.s16w500h20(
-                        color: ProjectColors.cardColor,
-                      ),
-                    )
-                  ],
-                ),
+              RequestCodeButton(
+                vm: vm,
+                phone: widget.phone,
               ),
-              SizedBox(height: _calcBottomPadding(context)),
-              TextButton(
-                onPressed: _onSendCode,
-                child: Text(AppLocalizations.of(context)!.sendCode),
+              SizedBox(
+                height: _calcBottomPadding(),
+              ),
+              Observer(
+                builder: (context) => WtgtButton(
+                  label: context.l10n.sendCode,
+                  onPressed: vm.isValidCode
+                      ? () => vm.sendCode(_codeController.text)
+                      : null,
+                  loading: vm.isLoading,
+                ),
               ),
             ],
           ),
@@ -83,27 +98,12 @@ class _CodeScreenState extends State<CodeScreen> {
     );
   }
 
-  String? _codeValidator(String? value) {
-    if (value == null || value.isEmpty || value.length != 6) {
-      return AppLocalizations.of(context)?.valueIsIncorrect;
-    }
-
-    return null;
-  }
-
-  void _onSendCode() {
-    if (_codeController.text.isNotEmpty && _codeController.text.length == 6) {
-      debugPrint('send code');
-    } else {
-      debugPrint('not send code');
-    }
-  }
-
-  double _calcBottomPadding(BuildContext buildContext) {
-    const topBlockHeight = 450;
-    const bottomBlockHeight = 70;
-    final screenHeight = MediaQuery.of(buildContext).size.height;
-    final viewInsets = MediaQuery.of(buildContext).viewInsets;
+  double _calcBottomPadding() {
+    // values from the Figma
+    const topBlockHeight = 490;
+    const bottomBlockHeight = 60;
+    final screenHeight = MediaQuery.of(context).size.height;
+    final viewInsets = MediaQuery.of(context).viewInsets;
     final bottomPadding = screenHeight -
         topBlockHeight -
         bottomBlockHeight -

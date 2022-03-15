@@ -37,7 +37,7 @@ packages:
     source: hosted
     version: "2.3.0"
   async:
-    dependency: transitive
+    dependency: "direct dev"
     description:
       name: async
       url: "https://pub.dartlang.org"
@@ -319,6 +319,13 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
+  flutter_login_vk:
+    dependency: "direct main"
+    description:
+      name: flutter_login_vk
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "2.2.0"
   flutter_mobx:
     dependency: "direct main"
     description:
@@ -378,6 +385,27 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.13.0"
+  google_sign_in:
+    dependency: "direct main"
+    description:
+      name: google_sign_in
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "5.2.3"
+  google_sign_in_platform_interface:
+    dependency: transitive
+    description:
+      name: google_sign_in_platform_interface
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "2.1.1"
+  google_sign_in_web:
+    dependency: "direct main"
+    description:
+      name: google_sign_in_web
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.10.0+4"
   graphs:
     dependency: transitive
     description:
@@ -623,6 +651,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.0.5"
+  pedantic:
+    dependency: transitive
+    description:
+      name: pedantic
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.11.1"
   petitparser:
     dependency: transitive
     description:

@@ -1,7 +1,12 @@
 # Changelog
 
+- feat: CodeVm - add authorization via OTP
+- feat: SignInScreenVm - add phone authorization
+
 ## 0.3.0
 
+- feat: vk login
+- feat: google sign in
 - feat: SignInScreenVm
 - fix: iOS build support
 - feat: auth repository
