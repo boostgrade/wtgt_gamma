@@ -53,6 +53,7 @@ void main() {
       'Если отправляем событие входа через соц.сеть, то сначала получаем загрузку, потом состояние успеха',
       build: () => authBloc,
       act: (bloc) => bloc.add(const AuthEvent.loginViaFacebook()),
+      wait: const Duration(milliseconds: 300),
       expect: () => [const AuthState.idle(), const AuthState.success()],
     );
 
