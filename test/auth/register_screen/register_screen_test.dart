@@ -6,6 +6,8 @@ import 'package:where_to_go_today/src/core/ui/errors_handling/scenario_error_han
 import 'package:where_to_go_today/src/features/auth/register/register_screen.dart';
 import 'package:where_to_go_today/src/features/auth/register/register_screen_vm.dart';
 import 'package:where_to_go_today/src/features/auth/services/auth_bloc.dart';
+import 'package:where_to_go_today/src/features/auth/services/google/google_auth.dart';
+import 'package:where_to_go_today/src/features/auth/services/vk/vk_auth.dart';
 import 'package:where_to_go_today/src/features/authservices/repository/auth_repository.dart';
 import 'package:where_to_go_today/src/localization/l10n.dart';
 import 'package:where_to_go_today/src/res/theme/app_theme.dart';
@@ -13,6 +15,10 @@ import 'package:where_to_go_today/src/res/theme/app_theme.dart';
 class MockBuildContext extends Mock implements BuildContext {}
 
 class MockAuthRepository extends Mock implements AuthRepository {}
+
+class MockGoogleAuth extends Mock implements GoogleAuth {}
+
+class MockVKAuth extends Mock implements VKAuth {}
 
 class MockScenarioErrorHandler extends Mock implements ScenarioErrorHandler {}
 
@@ -33,7 +39,11 @@ void main() {
             builder: (context) {
               return RegisterScreen(
                 vm: RegisterScreenVm(
-                  AuthBloc(authRepository: MockAuthRepository()),
+                  AuthBloc(
+                    authRepository: MockAuthRepository(),
+                    googleAuth: MockGoogleAuth(),
+                    vkAuth: MockVKAuth(),
+                  ),
                   errorHandler: MockScenarioErrorHandler(),
                   context: MockBuildContext(),
                 ),

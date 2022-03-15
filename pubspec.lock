@@ -547,7 +547,7 @@ packages:
     source: hosted
     version: "2.0.4"
   mockito:
-    dependency: "direct main"
+    dependency: "direct dev"
     description:
       name: mockito
       url: "https://pub.dartlang.org"

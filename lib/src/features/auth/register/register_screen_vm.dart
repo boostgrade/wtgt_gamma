@@ -136,7 +136,7 @@ abstract class _RegisterScreenVm extends ViewModel with Store {
   void _handleBlocStates(AuthState blocState) {
     if (blocState is AuthStateIdle) {
       vmState = RegisterVmState.loading;
-    } else if (blocState is AuthStateSuccess) {
+    } else if (blocState is AuthStateRegister) {
       vmState = RegisterVmState.success;
     } else if (blocState is AuthStateError) {
       vmState = RegisterVmState.error;
