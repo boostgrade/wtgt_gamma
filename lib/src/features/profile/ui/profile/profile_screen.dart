@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:where_to_go_today/src/core/domain/user.dart';
+import 'package:where_to_go_today/src/core/ui/res/typography/app_typography.dart';
 import 'package:where_to_go_today/src/res/asset.dart';
 
 class ProfileScreen extends StatefulWidget {
@@ -16,45 +17,72 @@ class _ProfileScreenState extends State<ProfileScreen> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-      child: Column(
-        children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: [
-              CircleAvatar(
-                minRadius: 30,
-                backgroundImage: NetworkImage(widget.user.photoUrl),
-              ),
-              Column(
-                children: [
-                  Text('${widget.user.name} ${widget.user.lastName}'),
-                  IconButton(
-                    icon: SvgPicture.asset(
-                      Asset.svg.edit,
-                      width: 24,
-                      height: 24,
+      child: Padding(
+        padding: const EdgeInsets.all(30.0),
+        child: Column(
+          children: [
+            Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Row(
+                  crossAxisAlignment: CrossAxisAlignment.end,
+                  children: [
+                    CircleAvatar(
+                      radius: 50.0,
+                      backgroundImage: NetworkImage(widget.user.photoUrl),
+                      child: Material(
+                        shape: const CircleBorder(),
+                        clipBehavior: Clip.hardEdge,
+                        color: Colors.transparent,
+                        child: InkWell(
+                          onTap: () {
+                            // TODO(any): обработать нажатие на кнопку
+                          },
+                        ),
+                      ),
                     ),
-                    splashRadius: 24,
-                    onPressed: () {
-                      // TODO(any): обработать нажатие на кнопку
-                    },
-                  ),
-                ],
-              ),
-              IconButton(
-                icon: SvgPicture.asset(
-                  Asset.svg.settings,
-                  width: 42,
-                  height: 42,
+                    const SizedBox(width: 25),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          '${widget.user.name}\n${widget.user.lastName}',
+                          style: const AppTypography.s16w500h20(),
+                        ),
+                        const SizedBox(height: 10),
+                        IconButton(
+                          padding: EdgeInsets.zero,
+                          constraints: const BoxConstraints(),
+                          iconSize: 20,
+                          icon: SvgPicture.asset(
+                            Asset.svg.edit,
+                          ),
+                          splashRadius: 20,
+                          onPressed: () {
+                            // TODO(any): обработать нажатие на кнопку
+                          },
+                        ),
+                      ],
+                    ),
+                  ],
                 ),
-                splashRadius: 24,
-                onPressed: () {
-                  // TODO(any): обработать нажатие на кнопку
-                },
-              )
-            ],
-          ),
-        ],
+                IconButton(
+                  padding: EdgeInsets.zero,
+                  constraints: const BoxConstraints(),
+                  iconSize: 35,
+                  icon: SvgPicture.asset(
+                    Asset.svg.settings,
+                  ),
+                  splashRadius: 25,
+                  onPressed: () {
+                    // TODO(any): обработать нажатие на кнопку
+                  },
+                )
+              ],
+            ),
+          ],
+        ),
       ),
     );
   }
