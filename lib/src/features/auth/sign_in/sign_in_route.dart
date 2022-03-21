@@ -12,9 +12,9 @@ class SignInRoute extends MaterialPage<void> {
       : super(
           child: Provider<SignInScreenVm>(
             create: (ctx) => SignInScreenVm(
+              ctx,
               ctx.read<AppDependencies>().authBloc,
               errorHandler: ctx.read<AppDependencies>().errorHandler,
-              context: ctx,
             ),
             child: Builder(
               builder: (context) {

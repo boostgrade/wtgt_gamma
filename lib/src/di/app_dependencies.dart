@@ -5,7 +5,9 @@ import 'package:where_to_go_today/src/core/ui/errors_handling/scenario_error_han
 import 'package:where_to_go_today/src/core/ui/messages/default_message_controller.dart';
 import 'package:where_to_go_today/src/features/auth/services/auth_bloc.dart';
 import 'package:where_to_go_today/src/features/auth/services/facebook/facebook_auth_service.dart';
+import 'package:where_to_go_today/src/features/auth/services/google/google_auth.dart';
 import 'package:where_to_go_today/src/features/auth/services/storage/token_storage.dart';
+import 'package:where_to_go_today/src/features/auth/services/vk/vk_auth.dart';
 import 'package:where_to_go_today/src/features/authservices/api/auth_api.dart';
 import 'package:where_to_go_today/src/features/authservices/repository/auth_repository.dart';
 import 'package:where_to_go_today/src/features/settings/service/event/settings_event.dart';
@@ -13,21 +15,28 @@ import 'package:where_to_go_today/src/features/settings/service/repository/setti
 import 'package:where_to_go_today/src/features/settings/service/settings_bloc.dart';
 
 import '../core/services/network/firebase_options.dart';
-import '../features/auth/services/auth_bloc.dart';
+import '../features/authservices/api/auth_api.dart';
+import '../features/authservices/repository/auth_repository.dart';
 import 'base/dependency_bundle.dart';
 
 /// Класс с глобальными зависимостями приложения
-/// Здесь бужем описывать то, что является синглтонами.
+/// Здесь будем описывать то, что является синглтонами.
 class AppDependencies extends DependencyBundle {
   final dio = DioModule().dio;
   final settingsController = SettingsBloc(SettingsRepository());
   final tokenStorage = TokenStorage();
   final facebookAuthService = FacebookAuthService();
 
+  final googleAuth = GoogleAuth();
+  late final vkAuth = VKAuth();
+
   late final authRepository = AuthRepository(AuthApi(dio));
   late final authBloc = AuthBloc(
-    facebookAuthService: facebookAuthService,
     authRepository: authRepository,
+    googleAuth: googleAuth,
+    vkAuth: vkAuth,
+    
+    facebookAuthService: facebookAuthService,
   );
 
   late final messageController = DefaultMessageController();

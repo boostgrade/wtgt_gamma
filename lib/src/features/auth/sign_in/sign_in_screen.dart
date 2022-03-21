@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
@@ -24,7 +26,7 @@ class _SignInScreenState extends State<SignInScreen>
   @override
   SignInScreenVm get vm => widget.vm;
 
-  late bool _isValidPhone;
+  String get _fullPhoneNumber => '+7${_maskFormatter.getUnmaskedText()}';
 
   @override
   void initState() {
@@ -33,7 +35,6 @@ class _SignInScreenState extends State<SignInScreen>
     _maskFormatter = MaskTextInputFormatter(
       mask: '(###) ###-##-##',
     );
-    _isValidPhone = false;
   }
 
   @override
@@ -42,53 +43,54 @@ class _SignInScreenState extends State<SignInScreen>
       body: SafeArea(
         child: SingleChildScrollView(
           padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
-          child: Observer(
-            builder: (_) => Column(
-              children: [
-                Image.asset(
-                  Asset.png.logoWtgt,
-                  height: 254,
+          child: Column(
+            children: [
+              Image.asset(
+                Asset.png.logoWtgt,
+                height: 254,
+              ),
+              const SizedBox(height: 22),
+              TextField(
+                onChanged: (_) => vm.verifyPhone(_fullPhoneNumber),
+                decoration: InputDecoration(
+                  labelText: context.l10n.phoneNumberLabel,
+                  prefixText: '+7 ',
+                  hintText: '(XXX) XXX-XX-XX',
                 ),
-                const SizedBox(height: 22),
-                TextField(
-                  onChanged: (_) => _validatePhone(),
-                  decoration: InputDecoration(
-                    labelText: context.l10n.phoneNumberLabel,
-                    prefixText: '+7 ',
-                    hintText: '(XXX) XXX-XX-XX',
-                  ),
-                  keyboardType: TextInputType.number,
-                  inputFormatters: [
-                    _maskFormatter,
-                  ],
-                ),
-                const SizedBox(height: 32),
-                WtgtButton(
+                keyboardType: TextInputType.number,
+                inputFormatters: [_maskFormatter],
+              ),
+              const SizedBox(height: 32),
+              Observer(
+                builder: (_) => WtgtButton(
                   label: context.l10n.sendButtonLabel,
-                  onPressed: _isValidPhone ? _onSendCode : null,
+                  onPressed: vm.isPhoneValid
+                      ? () => vm.requestCode(_fullPhoneNumber)
+                      : null,
+                  loading: vm.isLoading,
                 ),
-                SizedBox(
-                  height: _calcBottomPadding(),
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    SocialLoginButton(
-                      imageAsset: Asset.svg.iconFacebook,
-                      onPressed: vm.signInWithFacebook,
-                    ),
-                    SocialLoginButton(
-                      imageAsset: Asset.svg.iconVkontakte,
-                      onPressed: _onVkontakteLogin,
-                    ),
-                    SocialLoginButton(
-                      imageAsset: Asset.svg.iconGoogle,
-                      onPressed: vm.signInWithGoogle,
-                    ),
-                  ],
-                ),
-              ],
-            ),
+              ),
+              SizedBox(
+                height: _calcBottomPadding(),
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  SocialLoginButton(
+                    imageAsset: Asset.svg.iconFacebook,
+                    onPressed: vm.signInWithFacebook,
+                  ),
+                  SocialLoginButton(
+                    imageAsset: Asset.svg.iconVkontakte,
+                    onPressed: vm.signInWithVkontakte,
+                  ),
+                  SocialLoginButton(
+                    imageAsset: Asset.svg.iconGoogle,
+                    onPressed: vm.signInWithGoogle,
+                  ),
+                ],
+              ),
+            ],
           ),
         ),
       ),
@@ -104,22 +106,6 @@ class _SignInScreenState extends State<SignInScreen>
     final bottomPadding =
         screenHeight - topBlockHeight - bottomBlockHeight - viewInsets.bottom;
 
-    return bottomPadding < 24 ? 24 : bottomPadding;
-  }
-
-  void _onSendCode() {
-    // TODO(any): обработать нажатие на кнопку
-    debugPrint('Phone number = +7${_maskFormatter.getUnmaskedText()}');
-  }
-
-  void _onVkontakteLogin() {
-    // TODO(any): обработать нажатие на кнопку
-    debugPrint('_onVkontakteLogin()');
-  }
-
-  void _validatePhone() {
-    setState(() {
-      _isValidPhone = _maskFormatter.isFill();
-    });
+    return max(bottomPadding, 24);
   }
 }
