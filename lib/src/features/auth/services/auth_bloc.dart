@@ -82,9 +82,19 @@ class AuthBloc extends Bloc<AuthEvent, AuthState>
     AuthEventLoginViaFacebook _,
     Emitter<AuthState> emit,
   ) async {
-    emit(const AuthState.idle());
-    // TODO(any): handle incoming `AuthEventLoginViaFacebook` event
-    emit(const AuthState.successViaSocial());
+    try {
+      emit(const AuthState.idle());
+
+      final token = await facebookAuthService.login();
+
+      if (token != null && token.isNotEmpty) {
+        emit(const AuthState.successViaSocial());
+      }
+    } on PlatformException catch (e, s) {
+      emit(AuthState.error(AuthorizationException(), s));
+    } on Exception catch (e, s) {
+      emit(AuthState.error(e, s));
+    }
   }
 
   FutureOr<void> _onLoginViaVkontakte(

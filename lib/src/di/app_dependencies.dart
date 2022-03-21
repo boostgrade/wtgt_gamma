@@ -35,7 +35,6 @@ class AppDependencies extends DependencyBundle {
     authRepository: authRepository,
     googleAuth: googleAuth,
     vkAuth: vkAuth,
-    
     facebookAuthService: facebookAuthService,
   );
 
@@ -51,8 +50,11 @@ class AppDependencies extends DependencyBundle {
 
     await tokenStorage.init();
 
-    await Firebase.initializeApp(
-      options: DefaultFirebaseOptions.currentPlatform,
-    );
+    if (Firebase.apps.isEmpty) {
+      await Firebase.initializeApp(
+        name: 'wtgt-gamma',
+        options: DefaultFirebaseOptions.currentPlatform,
+      );
+    }
   }
 }

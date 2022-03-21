@@ -1,3 +1,4 @@
+import 'package:flutter/services.dart';
 import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
 
 class FacebookAuthService {
@@ -9,9 +10,14 @@ class FacebookAuthService {
       ],
     );
 
-    return result.status == LoginStatus.success && result.accessToken != null
-        ? result.accessToken!.token
-        : null;
+    if (result.accessToken == null) {
+      throw PlatformException(
+        code: 'sign_in_canceled',
+        message: 'Sign in was cancelled',
+      );
+    }
+
+    return result.accessToken!.token;
   }
 
   Future<void> logout() async => FacebookAuth.i.logOut();

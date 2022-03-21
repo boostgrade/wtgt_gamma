@@ -64,11 +64,6 @@ abstract class _SignInScreenVm extends ViewModel with Store {
     _bloc.add(const AuthEvent.loginViaVkontakte());
   }
 
-  @action
-  void signInWithFacebook() {
-    _bloc.add(const AuthEventLoginViaFacebook());
-  }
-
   void _handleStates(AuthState state) {
     if (state is AuthStateIdle) {
       vmState = SignInVmState.loading;
