@@ -17,6 +17,8 @@ class MockGoogleAuth extends Mock implements GoogleAuth {}
 
 class MockVKAuth extends Mock implements VKAuth {}
 
+class MockFacebookAuthService extends Mock implements FacebookAuthService {}
+
 void main() {
   group('Тесты на блок авторизации', () {
     late AuthRepository authRepository;
@@ -27,7 +29,7 @@ void main() {
 
     setUp(() {
       authRepository = AuthRepository(AuthApi(Dio()));
-      facebookAuthService = FacebookAuthService();
+      facebookAuthService = MockFacebookAuthService();
       googleAuth = MockGoogleAuth();
       vkAuth = MockVKAuth();
       authBloc = AuthBloc(
@@ -72,6 +74,7 @@ void main() {
       'Если отправляем событие входа через соц.сеть, то сначала получаем загрузку, потом состояние успеха',
       build: () => authBloc,
       act: (bloc) => bloc.add(const AuthEvent.loginViaFacebook()),
+      wait: const Duration(seconds: 2),
       expect: () =>
           [const AuthState.idle(), const AuthState.successViaSocial()],
     );
