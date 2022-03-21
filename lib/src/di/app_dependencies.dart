@@ -45,8 +45,11 @@ class AppDependencies extends DependencyBundle {
     settingsController.add(LoadSettings());
     await tokenStorage.init();
 
-    await Firebase.initializeApp(
-      options: DefaultFirebaseOptions.currentPlatform,
-    );
+    if (Firebase.apps.isEmpty) {
+      await Firebase.initializeApp(
+        name: 'wtgt-gamma',
+        options: DefaultFirebaseOptions.currentPlatform,
+      );
+    }
   }
 }

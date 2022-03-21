@@ -13,7 +13,7 @@ class AppRouter {
 
   static final routes = RouteMap(
     routes: {
-      initialRoute: (_) => SignInRoute(),
+      initialRoute: (_) => RegisterRoute(),
       SignInRoute.routeName: (_) => SignInRoute(),
       '${CodeRoute.routeName}/:phone': (route) =>
           CodeRoute(route.pathParameters['phone'] ?? ''),
