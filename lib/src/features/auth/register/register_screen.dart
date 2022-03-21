@@ -4,7 +4,6 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:where_to_go_today/src/core/ui/base/view_model_disposer_mixin.dart';
 import 'package:where_to_go_today/src/features/auth/register/register_screen_vm.dart';
-import 'package:where_to_go_today/src/features/auth/register/register_vm_state.dart';
 import 'package:where_to_go_today/src/ui/uikit/wtgt_button.dart';
 
 class RegisterScreen extends StatefulWidget {
