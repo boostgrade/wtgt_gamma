@@ -53,13 +53,6 @@ abstract class _OnboardingVm extends ViewModel with Store {
   @action
   void changeButtonLabel(int pageIndex) {
     isLastPage = pageIndex == 2;
-
-    // ignore: avoid_print
-    print(pageIndex);
-    // ignore: avoid_print
-    print(isLastPage);
-    // ignore: avoid_print
-    print(buttonLabel);
   }
 
   void _handleStates(OnboardingState state) {

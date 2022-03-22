@@ -31,6 +31,7 @@ class _ObBoardingScreenState extends State<OnboardingScreen>
   @override
   void dispose() {
     vm.pageController.dispose();
+    vm.dispose();
     super.dispose();
   }
 
