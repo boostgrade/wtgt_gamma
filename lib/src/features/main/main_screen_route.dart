@@ -7,6 +7,8 @@ import 'main_screen.dart';
 /// Роут экрана [MainScreen]
 @immutable
 class MainScreenRoute extends MaterialPage<void> {
+  static const routeName = '/main-screen';
+
   MainScreenRoute()
       : super(
           child: Provider<MainScreenVm>(
