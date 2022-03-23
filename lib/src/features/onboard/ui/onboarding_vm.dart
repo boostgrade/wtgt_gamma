@@ -26,7 +26,7 @@ abstract class _OnboardingVm extends ViewModel with Store {
 
   String get buttonLabel =>
       (isLastPage
-          ? AppLocalizations.of(_context)?.further
+          ? AppLocalizations.of(_context)?.next
           : AppLocalizations.of(_context)?.skip) ??
       '';
 
