@@ -25,7 +25,7 @@ void main() {
     late MockGoogleAuth googleAuth;
     late MockVKAuth vkAuth;
     late AuthBloc authBloc;
-    late FacebookAuthService facebookAuthService;
+    late MockFacebookAuthService facebookAuthService;
 
     setUp(() {
       authRepository = AuthRepository(AuthApi(Dio()));
@@ -37,6 +37,9 @@ void main() {
         googleAuth: googleAuth,
         vkAuth: vkAuth,
         facebookAuthService: facebookAuthService,
+      );
+      when(() => facebookAuthService.login()).thenAnswer(
+        (invocation) => Future.value('token'),
       );
     });
     blocTest<AuthBloc, AuthState>(
