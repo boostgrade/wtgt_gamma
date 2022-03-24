@@ -20,10 +20,10 @@ class OnboardingScreen extends StatefulWidget {
   }) : super(key: key);
 
   @override
-  State<OnboardingScreen> createState() => _ObBoardingScreenState();
+  State<OnboardingScreen> createState() => _OnboardingScreenState();
 }
 
-class _ObBoardingScreenState extends State<OnboardingScreen>
+class _OnboardingScreenState extends State<OnboardingScreen>
     with ViewModelDisposerMixin<OnboardingScreen, OnboardingVm> {
   @override
   OnboardingVm get vm => widget.vm;

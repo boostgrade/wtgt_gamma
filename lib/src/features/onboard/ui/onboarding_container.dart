@@ -16,7 +16,7 @@ class OnboardingContainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return Padding(
       padding: _containerPadding,
       child: Container(
         decoration: BoxDecoration(
