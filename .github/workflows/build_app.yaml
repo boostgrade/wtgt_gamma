@@ -87,3 +87,26 @@ jobs:
           path: reports/tests.json
           reporter: dart-json
           token: ${{ secrets.GITHUB_TOKEN }}
+
+  build-apk:
+    needs: testing
+    runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        shell: bash
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Install Flutter
+        uses: subosito/flutter-action@v2.3.0
+        with:
+          channel: "stable"
+
+      - name: Install dependencies
+        run: flutter pub get
+
+      - name: Build apk
+        run: flutter build apk
