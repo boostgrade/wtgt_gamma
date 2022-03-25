@@ -9,6 +9,7 @@ import 'package:where_to_go_today/src/features/auth/services/storage/token_stora
 import 'package:where_to_go_today/src/features/auth/services/vk/vk_auth.dart';
 import 'package:where_to_go_today/src/features/authservices/api/auth_api.dart';
 import 'package:where_to_go_today/src/features/authservices/repository/auth_repository.dart';
+import 'package:where_to_go_today/src/features/onboard/services/onboarding_bloc.dart';
 import 'package:where_to_go_today/src/features/settings/service/event/settings_event.dart';
 import 'package:where_to_go_today/src/features/settings/service/repository/settings_repository.dart';
 import 'package:where_to_go_today/src/features/settings/service/settings_bloc.dart';
@@ -28,6 +29,7 @@ class AppDependencies extends DependencyBundle {
   late final vkAuth = VKAuth();
 
   late final authRepository = AuthRepository(AuthApi(dio));
+  late final onboardingBloc = OnboardingBloc();
   late final authBloc = AuthBloc(
     authRepository: authRepository,
     googleAuth: googleAuth,
@@ -45,7 +47,7 @@ class AppDependencies extends DependencyBundle {
     settingsController.add(LoadSettings());
     await tokenStorage.init();
 
-    if (Firebase.apps.isEmpty) {
+    if (Firebase.apps.isNotEmpty) {
       await Firebase.initializeApp(
         name: 'wtgt-gamma',
         options: DefaultFirebaseOptions.currentPlatform,

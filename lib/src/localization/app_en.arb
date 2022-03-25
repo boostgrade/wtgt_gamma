@@ -21,5 +21,10 @@
   "birthdayMask": "DD/MM/YYYY",
   "phoneNumberLabel": "Phone number",
   "sendButtonLabel": "Send",
-  "authError": "Authorization failed! Try again"
+  "authError": "Authorization failed! Try again",
+  "onboardingFirstTitle": "Choose places and\nadd them to\nyour favorites list.",
+  "onboardingSecondTitle": "Book tables and\nmake an order for\nthe selected\ntime and date.",
+  "onboardingThirdTitle": "Provide your QR\nto the waiters to\naccumulate loyalty\npoints.",
+  "skip": "Skip",
+  "next": "Next"
 }
