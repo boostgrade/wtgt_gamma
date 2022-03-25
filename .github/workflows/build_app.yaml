@@ -20,7 +20,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3.0.0
 
       - name: Install Flutter
         uses: subosito/flutter-action@v2.3.0
@@ -42,7 +42,7 @@ jobs:
           fatal-warnings: true
 
       - name: dart-code-metrics
-        uses: dart-code-checker/dart-code-metrics-action@v1
+        uses: dart-code-checker/dart-code-metrics-action@v1.5.0
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           folders: "lib, test"
@@ -61,7 +61,7 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3.0.0
 
       - name: Install lcov
         run: |
@@ -80,7 +80,7 @@ jobs:
         run: flutter test --exclude-tags=golden --reporter=expanded --coverage
 
       - name: Publish test results
-        uses: dorny/test-reporter@v1
+        uses: dorny/test-reporter@v1.5.0
         if: success() || failure() # run this step even if previous step failed
         with:
           name: Tests result
@@ -88,8 +88,36 @@ jobs:
           reporter: dart-json
           token: ${{ secrets.GITHUB_TOKEN }}
 
+  golden_testing:
+    needs: analysis
+    runs-on: macos-11
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3.0.0
+
+      - name: Install Flutter
+        uses: subosito/flutter-action@v2.3.0
+        with:
+          channel: "stable"
+
+      - name: Install dependencies
+        run: flutter pub get
+
+      - name: Run tests
+        run: flutter test --tags=golden --reporter=expanded
+
+      - name: Publish test results
+        uses: dorny/test-reporter@v1.5.0
+        if: success() || failure() # run this step even if previous step failed
+        with:
+          name: Golden Tests result
+          path: packages/health_diary_watches_app/reports/tests.json
+          reporter: dart-json
+          token: ${{ secrets.GITHUB_TOKEN }}
+
   build-apk:
-    needs: testing
+    needs: [testing, golden_testing]
     runs-on: ubuntu-latest
 
     defaults:
@@ -98,7 +126,7 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3.0.0
 
       - name: Install Flutter
         uses: subosito/flutter-action@v2.3.0
@@ -110,3 +138,22 @@ jobs:
 
       - name: Build apk
         run: flutter build apk
+
+  build-ios:
+    needs: [testing, golden_testing]
+    runs-on: macos-11
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3.0.0
+
+      - name: Install Flutter
+        uses: subosito/flutter-action@v2.3.0
+        with:
+          channel: "stable"
+
+      - name: Install dependencies
+        run: flutter pub get
+
+      - name: Build ios
+        run: flutter build ios --no-codesign
