@@ -29,47 +29,57 @@ class _ProfileScreenState extends State<ProfileScreen> {
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Row(
-                  crossAxisAlignment: CrossAxisAlignment.end,
-                  children: [
-                    CircleAvatar(
-                      radius: 50.0,
-                      backgroundImage: NetworkImage(widget.user.photoUrl),
-                      child: Material(
-                        shape: const CircleBorder(),
-                        clipBehavior: Clip.hardEdge,
-                        color: Colors.transparent,
-                        child: InkWell(
-                          onTap: () {
-                            // TODO(any): обработать нажатие на кнопку
-                          },
+                Flexible(
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.end,
+                    children: [
+                      CircleAvatar(
+                        radius: 50.0,
+                        backgroundImage: NetworkImage(widget.user.photoUrl),
+                        child: Material(
+                          shape: const CircleBorder(),
+                          clipBehavior: Clip.hardEdge,
+                          color: Colors.transparent,
+                          child: InkWell(
+                            onTap: () {
+                              // TODO(any): обработать нажатие на кнопку
+                            },
+                          ),
                         ),
                       ),
-                    ),
-                    const SizedBox(width: 25),
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          '${widget.user.name}\n${widget.user.lastName}',
-                          style: const AppTypography.s16w500h20(),
+                      const SizedBox(width: 25),
+                      Expanded(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              widget.user.name,
+                              overflow: TextOverflow.ellipsis,
+                              style: const AppTypography.s16w500h20(),
+                            ),
+                            Text(
+                              widget.user.lastName,
+                              overflow: TextOverflow.ellipsis,
+                              style: const AppTypography.s16w500h20(),
+                            ),
+                            const SizedBox(height: 10),
+                            IconButton(
+                              padding: EdgeInsets.zero,
+                              constraints: const BoxConstraints(),
+                              iconSize: 20,
+                              icon: SvgPicture.asset(
+                                Asset.svg.edit,
+                              ),
+                              splashRadius: 20,
+                              onPressed: () {
+                                // TODO(any): обработать нажатие на кнопку
+                              },
+                            ),
+                          ],
                         ),
-                        const SizedBox(height: 10),
-                        IconButton(
-                          padding: EdgeInsets.zero,
-                          constraints: const BoxConstraints(),
-                          iconSize: 20,
-                          icon: SvgPicture.asset(
-                            Asset.svg.edit,
-                          ),
-                          splashRadius: 20,
-                          onPressed: () {
-                            // TODO(any): обработать нажатие на кнопку
-                          },
-                        ),
-                      ],
-                    ),
-                  ],
+                      ),
+                    ],
+                  ),
                 ),
                 IconButton(
                   padding: EdgeInsets.zero,

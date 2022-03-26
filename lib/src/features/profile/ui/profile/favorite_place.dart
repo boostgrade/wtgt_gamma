@@ -35,21 +35,28 @@ class _FavoritePlaceState extends State<FavoritePlace> {
               height: 24,
             ),
           ),
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                widget.place.name,
-                style: const AppTypography.s18w500h20ls(),
+          Expanded(
+            child: Padding(
+              padding: const EdgeInsets.only(left: 25, right: 10),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    widget.place.name,
+                    overflow: TextOverflow.ellipsis,
+                    style: const AppTypography.s18w500h20ls(),
+                  ),
+                  const SizedBox(height: 5),
+                  Text(
+                    widget.place.distance != null
+                        ? '${widget.place.distance} м'
+                        : '',
+                    overflow: TextOverflow.ellipsis,
+                    style: const AppTypography.s16w400h20(),
+                  ),
+                ],
               ),
-              const SizedBox(height: 5),
-              Text(
-                widget.place.distance != null
-                    ? '${widget.place.distance} м'
-                    : '',
-                style: const AppTypography.s16w400h20(),
-              ),
-            ],
+            ),
           ),
           Container(
             width: 80,
