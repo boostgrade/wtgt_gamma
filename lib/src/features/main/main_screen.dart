@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
+import 'package:where_to_go_today/src/core/domain/place.dart';
 import 'package:where_to_go_today/src/features/profile/ui/profile/profile_screen.dart';
 import '../../core/domain/user.dart';
 import 'main_screen_vm.dart';
@@ -29,6 +30,24 @@ class MainScreen extends StatelessWidget {
         phone: '',
         photoUrl:
             'https://s3-alpha-sig.figma.com/img/2fb3/141e/57d3910fcca978d11b1ea71e2e0802b1?Expires=1648425600&Signature=EY1EftdoecTgb6U8YPE0ylxQNUNWMbpu8UTFdWIhNpu7mvi-pBBuB30FROSp~wjx49ncN0eZbTTNDcwh4phloshpFiU~WdFJ~G8uizIr0zXFmig7sNfmi2aTA4m1FXvEth66oGTbSGFEeksUAwsmbE7pcIol6gWYFUMfFP~GRQ2Fc0xt4w9JRNbq8NvmBMCy5AT-PbtVsFH3fD2DipslSOPEHWkHY1RzPfUZC8nt4qKrB-JIY6tkQN48xF~BmZ2pTiwRwHZvBuHuxeS2eVD4Sz5r5LzILeunUeYeZi3p3VjZnc8l0zlQpz721rS-0bTSs29udXuxUUjH5O9NfGxHGA__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA',
+        favoritePlaces: [
+          Place(
+            id: 1,
+            name: 'Название Кафе',
+            description: 'Описание',
+            distance: 200,
+            imageUrl:
+                'https://s3-alpha-sig.figma.com/img/a8df/2b8e/8b3ec5c81b489cac54a930c453372cd7?Expires=1649030400&Signature=PxOaWu4ATdslRahsxRJ7Ob5jvfRRxS0ZP7cS-sL1KidOS71JqmFAqb6ZOIbeTgntMmxrAqpQMAWolA95osIf0BEYgmAkEtLZC8wUgAQ2GFIPes~sy3dKPlTmssnkUhIYL2qM649gL4ZH8oijm6XoDW7~eX4bP3lOIT7ztagkM7MR3CUlFQTVRluCJ7g0zVirXH~bE0tgsPZ4iXXgxIh~A6eabPo6AVINri4odrCr5dHoa47PFAuEk0HpE6Z-nPrUvDJe3fZtDB3SdrD1DjLK-O~9MGCMoKIpV~vH9-mu~i6pYD10rp7SkEU3uZESNTpS5kU1UDLhxfWF5ncPIfLtSg__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA',
+          ),
+          Place(
+            id: 2,
+            name: 'Название Кафе',
+            description: 'Описание',
+            distance: 200,
+            imageUrl:
+                'https://s3-alpha-sig.figma.com/img/a8df/2b8e/8b3ec5c81b489cac54a930c453372cd7?Expires=1649030400&Signature=PxOaWu4ATdslRahsxRJ7Ob5jvfRRxS0ZP7cS-sL1KidOS71JqmFAqb6ZOIbeTgntMmxrAqpQMAWolA95osIf0BEYgmAkEtLZC8wUgAQ2GFIPes~sy3dKPlTmssnkUhIYL2qM649gL4ZH8oijm6XoDW7~eX4bP3lOIT7ztagkM7MR3CUlFQTVRluCJ7g0zVirXH~bE0tgsPZ4iXXgxIh~A6eabPo6AVINri4odrCr5dHoa47PFAuEk0HpE6Z-nPrUvDJe3fZtDB3SdrD1DjLK-O~9MGCMoKIpV~vH9-mu~i6pYD10rp7SkEU3uZESNTpS5kU1UDLhxfWF5ncPIfLtSg__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA',
+          ),
+        ],
       ),
     ),
   ];

@@ -21,5 +21,7 @@
   "birthdayMask": "DD/MM/YYYY",
   "phoneNumberLabel": "Phone number",
   "sendButtonLabel": "Send",
-  "authError": "Authorization failed! Try again"
+  "authError": "Authorization failed! Try again",
+  "profileFavoritesTitle": "Favorites",
+  "profileSignOut": "Sign out"
 }

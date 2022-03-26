@@ -18,5 +18,7 @@
   "birthdayMask": "ДД/ММ/ГГГГ",
   "phoneNumberLabel": "Номер телефона",
   "sendButtonLabel": "Отправить",
-  "authError": "Авторизация не удалась! Попробуйте еще раз"
+  "authError": "Авторизация не удалась! Попробуйте еще раз",
+  "profileFavoritesTitle": "Избранное",
+  "profileSignOut": "Выйти из профиля"
 }
