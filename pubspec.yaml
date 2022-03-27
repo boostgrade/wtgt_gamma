@@ -7,8 +7,8 @@ publish_to: "none"
 version: 0.2.0
 
 environment:
-  sdk: ">=2.15.0 <3.0.0"
-  flutter: ">=2.8.0"
+  sdk: ">=2.16.0 <3.0.0"
+  flutter: ">=2.10.0"
 
 dependencies:
   bloc: ^8.0.0
@@ -18,15 +18,19 @@ dependencies:
   firebase_auth_web: ^3.3.7
   firebase_core: ^1.12.0
   firebase_core_web: ^1.5.4
+
   flutter:
     sdk: flutter
   flutter_localizations:
     sdk: flutter
+
   flutter_login_vk: ^2.2.0
   flutter_mobx: ^2.0.0
   flutter_svg: ^1.0.3
+
   flutter_web_plugins:
     sdk: flutter
+
   freezed_annotation: ^1.1.0
   google_sign_in: ^5.2.3
   google_sign_in_web: ^0.10.0+4
@@ -40,6 +44,7 @@ dependencies:
   retrofit: ^3.0.1
   routemaster: ^0.9.0
   rxdart: ^0.27.0
+  smooth_page_indicator: ^1.0.0+2
 
 dev_dependencies:
   async: ^2.8.2
@@ -47,13 +52,15 @@ dev_dependencies:
   build_runner: ^2.1.2
   dart_code_metrics: ^4.9.1
   flutter_lints: ^1.0.0
+
   flutter_test:
     sdk: flutter
+
   freezed: ^1.1.0
   golden_toolkit: ^0.13.0
   mobx_codegen: ^2.0.0
-  mocktail: ^0.2.0
-  retrofit_generator: '>=3.0.0 <4.0.0'
+  mocktail: ^0.3.0
+  retrofit_generator: ^3.0.0
 
 flutter:
   uses-material-design: true
@@ -65,6 +72,7 @@ flutter:
     # Add assets from the images directory to the application.
     - assets/images/
     - assets/images/3.0x/
+    - assets/images/onboarding/
     - assets/images/auth/sign_in/
     - assets/images/profile/
     - assets/images/place/
