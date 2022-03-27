@@ -9,14 +9,14 @@ class PlaceDetailRoute extends MaterialPage<void> {
 
   PlaceDetailRoute(String id)
       : super(
-    child: Provider<PlaceDetailVm>(
-      create: (_) => PlaceDetailVm(),
-      child: Builder(
-        builder: (context) => PlaceDetailScreen(
-          vm: context.read<PlaceDetailVm>(),
-          placeId: id,
-        ),
-      ),
-    ),
-  );
+          child: Provider<PlaceDetailVm>(
+            create: (_) => PlaceDetailVm(),
+            child: Builder(
+              builder: (context) => PlaceDetailScreen(
+                vm: context.read<PlaceDetailVm>(),
+                placeId: id,
+              ),
+            ),
+          ),
+        );
 }
