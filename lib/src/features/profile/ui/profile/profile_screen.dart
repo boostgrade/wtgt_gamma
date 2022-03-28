@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:where_to_go_today/src/core/domain/user.dart';
@@ -25,75 +26,72 @@ class _ProfileScreenState extends State<ProfileScreen> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Row(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Flexible(
-                  child: Row(
-                    crossAxisAlignment: CrossAxisAlignment.end,
-                    children: [
-                      CircleAvatar(
-                        radius: 50.0,
-                        backgroundImage: NetworkImage(widget.user.photoUrl),
-                        child: Material(
-                          shape: const CircleBorder(),
-                          clipBehavior: Clip.hardEdge,
-                          color: Colors.transparent,
-                          child: InkWell(
-                            onTap: () {
-                              // TODO(any): обработать нажатие на кнопку
-                            },
-                          ),
-                        ),
+            SizedBox(
+              height: 100,
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  CircleAvatar(
+                    radius: 50.0,
+                    backgroundImage: CachedNetworkImageProvider(
+                      widget.user.photoUrl,
+                    ),
+                    child: Material(
+                      shape: const CircleBorder(),
+                      clipBehavior: Clip.hardEdge,
+                      color: Colors.transparent,
+                      child: InkWell(
+                        onTap: () {
+                          // TODO(any): обработать нажатие на кнопку
+                        },
                       ),
-                      const SizedBox(width: 25),
-                      Expanded(
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              widget.user.name,
-                              overflow: TextOverflow.ellipsis,
-                              style: const AppTypography.s16w500h20(),
-                            ),
-                            Text(
-                              widget.user.lastName,
-                              overflow: TextOverflow.ellipsis,
-                              style: const AppTypography.s16w500h20(),
-                            ),
-                            const SizedBox(height: 10),
-                            IconButton(
-                              padding: EdgeInsets.zero,
-                              constraints: const BoxConstraints(),
-                              iconSize: 20,
-                              icon: SvgPicture.asset(
-                                Asset.svg.edit,
-                              ),
-                              splashRadius: 20,
-                              onPressed: () {
-                                // TODO(any): обработать нажатие на кнопку
-                              },
-                            ),
-                          ],
+                    ),
+                  ),
+                  const SizedBox(width: 25),
+                  Column(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        widget.user.name,
+                        overflow: TextOverflow.ellipsis,
+                        style: const AppTypography.s16w500h20(),
+                      ),
+                      Text(
+                        widget.user.lastName,
+                        overflow: TextOverflow.ellipsis,
+                        style: const AppTypography.s16w500h20(),
+                      ),
+                      const SizedBox(height: 10),
+                      IconButton(
+                        padding: EdgeInsets.zero,
+                        constraints: const BoxConstraints(),
+                        iconSize: 20,
+                        icon: SvgPicture.asset(
+                          Asset.svg.edit,
                         ),
+                        splashRadius: 20,
+                        onPressed: () {
+                          // TODO(any): обработать нажатие на кнопку
+                        },
                       ),
                     ],
                   ),
-                ),
-                IconButton(
-                  padding: EdgeInsets.zero,
-                  constraints: const BoxConstraints(),
-                  iconSize: 35,
-                  icon: SvgPicture.asset(
-                    Asset.svg.settings,
-                  ),
-                  splashRadius: 25,
-                  onPressed: () {
-                    // TODO(any): обработать нажатие на кнопку
-                  },
-                )
-              ],
+                  const Spacer(),
+                  IconButton(
+                    padding: EdgeInsets.zero,
+                    constraints: const BoxConstraints(),
+                    iconSize: 35,
+                    icon: SvgPicture.asset(
+                      Asset.svg.settings,
+                    ),
+                    splashRadius: 25,
+                    onPressed: () {
+                      // TODO(any): обработать нажатие на кнопку
+                    },
+                  )
+                ],
+              ),
             ),
             const SizedBox(
               height: 40,
@@ -105,7 +103,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 style: const AppTypography.s24w600h20(),
               ),
             ),
-            Flexible(
+            Expanded(
               child: ListView.separated(
                 separatorBuilder: (context, index) => const SizedBox(
                   height: 10,

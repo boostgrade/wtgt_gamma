@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -26,7 +27,7 @@ class _FavoritePlaceState extends State<FavoritePlace> {
         borderRadius: const BorderRadius.all(Radius.circular(10)),
       ),
       child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        // mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Padding(
             padding: const EdgeInsets.only(left: 16),
@@ -67,7 +68,7 @@ class _FavoritePlaceState extends State<FavoritePlace> {
                 bottomRight: Radius.circular(10),
               ),
               image: DecorationImage(
-                image: NetworkImage(
+                image: CachedNetworkImageProvider(
                   widget.place.imageUrl,
                 ),
                 fit: BoxFit.cover,
