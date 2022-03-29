@@ -7,6 +7,7 @@
 
 ## 0.3.0
 
+- feat: facebook sign in
 - feat: vk login
 - feat: google sign in
 - feat: SignInScreenVm
@@ -15,6 +16,7 @@
 - feat: phone auth service
 - feat: auth bloc
 - fix: flutter 2.10 android support
+- feat: registration logic
 
 ## 0.2.0
 

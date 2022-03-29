@@ -21,7 +21,7 @@ class AppRouter {
       OnboardingRoute.routeName: (_) => OnboardingRoute(),
       '${CodeRoute.routeName}/:phone': (route) =>
           CodeRoute(route.pathParameters['phone'] ?? ''),
-      RegisterRoute.routeName: (_) => const RegisterRoute(),
+      RegisterRoute.routeName: (_) => RegisterRoute(),
       SettingsRoute.routeName: (_) => SettingsRoute(),
     },
   );
