@@ -7,6 +7,7 @@ import 'package:mocktail/mocktail.dart';
 import 'package:where_to_go_today/src/features/auth/services/auth_bloc.dart';
 import 'package:where_to_go_today/src/features/auth/services/bloc/events/auth_event.dart';
 import 'package:where_to_go_today/src/features/auth/services/bloc/states/auth_state.dart';
+import 'package:where_to_go_today/src/features/auth/services/facebook/facebook_auth_service.dart';
 import 'package:where_to_go_today/src/features/auth/services/google/google_auth.dart';
 import 'package:where_to_go_today/src/features/auth/services/vk/vk_auth.dart';
 import 'package:where_to_go_today/src/features/authservices/api/auth_api.dart';
@@ -16,21 +17,29 @@ class MockGoogleAuth extends Mock implements GoogleAuth {}
 
 class MockVKAuth extends Mock implements VKAuth {}
 
+class MockFacebookAuthService extends Mock implements FacebookAuthService {}
+
 void main() {
   group('Тесты на блок авторизации', () {
     late AuthRepository authRepository;
     late MockGoogleAuth googleAuth;
     late MockVKAuth vkAuth;
     late AuthBloc authBloc;
+    late MockFacebookAuthService facebookAuthService;
 
     setUp(() {
       authRepository = AuthRepository(AuthApi(Dio()));
+      facebookAuthService = MockFacebookAuthService();
       googleAuth = MockGoogleAuth();
       vkAuth = MockVKAuth();
       authBloc = AuthBloc(
         authRepository: authRepository,
         googleAuth: googleAuth,
         vkAuth: vkAuth,
+        facebookAuthService: facebookAuthService,
+      );
+      when(() => facebookAuthService.login()).thenAnswer(
+        (invocation) => Future.value('token'),
       );
     });
     blocTest<AuthBloc, AuthState>(
@@ -68,6 +77,7 @@ void main() {
       'Если отправляем событие входа через соц.сеть, то сначала получаем загрузку, потом состояние успеха',
       build: () => authBloc,
       act: (bloc) => bloc.add(const AuthEvent.loginViaFacebook()),
+      wait: const Duration(seconds: 2),
       expect: () =>
           [const AuthState.idle(), const AuthState.successViaSocial()],
     );

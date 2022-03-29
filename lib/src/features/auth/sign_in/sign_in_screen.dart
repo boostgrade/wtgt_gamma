@@ -31,6 +31,7 @@ class _SignInScreenState extends State<SignInScreen>
   @override
   void initState() {
     super.initState();
+
     _maskFormatter = MaskTextInputFormatter(
       mask: '(###) ###-##-##',
     );
@@ -38,9 +39,9 @@ class _SignInScreenState extends State<SignInScreen>
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        body: SingleChildScrollView(
+    return Scaffold(
+      body: SafeArea(
+        child: SingleChildScrollView(
           padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
           child: Column(
             children: [
