@@ -7,6 +7,7 @@ import 'package:where_to_go_today/src/core/ui/errors_handling/scenario_error_han
 import 'package:where_to_go_today/src/features/auth/code/code_screen.dart';
 import 'package:where_to_go_today/src/features/auth/code/code_vm.dart';
 import 'package:where_to_go_today/src/features/auth/services/auth_bloc.dart';
+import 'package:where_to_go_today/src/features/auth/services/facebook/facebook_auth_service.dart';
 import 'package:where_to_go_today/src/features/auth/services/google/google_auth.dart';
 import 'package:where_to_go_today/src/features/auth/services/vk/vk_auth.dart';
 import 'package:where_to_go_today/src/features/authservices/repository/auth_repository.dart';
@@ -15,6 +16,8 @@ import 'package:where_to_go_today/src/res/theme/app_theme.dart';
 class MockBuildContext extends Mock implements BuildContext {}
 
 class MockAuthRepository extends Mock implements AuthRepository {}
+
+class MockFacebookAuth extends Mock implements FacebookAuthService {}
 
 class MockGoogleAuth extends Mock implements GoogleAuth {}
 
@@ -39,6 +42,7 @@ void main() {
             vm: CodeVm(
               MockBuildContext(),
               AuthBloc(
+                facebookAuthService: MockFacebookAuth(),
                 authRepository: MockAuthRepository(),
                 googleAuth: MockGoogleAuth(),
                 vkAuth: MockVKAuth(),
