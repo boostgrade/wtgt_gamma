@@ -28,5 +28,6 @@
   "skip": "Skip",
   "next": "Next",
   "profileFavoritesTitle": "Favorites",
-  "profileSignOut": "Sign out"
+  "profileSignOut": "Sign out",
+  "m": "m"
 }

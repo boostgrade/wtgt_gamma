@@ -1,21 +1,17 @@
-import 'package:flutter/cupertino.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:where_to_go_today/src/core/domain/place.dart';
 import 'package:where_to_go_today/src/core/ui/res/colors/project_colors.dart';
 import 'package:where_to_go_today/src/core/ui/res/typography/app_typography.dart';
+import 'package:where_to_go_today/src/localization/l10n.dart';
 import 'package:where_to_go_today/src/res/asset.dart';
 
-class FavoritePlace extends StatefulWidget {
+class FavoritePlace extends StatelessWidget {
   final Place place;
 
   const FavoritePlace(this.place, {Key? key}) : super(key: key);
 
-  @override
-  State<FavoritePlace> createState() => _FavoritePlaceState();
-}
-
-class _FavoritePlaceState extends State<FavoritePlace> {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -42,14 +38,14 @@ class _FavoritePlaceState extends State<FavoritePlace> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    widget.place.name,
+                    place.name,
                     overflow: TextOverflow.ellipsis,
                     style: const AppTypography.s18w500h20ls(),
                   ),
                   const SizedBox(height: 5),
                   Text(
-                    widget.place.distance != null
-                        ? '${widget.place.distance} м'
+                    place.distance != null
+                        ? '${place.distance} ${context.l10n.m}'
                         : '',
                     overflow: TextOverflow.ellipsis,
                     style: const AppTypography.s16w400h20(),
@@ -67,9 +63,7 @@ class _FavoritePlaceState extends State<FavoritePlace> {
                 bottomRight: Radius.circular(10),
               ),
               image: DecorationImage(
-                image: NetworkImage(
-                  widget.place.imageUrl,
-                ),
+                image: CachedNetworkImageProvider(place.imageUrl),
                 fit: BoxFit.cover,
               ),
             ),

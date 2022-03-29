@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mobx/mobx.dart';
-import 'package:routemaster/routemaster.dart';
 import 'package:where_to_go_today/src/features/main/main_screen.dart';
-import 'package:where_to_go_today/src/features/settings/ui/settings_route.dart';
 
 part 'main_screen_vm.g.dart';
 
@@ -18,6 +16,7 @@ abstract class _MainScreenVm with Store {
   _MainScreenVm(this.context);
 
   @action
+  // ignore: use_setters_to_change_properties
   void tabClicked(int index) {
     currentIndex = index;
   }

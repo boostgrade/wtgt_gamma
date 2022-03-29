@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:where_to_go_today/src/core/domain/user.dart';
@@ -35,7 +36,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     children: [
                       CircleAvatar(
                         radius: 50.0,
-                        backgroundImage: NetworkImage(widget.user.photoUrl),
+                        backgroundImage:
+                            CachedNetworkImageProvider(widget.user.photoUrl),
                         child: Material(
                           shape: const CircleBorder(),
                           clipBehavior: Clip.hardEdge,
@@ -105,7 +107,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 style: const AppTypography.s24w600h20(),
               ),
             ),
-            Flexible(
+            Expanded(
               child: ListView.separated(
                 separatorBuilder: (context, index) => const SizedBox(
                   height: 10,
@@ -114,7 +116,13 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 itemBuilder: (context, index) {
                   final place = widget.user.favoritePlaces[index];
 
-                  return FavoritePlace(place);
+                  return InkWell(
+                    child: FavoritePlace(place),
+                    borderRadius: const BorderRadius.all(Radius.circular(10)),
+                    onTap: () {
+                      // TODO(any): обработать нажатие на кнопку
+                    },
+                  );
                 },
               ),
             ),

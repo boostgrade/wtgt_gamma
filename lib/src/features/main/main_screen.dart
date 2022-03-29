@@ -29,7 +29,7 @@ class MainScreen extends StatelessWidget {
         email: '',
         phone: '',
         photoUrl:
-            'https://s3-alpha-sig.figma.com/img/2fb3/141e/57d3910fcca978d11b1ea71e2e0802b1?Expires=1648425600&Signature=EY1EftdoecTgb6U8YPE0ylxQNUNWMbpu8UTFdWIhNpu7mvi-pBBuB30FROSp~wjx49ncN0eZbTTNDcwh4phloshpFiU~WdFJ~G8uizIr0zXFmig7sNfmi2aTA4m1FXvEth66oGTbSGFEeksUAwsmbE7pcIol6gWYFUMfFP~GRQ2Fc0xt4w9JRNbq8NvmBMCy5AT-PbtVsFH3fD2DipslSOPEHWkHY1RzPfUZC8nt4qKrB-JIY6tkQN48xF~BmZ2pTiwRwHZvBuHuxeS2eVD4Sz5r5LzILeunUeYeZi3p3VjZnc8l0zlQpz721rS-0bTSs29udXuxUUjH5O9NfGxHGA__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA',
+            'https://s3-alpha-sig.figma.com/img/2fb3/141e/57d3910fcca978d11b1ea71e2e0802b1?Expires=1649635200&Signature=DfxeMTwZbN4QYyaAC2bEEjbVXiqs7O3oM29TS0gGzsLFjxuj4PdcbRV3MP529u6D6y-wY2shBHymRL0xvKNs-N1wMJzrVcnFn0a3K-nX~pqyMzmsvmHw~Yl~ZZU2sKG6C~KG7zRyJWW0SRPW1TAKJdJSkS5WmhZrb192v0b4ypgu-uGqZDY9W5RjpKJgn1W53209SZImZJhTMvIQw1b7M7QD-C~FkqQhG9ND71h7BvNwBzwuHd5oGRDcT1UJlDFHN65-FZXrasuNlBU6XkH0h2o5Sae2hyPnuuqcUurqAOSRqOymd91KzgHrmXh2LfmGhsn3NvE8NM2-dYktbxXlKw__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA',
         favoritePlaces: [
           Place(
             id: 1,
