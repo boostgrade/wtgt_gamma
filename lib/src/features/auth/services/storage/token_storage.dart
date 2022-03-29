@@ -8,8 +8,6 @@ class TokenStorage {
   late final Box<String> _box;
 
   Future<void> init() async {
-    await Hive.initFlutter();
-
     return openBox(_tokenBox);
   }
 
