@@ -8,9 +8,12 @@ import 'package:where_to_go_today/src/localization/l10n.dart';
 import 'package:where_to_go_today/src/res/asset.dart';
 
 class FavoritePlace extends StatelessWidget {
-  final Place place;
+  static const _borderRadius = BorderRadius.all(Radius.circular(10));
 
-  const FavoritePlace(this.place, {Key? key}) : super(key: key);
+  final Place place;
+  final VoidCallback? onTap;
+
+  const FavoritePlace(this.place, {Key? key, this.onTap}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -19,56 +22,60 @@ class FavoritePlace extends StatelessWidget {
         border: Border.all(
           color: ProjectColors.primaryColor,
         ),
-        borderRadius: const BorderRadius.all(Radius.circular(10)),
+        borderRadius: _borderRadius,
       ),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Padding(
-            padding: const EdgeInsets.only(left: 16),
-            child: SvgPicture.asset(
-              Asset.svg.cocktail,
-              height: 24,
-            ),
-          ),
-          Expanded(
-            child: Padding(
-              padding: const EdgeInsets.only(left: 25, right: 10),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    place.name,
-                    overflow: TextOverflow.ellipsis,
-                    style: const AppTypography.s18w500h20ls(),
-                  ),
-                  const SizedBox(height: 5),
-                  Text(
-                    place.distance != null
-                        ? '${place.distance} ${context.l10n.m}'
-                        : '',
-                    overflow: TextOverflow.ellipsis,
-                    style: const AppTypography.s16w400h20(),
-                  ),
-                ],
+      child: InkWell(
+        borderRadius: _borderRadius,
+        onTap: () => onTap,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Padding(
+              padding: const EdgeInsets.only(left: 16),
+              child: SvgPicture.asset(
+                Asset.svg.cocktail,
+                height: 24,
               ),
             ),
-          ),
-          Container(
-            width: 80,
-            height: 80,
-            decoration: BoxDecoration(
-              borderRadius: const BorderRadius.only(
-                topRight: Radius.circular(10),
-                bottomRight: Radius.circular(10),
-              ),
-              image: DecorationImage(
-                image: CachedNetworkImageProvider(place.imageUrl),
-                fit: BoxFit.cover,
+            Expanded(
+              child: Padding(
+                padding: const EdgeInsets.only(left: 25, right: 10),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      place.name,
+                      overflow: TextOverflow.ellipsis,
+                      style: const AppTypography.s18w500h20ls(),
+                    ),
+                    const SizedBox(height: 5),
+                    Text(
+                      place.distance != null
+                          ? '${place.distance} ${context.l10n.m}'
+                          : '',
+                      overflow: TextOverflow.ellipsis,
+                      style: const AppTypography.s16w400h20(),
+                    ),
+                  ],
+                ),
               ),
             ),
-          )
-        ],
+            Container(
+              width: 80,
+              height: 80,
+              decoration: BoxDecoration(
+                borderRadius: const BorderRadius.only(
+                  topRight: Radius.circular(10),
+                  bottomRight: Radius.circular(10),
+                ),
+                image: DecorationImage(
+                  image: CachedNetworkImageProvider(place.imageUrl),
+                  fit: BoxFit.cover,
+                ),
+              ),
+            )
+          ],
+        ),
       ),
     );
   }

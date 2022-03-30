@@ -116,9 +116,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 itemBuilder: (context, index) {
                   final place = widget.user.favoritePlaces[index];
 
-                  return InkWell(
-                    child: FavoritePlace(place),
-                    borderRadius: const BorderRadius.all(Radius.circular(10)),
+                  return FavoritePlace(
+                    place,
                     onTap: () {
                       // TODO(any): обработать нажатие на кнопку
                     },
