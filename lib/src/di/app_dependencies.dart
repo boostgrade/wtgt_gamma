@@ -6,6 +6,7 @@ import 'package:where_to_go_today/src/core/ui/messages/default_message_controlle
 import 'package:where_to_go_today/src/features/auth/services/auth_bloc.dart';
 import 'package:where_to_go_today/src/features/auth/services/facebook/facebook_auth_service.dart';
 import 'package:where_to_go_today/src/features/auth/services/google/google_auth.dart';
+import 'package:where_to_go_today/src/features/auth/services/storage/onboarding_storage.dart';
 import 'package:where_to_go_today/src/features/auth/services/storage/token_storage.dart';
 import 'package:where_to_go_today/src/features/auth/services/vk/vk_auth.dart';
 import 'package:where_to_go_today/src/features/authservices/api/auth_api.dart';
@@ -26,6 +27,7 @@ class AppDependencies extends DependencyBundle {
   final dio = DioModule().dio;
   final settingsController = SettingsBloc(SettingsRepository());
   final tokenStorage = TokenStorage();
+  final onboardingStorage = OnboardingStorage();
   final facebookAuthService = FacebookAuthService();
 
   final googleAuth = GoogleAuth();
@@ -51,6 +53,7 @@ class AppDependencies extends DependencyBundle {
     settingsController.add(LoadSettings());
 
     await tokenStorage.init();
+    await onboardingStorage.init();
 
     if (Firebase.apps.isNotEmpty) {
       await Firebase.initializeApp(
