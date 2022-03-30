@@ -18,7 +18,6 @@ class AppRouter {
     routes: {
       initialRoute: (_) => MainRoute(),
       SignInRoute.routeName: (_) => SignInRoute(),
-      MainScreenRoute.routeName: (_) => MainScreenRoute(),
       OnboardingRoute.routeName: (_) => OnboardingRoute(),
       RegisterRoute.routeName: (_) => RegisterRoute(),
       '${CodeRoute.routeName}/:phone': (routeData) =>
