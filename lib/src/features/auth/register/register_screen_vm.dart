@@ -27,28 +27,25 @@ abstract class _RegisterScreenVm extends ViewModel with Store {
   @observable
   RegisterVmState vmState = RegisterVmState.idle;
 
-  @observable
   TextEditingController nameController = TextEditingController();
 
-  @observable
   TextEditingController surnameController = TextEditingController();
 
-  @observable
   TextEditingController emailController = TextEditingController();
 
-  @observable
   TextEditingController birthdayController = TextEditingController();
 
   @observable
   bool checkboxValue = false;
 
-  @observable
   MaskTextInputFormatter maskFormatter = MaskTextInputFormatter(
     mask: '##/##/####',
   );
 
   @observable
   bool isFormEntered = false;
+
+  bool get isLoading => vmState == RegisterVmState.loading;
 
   _RegisterScreenVm(
     this._bloc, {
@@ -58,7 +55,6 @@ abstract class _RegisterScreenVm extends ViewModel with Store {
     observeBloc<AuthState, AuthBloc>(_bloc, _handleBlocStates);
   }
 
-  @action
   String? emailValidator(String? value) {
     final regex = RegExp(_emailRegexp, caseSensitive: false);
 
@@ -69,7 +65,6 @@ abstract class _RegisterScreenVm extends ViewModel with Store {
     return null;
   }
 
-  @action
   String? fullNameValidator(String? value) {
     if (value == null ||
         value.isEmpty ||
@@ -82,17 +77,14 @@ abstract class _RegisterScreenVm extends ViewModel with Store {
   }
 
   String? birthdayValidator(String? value) {
-    if (maskFormatter.isFill()) return null;
     try {
       final birthday = DateFormat('dd/MM/yyyy').parseStrict(value ?? '');
       final now = DateTime.now();
       final hundredYearsAgo = now.subtract(const Duration(days: 365 * 100));
 
-      if (birthday.isAfter(now) || birthday.isBefore(hundredYearsAgo)) {
-        return AppLocalizations.of(context)?.valueIsIncorrect;
-      }
-
-      return null;
+      return birthday.isAfter(now) || birthday.isBefore(hundredYearsAgo)
+          ? AppLocalizations.of(context)?.valueIsIncorrect
+          : null;
     } on FormatException {
       return AppLocalizations.of(context)?.valueIsIncorrect;
     }
@@ -103,20 +95,24 @@ abstract class _RegisterScreenVm extends ViewModel with Store {
     if (value != null) {
       checkboxValue = value;
 
-      // ignore: prefer-conditional-expressions
-      if (nameController.text.isNotEmpty &&
-          surnameController.text.isNotEmpty &&
-          emailController.text.isNotEmpty &&
-          birthdayController.text.isNotEmpty &&
-          checkboxValue) {
-        isFormEntered = true;
-      } else {
-        isFormEntered = false;
-      }
+      checkIsFormEntered();
     }
   }
 
   @action
+  void checkIsFormEntered() {
+    // ignore: prefer-conditional-expressions
+    if (nameController.text.isNotEmpty &&
+        surnameController.text.isNotEmpty &&
+        emailController.text.isNotEmpty &&
+        birthdayController.text.isNotEmpty &&
+        checkboxValue) {
+      isFormEntered = true;
+    } else {
+      isFormEntered = false;
+    }
+  }
+
   void registerBtnClicked() {
     if (isFormEntered) {
       _bloc.add(
@@ -131,6 +127,13 @@ abstract class _RegisterScreenVm extends ViewModel with Store {
         ),
       );
     }
+  }
+
+  void disposeControllers() {
+    nameController.dispose();
+    surnameController.dispose();
+    birthdayController.dispose();
+    emailController.dispose();
   }
 
   void _handleBlocStates(AuthState blocState) {

@@ -7,6 +7,7 @@
 
 ## 0.3.0
 
+- feat: facebook sign in
 - feat: vk login
 - feat: google sign in
 - feat: SignInScreenVm

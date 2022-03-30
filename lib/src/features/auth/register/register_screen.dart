@@ -4,7 +4,6 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:where_to_go_today/src/core/ui/base/view_model_disposer_mixin.dart';
 import 'package:where_to_go_today/src/features/auth/register/register_screen_vm.dart';
-import 'package:where_to_go_today/src/features/auth/register/register_vm_state.dart';
 import 'package:where_to_go_today/src/ui/uikit/wtgt_button.dart';
 
 class RegisterScreen extends StatefulWidget {
@@ -25,6 +24,15 @@ class _RegisterScreenState extends State<RegisterScreen>
   RegisterScreenVm get vm => widget.vm;
 
   @override
+  void dispose() {
+    vm
+      ..disposeControllers()
+      ..dispose();
+
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
@@ -40,6 +48,7 @@ class _RegisterScreenState extends State<RegisterScreen>
                     controller: widget.vm.nameController,
                     keyboardType: TextInputType.name,
                     textInputAction: TextInputAction.next,
+                    onChanged: (_) => vm.checkIsFormEntered,
                     inputFormatters: [
                       FilteringTextInputFormatter.allow(RegExp('[А-Яа-яёЁ]')),
                     ],
@@ -54,6 +63,7 @@ class _RegisterScreenState extends State<RegisterScreen>
                     autovalidateMode: AutovalidateMode.onUserInteraction,
                     controller: widget.vm.surnameController,
                     keyboardType: TextInputType.text,
+                    onChanged: (_) => vm.checkIsFormEntered,
                     textInputAction: TextInputAction.next,
                     inputFormatters: [
                       FilteringTextInputFormatter.allow(
@@ -72,6 +82,7 @@ class _RegisterScreenState extends State<RegisterScreen>
                     controller: widget.vm.emailController,
                     validator: widget.vm.emailValidator,
                     keyboardType: TextInputType.emailAddress,
+                    onChanged: (_) => vm.checkIsFormEntered,
                     textInputAction: TextInputAction.next,
                     decoration: InputDecoration(
                       hintText: AppLocalizations.of(context)?.email,
@@ -85,6 +96,7 @@ class _RegisterScreenState extends State<RegisterScreen>
                     validator: widget.vm.birthdayValidator,
                     keyboardType: TextInputType.number,
                     textInputAction: TextInputAction.done,
+                    onChanged: (_) => vm.checkIsFormEntered,
                     inputFormatters: [widget.vm.maskFormatter],
                     decoration: InputDecoration(
                       label: Text(AppLocalizations.of(context)!.birthday),
@@ -103,7 +115,7 @@ class _RegisterScreenState extends State<RegisterScreen>
                   SizedBox(height: _calcBottomPadding()),
                   WtgtButton(
                     label: AppLocalizations.of(context)!.signUp,
-                    loading: vm.vmState == RegisterVmState.loading,
+                    loading: vm.isLoading,
                     onPressed: widget.vm.isFormEntered
                         ? widget.vm.registerBtnClicked
                         : null,

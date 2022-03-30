@@ -6,6 +6,7 @@ import 'package:where_to_go_today/src/core/ui/errors_handling/scenario_error_han
 import 'package:where_to_go_today/src/core/ui/messages/default_message_controller.dart';
 import 'package:where_to_go_today/src/di/base/dependency_bundle.dart';
 import 'package:where_to_go_today/src/features/auth/services/auth_bloc.dart';
+import 'package:where_to_go_today/src/features/auth/services/facebook/facebook_auth_service.dart';
 import 'package:where_to_go_today/src/features/auth/services/google/google_auth.dart';
 import 'package:where_to_go_today/src/features/auth/services/storage/token_storage.dart';
 import 'package:where_to_go_today/src/features/auth/services/vk/vk_auth.dart';
@@ -24,6 +25,8 @@ class AppDependencies extends DependencyBundle {
   final dio = DioModule().dio;
   final settingsController = SettingsBloc(SettingsRepository());
   final tokenStorage = TokenStorage();
+  final facebookAuthService = FacebookAuthService();
+
   final googleAuth = GoogleAuth();
   late final vkAuth = VKAuth();
 
@@ -33,6 +36,7 @@ class AppDependencies extends DependencyBundle {
     authRepository: authRepository,
     googleAuth: googleAuth,
     vkAuth: vkAuth,
+    facebookAuthService: facebookAuthService,
   );
 
   late final placesRepository = PlacesRepository();
@@ -49,6 +53,7 @@ class AppDependencies extends DependencyBundle {
 
   Future<void> init() async {
     settingsController.add(LoadSettings());
+
     await tokenStorage.init();
 
     if (Firebase.apps.isNotEmpty) {
