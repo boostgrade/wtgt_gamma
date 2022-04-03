@@ -55,7 +55,7 @@ class PlaceCard extends StatelessWidget {
                         ),
                         Padding(
                           padding: const EdgeInsets.only(top: 4),
-                            child: Text('255 ${context.l10n.m}'),
+                          child: Text('255 ${context.l10n.m}'),
                           )
                       ],
                     ),
