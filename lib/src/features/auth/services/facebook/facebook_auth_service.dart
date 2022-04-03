@@ -2,7 +2,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
 
 class FacebookAuthService {
-  Future<String?> login() async {
+  Future<String> login() async {
     final result = await FacebookAuth.i.login(
       permissions: [
         'public_profile',
