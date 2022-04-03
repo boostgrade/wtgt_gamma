@@ -6,6 +6,7 @@ class Asset {
 class _Png {
   static const _path = 'assets/images/3.0x/';
   final logoWtgt = '${_path}wtgt_logo.png';
+  final placeImage = 'assets/images/place.png';
 }
 
 class _Svg {

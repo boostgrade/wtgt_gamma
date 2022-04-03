@@ -17,11 +17,11 @@ PODS:
     - FirebaseAuth (~> 8.11.0)
   - Firebase/CoreOnly (8.11.0):
     - FirebaseCore (= 8.11.0)
-  - firebase_auth (3.3.7):
+  - firebase_auth (3.3.11):
     - Firebase/Auth (= 8.11.0)
     - firebase_core
     - Flutter
-  - firebase_core (1.12.0):
+  - firebase_core (1.13.1):
     - Firebase/CoreOnly (= 8.11.0)
     - Flutter
   - FirebaseAuth (8.11.0):
@@ -138,8 +138,8 @@ SPEC CHECKSUMS:
   FBSDKCoreKit_Basics: 6bee7c1f0932432901781203fa5e587ec5099148
   FBSDKLoginKit: 56d55e23fe66a6db045826190b0b4dbc0e1ca0a0
   Firebase: 44dd9724c84df18b486639e874f31436eaa9a20c
-  firebase_auth: 20bf788012988ef04ce608fada5b8d8cd1069302
-  firebase_core: 443bccfd6aa6b42f07be365b500773dc69db2d87
+  firebase_auth: bdfbd5b10da1db6d5eb6ae7dbda5d81365b9cc9d
+  firebase_core: 08f6a85f62060111de5e98d6a214810d11365de9
   FirebaseAuth: d96d73aba85d192d7a7aa0b86dd6d7f8ec170b4b
   FirebaseCore: 2f4f85b453cc8fea4bb2b37e370007d2bcafe3f0
   FirebaseCoreDiagnostics: 3b40dfadef5b90433a60ae01f01e90fe87aa76aa
@@ -153,7 +153,7 @@ SPEC CHECKSUMS:
   GTMAppAuth: ad5c2b70b9a8689e1a04033c9369c4915bfcbe89
   GTMSessionFetcher: 43748f93435c2aa068b1cbe39655aaf600652e91
   nanopb: a0ba3315591a9ae0a16a309ee504766e90db0c96
-  path_provider_ios: 7d7ce634493af4477d156294792024ec3485acd5
+  path_provider_ios: 14f3d2fd28c4fdb42f44e0f751d12861c43cee02
   PromisesObjC: 68159ce6952d93e17b2dfe273b8c40907db5ba58
   VK-ios-sdk: 5bcf00a2014a7323f98db9328b603d4f96635caa
 

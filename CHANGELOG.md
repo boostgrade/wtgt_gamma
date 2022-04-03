@@ -1,5 +1,6 @@
 # Changelog
 
+- feat: place detail info
 - feat: CodeVm - add authorization via OTP
 - feat: SignInScreenVm - add phone authorization
 - feat: OnboardingScreen

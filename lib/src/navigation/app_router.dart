@@ -4,6 +4,7 @@ import 'package:where_to_go_today/src/features/auth/register/register_route.dart
 import 'package:where_to_go_today/src/features/auth/sign_in/sign_in_route.dart';
 import 'package:where_to_go_today/src/features/main/main_screen_route.dart';
 import 'package:where_to_go_today/src/features/onboard/ui/onboarding_route.dart';
+import 'package:where_to_go_today/src/features/places/place_route.dart';
 import 'package:where_to_go_today/src/features/settings/ui/settings_route.dart';
 
 /// Класс, в котором описываем навигацию в приложении.
@@ -15,7 +16,7 @@ class AppRouter {
 
   static final routes = RouteMap(
     routes: {
-      initialRoute: (_) => OnboardingRoute(),
+      initialRoute: (_) => const PlaceRoute(),
       SignInRoute.routeName: (_) => SignInRoute(),
       MainScreenRoute.routeName: (_) => MainScreenRoute(),
       OnboardingRoute.routeName: (_) => OnboardingRoute(),
@@ -23,6 +24,7 @@ class AppRouter {
           CodeRoute(route.pathParameters['phone'] ?? ''),
       RegisterRoute.routeName: (_) => RegisterRoute(),
       SettingsRoute.routeName: (_) => SettingsRoute(),
+      PlaceRoute.routeName: (_) => const PlaceRoute(),
     },
   );
 }
