@@ -45,8 +45,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState>
   }
 
   FutureOr<void> _onSendPhone(AuthEventSendPhone _,
-      Emitter<AuthState> emit,
-  ) async {
+      Emitter<AuthState> emit,) async {
     emit(const AuthState.idle());
     try {
       // TODO(any): handle incoming `AuthEventSendPhone` event
