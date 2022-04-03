@@ -44,8 +44,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState>
     on<AuthEventLogout>(_onAuthEventLogout);
   }
 
-  FutureOr<void> _onSendPhone(
-    AuthEventSendPhone _,
+  FutureOr<void> _onSendPhone(AuthEventSendPhone _,
     Emitter<AuthState> emit,
   ) async {
     emit(const AuthState.idle());
@@ -87,7 +86,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState>
 
       final token = await facebookAuthService.login();
 
-      if (token != null && token.isNotEmpty) {
+      if ((token ?? '').isNotEmpty) {
         emit(const AuthState.successViaSocial());
       }
     } on PlatformException catch (e, s) {
