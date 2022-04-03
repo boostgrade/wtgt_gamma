@@ -11,9 +11,9 @@ class FavoritePlace extends StatelessWidget {
   static const _borderRadius = BorderRadius.all(Radius.circular(10));
 
   final Place place;
-  final VoidCallback? onTap;
+  final VoidCallback? onPressed;
 
-  const FavoritePlace(this.place, {Key? key, this.onTap}) : super(key: key);
+  const FavoritePlace(this.place, {Key? key, this.onPressed}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +26,7 @@ class FavoritePlace extends StatelessWidget {
       ),
       child: InkWell(
         borderRadius: _borderRadius,
-        onTap: () => onTap,
+        onTap: onPressed,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [

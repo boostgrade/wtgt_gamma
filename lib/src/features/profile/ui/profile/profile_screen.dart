@@ -1,23 +1,25 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:where_to_go_today/src/core/domain/user.dart';
 import 'package:where_to_go_today/src/core/ui/res/typography/app_typography.dart';
 import 'package:where_to_go_today/src/features/profile/ui/profile/favorite_place.dart';
+import 'package:where_to_go_today/src/features/profile/ui/profile/profile_vm.dart';
 import 'package:where_to_go_today/src/localization/l10n.dart';
 import 'package:where_to_go_today/src/res/asset.dart';
 import 'package:where_to_go_today/src/ui/uikit/wtgt_button.dart';
 
 class ProfileScreen extends StatefulWidget {
-  final User user;
+  final ProfileVm vm;
 
-  const ProfileScreen(this.user, {Key? key}) : super(key: key);
+  const ProfileScreen({Key? key, required this.vm}) : super(key: key);
 
   @override
   State<ProfileScreen> createState() => _ProfileScreenState();
 }
 
 class _ProfileScreenState extends State<ProfileScreen> {
+  ProfileVm get vm => widget.vm;
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -37,15 +39,13 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       CircleAvatar(
                         radius: 50.0,
                         backgroundImage:
-                            CachedNetworkImageProvider(widget.user.photoUrl),
+                            CachedNetworkImageProvider(vm.fakeUser().photoUrl),
                         child: Material(
                           shape: const CircleBorder(),
                           clipBehavior: Clip.hardEdge,
                           color: Colors.transparent,
                           child: InkWell(
-                            onTap: () {
-                              // TODO(any): обработать нажатие на кнопку
-                            },
+                            onTap: () => vm.onAvatar(),
                           ),
                         ),
                       ),
@@ -55,12 +55,12 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
-                              widget.user.name,
+                              vm.fakeUser().name,
                               overflow: TextOverflow.ellipsis,
                               style: const AppTypography.s16w500h20(),
                             ),
                             Text(
-                              widget.user.lastName,
+                              vm.fakeUser().lastName,
                               overflow: TextOverflow.ellipsis,
                               style: const AppTypography.s16w500h20(),
                             ),
@@ -73,9 +73,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                 Asset.svg.edit,
                               ),
                               splashRadius: 20,
-                              onPressed: () {
-                                // TODO(any): обработать нажатие на кнопку
-                              },
+                              onPressed: () => vm.onEditUserDetails(),
                             ),
                           ],
                         ),
@@ -91,9 +89,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     Asset.svg.settings,
                   ),
                   splashRadius: 25,
-                  onPressed: () {
-                    // TODO(any): обработать нажатие на кнопку
-                  },
+                  onPressed: () => vm.onSettings(),
                 )
               ],
             ),
@@ -112,24 +108,20 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 separatorBuilder: (context, index) => const SizedBox(
                   height: 10,
                 ),
-                itemCount: widget.user.favoritePlaces.length,
+                itemCount: vm.fakeUser().favoritePlaces.length,
                 itemBuilder: (context, index) {
-                  final place = widget.user.favoritePlaces[index];
+                  final place = vm.fakeUser().favoritePlaces[index];
 
                   return FavoritePlace(
                     place,
-                    onTap: () {
-                      // TODO(any): обработать нажатие на кнопку
-                    },
+                    onPressed: () => vm.onFavoritePlace(place.id),
                   );
                 },
               ),
             ),
             const SizedBox(height: 20),
             WtgtButton(
-              onPressed: () {
-                // TODO(any): обработать нажатие на кнопку
-              },
+              onPressed: () => vm.onProfileSignOut(),
               label: context.l10n.profileSignOut,
             ),
           ],
