@@ -2,15 +2,14 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:mobx/mobx.dart';
-import 'package:routemaster/routemaster.dart';
 import 'package:where_to_go_today/src/core/domain/place.dart';
 import 'package:where_to_go_today/src/core/services/exceptions/server/server_error_exception.dart';
 import 'package:where_to_go_today/src/core/ui/base/view_model.dart';
 import 'package:where_to_go_today/src/core/ui/errors_handling/error_handler.dart';
+import 'package:where_to_go_today/src/features/location/location_service.dart';
 import 'package:where_to_go_today/src/features/main/places/service/event/places_event.dart';
 import 'package:where_to_go_today/src/features/main/places/service/places_bloc.dart';
 import 'package:where_to_go_today/src/features/main/places/service/state/places_state.dart';
-import 'package:where_to_go_today/src/features/place_detail/place_detail_route.dart';
 
 part 'places_vm.g.dart';
 
@@ -18,8 +17,7 @@ class PlacesVm = _PlacesVm with _$PlacesVm;
 
 abstract class _PlacesVm extends ViewModel with Store {
   late final TextEditingController searchController;
-
-  final BuildContext _context;
+  final LocationService locationService;
   final PlacesBloc _bloc;
 
   @observable
@@ -34,8 +32,8 @@ abstract class _PlacesVm extends ViewModel with Store {
   String get _searchText => searchController.text;
 
   _PlacesVm(
-    this._context,
     this._bloc, {
+    required this.locationService,
     required ErrorHandler errorHandler,
   }) : super(errorHandler) {
     _init();
@@ -50,17 +48,7 @@ abstract class _PlacesVm extends ViewModel with Store {
   @action
   void searchPlaces() {
     _bloc.add(PlacesEvent.getPlaces(_searchText));
-  }
-
-  void openPlaceDetails(int index) {
-    final place = places[index];
-    debugPrint('!!! openPlaceDetails(${place.name})');
-    Routemaster.of(_context).push('${PlaceDetailRoute.routeName}/${place.id}');
-  }
-
-  void sharePlace(int index) {
-    final place = places[index];
-    debugPrint('!!! sharePlace(${place.name})');
+    locationService.getCurrentLocation();
   }
 
   void _init() {

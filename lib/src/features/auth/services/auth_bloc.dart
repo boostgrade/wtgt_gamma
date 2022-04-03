@@ -87,7 +87,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState>
 
       final token = await facebookAuthService.login();
 
-      if (token != null && token.isNotEmpty) {
+      if (token.isNotEmpty) {
         emit(const AuthState.successViaSocial());
       }
     } on PlatformException catch (e, s) {

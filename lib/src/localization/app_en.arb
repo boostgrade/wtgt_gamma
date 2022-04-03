@@ -28,5 +28,6 @@
   "skip": "Skip",
   "next": "Next",
   "restaurantName": "The name of the restaurant?",
-  "m": "m"
+  "m": "m",
+  "sharePlaceSubject": "Hey! Check out this place:"
 }
