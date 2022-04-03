@@ -43,7 +43,7 @@ class _PlacesScreenState extends State<PlacesScreen>
           title: TextField(
             controller: vm.searchController,
             decoration: InputDecoration(
-              hintText: context.l10n.restaurantName,
+              hintText: context.l10n.placeName,
             ),
           ),
           titleSpacing: 24,

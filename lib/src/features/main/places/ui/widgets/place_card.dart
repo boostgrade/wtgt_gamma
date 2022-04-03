@@ -53,13 +53,10 @@ class PlaceCard extends StatelessWidget {
                           maxLines: 1,
                           overflow: TextOverflow.ellipsis,
                         ),
-                        if (place.distance != null)
-                          Padding(
-                            padding: const EdgeInsets.only(top: 4),
-                            child: Text('${place.distance} ${context.l10n.m}'),
+                        Padding(
+                          padding: const EdgeInsets.only(top: 4),
+                            child: Text('255 ${context.l10n.m}'),
                           )
-                        else
-                          const SizedBox.shrink()
                       ],
                     ),
                   ),

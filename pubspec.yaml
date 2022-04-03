@@ -63,7 +63,6 @@ dev_dependencies:
   freezed: ^1.1.0
   golden_toolkit: ^0.13.0
   mobx_codegen: ^2.0.0
-  mockito: ^5.1.0
   mocktail: ^0.3.0
   retrofit_generator: ^3.0.0
 
