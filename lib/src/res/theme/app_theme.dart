@@ -4,11 +4,12 @@ import 'package:where_to_go_today/src/core/ui/res/typography/app_typography.dart
 
 class AppTheme {
   static const _appBarTheme = AppBarTheme(
-    backgroundColor: Colors.transparent,
+    backgroundColor: ProjectColors.backgroundColor,
     elevation: 0.0,
   );
 
   static const _bottomNavigationBarTheme = BottomNavigationBarThemeData(
+    backgroundColor: ProjectColors.backgroundColor,
     selectedItemColor: ProjectColors.secondaryColor,
     unselectedItemColor: ProjectColors.onBackgroundColor,
     selectedLabelStyle: AppTypography.s12w400h20(),
@@ -16,11 +17,13 @@ class AppTheme {
   );
 
   static const _cardTheme = CardTheme(
+    elevation: 4.0,
     shape: RoundedRectangleBorder(
       borderRadius: BorderRadius.all(
         Radius.circular(10.0),
       ),
     ),
+    clipBehavior: Clip.antiAlias,
   );
 
   static const _inputDecorationTheme = InputDecorationTheme(
@@ -117,6 +120,7 @@ class AppTheme {
       switchTheme: _switchTheme,
       textButtonTheme: _textButtonTheme,
       textSelectionTheme: _textSelectionTheme,
+      scaffoldBackgroundColor: ProjectColors.backgroundColor,
       textTheme: const TextTheme(
         headline2: AppTypography.s24w600h20(),
         bodyText2: AppTypography.s18w500h20ls(),
