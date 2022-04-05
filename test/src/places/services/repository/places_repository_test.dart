@@ -20,7 +20,7 @@ const placeJson = {
   'type': 'bar',
   'shareLink': 'string',
   'sales': [
-    {'imageUrl': 'string', 'text': '20% скидки в кафе \"У Красного Барона\"'}
+    {'imageUrl': 'string', 'text': '20% скидки в кафе "У Красного Барона"'}
   ]
 };
 
@@ -61,7 +61,9 @@ void main() {
       expect(result.first.shareLink, expectResult.shareLink);
       expect(result.first.type, expectResult.type);
       expect(
-          result.first.sales.first.imageUrl, expectResult.sales.first.imageUrl);
+        result.first.sales.first.imageUrl,
+        expectResult.sales.first.imageUrl,
+      );
       expect(result.first.sales.first.text, expectResult.sales.first.text);
     });
 
