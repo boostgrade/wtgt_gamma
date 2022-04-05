@@ -5,6 +5,7 @@
 - feat: OnboardingScreen
 - feat: MainScreen + PlacesScreen
 - feat: OnboardStorage
+- feat: profile screen
 
 ## 0.3.0
 

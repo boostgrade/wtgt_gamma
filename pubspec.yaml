@@ -78,6 +78,7 @@ flutter:
     - assets/images/3.0x/
     - assets/images/onboarding/
     - assets/images/auth/sign_in/
+    - assets/images/profile/
     - assets/images/place/
 
   fonts:
