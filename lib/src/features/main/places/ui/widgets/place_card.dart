@@ -37,8 +37,8 @@ class PlaceCard extends StatelessWidget {
                 children: [
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 24),
-                    child: Image.asset(
-                      Asset.png.iconCocktail,
+                    child: SvgPicture.asset(
+                      Asset.svg.iconCocktail,
                       width: 24,
                       height: 24,
                     ),

@@ -47,7 +47,10 @@ class MainRoute extends MaterialPage<void> {
                     ),
                   ),
                   Provider<ProfileVm>(
-                    create: (_) => ProfileVm(),
+                    create: (_) => ProfileVm(
+                      errorHandler:
+                          context.read<AppDependencies>().errorHandler,
+                    ),
                     child: Builder(
                       builder: (context) => ProfileScreen(
                         vm: context.read<ProfileVm>(),
