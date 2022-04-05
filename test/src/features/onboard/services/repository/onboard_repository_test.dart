@@ -15,10 +15,6 @@ void main() {
       onboardRepository = OnboardRepository(mockOnboardStorage);
     });
 
-    test('Проверка инициализации completed в конструкторе репозитория', () {
-      verify(() => mockOnboardStorage.storeValue(any(), any())).called(1);
-    });
-
     test('Метод получения флага completed при первом запуске', () {
       when(() => mockOnboardStorage.getValue(any())).thenReturn(false);
       final result = onboardRepository.getCompleted();
@@ -30,7 +26,7 @@ void main() {
       when(() => mockOnboardStorage.storeValue(any(), any())).thenReturn(null);
 
       onboardRepository.setCompleted(true);
-      verify(() => mockOnboardStorage.storeValue(any(), any())).called(2);
+      verify(() => mockOnboardStorage.storeValue(any(), any())).called(1);
 
       when(() => mockOnboardStorage.getValue(any())).thenReturn(true);
 
