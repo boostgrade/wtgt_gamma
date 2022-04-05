@@ -4,15 +4,9 @@ class OnboardRepository {
   final _completedKey = 'completed';
   final OnboardStorage _onboardStorage;
 
-  OnboardRepository(this._onboardStorage) {
-    final isCompleted = getCompleted();
+  OnboardRepository(this._onboardStorage);
 
-    if (isCompleted == null) {
-      setCompleted(false);
-    }
-  }
-
-  bool? getCompleted() => _onboardStorage.getValue(_completedKey);
+  bool getCompleted() => _onboardStorage.getValue(_completedKey) ?? false;
 
   void setCompleted(bool completed) =>
       _onboardStorage.storeValue(_completedKey, completed);

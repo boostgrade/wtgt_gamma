@@ -1,5 +1,4 @@
 import 'package:firebase_core/firebase_core.dart';
-import 'package:hive_flutter/hive_flutter.dart';
 import 'package:where_to_go_today/src/core/services/network/dio/dio_module.dart';
 import 'package:where_to_go_today/src/core/ui/errors_handling/scenario_error_handler/scenario_error_handler.dart';
 import 'package:where_to_go_today/src/core/ui/errors_handling/scenario_error_handler/scenarios/snackbar_error_scenarios.dart';
@@ -29,12 +28,13 @@ class AppDependencies extends DependencyBundle {
   final dio = DioModule().dio;
   final settingsController = SettingsBloc(SettingsRepository());
   final tokenStorage = TokenStorage();
+  final onboardStorage = OnboardStorage();
   final facebookAuthService = FacebookAuthService();
 
   final googleAuth = GoogleAuth();
   late final vkAuth = VKAuth();
-  late final OnboardRepository onboardRepository;
 
+  late final onboardRepository = OnboardRepository(onboardStorage);
   late final authRepository = AuthRepository(AuthApi(dio));
   late final onboardingBloc = OnboardingBloc();
   late final authBloc = AuthBloc(
@@ -54,12 +54,8 @@ class AppDependencies extends DependencyBundle {
   Future<void> init() async {
     settingsController.add(LoadSettings());
 
-    await Hive.initFlutter();
     await tokenStorage.init();
-
-    onboardRepository = OnboardRepository(
-      OnboardStorage(await Hive.openBox<bool>('onboarding')),
-    );
+    await onboardStorage.init();
 
     if (Firebase.apps.isNotEmpty) {
       await Firebase.initializeApp(
