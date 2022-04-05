@@ -12,6 +12,7 @@ environment:
 
 dependencies:
   bloc: ^8.0.0
+  cached_network_image: ^3.2.0
   dio: ^4.0.0
   equatable: ^2.0.0
   firebase_auth: ^3.3.6
@@ -44,7 +45,7 @@ dependencies:
   mobx: ^2.0.0
   provider: ^6.0.0
   retrofit: ^3.0.1
-  routemaster: ^0.9.0
+  routemaster: ^0.9.5
   rxdart: ^0.27.0
   smooth_page_indicator: ^1.0.0+2
 
@@ -77,6 +78,7 @@ flutter:
     - assets/images/3.0x/
     - assets/images/onboarding/
     - assets/images/auth/sign_in/
+    - assets/images/place/
 
   fonts:
     - family: Montserrat
