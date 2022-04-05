@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:where_to_go_today/src/core/ui/res/typography/app_typography.dart';
 import 'package:where_to_go_today/src/features/profile/ui/profile/favorite_place.dart';
+import 'package:where_to_go_today/src/features/profile/ui/profile/profile_sub_header.dart';
 import 'package:where_to_go_today/src/features/profile/ui/profile/profile_vm.dart';
 import 'package:where_to_go_today/src/localization/l10n.dart';
 import 'package:where_to_go_today/src/res/asset.dart';
@@ -25,104 +26,117 @@ class _ProfileScreenState extends State<ProfileScreen> {
     return SafeArea(
       child: Padding(
         padding: const EdgeInsets.all(30.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Row(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Flexible(
-                  child: Row(
-                    crossAxisAlignment: CrossAxisAlignment.end,
-                    children: [
-                      CircleAvatar(
-                        radius: 50.0,
-                        backgroundImage:
-                            CachedNetworkImageProvider(vm.fakeUser().photoUrl),
-                        child: Material(
-                          shape: const CircleBorder(),
-                          clipBehavior: Clip.hardEdge,
-                          color: Colors.transparent,
-                          child: InkWell(
-                            onTap: () => vm.onAvatar(),
+        child: CustomScrollView(
+          slivers: [
+            SliverToBoxAdapter(
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Flexible(
+                    child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.end,
+                      children: [
+                        CircleAvatar(
+                          radius: 50.0,
+                          backgroundImage: CachedNetworkImageProvider(
+                            vm.fakeUser().photoUrl,
+                          ),
+                          child: Material(
+                            shape: const CircleBorder(),
+                            clipBehavior: Clip.hardEdge,
+                            color: Colors.transparent,
+                            child: InkWell(
+                              onTap: () => vm.onAvatar(),
+                            ),
                           ),
                         ),
-                      ),
-                      const SizedBox(width: 25),
-                      Expanded(
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              vm.fakeUser().name,
-                              overflow: TextOverflow.ellipsis,
-                              style: const AppTypography.s16w500h20(),
-                            ),
-                            Text(
-                              vm.fakeUser().lastName,
-                              overflow: TextOverflow.ellipsis,
-                              style: const AppTypography.s16w500h20(),
-                            ),
-                            const SizedBox(height: 10),
-                            IconButton(
-                              padding: EdgeInsets.zero,
-                              constraints: const BoxConstraints(),
-                              iconSize: 20,
-                              icon: SvgPicture.asset(
-                                Asset.svg.edit,
+                        const SizedBox(width: 25),
+                        Expanded(
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                vm.fakeUser().name,
+                                overflow: TextOverflow.ellipsis,
+                                style: const AppTypography.s16w500h20(),
                               ),
-                              splashRadius: 20,
-                              onPressed: () => vm.onEditUserDetails(),
-                            ),
-                          ],
+                              Text(
+                                vm.fakeUser().lastName,
+                                overflow: TextOverflow.ellipsis,
+                                style: const AppTypography.s16w500h20(),
+                              ),
+                              const SizedBox(height: 10),
+                              IconButton(
+                                padding: EdgeInsets.zero,
+                                constraints: const BoxConstraints(),
+                                iconSize: 20,
+                                icon: SvgPicture.asset(
+                                  Asset.svg.edit,
+                                ),
+                                splashRadius: 20,
+                                onPressed: () => vm.onEditUserDetails(),
+                              ),
+                            ],
+                          ),
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
-                ),
-                IconButton(
-                  padding: EdgeInsets.zero,
-                  constraints: const BoxConstraints(),
-                  iconSize: 35,
-                  icon: SvgPicture.asset(
-                    Asset.svg.settings,
-                  ),
-                  splashRadius: 25,
-                  onPressed: () => vm.onSettings(),
-                )
-              ],
-            ),
-            const SizedBox(
-              height: 40,
-            ),
-            Padding(
-              padding: const EdgeInsets.symmetric(vertical: 20),
-              child: Text(
-                context.l10n.profileFavoritesTitle,
-                style: const AppTypography.s24w600h20(),
+                  IconButton(
+                    padding: EdgeInsets.zero,
+                    constraints: const BoxConstraints(),
+                    iconSize: 35,
+                    icon: SvgPicture.asset(
+                      Asset.svg.settings,
+                    ),
+                    splashRadius: 25,
+                    onPressed: () => vm.onSettings(),
+                  )
+                ],
               ),
             ),
-            Expanded(
-              child: ListView.separated(
-                separatorBuilder: (context, index) => const SizedBox(
-                  height: 10,
-                ),
-                itemCount: vm.fakeUser().favoritePlaces.length,
-                itemBuilder: (context, index) {
+            SliverToBoxAdapter(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: const [
+                  SizedBox(
+                    height: 40,
+                  ),
+                ],
+              ),
+            ),
+            ProfileSubHeader(
+              text: context.l10n.profileFavoritesTitle,
+              style: const AppTypography.s24w600h20(),
+            ),
+            SliverList(
+              delegate: SliverChildBuilderDelegate(
+                (context, index) {
                   final place = vm.fakeUser().favoritePlaces[index];
 
-                  return FavoritePlace(
-                    place,
-                    onPressed: () => vm.onFavoritePlace(place.id),
+                  return Padding(
+                    padding: const EdgeInsets.only(bottom: 10.0),
+                    child: FavoritePlace(
+                      place,
+                      onPressed: () => vm.onFavoritePlace(place.id),
+                    ),
                   );
                 },
+                childCount: vm.fakeUser().favoritePlaces.length,
               ),
             ),
-            const SizedBox(height: 20),
-            WtgtButton(
-              onPressed: () => vm.onProfileSignOut(),
-              label: context.l10n.profileSignOut,
+            SliverFillRemaining(
+              hasScrollBody: false,
+              child: Column(
+                children: [
+                  const Spacer(),
+                  WtgtButton(
+                    onPressed: () => vm.onProfileSignOut(),
+                    label: context.l10n.profileSignOut,
+                  ),
+                ],
+              ),
             ),
           ],
         ),
