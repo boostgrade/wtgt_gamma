@@ -33,7 +33,7 @@ class FavoritePlace extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.only(left: 16),
               child: SvgPicture.asset(
-                Asset.svg.cocktail,
+                Asset.svg.iconCocktail,
                 height: 24,
               ),
             ),
@@ -50,9 +50,7 @@ class FavoritePlace extends StatelessWidget {
                     ),
                     const SizedBox(height: 5),
                     Text(
-                      place.distance != null
-                          ? '${place.distance} ${context.l10n.m}'
-                          : '',
+                      '200 ${context.l10n.m}',
                       overflow: TextOverflow.ellipsis,
                       style: const AppTypography.s16w400h20(),
                     ),

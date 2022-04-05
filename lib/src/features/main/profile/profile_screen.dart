@@ -2,8 +2,8 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:where_to_go_today/src/core/ui/res/typography/app_typography.dart';
-import 'package:where_to_go_today/src/features/profile/ui/profile/favorite_place.dart';
-import 'package:where_to_go_today/src/features/profile/ui/profile/profile_vm.dart';
+import 'package:where_to_go_today/src/features/main/profile/favorite_place.dart';
+import 'package:where_to_go_today/src/features/main/profile/profile_vm.dart';
 import 'package:where_to_go_today/src/localization/l10n.dart';
 import 'package:where_to_go_today/src/res/asset.dart';
 import 'package:where_to_go_today/src/ui/uikit/wtgt_button.dart';
@@ -70,7 +70,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                               constraints: const BoxConstraints(),
                               iconSize: 20,
                               icon: SvgPicture.asset(
-                                Asset.svg.edit,
+                                Asset.svg.iconEdit,
                               ),
                               splashRadius: 20,
                               onPressed: () => vm.onEditUserDetails(),
@@ -86,7 +86,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   constraints: const BoxConstraints(),
                   iconSize: 35,
                   icon: SvgPicture.asset(
-                    Asset.svg.settings,
+                    Asset.svg.iconSettings,
                   ),
                   splashRadius: 25,
                   onPressed: () => vm.onSettings(),

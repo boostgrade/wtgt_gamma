@@ -27,7 +27,8 @@
   "onboardingThirdTitle": "Provide your QR\nto the waiters to\naccumulate loyalty\npoints.",
   "skip": "Skip",
   "next": "Next",
+  "placeName": "The name of the place?",
+  "m": "m",
   "profileFavoritesTitle": "Favorites",
-  "profileSignOut": "Sign out",
-  "m": "m"
+  "profileSignOut": "Sign out"
 }
