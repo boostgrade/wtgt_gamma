@@ -4,7 +4,6 @@ import 'package:where_to_go_today/src/features/auth/register/register_route.dart
 import 'package:where_to_go_today/src/features/auth/sign_in/sign_in_route.dart';
 import 'package:where_to_go_today/src/features/main/main_route.dart';
 import 'package:where_to_go_today/src/features/onboard/ui/onboarding_route.dart';
-import 'package:where_to_go_today/src/features/place_detail/place_detail_route.dart';
 import 'package:where_to_go_today/src/features/places/place_route.dart';
 import 'package:where_to_go_today/src/features/settings/ui/settings_route.dart';
 
@@ -24,11 +23,10 @@ class AppRouter {
       '${CodeRoute.routeName}/:phone': (routeData) =>
           CodeRoute(routeData.pathParameters['phone'] ?? ''),
       SettingsRoute.routeName: (_) => SettingsRoute(),
-      PlaceRoute.routeName: (_) => const PlaceRoute(),
       '${MainRoute.routeName}/:initialScreen': (routeData) =>
           MainRoute(routeData.pathParameters['initialScreen']),
-      '${PlaceDetailRoute.routeName}/:placeId': (routeData) =>
-          PlaceDetailRoute(routeData.pathParameters['placeId'] ?? ''),
+      '${PlaceRoute.routeName}/:placeId': (routeData) =>
+          PlaceRoute(routeData.pathParameters['placeId'] ?? ''),
     },
   );
 }

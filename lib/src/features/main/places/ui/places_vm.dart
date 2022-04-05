@@ -10,7 +10,7 @@ import 'package:where_to_go_today/src/core/ui/errors_handling/error_handler.dart
 import 'package:where_to_go_today/src/features/main/places/service/event/places_event.dart';
 import 'package:where_to_go_today/src/features/main/places/service/places_bloc.dart';
 import 'package:where_to_go_today/src/features/main/places/service/state/places_state.dart';
-import 'package:where_to_go_today/src/features/place_detail/place_detail_route.dart';
+import 'package:where_to_go_today/src/features/places/place_route.dart';
 
 part 'places_vm.g.dart';
 
@@ -55,7 +55,7 @@ abstract class _PlacesVm extends ViewModel with Store {
   void openPlaceDetails(int index) {
     final place = places[index];
     debugPrint('!!! openPlaceDetails(${place.name})');
-    Routemaster.of(_context).push('${PlaceDetailRoute.routeName}/${place.id}');
+    Routemaster.of(_context).push('${PlaceRoute.routeName}/${place.id}');
   }
 
   void sharePlace(int index) {

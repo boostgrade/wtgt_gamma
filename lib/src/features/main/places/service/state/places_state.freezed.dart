@@ -31,6 +31,12 @@ class _$PlacesStateTearOff {
     );
   }
 
+  PlacesStatePlaceLoaded placeLoaded(Place place) {
+    return PlacesStatePlaceLoaded(
+      place,
+    );
+  }
+
   PlacesStateError error(dynamic error, StackTrace stackTrace) {
     return PlacesStateError(
       error,
@@ -49,6 +55,7 @@ mixin _$PlacesState {
     required TResult Function() init,
     required TResult Function() loading,
     required TResult Function(List<Place> places) loaded,
+    required TResult Function(Place place) placeLoaded,
     required TResult Function(dynamic error, StackTrace stackTrace) error,
   }) =>
       throw _privateConstructorUsedError;
@@ -57,6 +64,7 @@ mixin _$PlacesState {
     TResult Function()? init,
     TResult Function()? loading,
     TResult Function(List<Place> places)? loaded,
+    TResult Function(Place place)? placeLoaded,
     TResult Function(dynamic error, StackTrace stackTrace)? error,
   }) =>
       throw _privateConstructorUsedError;
@@ -65,6 +73,7 @@ mixin _$PlacesState {
     TResult Function()? init,
     TResult Function()? loading,
     TResult Function(List<Place> places)? loaded,
+    TResult Function(Place place)? placeLoaded,
     TResult Function(dynamic error, StackTrace stackTrace)? error,
     required TResult orElse(),
   }) =>
@@ -74,6 +83,7 @@ mixin _$PlacesState {
     required TResult Function(PlacesStateInit value) init,
     required TResult Function(PlacesStateLoading value) loading,
     required TResult Function(PlacesStateLoaded value) loaded,
+    required TResult Function(PlacesStatePlaceLoaded value) placeLoaded,
     required TResult Function(PlacesStateError value) error,
   }) =>
       throw _privateConstructorUsedError;
@@ -82,6 +92,7 @@ mixin _$PlacesState {
     TResult Function(PlacesStateInit value)? init,
     TResult Function(PlacesStateLoading value)? loading,
     TResult Function(PlacesStateLoaded value)? loaded,
+    TResult Function(PlacesStatePlaceLoaded value)? placeLoaded,
     TResult Function(PlacesStateError value)? error,
   }) =>
       throw _privateConstructorUsedError;
@@ -90,6 +101,7 @@ mixin _$PlacesState {
     TResult Function(PlacesStateInit value)? init,
     TResult Function(PlacesStateLoading value)? loading,
     TResult Function(PlacesStateLoaded value)? loaded,
+    TResult Function(PlacesStatePlaceLoaded value)? placeLoaded,
     TResult Function(PlacesStateError value)? error,
     required TResult orElse(),
   }) =>
@@ -156,6 +168,7 @@ class _$PlacesStateInit implements PlacesStateInit {
     required TResult Function() init,
     required TResult Function() loading,
     required TResult Function(List<Place> places) loaded,
+    required TResult Function(Place place) placeLoaded,
     required TResult Function(dynamic error, StackTrace stackTrace) error,
   }) {
     return init();
@@ -167,6 +180,7 @@ class _$PlacesStateInit implements PlacesStateInit {
     TResult Function()? init,
     TResult Function()? loading,
     TResult Function(List<Place> places)? loaded,
+    TResult Function(Place place)? placeLoaded,
     TResult Function(dynamic error, StackTrace stackTrace)? error,
   }) {
     return init?.call();
@@ -178,6 +192,7 @@ class _$PlacesStateInit implements PlacesStateInit {
     TResult Function()? init,
     TResult Function()? loading,
     TResult Function(List<Place> places)? loaded,
+    TResult Function(Place place)? placeLoaded,
     TResult Function(dynamic error, StackTrace stackTrace)? error,
     required TResult orElse(),
   }) {
@@ -193,6 +208,7 @@ class _$PlacesStateInit implements PlacesStateInit {
     required TResult Function(PlacesStateInit value) init,
     required TResult Function(PlacesStateLoading value) loading,
     required TResult Function(PlacesStateLoaded value) loaded,
+    required TResult Function(PlacesStatePlaceLoaded value) placeLoaded,
     required TResult Function(PlacesStateError value) error,
   }) {
     return init(this);
@@ -204,6 +220,7 @@ class _$PlacesStateInit implements PlacesStateInit {
     TResult Function(PlacesStateInit value)? init,
     TResult Function(PlacesStateLoading value)? loading,
     TResult Function(PlacesStateLoaded value)? loaded,
+    TResult Function(PlacesStatePlaceLoaded value)? placeLoaded,
     TResult Function(PlacesStateError value)? error,
   }) {
     return init?.call(this);
@@ -215,6 +232,7 @@ class _$PlacesStateInit implements PlacesStateInit {
     TResult Function(PlacesStateInit value)? init,
     TResult Function(PlacesStateLoading value)? loading,
     TResult Function(PlacesStateLoaded value)? loaded,
+    TResult Function(PlacesStatePlaceLoaded value)? placeLoaded,
     TResult Function(PlacesStateError value)? error,
     required TResult orElse(),
   }) {
@@ -273,6 +291,7 @@ class _$PlacesStateLoading implements PlacesStateLoading {
     required TResult Function() init,
     required TResult Function() loading,
     required TResult Function(List<Place> places) loaded,
+    required TResult Function(Place place) placeLoaded,
     required TResult Function(dynamic error, StackTrace stackTrace) error,
   }) {
     return loading();
@@ -284,6 +303,7 @@ class _$PlacesStateLoading implements PlacesStateLoading {
     TResult Function()? init,
     TResult Function()? loading,
     TResult Function(List<Place> places)? loaded,
+    TResult Function(Place place)? placeLoaded,
     TResult Function(dynamic error, StackTrace stackTrace)? error,
   }) {
     return loading?.call();
@@ -295,6 +315,7 @@ class _$PlacesStateLoading implements PlacesStateLoading {
     TResult Function()? init,
     TResult Function()? loading,
     TResult Function(List<Place> places)? loaded,
+    TResult Function(Place place)? placeLoaded,
     TResult Function(dynamic error, StackTrace stackTrace)? error,
     required TResult orElse(),
   }) {
@@ -310,6 +331,7 @@ class _$PlacesStateLoading implements PlacesStateLoading {
     required TResult Function(PlacesStateInit value) init,
     required TResult Function(PlacesStateLoading value) loading,
     required TResult Function(PlacesStateLoaded value) loaded,
+    required TResult Function(PlacesStatePlaceLoaded value) placeLoaded,
     required TResult Function(PlacesStateError value) error,
   }) {
     return loading(this);
@@ -321,6 +343,7 @@ class _$PlacesStateLoading implements PlacesStateLoading {
     TResult Function(PlacesStateInit value)? init,
     TResult Function(PlacesStateLoading value)? loading,
     TResult Function(PlacesStateLoaded value)? loaded,
+    TResult Function(PlacesStatePlaceLoaded value)? placeLoaded,
     TResult Function(PlacesStateError value)? error,
   }) {
     return loading?.call(this);
@@ -332,6 +355,7 @@ class _$PlacesStateLoading implements PlacesStateLoading {
     TResult Function(PlacesStateInit value)? init,
     TResult Function(PlacesStateLoading value)? loading,
     TResult Function(PlacesStateLoaded value)? loaded,
+    TResult Function(PlacesStatePlaceLoaded value)? placeLoaded,
     TResult Function(PlacesStateError value)? error,
     required TResult orElse(),
   }) {
@@ -414,6 +438,7 @@ class _$PlacesStateLoaded implements PlacesStateLoaded {
     required TResult Function() init,
     required TResult Function() loading,
     required TResult Function(List<Place> places) loaded,
+    required TResult Function(Place place) placeLoaded,
     required TResult Function(dynamic error, StackTrace stackTrace) error,
   }) {
     return loaded(places);
@@ -425,6 +450,7 @@ class _$PlacesStateLoaded implements PlacesStateLoaded {
     TResult Function()? init,
     TResult Function()? loading,
     TResult Function(List<Place> places)? loaded,
+    TResult Function(Place place)? placeLoaded,
     TResult Function(dynamic error, StackTrace stackTrace)? error,
   }) {
     return loaded?.call(places);
@@ -436,6 +462,7 @@ class _$PlacesStateLoaded implements PlacesStateLoaded {
     TResult Function()? init,
     TResult Function()? loading,
     TResult Function(List<Place> places)? loaded,
+    TResult Function(Place place)? placeLoaded,
     TResult Function(dynamic error, StackTrace stackTrace)? error,
     required TResult orElse(),
   }) {
@@ -451,6 +478,7 @@ class _$PlacesStateLoaded implements PlacesStateLoaded {
     required TResult Function(PlacesStateInit value) init,
     required TResult Function(PlacesStateLoading value) loading,
     required TResult Function(PlacesStateLoaded value) loaded,
+    required TResult Function(PlacesStatePlaceLoaded value) placeLoaded,
     required TResult Function(PlacesStateError value) error,
   }) {
     return loaded(this);
@@ -462,6 +490,7 @@ class _$PlacesStateLoaded implements PlacesStateLoaded {
     TResult Function(PlacesStateInit value)? init,
     TResult Function(PlacesStateLoading value)? loading,
     TResult Function(PlacesStateLoaded value)? loaded,
+    TResult Function(PlacesStatePlaceLoaded value)? placeLoaded,
     TResult Function(PlacesStateError value)? error,
   }) {
     return loaded?.call(this);
@@ -473,6 +502,7 @@ class _$PlacesStateLoaded implements PlacesStateLoaded {
     TResult Function(PlacesStateInit value)? init,
     TResult Function(PlacesStateLoading value)? loading,
     TResult Function(PlacesStateLoaded value)? loaded,
+    TResult Function(PlacesStatePlaceLoaded value)? placeLoaded,
     TResult Function(PlacesStateError value)? error,
     required TResult orElse(),
   }) {
@@ -489,6 +519,159 @@ abstract class PlacesStateLoaded implements PlacesState {
   List<Place> get places;
   @JsonKey(ignore: true)
   $PlacesStateLoadedCopyWith<PlacesStateLoaded> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $PlacesStatePlaceLoadedCopyWith<$Res> {
+  factory $PlacesStatePlaceLoadedCopyWith(PlacesStatePlaceLoaded value,
+          $Res Function(PlacesStatePlaceLoaded) then) =
+      _$PlacesStatePlaceLoadedCopyWithImpl<$Res>;
+  $Res call({Place place});
+}
+
+/// @nodoc
+class _$PlacesStatePlaceLoadedCopyWithImpl<$Res>
+    extends _$PlacesStateCopyWithImpl<$Res>
+    implements $PlacesStatePlaceLoadedCopyWith<$Res> {
+  _$PlacesStatePlaceLoadedCopyWithImpl(PlacesStatePlaceLoaded _value,
+      $Res Function(PlacesStatePlaceLoaded) _then)
+      : super(_value, (v) => _then(v as PlacesStatePlaceLoaded));
+
+  @override
+  PlacesStatePlaceLoaded get _value => super._value as PlacesStatePlaceLoaded;
+
+  @override
+  $Res call({
+    Object? place = freezed,
+  }) {
+    return _then(PlacesStatePlaceLoaded(
+      place == freezed
+          ? _value.place
+          : place // ignore: cast_nullable_to_non_nullable
+              as Place,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$PlacesStatePlaceLoaded implements PlacesStatePlaceLoaded {
+  const _$PlacesStatePlaceLoaded(this.place);
+
+  @override
+  final Place place;
+
+  @override
+  String toString() {
+    return 'PlacesState.placeLoaded(place: $place)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is PlacesStatePlaceLoaded &&
+            const DeepCollectionEquality().equals(other.place, place));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(place));
+
+  @JsonKey(ignore: true)
+  @override
+  $PlacesStatePlaceLoadedCopyWith<PlacesStatePlaceLoaded> get copyWith =>
+      _$PlacesStatePlaceLoadedCopyWithImpl<PlacesStatePlaceLoaded>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() init,
+    required TResult Function() loading,
+    required TResult Function(List<Place> places) loaded,
+    required TResult Function(Place place) placeLoaded,
+    required TResult Function(dynamic error, StackTrace stackTrace) error,
+  }) {
+    return placeLoaded(place);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? init,
+    TResult Function()? loading,
+    TResult Function(List<Place> places)? loaded,
+    TResult Function(Place place)? placeLoaded,
+    TResult Function(dynamic error, StackTrace stackTrace)? error,
+  }) {
+    return placeLoaded?.call(place);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? init,
+    TResult Function()? loading,
+    TResult Function(List<Place> places)? loaded,
+    TResult Function(Place place)? placeLoaded,
+    TResult Function(dynamic error, StackTrace stackTrace)? error,
+    required TResult orElse(),
+  }) {
+    if (placeLoaded != null) {
+      return placeLoaded(place);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(PlacesStateInit value) init,
+    required TResult Function(PlacesStateLoading value) loading,
+    required TResult Function(PlacesStateLoaded value) loaded,
+    required TResult Function(PlacesStatePlaceLoaded value) placeLoaded,
+    required TResult Function(PlacesStateError value) error,
+  }) {
+    return placeLoaded(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(PlacesStateInit value)? init,
+    TResult Function(PlacesStateLoading value)? loading,
+    TResult Function(PlacesStateLoaded value)? loaded,
+    TResult Function(PlacesStatePlaceLoaded value)? placeLoaded,
+    TResult Function(PlacesStateError value)? error,
+  }) {
+    return placeLoaded?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(PlacesStateInit value)? init,
+    TResult Function(PlacesStateLoading value)? loading,
+    TResult Function(PlacesStateLoaded value)? loaded,
+    TResult Function(PlacesStatePlaceLoaded value)? placeLoaded,
+    TResult Function(PlacesStateError value)? error,
+    required TResult orElse(),
+  }) {
+    if (placeLoaded != null) {
+      return placeLoaded(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class PlacesStatePlaceLoaded implements PlacesState {
+  const factory PlacesStatePlaceLoaded(Place place) = _$PlacesStatePlaceLoaded;
+
+  Place get place;
+  @JsonKey(ignore: true)
+  $PlacesStatePlaceLoadedCopyWith<PlacesStatePlaceLoaded> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -571,6 +754,7 @@ class _$PlacesStateError implements PlacesStateError {
     required TResult Function() init,
     required TResult Function() loading,
     required TResult Function(List<Place> places) loaded,
+    required TResult Function(Place place) placeLoaded,
     required TResult Function(dynamic error, StackTrace stackTrace) error,
   }) {
     return error(this.error, stackTrace);
@@ -582,6 +766,7 @@ class _$PlacesStateError implements PlacesStateError {
     TResult Function()? init,
     TResult Function()? loading,
     TResult Function(List<Place> places)? loaded,
+    TResult Function(Place place)? placeLoaded,
     TResult Function(dynamic error, StackTrace stackTrace)? error,
   }) {
     return error?.call(this.error, stackTrace);
@@ -593,6 +778,7 @@ class _$PlacesStateError implements PlacesStateError {
     TResult Function()? init,
     TResult Function()? loading,
     TResult Function(List<Place> places)? loaded,
+    TResult Function(Place place)? placeLoaded,
     TResult Function(dynamic error, StackTrace stackTrace)? error,
     required TResult orElse(),
   }) {
@@ -608,6 +794,7 @@ class _$PlacesStateError implements PlacesStateError {
     required TResult Function(PlacesStateInit value) init,
     required TResult Function(PlacesStateLoading value) loading,
     required TResult Function(PlacesStateLoaded value) loaded,
+    required TResult Function(PlacesStatePlaceLoaded value) placeLoaded,
     required TResult Function(PlacesStateError value) error,
   }) {
     return error(this);
@@ -619,6 +806,7 @@ class _$PlacesStateError implements PlacesStateError {
     TResult Function(PlacesStateInit value)? init,
     TResult Function(PlacesStateLoading value)? loading,
     TResult Function(PlacesStateLoaded value)? loaded,
+    TResult Function(PlacesStatePlaceLoaded value)? placeLoaded,
     TResult Function(PlacesStateError value)? error,
   }) {
     return error?.call(this);
@@ -630,6 +818,7 @@ class _$PlacesStateError implements PlacesStateError {
     TResult Function(PlacesStateInit value)? init,
     TResult Function(PlacesStateLoading value)? loading,
     TResult Function(PlacesStateLoaded value)? loaded,
+    TResult Function(PlacesStatePlaceLoaded value)? placeLoaded,
     TResult Function(PlacesStateError value)? error,
     required TResult orElse(),
   }) {

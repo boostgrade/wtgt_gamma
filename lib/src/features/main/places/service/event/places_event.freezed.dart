@@ -22,6 +22,12 @@ class _$PlacesEventTearOff {
       searchText,
     );
   }
+
+  PlacesEventGetPlace getPlace(String placeId) {
+    return PlacesEventGetPlace(
+      placeId,
+    );
+  }
 }
 
 /// @nodoc
@@ -29,43 +35,43 @@ const $PlacesEvent = _$PlacesEventTearOff();
 
 /// @nodoc
 mixin _$PlacesEvent {
-  String get searchText => throw _privateConstructorUsedError;
-
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String searchText) getPlaces,
+    required TResult Function(String placeId) getPlace,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(String searchText)? getPlaces,
+    TResult Function(String placeId)? getPlace,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String searchText)? getPlaces,
+    TResult Function(String placeId)? getPlace,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(PlacesEventGetPlaces value) getPlaces,
+    required TResult Function(PlacesEventGetPlace value) getPlace,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(PlacesEventGetPlaces value)? getPlaces,
+    TResult Function(PlacesEventGetPlace value)? getPlace,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(PlacesEventGetPlaces value)? getPlaces,
+    TResult Function(PlacesEventGetPlace value)? getPlace,
     required TResult orElse(),
   }) =>
-      throw _privateConstructorUsedError;
-
-  @JsonKey(ignore: true)
-  $PlacesEventCopyWith<PlacesEvent> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -74,7 +80,6 @@ abstract class $PlacesEventCopyWith<$Res> {
   factory $PlacesEventCopyWith(
           PlacesEvent value, $Res Function(PlacesEvent) then) =
       _$PlacesEventCopyWithImpl<$Res>;
-  $Res call({String searchText});
 }
 
 /// @nodoc
@@ -84,27 +89,13 @@ class _$PlacesEventCopyWithImpl<$Res> implements $PlacesEventCopyWith<$Res> {
   final PlacesEvent _value;
   // ignore: unused_field
   final $Res Function(PlacesEvent) _then;
-
-  @override
-  $Res call({
-    Object? searchText = freezed,
-  }) {
-    return _then(_value.copyWith(
-      searchText: searchText == freezed
-          ? _value.searchText
-          : searchText // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
-  }
 }
 
 /// @nodoc
-abstract class $PlacesEventGetPlacesCopyWith<$Res>
-    implements $PlacesEventCopyWith<$Res> {
+abstract class $PlacesEventGetPlacesCopyWith<$Res> {
   factory $PlacesEventGetPlacesCopyWith(PlacesEventGetPlaces value,
           $Res Function(PlacesEventGetPlaces) then) =
       _$PlacesEventGetPlacesCopyWithImpl<$Res>;
-  @override
   $Res call({String searchText});
 }
 
@@ -168,6 +159,7 @@ class _$PlacesEventGetPlaces implements PlacesEventGetPlaces {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String searchText) getPlaces,
+    required TResult Function(String placeId) getPlace,
   }) {
     return getPlaces(searchText);
   }
@@ -176,6 +168,7 @@ class _$PlacesEventGetPlaces implements PlacesEventGetPlaces {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(String searchText)? getPlaces,
+    TResult Function(String placeId)? getPlace,
   }) {
     return getPlaces?.call(searchText);
   }
@@ -184,6 +177,7 @@ class _$PlacesEventGetPlaces implements PlacesEventGetPlaces {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String searchText)? getPlaces,
+    TResult Function(String placeId)? getPlace,
     required TResult orElse(),
   }) {
     if (getPlaces != null) {
@@ -196,6 +190,7 @@ class _$PlacesEventGetPlaces implements PlacesEventGetPlaces {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(PlacesEventGetPlaces value) getPlaces,
+    required TResult Function(PlacesEventGetPlace value) getPlace,
   }) {
     return getPlaces(this);
   }
@@ -204,6 +199,7 @@ class _$PlacesEventGetPlaces implements PlacesEventGetPlaces {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(PlacesEventGetPlaces value)? getPlaces,
+    TResult Function(PlacesEventGetPlace value)? getPlace,
   }) {
     return getPlaces?.call(this);
   }
@@ -212,6 +208,7 @@ class _$PlacesEventGetPlaces implements PlacesEventGetPlaces {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(PlacesEventGetPlaces value)? getPlaces,
+    TResult Function(PlacesEventGetPlace value)? getPlace,
     required TResult orElse(),
   }) {
     if (getPlaces != null) {
@@ -225,10 +222,142 @@ abstract class PlacesEventGetPlaces implements PlacesEvent {
   const factory PlacesEventGetPlaces(String searchText) =
       _$PlacesEventGetPlaces;
 
-  @override
   String get searchText;
-  @override
   @JsonKey(ignore: true)
   $PlacesEventGetPlacesCopyWith<PlacesEventGetPlaces> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $PlacesEventGetPlaceCopyWith<$Res> {
+  factory $PlacesEventGetPlaceCopyWith(
+          PlacesEventGetPlace value, $Res Function(PlacesEventGetPlace) then) =
+      _$PlacesEventGetPlaceCopyWithImpl<$Res>;
+  $Res call({String placeId});
+}
+
+/// @nodoc
+class _$PlacesEventGetPlaceCopyWithImpl<$Res>
+    extends _$PlacesEventCopyWithImpl<$Res>
+    implements $PlacesEventGetPlaceCopyWith<$Res> {
+  _$PlacesEventGetPlaceCopyWithImpl(
+      PlacesEventGetPlace _value, $Res Function(PlacesEventGetPlace) _then)
+      : super(_value, (v) => _then(v as PlacesEventGetPlace));
+
+  @override
+  PlacesEventGetPlace get _value => super._value as PlacesEventGetPlace;
+
+  @override
+  $Res call({
+    Object? placeId = freezed,
+  }) {
+    return _then(PlacesEventGetPlace(
+      placeId == freezed
+          ? _value.placeId
+          : placeId // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$PlacesEventGetPlace implements PlacesEventGetPlace {
+  const _$PlacesEventGetPlace(this.placeId);
+
+  @override
+  final String placeId;
+
+  @override
+  String toString() {
+    return 'PlacesEvent.getPlace(placeId: $placeId)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is PlacesEventGetPlace &&
+            const DeepCollectionEquality().equals(other.placeId, placeId));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(placeId));
+
+  @JsonKey(ignore: true)
+  @override
+  $PlacesEventGetPlaceCopyWith<PlacesEventGetPlace> get copyWith =>
+      _$PlacesEventGetPlaceCopyWithImpl<PlacesEventGetPlace>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String searchText) getPlaces,
+    required TResult Function(String placeId) getPlace,
+  }) {
+    return getPlace(placeId);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(String searchText)? getPlaces,
+    TResult Function(String placeId)? getPlace,
+  }) {
+    return getPlace?.call(placeId);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String searchText)? getPlaces,
+    TResult Function(String placeId)? getPlace,
+    required TResult orElse(),
+  }) {
+    if (getPlace != null) {
+      return getPlace(placeId);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(PlacesEventGetPlaces value) getPlaces,
+    required TResult Function(PlacesEventGetPlace value) getPlace,
+  }) {
+    return getPlace(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(PlacesEventGetPlaces value)? getPlaces,
+    TResult Function(PlacesEventGetPlace value)? getPlace,
+  }) {
+    return getPlace?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(PlacesEventGetPlaces value)? getPlaces,
+    TResult Function(PlacesEventGetPlace value)? getPlace,
+    required TResult orElse(),
+  }) {
+    if (getPlace != null) {
+      return getPlace(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class PlacesEventGetPlace implements PlacesEvent {
+  const factory PlacesEventGetPlace(String placeId) = _$PlacesEventGetPlace;
+
+  String get placeId;
+  @JsonKey(ignore: true)
+  $PlacesEventGetPlaceCopyWith<PlacesEventGetPlace> get copyWith =>
       throw _privateConstructorUsedError;
 }

@@ -10,14 +10,32 @@ class PlacesBloc extends Bloc<PlacesEvent, PlacesState>
   final PlacesRepository _placesService;
 
   PlacesBloc(this._placesService) : super(const PlacesState.init()) {
-    on<PlacesEventGetPlaces>((event, emit) async {
-      emit(const PlacesState.loading());
-      try {
-        final result = await _placesService.getPlaces(event.searchText);
-        emit(PlacesState.loaded(result));
-      } on Exception catch (e, s) {
-        emit(PlacesState.error(e, s));
-      }
-    });
+    on<PlacesEventGetPlaces>(_onGetPlaces);
+    on<PlacesEventGetPlace>(_onGetPlace);
+  }
+
+  Future<void> _onGetPlaces(
+    PlacesEventGetPlaces event,
+    Emitter<PlacesState> emit,
+  ) async {
+    emit(const PlacesState.loading());
+    try {
+      final result = await _placesService.getPlaces(event.searchText);
+      emit(PlacesState.loaded(result));
+    } on Exception catch (e, s) {
+      emit(PlacesState.error(e, s));
+    }
+  }
+
+  Future<void> _onGetPlace(
+    PlacesEventGetPlace _,
+    Emitter<PlacesState> emit,
+  ) async {
+    emit(const PlacesState.loading());
+    try {
+      // emit(PlacesState.placeLoaded());
+    } on Exception catch (e, s) {
+      emit(PlacesState.error(e, s));
+    }
   }
 }
