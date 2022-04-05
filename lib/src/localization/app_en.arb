@@ -27,5 +27,7 @@
   "onboardingThirdTitle": "Provide your QR\nto the waiters to\naccumulate loyalty\npoints.",
   "skip": "Skip",
   "next": "Next",
-  "book": "Book"
+  "book": "Book",
+  "placeName": "The name of the place?",
+  "m": "m"
 }
