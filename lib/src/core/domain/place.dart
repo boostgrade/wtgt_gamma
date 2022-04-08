@@ -12,7 +12,7 @@ class Place {
     required this.name,
     required this.description,
     required this.imageUrl,
-    this.latitude,
-    this.longitude,
+    required this.latitude,
+    required this.longitude,
   });
 }
