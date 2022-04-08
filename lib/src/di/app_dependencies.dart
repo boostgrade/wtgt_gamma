@@ -12,17 +12,15 @@ import 'package:where_to_go_today/src/features/auth/services/storage/token_stora
 import 'package:where_to_go_today/src/features/auth/services/vk/vk_auth.dart';
 import 'package:where_to_go_today/src/features/authservices/api/auth_api.dart';
 import 'package:where_to_go_today/src/features/authservices/repository/auth_repository.dart';
+import 'package:where_to_go_today/src/features/location/location_service.dart';
+import 'package:where_to_go_today/src/features/main/places/service/places_bloc.dart';
+import 'package:where_to_go_today/src/features/main/places/service/repository/places_repository.dart';
 import 'package:where_to_go_today/src/features/onboard/services/onboarding_bloc.dart';
 import 'package:where_to_go_today/src/features/onboard/services/repository/onboard_repository.dart';
 import 'package:where_to_go_today/src/features/onboard/services/storage/onboard_storage.dart';
 import 'package:where_to_go_today/src/features/settings/service/event/settings_event.dart';
 import 'package:where_to_go_today/src/features/settings/service/repository/settings_repository.dart';
 import 'package:where_to_go_today/src/features/settings/service/settings_bloc.dart';
-
-import '../core/services/network/firebase_options.dart';
-import '../features/authservices/api/auth_api.dart';
-import '../features/authservices/repository/auth_repository.dart';
-import 'base/dependency_bundle.dart';
 
 /// Класс с глобальными зависимостями приложения
 /// Здесь будем описывать то, что является синглтонами.
