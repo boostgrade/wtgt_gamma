@@ -24,7 +24,9 @@
   "onboardingThirdTitle": "Предоставляйте свой QR\nофициантам для\nнакопления баллов\nлояльности.",
   "skip": "Пропустить",
   "next": "Далее",
-  "restaurantName": "Название заведения?",
+  "placeName": "Название заведения?",
   "m": "м",
+  "profileFavoritesTitle": "Избранное",
+  "profileSignOut": "Выйти из профиля",
   "sharePlaceSubject": "Хэй! Зацени это место:"
 }
