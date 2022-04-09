@@ -24,7 +24,8 @@
   "onboardingThirdTitle": "Предоставляйте свой QR\nофициантам для\nнакопления баллов\nлояльности.",
   "skip": "Пропустить",
   "next": "Далее",
+  "placeName": "Название заведения?",
+  "m": "м",
   "profileFavoritesTitle": "Избранное",
-  "profileSignOut": "Выйти из профиля",
-  "m": "м"
+  "profileSignOut": "Выйти из профиля"
 }

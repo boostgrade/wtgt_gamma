@@ -2,8 +2,13 @@ import 'package:flutter/services.dart';
 import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
 
 class FacebookAuthService {
-  Future<String?> login() async {
-    final result = await FacebookAuth.i.login(
+  final FacebookAuth _facebookAuth;
+
+  FacebookAuthService({FacebookAuth? facebookAuth})
+      : _facebookAuth = facebookAuth ?? FacebookAuth.i;
+
+  Future<String> login() async {
+    final result = await _facebookAuth.login(
       permissions: [
         'public_profile',
         'email',
@@ -20,5 +25,5 @@ class FacebookAuthService {
     return result.accessToken!.token;
   }
 
-  Future<void> logout() async => FacebookAuth.i.logOut();
+  Future<void> logout() async => _facebookAuth.logOut();
 }
