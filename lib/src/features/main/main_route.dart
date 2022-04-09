@@ -48,6 +48,8 @@ class MainRoute extends MaterialPage<void> {
                   ),
                   Provider<ProfileVm>(
                     create: (_) => ProfileVm(
+                      context,
+                      context.read<AppDependencies>().profileBloc,
                       errorHandler:
                           context.read<AppDependencies>().errorHandler,
                     ),

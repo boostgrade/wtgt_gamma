@@ -14,12 +14,15 @@ import 'package:where_to_go_today/src/features/authservices/api/auth_api.dart';
 import 'package:where_to_go_today/src/features/authservices/repository/auth_repository.dart';
 import 'package:where_to_go_today/src/features/main/places/service/places_bloc.dart';
 import 'package:where_to_go_today/src/features/main/places/service/repository/places_repository.dart';
+import 'package:where_to_go_today/src/features/main/profile/services/profile_bloc.dart';
 import 'package:where_to_go_today/src/features/onboard/services/onboarding_bloc.dart';
 import 'package:where_to_go_today/src/features/onboard/services/repository/onboard_repository.dart';
 import 'package:where_to_go_today/src/features/onboard/services/storage/onboard_storage.dart';
 import 'package:where_to_go_today/src/features/settings/service/event/settings_event.dart';
 import 'package:where_to_go_today/src/features/settings/service/repository/settings_repository.dart';
 import 'package:where_to_go_today/src/features/settings/service/settings_bloc.dart';
+
+import '../features/main/profile/services/repository/profile_repository.dart';
 
 /// Класс с глобальными зависимостями приложения
 /// Здесь будем описывать то, что является синглтонами.
@@ -47,6 +50,9 @@ class AppDependencies extends DependencyBundle {
   late final placesBloc = PlacesBloc(
     placesRepository,
   );
+
+  late final profileRepository = ProfileRepository();
+  late final profileBloc = ProfileBloc(profileRepository);
 
   late final messageController = DefaultMessageController();
   late final errorHandler = ScenarioErrorHandler(
