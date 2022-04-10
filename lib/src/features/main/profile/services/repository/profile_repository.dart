@@ -17,7 +17,7 @@ var _stubUser = User(
   email: '',
   phone: '',
   photoUrl:
-      'https://s3-alpha-sig.figma.com/img/2fb3/141e/57d3910fcca978d11b1ea71e2e0802b1?Expires=1649635200&Signature=DfxeMTwZbN4QYyaAC2bEEjbVXiqs7O3oM29TS0gGzsLFjxuj4PdcbRV3MP529u6D6y-wY2shBHymRL0xvKNs-N1wMJzrVcnFn0a3K-nX~pqyMzmsvmHw~Yl~ZZU2sKG6C~KG7zRyJWW0SRPW1TAKJdJSkS5WmhZrb192v0b4ypgu-uGqZDY9W5RjpKJgn1W53209SZImZJhTMvIQw1b7M7QD-C~FkqQhG9ND71h7BvNwBzwuHd5oGRDcT1UJlDFHN65-FZXrasuNlBU6XkH0h2o5Sae2hyPnuuqcUurqAOSRqOymd91KzgHrmXh2LfmGhsn3NvE8NM2-dYktbxXlKw__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA',
+      'https://s3-alpha-sig.figma.com/img/2fb3/141e/57d3910fcca978d11b1ea71e2e0802b1?Expires=1650844800&Signature=DT~7XwXW511lK4hENsC3L-ukVRjY83Roe9C4X-MkGVnjmN4OEeKUACX3MNEOOqqb~qcyrjttSQmfljEgiHRkOmRL4VAmK5Cqzs6sDKZ5T7zgVEh6O4ssJ7y0G4M9K4T-o-azqaJcPBE6JEFP5MBtlvvVoXSNHFVdy9Zthos4SNomU7Oem841ZUTaYCgvgQFJrlGOl2K5lo-3uBJu8-DSQs0KdQk54ZbxzQFdiIkaWNOFpdYY3ivioOxdjsaxO9SPFhsH9ySeNBiVwIqNQPLpRhbweIGVHUORnr-5zYA3BJB7ELdZoqcUiC9XQap6it9Bjij~zJoLC~uh6rbfGF6YJw__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA',
   favoritePlaces: List<Place>.generate(
     5,
     (index) => Place(

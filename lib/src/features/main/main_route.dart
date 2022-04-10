@@ -7,8 +7,8 @@ import 'package:where_to_go_today/src/features/main/my_card/my_card_screen.dart'
 import 'package:where_to_go_today/src/features/main/my_card/my_card_vm.dart';
 import 'package:where_to_go_today/src/features/main/places/ui/places_screen.dart';
 import 'package:where_to_go_today/src/features/main/places/ui/places_vm.dart';
-import 'package:where_to_go_today/src/features/main/profile/profile_screen.dart';
-import 'package:where_to_go_today/src/features/main/profile/profile_vm.dart';
+import 'package:where_to_go_today/src/features/main/profile/ui/profile_screen.dart';
+import 'package:where_to_go_today/src/features/main/profile/ui/profile_vm.dart';
 
 @immutable
 class MainRoute extends MaterialPage<void> {

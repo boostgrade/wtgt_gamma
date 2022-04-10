@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mobx/mobx.dart';
+import 'package:where_to_go_today/src/core/domain/place.dart';
 import 'package:where_to_go_today/src/core/domain/user.dart';
 import 'package:where_to_go_today/src/core/services/exceptions/server/server_error_exception.dart';
 import 'package:where_to_go_today/src/core/ui/base/view_model.dart';
@@ -7,7 +8,7 @@ import 'package:where_to_go_today/src/core/ui/errors_handling/error_handler.dart
 import 'package:where_to_go_today/src/features/main/profile/services/events/profile_event.dart';
 import 'package:where_to_go_today/src/features/main/profile/services/states/profile_state.dart';
 
-import 'services/profile_bloc.dart';
+import '../services/profile_bloc.dart';
 
 part 'profile_vm.g.dart';
 
@@ -25,10 +26,19 @@ abstract class _ProfileVm extends ViewModel with Store {
     email: '',
     birthDate: '',
     name: '',
+    favoritePlaces: List<Place>.generate(
+      4,
+      (index) => Place(
+        id: index,
+        name: '',
+        description: '',
+        imageUrl: '',
+      ),
+    ),
   );
 
   @observable
-  bool loading = false;
+  bool loading = true;
 
   _ProfileVm(this._context, this._bloc, {required ErrorHandler errorHandler})
       : super(errorHandler) {

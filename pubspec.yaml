@@ -47,6 +47,7 @@ dependencies:
   retrofit: ^3.0.1
   routemaster: ^0.9.5
   rxdart: ^0.27.0
+  shimmer: ^2.0.0
   smooth_page_indicator: ^1.0.0+2
 
 dev_dependencies:

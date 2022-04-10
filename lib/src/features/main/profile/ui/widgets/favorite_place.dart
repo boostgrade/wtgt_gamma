@@ -43,17 +43,35 @@ class FavoritePlace extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(
-                      place.name,
-                      overflow: TextOverflow.ellipsis,
-                      style: const AppTypography.s18w500h20ls(),
-                    ),
+                    if (place.name.isNotEmpty)
+                      Text(
+                        place.name,
+                        overflow: TextOverflow.ellipsis,
+                        style: const AppTypography.s18w500h20ls(),
+                      )
+                    else
+                      Container(
+                        width: 200,
+                        height: 20,
+                        decoration: const BoxDecoration(
+                          color: Colors.grey,
+                        ),
+                      ),
                     const SizedBox(height: 5),
-                    Text(
-                      '200 ${context.l10n.m}',
-                      overflow: TextOverflow.ellipsis,
-                      style: const AppTypography.s16w400h20(),
-                    ),
+                    if (place.name.isNotEmpty)
+                      Text(
+                        '200 ${context.l10n.m}',
+                        overflow: TextOverflow.ellipsis,
+                        style: const AppTypography.s16w400h20(),
+                      )
+                    else
+                      Container(
+                        width: 50,
+                        height: 20,
+                        decoration: const BoxDecoration(
+                          color: Colors.grey,
+                        ),
+                      ),
                   ],
                 ),
               ),
@@ -66,6 +84,7 @@ class FavoritePlace extends StatelessWidget {
                   topRight: Radius.circular(10),
                   bottomRight: Radius.circular(10),
                 ),
+                color: Colors.grey,
                 image: DecorationImage(
                   image: CachedNetworkImageProvider(place.imageUrl),
                   fit: BoxFit.cover,
