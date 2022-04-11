@@ -14,7 +14,7 @@ class LocationService {
 
   int distanceBetween(LocationModel start, LocationModel end) {
     debugPrint('start = $start, end = $end');
-    
+
     return Random().nextInt(999);
   }
 
