@@ -1,6 +1,6 @@
 # Changelog
 
-- feat: Places Screen
+- feat: Places  Screen
 - feat: Place Card
 - feat: CodeVm - add authorization via OTP
 - feat: SignInScreenVm - add phone authorization
