@@ -3,6 +3,9 @@
 - feat: CodeVm - add authorization via OTP
 - feat: SignInScreenVm - add phone authorization
 - feat: OnboardingScreen
+- feat: MainScreen + PlacesScreen
+- feat: OnboardStorage
+- feat: profile screen
 
 ## 0.3.0
 
