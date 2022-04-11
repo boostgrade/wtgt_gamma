@@ -1,19 +1,25 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:routemaster/routemaster.dart';
 import 'package:where_to_go_today/src/core/ui/res/colors/project_colors.dart';
 import 'package:where_to_go_today/src/core/ui/res/typography/app_typography.dart';
-import 'package:where_to_go_today/src/res/asset.dart';
 
 class CustomSliverAppBar extends SliverPersistentHeaderDelegate {
   final double expandedHeight;
+  final String placeTitle;
+  final String placeUrl;
 
   @override
   double get maxExtent => expandedHeight;
 
   @override
-  double get minExtent => kToolbarHeight + 50;
+  double get minExtent => kToolbarHeight + 34;
 
-  CustomSliverAppBar({required this.expandedHeight});
+  CustomSliverAppBar({
+    required this.expandedHeight,
+    required this.placeTitle,
+    required this.placeUrl,
+  });
 
   @override
   bool shouldRebuild(SliverPersistentHeaderDelegate oldDelegate) => true;
@@ -30,41 +36,38 @@ class CustomSliverAppBar extends SliverPersistentHeaderDelegate {
       children: [
         Opacity(
           opacity: disappear(shrinkOffset),
-          child: Container(
-            decoration: BoxDecoration(
-              color: ProjectColors.onSurfaceColor,
-              image: DecorationImage(
-                fit: BoxFit.cover,
-                image: AssetImage(Asset.png.placeImage),
-                colorFilter: ColorFilter.mode(
-                  ProjectColors.onSurfaceColor.withOpacity(0.4),
-                  BlendMode.dstATop,
-                ),
-              ),
-            ),
-            child: const Align(
-              child: Padding(
-                padding: EdgeInsets.only(left: 24.0, bottom: 20),
-                child: Text(
-                  'El Cafe Noir',
-                  style: AppTypography.s24w600h20(
-                    color: ProjectColors.onSecondaryColor,
+          child: CachedNetworkImage(
+            placeholder: (context, url) =>
+                const Center(child: CircularProgressIndicator()),
+            imageUrl: placeUrl,
+            imageBuilder: (context, imageProvider) => Container(
+              decoration:
+                  const BoxDecoration(color: ProjectColors.onSurfaceColor),
+              child: Align(
+                child: Padding(
+                  padding: const EdgeInsets.only(left: 24.0, bottom: 20),
+                  child: Text(
+                    placeTitle,
+                    style: const AppTypography.s24w600h20(
+                      color: ProjectColors.onSecondaryColor,
+                    ),
                   ),
                 ),
+                alignment: Alignment.bottomLeft,
               ),
-              alignment: Alignment.bottomLeft,
             ),
           ),
         ),
         Opacity(
           opacity: appear(shrinkOffset),
           child: AppBar(
+            automaticallyImplyLeading: false,
             backgroundColor: ProjectColors.secondaryColor,
-            title: const Padding(
-              padding: EdgeInsets.only(left: 56),
+            title: Padding(
+              padding: const EdgeInsets.only(left: 56),
               child: Text(
-                'El Cafe Noir',
-                style: AppTypography.s24w600h20(
+                placeTitle,
+                style: const AppTypography.s24w600h20(
                   color: ProjectColors.onSecondaryColor,
                 ),
               ),
@@ -88,7 +91,7 @@ class CustomSliverAppBar extends SliverPersistentHeaderDelegate {
           ),
         ),
         Positioned(
-          top: 48,
+          top: 42,
           left: 16,
           child: IconButton(
             splashRadius: 24,

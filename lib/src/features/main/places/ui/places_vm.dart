@@ -52,10 +52,16 @@ abstract class _PlacesVm extends ViewModel with Store {
     _bloc.add(PlacesEvent.getPlaces(_searchText));
   }
 
+  @action
+  void getPlace(int placeId) {
+    _bloc.add(PlacesEvent.getPlace(placeId));
+  }
+
   void openPlaceDetails(int index) {
     final place = places[index];
     debugPrint('!!! openPlaceDetails(${place.name})');
     Routemaster.of(_context).push('${PlaceRoute.routeName}/${place.id}');
+    getPlace(place.id);
   }
 
   void sharePlace(int index) {

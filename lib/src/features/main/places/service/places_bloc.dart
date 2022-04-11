@@ -28,12 +28,14 @@ class PlacesBloc extends Bloc<PlacesEvent, PlacesState>
   }
 
   Future<void> _onGetPlace(
-    PlacesEventGetPlace _,
+    PlacesEventGetPlace event,
     Emitter<PlacesState> emit,
   ) async {
     emit(const PlacesState.loading());
     try {
-      // emit(PlacesState.placeLoaded());
+      final place = await _placesService.getPlace(event.placeId);
+
+      emit(PlacesState.placeLoaded(place));
     } on Exception catch (e, s) {
       emit(PlacesState.error(e, s));
     }

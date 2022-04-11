@@ -13,7 +13,6 @@ class PlaceRoute extends MaterialPage<void> {
           child: Builder(
             builder: (context) => Provider<PlaceVm>(
               create: (_) => PlaceVm(
-                context,
                 context.read<AppDependencies>().placesBloc,
                 errorHandler: context.read<AppDependencies>().errorHandler,
               ),

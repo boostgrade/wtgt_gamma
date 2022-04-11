@@ -23,7 +23,7 @@ class _$PlacesEventTearOff {
     );
   }
 
-  PlacesEventGetPlace getPlace(String placeId) {
+  PlacesEventGetPlace getPlace(int placeId) {
     return PlacesEventGetPlace(
       placeId,
     );
@@ -38,19 +38,19 @@ mixin _$PlacesEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String searchText) getPlaces,
-    required TResult Function(String placeId) getPlace,
+    required TResult Function(int placeId) getPlace,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(String searchText)? getPlaces,
-    TResult Function(String placeId)? getPlace,
+    TResult Function(int placeId)? getPlace,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String searchText)? getPlaces,
-    TResult Function(String placeId)? getPlace,
+    TResult Function(int placeId)? getPlace,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -159,7 +159,7 @@ class _$PlacesEventGetPlaces implements PlacesEventGetPlaces {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String searchText) getPlaces,
-    required TResult Function(String placeId) getPlace,
+    required TResult Function(int placeId) getPlace,
   }) {
     return getPlaces(searchText);
   }
@@ -168,7 +168,7 @@ class _$PlacesEventGetPlaces implements PlacesEventGetPlaces {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(String searchText)? getPlaces,
-    TResult Function(String placeId)? getPlace,
+    TResult Function(int placeId)? getPlace,
   }) {
     return getPlaces?.call(searchText);
   }
@@ -177,7 +177,7 @@ class _$PlacesEventGetPlaces implements PlacesEventGetPlaces {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String searchText)? getPlaces,
-    TResult Function(String placeId)? getPlace,
+    TResult Function(int placeId)? getPlace,
     required TResult orElse(),
   }) {
     if (getPlaces != null) {
@@ -233,7 +233,7 @@ abstract class $PlacesEventGetPlaceCopyWith<$Res> {
   factory $PlacesEventGetPlaceCopyWith(
           PlacesEventGetPlace value, $Res Function(PlacesEventGetPlace) then) =
       _$PlacesEventGetPlaceCopyWithImpl<$Res>;
-  $Res call({String placeId});
+  $Res call({int placeId});
 }
 
 /// @nodoc
@@ -255,7 +255,7 @@ class _$PlacesEventGetPlaceCopyWithImpl<$Res>
       placeId == freezed
           ? _value.placeId
           : placeId // ignore: cast_nullable_to_non_nullable
-              as String,
+              as int,
     ));
   }
 }
@@ -266,7 +266,7 @@ class _$PlacesEventGetPlace implements PlacesEventGetPlace {
   const _$PlacesEventGetPlace(this.placeId);
 
   @override
-  final String placeId;
+  final int placeId;
 
   @override
   String toString() {
@@ -294,7 +294,7 @@ class _$PlacesEventGetPlace implements PlacesEventGetPlace {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String searchText) getPlaces,
-    required TResult Function(String placeId) getPlace,
+    required TResult Function(int placeId) getPlace,
   }) {
     return getPlace(placeId);
   }
@@ -303,7 +303,7 @@ class _$PlacesEventGetPlace implements PlacesEventGetPlace {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(String searchText)? getPlaces,
-    TResult Function(String placeId)? getPlace,
+    TResult Function(int placeId)? getPlace,
   }) {
     return getPlace?.call(placeId);
   }
@@ -312,7 +312,7 @@ class _$PlacesEventGetPlace implements PlacesEventGetPlace {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String searchText)? getPlaces,
-    TResult Function(String placeId)? getPlace,
+    TResult Function(int placeId)? getPlace,
     required TResult orElse(),
   }) {
     if (getPlace != null) {
@@ -354,9 +354,9 @@ class _$PlacesEventGetPlace implements PlacesEventGetPlace {
 }
 
 abstract class PlacesEventGetPlace implements PlacesEvent {
-  const factory PlacesEventGetPlace(String placeId) = _$PlacesEventGetPlace;
+  const factory PlacesEventGetPlace(int placeId) = _$PlacesEventGetPlace;
 
-  String get placeId;
+  int get placeId;
   @JsonKey(ignore: true)
   $PlacesEventGetPlaceCopyWith<PlacesEventGetPlace> get copyWith =>
       throw _privateConstructorUsedError;
