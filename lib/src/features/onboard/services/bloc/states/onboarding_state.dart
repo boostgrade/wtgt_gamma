@@ -4,6 +4,7 @@ part 'onboarding_state.freezed.dart';
 
 @freezed
 class OnboardingState with _$OnboardingState {
-  const factory OnboardingState.init() = OnboardingStateInit;
-  const factory OnboardingState.skip() = OnboardingStateSkip;
+  const factory OnboardingState.initial() = OnboardingInitial;
+  const factory OnboardingState.loadInProgress() = OnboardingLoadInProgress;
+  const factory OnboardingState.skipSuccess() = OnboardingSkipSuccess;
 }

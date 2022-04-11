@@ -35,7 +35,7 @@ class AppDependencies extends DependencyBundle {
 
   late final onboardRepository = OnboardRepository(onboardStorage);
   late final authRepository = AuthRepository(AuthApi(dio));
-  late final onboardingBloc = OnboardingBloc();
+  late final onboardingBloc = OnboardingBloc(onboardRepository);
   late final authBloc = AuthBloc(
     authRepository: authRepository,
     googleAuth: googleAuth,

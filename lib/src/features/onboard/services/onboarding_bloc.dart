@@ -1,41 +1,45 @@
 import 'package:bloc/bloc.dart';
 import 'package:where_to_go_today/src/core/services/base/can_throw_exception_bloc_mixin.dart';
-import 'package:where_to_go_today/src/features/auth/services/storage/onboarding_storage.dart';
 import 'package:where_to_go_today/src/features/onboard/services/bloc/events/onboarding_event.dart';
 import 'package:where_to_go_today/src/features/onboard/services/bloc/states/onboarding_state.dart';
+import 'package:where_to_go_today/src/features/onboard/services/repository/onboard_repository.dart';
+import 'package:where_to_go_today/src/features/onboard/services/storage/onboard_storage.dart';
 
 class OnboardingBloc extends Bloc<OnboardingEvent, OnboardingState>
     with CanThrowExceptionBlocMixin {
-  final onboardingStorage = OnboardingStorage();
+  final onboardingStorage = OnboardStorage();
 
-  // final OnboardingRepository onboardingRepository;
+  final OnboardRepository onboardRepository;
 
-  // OnboardingBloc(OnboardingRepository this.onboardingRepository) : super(const OnboardingState.init()) {
-  OnboardingBloc() : super(const OnboardingState.init()) {
-    on<OnboardingEventInited>(_onOnboardingEventInited);
-    on<OnboardingEventSkipped>(_onOnboardingEventSkipped);
+  OnboardingBloc(this.onboardRepository)
+      : super(const OnboardingState.loadInProgress()) {
+    on<OnboardingInited>(_onOnboardingEventInited);
+    on<OnboardingSkipped>(_onOnboardingEventSkipped);
   }
 
   void _onOnboardingEventInited(
-    OnboardingEventInited _,
+    OnboardingInited _,
     Emitter<OnboardingState> emit,
   ) {
-    // if (onboardingRepository.getCompleted()) {
-    add(const OnboardingEventSkipped());
-    // } else {
-    emit(const OnboardingState.init());
-    // }
-    //
+    emit(const OnboardingState.loadInProgress());
+
+    if (onboardRepository.getCompleted()) {
+      add(const OnboardingSkipped());
+    } else {
+      emit(const OnboardingState.initial());
+    }
   }
 
   void _onOnboardingEventSkipped(
-    OnboardingEventSkipped _,
+    OnboardingSkipped _,
     Emitter<OnboardingState> emit,
   ) {
-    // if (!onboardingRepository.getCompleted()) {
-    //   onboardingRepository.setCompleted(true)
-    // }
-    //
-    emit(const OnboardingState.skip());
+    emit(const OnboardingState.loadInProgress());
+
+    if (!onboardRepository.getCompleted()) {
+      onboardRepository.setCompleted(true);
+    }
+
+    emit(const OnboardingState.skipSuccess());
   }
 }

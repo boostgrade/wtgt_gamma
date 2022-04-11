@@ -17,12 +17,12 @@ final _privateConstructorUsedError = UnsupportedError(
 class _$OnboardingEventTearOff {
   const _$OnboardingEventTearOff();
 
-  OnboardingEventInited onboadingInited() {
-    return const OnboardingEventInited();
+  OnboardingInited onboardingInited() {
+    return const OnboardingInited();
   }
 
-  OnboardingEventSkipped onboadingSkipped() {
-    return const OnboardingEventSkipped();
+  OnboardingSkipped onboardingSkipped() {
+    return const OnboardingSkipped();
   }
 }
 
@@ -33,39 +33,39 @@ const $OnboardingEvent = _$OnboardingEventTearOff();
 mixin _$OnboardingEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() onboadingInited,
-    required TResult Function() onboadingSkipped,
+    required TResult Function() onboardingInited,
+    required TResult Function() onboardingSkipped,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? onboadingInited,
-    TResult Function()? onboadingSkipped,
+    TResult Function()? onboardingInited,
+    TResult Function()? onboardingSkipped,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? onboadingInited,
-    TResult Function()? onboadingSkipped,
+    TResult Function()? onboardingInited,
+    TResult Function()? onboardingSkipped,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(OnboardingEventInited value) onboadingInited,
-    required TResult Function(OnboardingEventSkipped value) onboadingSkipped,
+    required TResult Function(OnboardingInited value) onboardingInited,
+    required TResult Function(OnboardingSkipped value) onboardingSkipped,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(OnboardingEventInited value)? onboadingInited,
-    TResult Function(OnboardingEventSkipped value)? onboadingSkipped,
+    TResult Function(OnboardingInited value)? onboardingInited,
+    TResult Function(OnboardingSkipped value)? onboardingSkipped,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(OnboardingEventInited value)? onboadingInited,
-    TResult Function(OnboardingEventSkipped value)? onboadingSkipped,
+    TResult Function(OnboardingInited value)? onboardingInited,
+    TResult Function(OnboardingSkipped value)? onboardingSkipped,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -89,38 +89,38 @@ class _$OnboardingEventCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class $OnboardingEventInitedCopyWith<$Res> {
-  factory $OnboardingEventInitedCopyWith(OnboardingEventInited value,
-          $Res Function(OnboardingEventInited) then) =
-      _$OnboardingEventInitedCopyWithImpl<$Res>;
+abstract class $OnboardingInitedCopyWith<$Res> {
+  factory $OnboardingInitedCopyWith(
+          OnboardingInited value, $Res Function(OnboardingInited) then) =
+      _$OnboardingInitedCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class _$OnboardingEventInitedCopyWithImpl<$Res>
+class _$OnboardingInitedCopyWithImpl<$Res>
     extends _$OnboardingEventCopyWithImpl<$Res>
-    implements $OnboardingEventInitedCopyWith<$Res> {
-  _$OnboardingEventInitedCopyWithImpl(
-      OnboardingEventInited _value, $Res Function(OnboardingEventInited) _then)
-      : super(_value, (v) => _then(v as OnboardingEventInited));
+    implements $OnboardingInitedCopyWith<$Res> {
+  _$OnboardingInitedCopyWithImpl(
+      OnboardingInited _value, $Res Function(OnboardingInited) _then)
+      : super(_value, (v) => _then(v as OnboardingInited));
 
   @override
-  OnboardingEventInited get _value => super._value as OnboardingEventInited;
+  OnboardingInited get _value => super._value as OnboardingInited;
 }
 
 /// @nodoc
 
-class _$OnboardingEventInited implements OnboardingEventInited {
-  const _$OnboardingEventInited();
+class _$OnboardingInited implements OnboardingInited {
+  const _$OnboardingInited();
 
   @override
   String toString() {
-    return 'OnboardingEvent.onboadingInited()';
+    return 'OnboardingEvent.onboardingInited()';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is OnboardingEventInited);
+        (other.runtimeType == runtimeType && other is OnboardingInited);
   }
 
   @override
@@ -129,30 +129,30 @@ class _$OnboardingEventInited implements OnboardingEventInited {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() onboadingInited,
-    required TResult Function() onboadingSkipped,
+    required TResult Function() onboardingInited,
+    required TResult Function() onboardingSkipped,
   }) {
-    return onboadingInited();
+    return onboardingInited();
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? onboadingInited,
-    TResult Function()? onboadingSkipped,
+    TResult Function()? onboardingInited,
+    TResult Function()? onboardingSkipped,
   }) {
-    return onboadingInited?.call();
+    return onboardingInited?.call();
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? onboadingInited,
-    TResult Function()? onboadingSkipped,
+    TResult Function()? onboardingInited,
+    TResult Function()? onboardingSkipped,
     required TResult orElse(),
   }) {
-    if (onboadingInited != null) {
-      return onboadingInited();
+    if (onboardingInited != null) {
+      return onboardingInited();
     }
     return orElse();
   }
@@ -160,72 +160,72 @@ class _$OnboardingEventInited implements OnboardingEventInited {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(OnboardingEventInited value) onboadingInited,
-    required TResult Function(OnboardingEventSkipped value) onboadingSkipped,
+    required TResult Function(OnboardingInited value) onboardingInited,
+    required TResult Function(OnboardingSkipped value) onboardingSkipped,
   }) {
-    return onboadingInited(this);
+    return onboardingInited(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(OnboardingEventInited value)? onboadingInited,
-    TResult Function(OnboardingEventSkipped value)? onboadingSkipped,
+    TResult Function(OnboardingInited value)? onboardingInited,
+    TResult Function(OnboardingSkipped value)? onboardingSkipped,
   }) {
-    return onboadingInited?.call(this);
+    return onboardingInited?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(OnboardingEventInited value)? onboadingInited,
-    TResult Function(OnboardingEventSkipped value)? onboadingSkipped,
+    TResult Function(OnboardingInited value)? onboardingInited,
+    TResult Function(OnboardingSkipped value)? onboardingSkipped,
     required TResult orElse(),
   }) {
-    if (onboadingInited != null) {
-      return onboadingInited(this);
+    if (onboardingInited != null) {
+      return onboardingInited(this);
     }
     return orElse();
   }
 }
 
-abstract class OnboardingEventInited implements OnboardingEvent {
-  const factory OnboardingEventInited() = _$OnboardingEventInited;
+abstract class OnboardingInited implements OnboardingEvent {
+  const factory OnboardingInited() = _$OnboardingInited;
 }
 
 /// @nodoc
-abstract class $OnboardingEventSkippedCopyWith<$Res> {
-  factory $OnboardingEventSkippedCopyWith(OnboardingEventSkipped value,
-          $Res Function(OnboardingEventSkipped) then) =
-      _$OnboardingEventSkippedCopyWithImpl<$Res>;
+abstract class $OnboardingSkippedCopyWith<$Res> {
+  factory $OnboardingSkippedCopyWith(
+          OnboardingSkipped value, $Res Function(OnboardingSkipped) then) =
+      _$OnboardingSkippedCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class _$OnboardingEventSkippedCopyWithImpl<$Res>
+class _$OnboardingSkippedCopyWithImpl<$Res>
     extends _$OnboardingEventCopyWithImpl<$Res>
-    implements $OnboardingEventSkippedCopyWith<$Res> {
-  _$OnboardingEventSkippedCopyWithImpl(OnboardingEventSkipped _value,
-      $Res Function(OnboardingEventSkipped) _then)
-      : super(_value, (v) => _then(v as OnboardingEventSkipped));
+    implements $OnboardingSkippedCopyWith<$Res> {
+  _$OnboardingSkippedCopyWithImpl(
+      OnboardingSkipped _value, $Res Function(OnboardingSkipped) _then)
+      : super(_value, (v) => _then(v as OnboardingSkipped));
 
   @override
-  OnboardingEventSkipped get _value => super._value as OnboardingEventSkipped;
+  OnboardingSkipped get _value => super._value as OnboardingSkipped;
 }
 
 /// @nodoc
 
-class _$OnboardingEventSkipped implements OnboardingEventSkipped {
-  const _$OnboardingEventSkipped();
+class _$OnboardingSkipped implements OnboardingSkipped {
+  const _$OnboardingSkipped();
 
   @override
   String toString() {
-    return 'OnboardingEvent.onboadingSkipped()';
+    return 'OnboardingEvent.onboardingSkipped()';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is OnboardingEventSkipped);
+        (other.runtimeType == runtimeType && other is OnboardingSkipped);
   }
 
   @override
@@ -234,30 +234,30 @@ class _$OnboardingEventSkipped implements OnboardingEventSkipped {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() onboadingInited,
-    required TResult Function() onboadingSkipped,
+    required TResult Function() onboardingInited,
+    required TResult Function() onboardingSkipped,
   }) {
-    return onboadingSkipped();
+    return onboardingSkipped();
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? onboadingInited,
-    TResult Function()? onboadingSkipped,
+    TResult Function()? onboardingInited,
+    TResult Function()? onboardingSkipped,
   }) {
-    return onboadingSkipped?.call();
+    return onboardingSkipped?.call();
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? onboadingInited,
-    TResult Function()? onboadingSkipped,
+    TResult Function()? onboardingInited,
+    TResult Function()? onboardingSkipped,
     required TResult orElse(),
   }) {
-    if (onboadingSkipped != null) {
-      return onboadingSkipped();
+    if (onboardingSkipped != null) {
+      return onboardingSkipped();
     }
     return orElse();
   }
@@ -265,35 +265,35 @@ class _$OnboardingEventSkipped implements OnboardingEventSkipped {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(OnboardingEventInited value) onboadingInited,
-    required TResult Function(OnboardingEventSkipped value) onboadingSkipped,
+    required TResult Function(OnboardingInited value) onboardingInited,
+    required TResult Function(OnboardingSkipped value) onboardingSkipped,
   }) {
-    return onboadingSkipped(this);
+    return onboardingSkipped(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(OnboardingEventInited value)? onboadingInited,
-    TResult Function(OnboardingEventSkipped value)? onboadingSkipped,
+    TResult Function(OnboardingInited value)? onboardingInited,
+    TResult Function(OnboardingSkipped value)? onboardingSkipped,
   }) {
-    return onboadingSkipped?.call(this);
+    return onboardingSkipped?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(OnboardingEventInited value)? onboadingInited,
-    TResult Function(OnboardingEventSkipped value)? onboadingSkipped,
+    TResult Function(OnboardingInited value)? onboardingInited,
+    TResult Function(OnboardingSkipped value)? onboardingSkipped,
     required TResult orElse(),
   }) {
-    if (onboadingSkipped != null) {
-      return onboadingSkipped(this);
+    if (onboardingSkipped != null) {
+      return onboardingSkipped(this);
     }
     return orElse();
   }
 }
 
-abstract class OnboardingEventSkipped implements OnboardingEvent {
-  const factory OnboardingEventSkipped() = _$OnboardingEventSkipped;
+abstract class OnboardingSkipped implements OnboardingEvent {
+  const factory OnboardingSkipped() = _$OnboardingSkipped;
 }

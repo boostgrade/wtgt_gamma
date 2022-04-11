@@ -4,12 +4,15 @@ import 'package:golden_toolkit/golden_toolkit.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:where_to_go_today/src/core/ui/errors_handling/scenario_error_handler/scenario_error_handler.dart';
 import 'package:where_to_go_today/src/features/onboard/services/onboarding_bloc.dart';
+import 'package:where_to_go_today/src/features/onboard/services/repository/onboard_repository.dart';
 import 'package:where_to_go_today/src/features/onboard/ui/onboarding_screen.dart';
 import 'package:where_to_go_today/src/features/onboard/ui/onboarding_vm.dart';
 import 'package:where_to_go_today/src/localization/l10n.dart';
 import 'package:where_to_go_today/src/res/theme/app_theme.dart';
 
 class MockBuildContext extends Mock implements BuildContext {}
+
+class MockOnboardRepository extends Mock implements OnboardRepository {}
 
 class MockScenarioErrorHandler extends Mock implements ScenarioErrorHandler {}
 
@@ -29,7 +32,7 @@ void main() {
           child: OnboardingScreen(
             vm: OnboardingVm(
               MockBuildContext(),
-              OnboardingBloc(),
+              OnboardingBloc(MockOnboardRepository()),
               errorHandler: MockScenarioErrorHandler(),
             ),
           ),

@@ -16,7 +16,7 @@ class AppRouter {
 
   static final routes = RouteMap(
     routes: {
-      initialRoute: (_) => MainRoute(),
+      initialRoute: (_) => OnboardingRoute(),
       SignInRoute.routeName: (_) => SignInRoute(),
       OnboardingRoute.routeName: (_) => OnboardingRoute(),
       RegisterRoute.routeName: (_) => RegisterRoute(),
