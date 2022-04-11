@@ -8,6 +8,7 @@ import 'package:where_to_go_today/src/features/main/profile/profile_vm.dart';
 import 'package:where_to_go_today/src/localization/l10n.dart';
 import 'package:where_to_go_today/src/res/asset.dart';
 import 'package:where_to_go_today/src/ui/uikit/wtgt_button.dart';
+import 'package:where_to_go_today/src/ui/uikit/wtgt_circular_progress_indicator.dart';
 
 class ProfileScreen extends StatefulWidget {
   final ProfileVm vm;
@@ -29,8 +30,15 @@ class _ProfileScreenState extends State<ProfileScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Observer(
-      builder: (context) => SafeArea(
+    return Observer(builder: (context) {
+      if (vm.loading) {
+        return const WtgtCircularProgressIndicator();
+      }
+      if (vm.profile == null) {
+        return const Text('No profile');
+      }
+
+      return SafeArea(
         child: Padding(
           padding: const EdgeInsets.all(30.0),
           child: Column(
@@ -46,8 +54,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       children: [
                         CircleAvatar(
                           radius: 50.0,
-                          backgroundImage: vm.profile.photoUrl.isNotEmpty
-                              ? CachedNetworkImageProvider(vm.profile.photoUrl)
+                          backgroundImage: vm.profile!.photoUrl.isNotEmpty
+                              ? CachedNetworkImageProvider(vm.profile!.photoUrl)
                               : null,
                           child: Material(
                             shape: const CircleBorder(),
@@ -64,12 +72,12 @@ class _ProfileScreenState extends State<ProfileScreen> {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text(
-                                vm.profile.name,
+                                vm.profile!.name,
                                 overflow: TextOverflow.ellipsis,
                                 style: const AppTypography.s16w500h20(),
                               ),
                               Text(
-                                vm.profile.lastName,
+                                vm.profile!.lastName,
                                 overflow: TextOverflow.ellipsis,
                                 style: const AppTypography.s16w500h20(),
                               ),
@@ -117,9 +125,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   separatorBuilder: (context, index) => const SizedBox(
                     height: 10,
                   ),
-                  itemCount: vm.profile.favoritePlaces.length,
+                  itemCount: vm.profile!.favoritePlaces.length,
                   itemBuilder: (context, index) {
-                    final place = vm.profile.favoritePlaces[index];
+                    final place = vm.profile!.favoritePlaces[index];
 
                     return FavoritePlace(
                       place,
@@ -136,7 +144,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
             ],
           ),
         ),
-      ),
-    );
+      );
+    });
   }
 }

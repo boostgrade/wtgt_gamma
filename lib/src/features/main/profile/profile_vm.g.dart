@@ -12,13 +12,13 @@ mixin _$ProfileVm on _ProfileVm, Store {
   final _$profileAtom = Atom(name: '_ProfileVm.profile');
 
   @override
-  User get profile {
+  User? get profile {
     _$profileAtom.reportRead();
     return super.profile;
   }
 
   @override
-  set profile(User value) {
+  set profile(User? value) {
     _$profileAtom.reportWrite(value, super.profile, () {
       super.profile = value;
     });

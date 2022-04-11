@@ -18,14 +18,15 @@ abstract class _ProfileVm extends ViewModel with Store {
   final ProfileBloc _bloc;
 
   @observable
-  User profile = User(
-    id: 0,
-    phone: '',
-    lastName: '',
-    email: '',
-    birthDate: '',
-    name: '',
-  );
+  User? profile;
+  // = User(
+  //   id: 0,
+  //   phone: '',
+  //   lastName: '',
+  //   email: '',
+  //   birthDate: '',
+  //   name: '',
+  // );
 
   @observable
   bool loading = false;
