@@ -3,7 +3,6 @@ import 'package:mobx/mobx.dart';
 import 'package:routemaster/routemaster.dart';
 import 'package:where_to_go_today/src/core/ui/base/view_model.dart';
 import 'package:where_to_go_today/src/core/ui/errors_handling/error_handler.dart';
-import 'package:where_to_go_today/src/features/auth/register/register_route.dart';
 import 'package:where_to_go_today/src/features/main/main_route.dart';
 import 'package:where_to_go_today/src/features/onboard/services/bloc/events/onboarding_event.dart';
 import 'package:where_to_go_today/src/features/onboard/services/bloc/states/onboarding_state.dart';
