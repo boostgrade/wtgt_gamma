@@ -26,7 +26,6 @@ class _PlacesScreenState extends State<PlacesScreen>
   void initState() {
     super.initState();
     vm = widget.vm;
-    vm.searchPlaces();
   }
 
   @override
@@ -53,22 +52,36 @@ class _PlacesScreenState extends State<PlacesScreen>
           alignment: Alignment.center,
           children: [
             ListView.separated(
-              itemCount: vm.places.length,
+              itemCount: vm.places.length + 1,
               itemBuilder: (context, index) {
-                final place = vm.places[index];
+                if (vm.places.isEmpty) {
+                  return const SizedBox.shrink();
+                }
+                if (index == vm.places.length) {
+                  vm.nextPage();
 
-                return PlaceCard(
-                  key: ValueKey(place.id),
-                  vm: PlaceCardVm(
-                    context,
-                    place: place,
-                    locationService: vm.locationService,
-                  ),
-                );
+                  return const Center(
+                    child: Padding(
+                      padding: EdgeInsets.only(bottom: 16),
+                      child: WtgtCircularProgressIndicator(),
+                    ),
+                  );
+                } else {
+                  final place = vm.places[index];
+
+                  return PlaceCard(
+                    key: ValueKey(place.id),
+                    vm: PlaceCardVm(
+                      context,
+                      place: place,
+                      locationService: vm.locationService,
+                    ),
+                  );
+                }
               },
               separatorBuilder: (ctx, index) => const SizedBox(height: 16),
             ),
-            if (vm.loading)
+            if (vm.loading && vm.places.isEmpty)
               const WtgtCircularProgressIndicator()
             else
               const SizedBox.shrink(),
