@@ -26,5 +26,7 @@
   "next": "Далее",
   "book": "Забронировать",
   "placeName": "Название заведения?",
-  "m": "м"
+  "m": "м",
+  "profileFavoritesTitle": "Избранное",
+  "profileSignOut": "Выйти из профиля"
 }

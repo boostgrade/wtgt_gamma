@@ -29,5 +29,7 @@
   "next": "Next",
   "book": "Book",
   "placeName": "The name of the place?",
-  "m": "m"
+  "m": "m",
+  "profileFavoritesTitle": "Favorites",
+  "profileSignOut": "Sign out"
 }
