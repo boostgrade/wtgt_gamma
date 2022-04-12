@@ -6,6 +6,7 @@
 - feat: MainScreen + PlacesScreen
 - feat: OnboardStorage
 - feat: profile screen
+- feat: Profile Api
 
 ## 0.3.0
 
