@@ -1,5 +1,5 @@
-import 'package:where_to_go_today/src/features/main/profile/services/api/models/change_profile_request.dart';
-import 'package:where_to_go_today/src/features/main/profile/services/api/models/change_user_settings_request.dart';
+import 'package:where_to_go_today/src/features/main/profile/services/api/models/requests/change_profile_request.dart';
+import 'package:where_to_go_today/src/features/main/profile/services/api/models/requests/change_user_settings_request.dart';
 import 'package:where_to_go_today/src/features/main/profile/services/api/models/user_profile.dart';
 import 'package:where_to_go_today/src/features/main/profile/services/api/models/user_settings.dart';
 import 'package:where_to_go_today/src/features/main/profile/services/api/profile_api.dart';
