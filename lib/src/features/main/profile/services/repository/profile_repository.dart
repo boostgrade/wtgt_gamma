@@ -1,4 +1,3 @@
-import 'package:where_to_go_today/src/features/authapi/models/user.dart';
 import 'package:where_to_go_today/src/features/main/profile/services/api/models/change_profile_request.dart';
 import 'package:where_to_go_today/src/features/main/profile/services/api/models/change_user_settings_request.dart';
 import 'package:where_to_go_today/src/features/main/profile/services/api/models/user_profile.dart';
