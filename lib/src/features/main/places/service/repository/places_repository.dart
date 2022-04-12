@@ -18,6 +18,8 @@ const _stubPlaces = [
         'Phasellus odio ipsum, sollicitudin quis magna vitae, tempus pellentesque massa. Vestibulum ullamcorper sem ut placerat sollicitudin. Pellentesque at lacus ultricies, maximus elit aliquam, vestibulum enim. Pellentesque eleifend tellus id augue auctor, et venenatis ante ullamcorper. Maecenas vitae dictum magna. Proin efficitur cursus interdum. Ut lobortis mauris et orci posuere blandit. Pellentesque congue, libero ut imperdiet malesuada, orci erat rhoncus lorem, quis cursus est elit vel nunc. Aenean aliquam mauris quis convallis consequat. Proin bibendum, lorem non tempor pellentesque, lacus urna vehicula lorem, sit amet finibus lorem mi eu sem. Aenean tempor dolor felis, in ultrices leo tempor non. Sed in risus nec urna tincidunt imperdiet molestie ut quam. Ut ultricies, purus eu mollis posuere, sapien lacus molestie arcu, ut suscipit risus dui ac ex. Quisque augue dui, iaculis et lorem vitae, tristique tincidunt eros. Phasellus id arcu suscipit diam lacinia accumsan at a tortor.',
     imageUrl:
         'https://images.pexels.com/photos/1402407/pexels-photo-1402407.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260',
+    latitude: 1,
+    longitude: 1,
   ),
   Place(
     id: 2,
@@ -26,6 +28,8 @@ const _stubPlaces = [
         'Phasellus odio ipsum, sollicitudin quis magna vitae, tempus pellentesque massa. Vestibulum ullamcorper sem ut placerat sollicitudin. Pellentesque at lacus ultricies, maximus elit aliquam, vestibulum enim. Pellentesque eleifend tellus id augue auctor, et venenatis ante ullamcorper. Maecenas vitae dictum magna. Proin efficitur cursus interdum. Ut lobortis mauris et orci posuere blandit. Pellentesque congue, libero ut imperdiet malesuada, orci erat rhoncus lorem, quis cursus est elit vel nunc. Aenean aliquam mauris quis convallis consequat. Proin bibendum, lorem non tempor pellentesque, lacus urna vehicula lorem, sit amet finibus lorem mi eu sem. Aenean tempor dolor felis, in ultrices leo tempor non. Sed in risus nec urna tincidunt imperdiet molestie ut quam. Ut ultricies, purus eu mollis posuere, sapien lacus molestie arcu, ut suscipit risus dui ac ex. Quisque augue dui, iaculis et lorem vitae, tristique tincidunt eros. Phasellus id arcu suscipit diam lacinia accumsan at a tortor.',
     imageUrl:
         'https://images.pexels.com/photos/2196685/pexels-photo-2196685.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260',
+    latitude: 2,
+    longitude: 2,
   ),
   Place(
     id: 3,
@@ -34,6 +38,8 @@ const _stubPlaces = [
         'Phasellus odio ipsum, sollicitudin quis magna vitae, tempus pellentesque massa. Vestibulum ullamcorper sem ut placerat sollicitudin. Pellentesque at lacus ultricies, maximus elit aliquam, vestibulum enim. Pellentesque eleifend tellus id augue auctor, et venenatis ante ullamcorper. Maecenas vitae dictum magna. Proin efficitur cursus interdum. Ut lobortis mauris et orci posuere blandit. Pellentesque congue, libero ut imperdiet malesuada, orci erat rhoncus lorem, quis cursus est elit vel nunc. Aenean aliquam mauris quis convallis consequat. Proin bibendum, lorem non tempor pellentesque, lacus urna vehicula lorem, sit amet finibus lorem mi eu sem. Aenean tempor dolor felis, in ultrices leo tempor non. Sed in risus nec urna tincidunt imperdiet molestie ut quam. Ut ultricies, purus eu mollis posuere, sapien lacus molestie arcu, ut suscipit risus dui ac ex. Quisque augue dui, iaculis et lorem vitae, tristique tincidunt eros. Phasellus id arcu suscipit diam lacinia accumsan at a tortor.',
     imageUrl:
         'https://images.pexels.com/photos/2277653/pexels-photo-2277653.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260',
+    latitude: 3,
+    longitude: 3,
   ),
   Place(
     id: 4,
@@ -42,6 +48,8 @@ const _stubPlaces = [
         'Phasellus odio ipsum, sollicitudin quis magna vitae, tempus pellentesque massa. Vestibulum ullamcorper sem ut placerat sollicitudin. Pellentesque at lacus ultricies, maximus elit aliquam, vestibulum enim. Pellentesque eleifend tellus id augue auctor, et venenatis ante ullamcorper. Maecenas vitae dictum magna. Proin efficitur cursus interdum. Ut lobortis mauris et orci posuere blandit. Pellentesque congue, libero ut imperdiet malesuada, orci erat rhoncus lorem, quis cursus est elit vel nunc. Aenean aliquam mauris quis convallis consequat. Proin bibendum, lorem non tempor pellentesque, lacus urna vehicula lorem, sit amet finibus lorem mi eu sem. Aenean tempor dolor felis, in ultrices leo tempor non. Sed in risus nec urna tincidunt imperdiet molestie ut quam. Ut ultricies, purus eu mollis posuere, sapien lacus molestie arcu, ut suscipit risus dui ac ex. Quisque augue dui, iaculis et lorem vitae, tristique tincidunt eros. Phasellus id arcu suscipit diam lacinia accumsan at a tortor.',
     imageUrl:
         'https://images.pexels.com/photos/2467287/pexels-photo-2467287.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260',
+    latitude: 4,
+    longitude: 4,
   ),
   Place(
     id: 5,
@@ -50,5 +58,7 @@ const _stubPlaces = [
         'Phasellus odio ipsum, sollicitudin quis magna vitae, tempus pellentesque massa. Vestibulum ullamcorper sem ut placerat sollicitudin. Pellentesque at lacus ultricies, maximus elit aliquam, vestibulum enim. Pellentesque eleifend tellus id augue auctor, et venenatis ante ullamcorper. Maecenas vitae dictum magna. Proin efficitur cursus interdum. Ut lobortis mauris et orci posuere blandit. Pellentesque congue, libero ut imperdiet malesuada, orci erat rhoncus lorem, quis cursus est elit vel nunc. Aenean aliquam mauris quis convallis consequat. Proin bibendum, lorem non tempor pellentesque, lacus urna vehicula lorem, sit amet finibus lorem mi eu sem. Aenean tempor dolor felis, in ultrices leo tempor non. Sed in risus nec urna tincidunt imperdiet molestie ut quam. Ut ultricies, purus eu mollis posuere, sapien lacus molestie arcu, ut suscipit risus dui ac ex. Quisque augue dui, iaculis et lorem vitae, tristique tincidunt eros. Phasellus id arcu suscipit diam lacinia accumsan at a tortor.',
     imageUrl:
         'https://images.pexels.com/photos/2193600/pexels-photo-2193600.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260',
+    latitude: 5,
+    longitude: 5,
   ),
 ];
