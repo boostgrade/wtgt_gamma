@@ -33,6 +33,8 @@ abstract class _ProfileVm extends ViewModel with Store {
         name: '',
         description: '',
         imageUrl: '',
+        latitude: null,
+        longitude: null,
       ),
     ),
   );

@@ -26,6 +26,8 @@ var _stubUser = User(
       description: 'Описание',
       imageUrl:
           'https://s3-alpha-sig.figma.com/img/a8df/2b8e/8b3ec5c81b489cac54a930c453372cd7?Expires=1650240000&Signature=UhZ0ajau9-uqd~g8ymaBlpga0MyD7btxuIwGUGFkpPprFIX-0Xyah5jS3mm2uZax07KHrhokQ0xVWFVRDvTqcLBQaH-AiSJnw0m4kqErs2He3RKmjibvk6JoRwox2HfDXqkBke-s7f-pA77Rx8i3FGVtg3YfuDZ-DENXUKNmMtURYbtuTBxfK8nFH75f-N9saz2gXSe7cfkpbP4L5wHpGcv1jYLAKi6pMSkVLgAb-Kn8uOPUZ6SFL~TGNAuKl9Z4TW4Pn6ohQmCivLrUrF~oMpMdiZ3v6QIrkfjj7ce25WhwT3gh4ptYVACWjP0wL2fMy~x5moP6siR7TSRYtkNkbw__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA',
+      latitude: null,
+      longitude: null,
     ),
   ),
 );

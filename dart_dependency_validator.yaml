@@ -1,2 +1,4 @@
 ignore:
   - flutter_gen
+  - share_plus_web
+  - url_launcher_web

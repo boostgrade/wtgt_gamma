@@ -30,5 +30,6 @@
   "placeName": "The name of the place?",
   "m": "m",
   "profileFavoritesTitle": "Favorites",
-  "profileSignOut": "Sign out"
+  "profileSignOut": "Sign out",
+  "sharePlaceSubject": "Hey! Check out this place:"
 }

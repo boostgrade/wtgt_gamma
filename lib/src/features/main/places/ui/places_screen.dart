@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
+import 'package:where_to_go_today/src/features/main/places/ui/place_card/place_card.dart';
+import 'package:where_to_go_today/src/features/main/places/ui/place_card/place_card_vm.dart';
 import 'package:where_to_go_today/src/features/main/places/ui/places_vm.dart';
-import 'package:where_to_go_today/src/features/main/places/ui/widgets/place_card.dart';
 import 'package:where_to_go_today/src/localization/l10n.dart';
 import 'package:where_to_go_today/src/ui/uikit/wtgt_circular_progress_indicator.dart';
 
@@ -54,10 +55,15 @@ class _PlacesScreenState extends State<PlacesScreen>
             ListView.separated(
               itemCount: vm.places.length,
               itemBuilder: (context, index) {
+                final place = vm.places[index];
+
                 return PlaceCard(
-                  place: vm.places[index],
-                  onTap: () => vm.openPlaceDetails(index),
-                  onShare: () => vm.sharePlace(index),
+                  key: ValueKey(place.id),
+                  vm: PlaceCardVm(
+                    context,
+                    place: place,
+                    locationService: vm.locationService,
+                  ),
                 );
               },
               separatorBuilder: (ctx, index) => const SizedBox(height: 16),
