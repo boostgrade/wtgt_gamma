@@ -25,17 +25,21 @@ class _SliverAppBarDelegate extends SliverPersistentHeaderDelegate {
   final TextStyle style;
 
   @override
-  double get minExtent => 30;
+  double get minExtent => 52;
 
   @override
-  double get maxExtent => 50;
+  double get maxExtent => 52;
 
   _SliverAppBarDelegate({required this.title, required this.style});
 
   @override
   Widget build(
       BuildContext context, double shrinkOffset, bool overlapsContent) {
-    return Text(title, style: style);
+    return Container(
+      color: Colors.white,
+      padding: const EdgeInsets.symmetric(vertical: 16),
+      child: Text(title, style: style),
+    );
   }
 
   @override

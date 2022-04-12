@@ -30,81 +30,74 @@ class _ProfileScreenState extends State<ProfileScreen> {
         child: CustomScrollView(
           slivers: [
             SliverToBoxAdapter(
-              child: Row(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Flexible(
-                    child: Row(
-                      crossAxisAlignment: CrossAxisAlignment.end,
-                      children: [
-                        CircleAvatar(
-                          radius: 50.0,
-                          backgroundImage: CachedNetworkImageProvider(
-                            vm.fakeUser().photoUrl,
-                          ),
-                          child: Material(
-                            shape: const CircleBorder(),
-                            clipBehavior: Clip.hardEdge,
-                            color: Colors.transparent,
-                            child: InkWell(
-                              onTap: () => vm.onAvatar(),
+              child: Padding(
+                padding: const EdgeInsets.only(bottom: 40.0),
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Flexible(
+                      child: Row(
+                        crossAxisAlignment: CrossAxisAlignment.end,
+                        children: [
+                          CircleAvatar(
+                            radius: 50.0,
+                            backgroundImage: CachedNetworkImageProvider(
+                              vm.fakeUser().photoUrl,
+                            ),
+                            child: Material(
+                              shape: const CircleBorder(),
+                              clipBehavior: Clip.hardEdge,
+                              color: Colors.transparent,
+                              child: InkWell(
+                                onTap: () => vm.onAvatar(),
+                              ),
                             ),
                           ),
-                        ),
-                        const SizedBox(width: 25),
-                        Expanded(
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                vm.fakeUser().name,
-                                overflow: TextOverflow.ellipsis,
-                                style: const AppTypography.s16w500h20(),
-                              ),
-                              Text(
-                                vm.fakeUser().lastName,
-                                overflow: TextOverflow.ellipsis,
-                                style: const AppTypography.s16w500h20(),
-                              ),
-                              const SizedBox(height: 10),
-                              IconButton(
-                                padding: EdgeInsets.zero,
-                                constraints: const BoxConstraints(),
-                                iconSize: 20,
-                                icon: SvgPicture.asset(
-                                  Asset.svg.iconEdit,
+                          const SizedBox(width: 25),
+                          Expanded(
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  vm.fakeUser().name,
+                                  overflow: TextOverflow.ellipsis,
+                                  style: const AppTypography.s16w500h20(),
                                 ),
-                                splashRadius: 20,
-                                onPressed: () => vm.onEditUserDetails(),
-                              ),
-                            ],
+                                Text(
+                                  vm.fakeUser().lastName,
+                                  overflow: TextOverflow.ellipsis,
+                                  style: const AppTypography.s16w500h20(),
+                                ),
+                                const SizedBox(height: 10),
+                                IconButton(
+                                  padding: EdgeInsets.zero,
+                                  constraints: const BoxConstraints(),
+                                  iconSize: 20,
+                                  icon: SvgPicture.asset(
+                                    Asset.svg.iconEdit,
+                                  ),
+                                  splashRadius: 20,
+                                  onPressed: () => vm.onEditUserDetails(),
+                                ),
+                              ],
+                            ),
                           ),
-                        ),
-                      ],
+                        ],
+                      ),
                     ),
-                  ),
-                  IconButton(
-                    padding: EdgeInsets.zero,
-                    constraints: const BoxConstraints(),
-                    iconSize: 35,
-                    icon: SvgPicture.asset(
-                      Asset.svg.iconSettings,
-                    ),
-                    splashRadius: 25,
-                    onPressed: () => vm.onSettings(),
-                  )
-                ],
-              ),
-            ),
-            SliverToBoxAdapter(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: const [
-                  SizedBox(
-                    height: 40,
-                  ),
-                ],
+                    IconButton(
+                      padding: EdgeInsets.zero,
+                      constraints: const BoxConstraints(),
+                      iconSize: 35,
+                      icon: SvgPicture.asset(
+                        Asset.svg.iconSettings,
+                      ),
+                      splashRadius: 25,
+                      onPressed: () => vm.onSettings(),
+                    )
+                  ],
+                ),
               ),
             ),
             ProfileSubHeader(
