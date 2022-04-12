@@ -25,10 +25,10 @@ class _SliverAppBarDelegate extends SliverPersistentHeaderDelegate {
   final TextStyle style;
 
   @override
-  double get minExtent => 52;
+  double get minExtent => 60;
 
   @override
-  double get maxExtent => 52;
+  double get maxExtent => 60;
 
   _SliverAppBarDelegate({required this.title, required this.style});
 
