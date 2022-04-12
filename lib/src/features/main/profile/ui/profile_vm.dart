@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mobx/mobx.dart';
+import 'package:routemaster/routemaster.dart';
 import 'package:where_to_go_today/src/core/domain/place.dart';
 import 'package:where_to_go_today/src/core/domain/user.dart';
 import 'package:where_to_go_today/src/core/services/exceptions/server/server_error_exception.dart';
@@ -7,6 +8,8 @@ import 'package:where_to_go_today/src/core/ui/base/view_model.dart';
 import 'package:where_to_go_today/src/core/ui/errors_handling/error_handler.dart';
 import 'package:where_to_go_today/src/features/main/profile/services/events/profile_event.dart';
 import 'package:where_to_go_today/src/features/main/profile/services/states/profile_state.dart';
+import 'package:where_to_go_today/src/features/place_detail/place_detail_route.dart';
+import 'package:where_to_go_today/src/features/settings/ui/settings_route.dart';
 
 import '../services/profile_bloc.dart';
 
@@ -64,12 +67,12 @@ abstract class _ProfileVm extends ViewModel with Store {
 
   @action
   void onSettings() {
-    // TODO(any): обработать нажатие на кнопку
+    Routemaster.of(_context).replace(SettingsRoute.routeName);
   }
 
   @action
   void onFavoritePlace(int id) {
-    // TODO(any): обработать нажатие на кнопку
+    Routemaster.of(_context).push('${PlaceDetailRoute.routeName}/$id');
   }
 
   @action
