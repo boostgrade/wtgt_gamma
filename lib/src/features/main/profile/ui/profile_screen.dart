@@ -64,7 +64,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
                             backgroundColor: Colors.grey,
                             backgroundImage: vm.profile.photoUrl.isNotEmpty
                                 ? CachedNetworkImageProvider(
-                                    vm.profile.photoUrl)
+                                    vm.profile.photoUrl,
+                                  )
                                 : null,
                             child: Material(
                               shape: const CircleBorder(),
