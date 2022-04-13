@@ -21,8 +21,8 @@ class _$ProfileEventTearOff {
     return const ProfileEventGetUserProfile();
   }
 
-  ProfileEventGoToSettings goToSettings() {
-    return const ProfileEventGoToSettings();
+  ProfileEventSignOut signOut() {
+    return const ProfileEventSignOut();
   }
 }
 
@@ -34,38 +34,38 @@ mixin _$ProfileEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() getUserProfile,
-    required TResult Function() goToSettings,
+    required TResult Function() signOut,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? getUserProfile,
-    TResult Function()? goToSettings,
+    TResult Function()? signOut,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? getUserProfile,
-    TResult Function()? goToSettings,
+    TResult Function()? signOut,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(ProfileEventGetUserProfile value) getUserProfile,
-    required TResult Function(ProfileEventGoToSettings value) goToSettings,
+    required TResult Function(ProfileEventSignOut value) signOut,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(ProfileEventGetUserProfile value)? getUserProfile,
-    TResult Function(ProfileEventGoToSettings value)? goToSettings,
+    TResult Function(ProfileEventSignOut value)? signOut,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(ProfileEventGetUserProfile value)? getUserProfile,
-    TResult Function(ProfileEventGoToSettings value)? goToSettings,
+    TResult Function(ProfileEventSignOut value)? signOut,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -131,7 +131,7 @@ class _$ProfileEventGetUserProfile implements ProfileEventGetUserProfile {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() getUserProfile,
-    required TResult Function() goToSettings,
+    required TResult Function() signOut,
   }) {
     return getUserProfile();
   }
@@ -140,7 +140,7 @@ class _$ProfileEventGetUserProfile implements ProfileEventGetUserProfile {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? getUserProfile,
-    TResult Function()? goToSettings,
+    TResult Function()? signOut,
   }) {
     return getUserProfile?.call();
   }
@@ -149,7 +149,7 @@ class _$ProfileEventGetUserProfile implements ProfileEventGetUserProfile {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? getUserProfile,
-    TResult Function()? goToSettings,
+    TResult Function()? signOut,
     required TResult orElse(),
   }) {
     if (getUserProfile != null) {
@@ -162,7 +162,7 @@ class _$ProfileEventGetUserProfile implements ProfileEventGetUserProfile {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(ProfileEventGetUserProfile value) getUserProfile,
-    required TResult Function(ProfileEventGoToSettings value) goToSettings,
+    required TResult Function(ProfileEventSignOut value) signOut,
   }) {
     return getUserProfile(this);
   }
@@ -171,7 +171,7 @@ class _$ProfileEventGetUserProfile implements ProfileEventGetUserProfile {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(ProfileEventGetUserProfile value)? getUserProfile,
-    TResult Function(ProfileEventGoToSettings value)? goToSettings,
+    TResult Function(ProfileEventSignOut value)? signOut,
   }) {
     return getUserProfile?.call(this);
   }
@@ -180,7 +180,7 @@ class _$ProfileEventGetUserProfile implements ProfileEventGetUserProfile {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(ProfileEventGetUserProfile value)? getUserProfile,
-    TResult Function(ProfileEventGoToSettings value)? goToSettings,
+    TResult Function(ProfileEventSignOut value)? signOut,
     required TResult orElse(),
   }) {
     if (getUserProfile != null) {
@@ -195,39 +195,38 @@ abstract class ProfileEventGetUserProfile implements ProfileEvent {
 }
 
 /// @nodoc
-abstract class $ProfileEventGoToSettingsCopyWith<$Res> {
-  factory $ProfileEventGoToSettingsCopyWith(ProfileEventGoToSettings value,
-          $Res Function(ProfileEventGoToSettings) then) =
-      _$ProfileEventGoToSettingsCopyWithImpl<$Res>;
+abstract class $ProfileEventSignOutCopyWith<$Res> {
+  factory $ProfileEventSignOutCopyWith(
+          ProfileEventSignOut value, $Res Function(ProfileEventSignOut) then) =
+      _$ProfileEventSignOutCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class _$ProfileEventGoToSettingsCopyWithImpl<$Res>
+class _$ProfileEventSignOutCopyWithImpl<$Res>
     extends _$ProfileEventCopyWithImpl<$Res>
-    implements $ProfileEventGoToSettingsCopyWith<$Res> {
-  _$ProfileEventGoToSettingsCopyWithImpl(ProfileEventGoToSettings _value,
-      $Res Function(ProfileEventGoToSettings) _then)
-      : super(_value, (v) => _then(v as ProfileEventGoToSettings));
+    implements $ProfileEventSignOutCopyWith<$Res> {
+  _$ProfileEventSignOutCopyWithImpl(
+      ProfileEventSignOut _value, $Res Function(ProfileEventSignOut) _then)
+      : super(_value, (v) => _then(v as ProfileEventSignOut));
 
   @override
-  ProfileEventGoToSettings get _value =>
-      super._value as ProfileEventGoToSettings;
+  ProfileEventSignOut get _value => super._value as ProfileEventSignOut;
 }
 
 /// @nodoc
 
-class _$ProfileEventGoToSettings implements ProfileEventGoToSettings {
-  const _$ProfileEventGoToSettings();
+class _$ProfileEventSignOut implements ProfileEventSignOut {
+  const _$ProfileEventSignOut();
 
   @override
   String toString() {
-    return 'ProfileEvent.goToSettings()';
+    return 'ProfileEvent.signOut()';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is ProfileEventGoToSettings);
+        (other.runtimeType == runtimeType && other is ProfileEventSignOut);
   }
 
   @override
@@ -237,29 +236,29 @@ class _$ProfileEventGoToSettings implements ProfileEventGoToSettings {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() getUserProfile,
-    required TResult Function() goToSettings,
+    required TResult Function() signOut,
   }) {
-    return goToSettings();
+    return signOut();
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? getUserProfile,
-    TResult Function()? goToSettings,
+    TResult Function()? signOut,
   }) {
-    return goToSettings?.call();
+    return signOut?.call();
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? getUserProfile,
-    TResult Function()? goToSettings,
+    TResult Function()? signOut,
     required TResult orElse(),
   }) {
-    if (goToSettings != null) {
-      return goToSettings();
+    if (signOut != null) {
+      return signOut();
     }
     return orElse();
   }
@@ -268,34 +267,34 @@ class _$ProfileEventGoToSettings implements ProfileEventGoToSettings {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(ProfileEventGetUserProfile value) getUserProfile,
-    required TResult Function(ProfileEventGoToSettings value) goToSettings,
+    required TResult Function(ProfileEventSignOut value) signOut,
   }) {
-    return goToSettings(this);
+    return signOut(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(ProfileEventGetUserProfile value)? getUserProfile,
-    TResult Function(ProfileEventGoToSettings value)? goToSettings,
+    TResult Function(ProfileEventSignOut value)? signOut,
   }) {
-    return goToSettings?.call(this);
+    return signOut?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(ProfileEventGetUserProfile value)? getUserProfile,
-    TResult Function(ProfileEventGoToSettings value)? goToSettings,
+    TResult Function(ProfileEventSignOut value)? signOut,
     required TResult orElse(),
   }) {
-    if (goToSettings != null) {
-      return goToSettings(this);
+    if (signOut != null) {
+      return signOut(this);
     }
     return orElse();
   }
 }
 
-abstract class ProfileEventGoToSettings implements ProfileEvent {
-  const factory ProfileEventGoToSettings() = _$ProfileEventGoToSettings;
+abstract class ProfileEventSignOut implements ProfileEvent {
+  const factory ProfileEventSignOut() = _$ProfileEventSignOut;
 }

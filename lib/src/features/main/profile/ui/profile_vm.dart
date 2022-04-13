@@ -6,6 +6,7 @@ import 'package:where_to_go_today/src/core/domain/user.dart';
 import 'package:where_to_go_today/src/core/services/exceptions/server/server_error_exception.dart';
 import 'package:where_to_go_today/src/core/ui/base/view_model.dart';
 import 'package:where_to_go_today/src/core/ui/errors_handling/error_handler.dart';
+import 'package:where_to_go_today/src/features/auth/sign_in/sign_in_route.dart';
 import 'package:where_to_go_today/src/features/main/profile/services/events/profile_event.dart';
 import 'package:where_to_go_today/src/features/main/profile/services/states/profile_state.dart';
 import 'package:where_to_go_today/src/features/place_detail/place_detail_route.dart';
@@ -45,6 +46,9 @@ abstract class _ProfileVm extends ViewModel with Store {
   @observable
   bool loading = true;
 
+  @observable
+  bool signingOut = false;
+
   _ProfileVm(this._context, this._bloc, {required ErrorHandler errorHandler})
       : super(errorHandler) {
     _init();
@@ -67,7 +71,7 @@ abstract class _ProfileVm extends ViewModel with Store {
 
   @action
   void onSettings() {
-    Routemaster.of(_context).replace(SettingsRoute.routeName);
+    Routemaster.of(_context).push(SettingsRoute.routeName);
   }
 
   @action
@@ -77,7 +81,7 @@ abstract class _ProfileVm extends ViewModel with Store {
 
   @action
   void onProfileSignOut() {
-    // TODO(any): обработать нажатие на кнопку
+    _bloc.add(const ProfileEvent.signOut());
   }
 
   void _init() {
@@ -86,10 +90,15 @@ abstract class _ProfileVm extends ViewModel with Store {
 
   void _handleStates(ProfileState state) {
     loading = false;
+    signingOut = false;
     if (state is ProfileStateLoading) {
       loading = true;
     } else if (state is ProfileStateLoaded) {
       profile = state.profile;
+    } else if (state is ProfileStateSigningOut) {
+      signingOut = true;
+    } else if (state is ProfileStateSignedOut) {
+      Routemaster.of(_context).push(SignInRoute.routeName);
     } else if (state is ProfileStateError) {
       _bloc.onError(ServerErrorException(), state.stackTrace);
     }

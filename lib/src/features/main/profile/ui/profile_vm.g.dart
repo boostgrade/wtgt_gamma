@@ -39,6 +39,21 @@ mixin _$ProfileVm on _ProfileVm, Store {
     });
   }
 
+  final _$signingOutAtom = Atom(name: '_ProfileVm.signingOut');
+
+  @override
+  bool get signingOut {
+    _$signingOutAtom.reportRead();
+    return super.signingOut;
+  }
+
+  @override
+  set signingOut(bool value) {
+    _$signingOutAtom.reportWrite(value, super.signingOut, () {
+      super.signingOut = value;
+    });
+  }
+
   final _$_ProfileVmActionController = ActionController(name: '_ProfileVm');
 
   @override
@@ -111,7 +126,8 @@ mixin _$ProfileVm on _ProfileVm, Store {
   String toString() {
     return '''
 profile: ${profile},
-loading: ${loading}
+loading: ${loading},
+signingOut: ${signingOut}
     ''';
   }
 }

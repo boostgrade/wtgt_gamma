@@ -13,6 +13,10 @@ class ProfileState with _$ProfileState {
     User profile,
   ) = ProfileStateLoaded;
 
+  const factory ProfileState.signingOut() = ProfileStateSigningOut;
+
+  const factory ProfileState.signedOut() = ProfileStateSignedOut;
+
   const factory ProfileState.error(
     // ignore: avoid_annotating_with_dynamic
     dynamic error,

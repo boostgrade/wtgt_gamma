@@ -6,5 +6,5 @@ part 'profile_event.freezed.dart';
 class ProfileEvent with _$ProfileEvent {
   const factory ProfileEvent.getUserProfile() = ProfileEventGetUserProfile;
 
-  const factory ProfileEvent.goToSettings() = ProfileEventGoToSettings;
+  const factory ProfileEvent.signOut() = ProfileEventSignOut;
 }

@@ -53,7 +53,8 @@ class AppDependencies extends DependencyBundle {
   );
 
   late final profileRepository = ProfileRepository();
-  late final profileBloc = ProfileBloc(profileRepository);
+  late final profileBloc =
+      ProfileBloc(profileRepository, authRepository, tokenStorage);
 
   late final messageController = DefaultMessageController();
   late final errorHandler = ScenarioErrorHandler(
