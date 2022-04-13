@@ -13,6 +13,7 @@ class ProfileScreenWidget extends StatelessWidget {
       create: (_) => ProfileVm(
         context,
         context.read<AppDependencies>().profileBloc,
+        context.read<AppDependencies>().authBloc,
         errorHandler: context.read<AppDependencies>().errorHandler,
       ),
       child: Builder(
