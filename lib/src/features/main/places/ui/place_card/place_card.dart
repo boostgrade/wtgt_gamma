@@ -16,7 +16,6 @@ class PlaceCard extends StatelessWidget {
     return GestureDetector(
       onTap: () => vm.openPlaceDetails(context),
       child: Card(
-        margin: const EdgeInsets.symmetric(horizontal: 24, vertical: 8),
         child: Column(
           children: [
             CachedNetworkImage(
