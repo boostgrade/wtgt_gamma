@@ -9,18 +9,14 @@ class ProfileRepository {
 
   ProfileRepository(this._profileApi);
 
-  Future<UserProfile> getUserProfile() async {
-    final response = await _profileApi.getUserProfile();
-
-    return response;
-  }
+  Future<UserProfile> getUserProfile() => _profileApi.getUserProfile();
 
   Future<void> changeProfile({
     required String name,
     required String lastName,
     String? avatarUrl,
     String? phone,
-  }) async =>
+  }) =>
       _profileApi.changeProfile(
         ChangeProfileRequest(
           name: name,
@@ -30,11 +26,7 @@ class ProfileRepository {
         ),
       );
 
-  Future<UserSettings> getUserSettings() async {
-    final response = _profileApi.getUserSettings();
-
-    return response;
-  }
+  Future<UserSettings> getUserSettings() => _profileApi.getUserSettings();
 
   Future<void> changeUserSettings({
     bool? pushEnabled,
@@ -42,7 +34,7 @@ class ProfileRepository {
     bool? fbEnabled,
     bool? googleEnabled,
     bool? instEnabled,
-  }) async =>
+  }) =>
       _profileApi.changeUserSettings(
         ChangeUserSettingsRequest(
           fbEnabled: fbEnabled,
