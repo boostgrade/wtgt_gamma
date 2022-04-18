@@ -1,12 +1,15 @@
 # Changelog
 
+- feat: Place Card
 - feat: CodeVm - add authorization via OTP
 - feat: SignInScreenVm - add phone authorization
 - feat: OnboardingScreen
 - feat: MainScreen + PlacesScreen
 - feat: OnboardStorage
 - feat: profile screen
-- feat: Profile Api
+- feat: profile Api
+- feat: places api
+- feat: profile slivers
 
 ## 0.3.0
 
