@@ -8,6 +8,7 @@
 - feat: OnboardStorage
 - feat: profile screen
 - feat: places api
+- feat: profile slivers
 - feat: profile bloc
 
 ## 0.3.0

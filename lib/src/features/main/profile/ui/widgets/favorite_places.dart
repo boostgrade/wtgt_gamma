@@ -19,6 +19,8 @@ class FavoritePlaces extends StatelessWidget {
       separatorBuilder: (context, index) => const SizedBox(
         height: 10,
       ),
+      physics: const NeverScrollableScrollPhysics(),
+      shrinkWrap: true,
       itemCount: places.length,
       itemBuilder: (context, index) {
         final place = places[index];
