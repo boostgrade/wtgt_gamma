@@ -28,5 +28,6 @@
   "placeName": "Название заведения?",
   "m": "м",
   "profileFavoritesTitle": "Избранное",
-  "profileSignOut": "Выйти из профиля"
+  "profileSignOut": "Выйти из профиля",
+  "sharePlaceSubject": "Хэй! Зацени это место:"
 }

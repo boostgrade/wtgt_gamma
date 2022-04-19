@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:bloc/bloc.dart';
 import 'package:where_to_go_today/src/core/services/base/can_throw_exception_bloc_mixin.dart';
 
@@ -14,7 +16,7 @@ class PlacesBloc extends Bloc<PlacesEvent, PlacesState>
     on<PlacesEventGetPlace>(_onGetPlace);
   }
 
-  Future<void> _onGetPlaces(
+  FutureOr<void> _onGetPlaces(
     PlacesEventGetPlaces event,
     Emitter<PlacesState> emit,
   ) async {
