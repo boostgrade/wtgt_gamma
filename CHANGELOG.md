@@ -8,6 +8,7 @@
 - feat: OnboardStorage
 - feat: profile screen
 - feat: OnboardingBloc
+- feat: profile Api
 - feat: places api
 - feat: profile slivers
 
