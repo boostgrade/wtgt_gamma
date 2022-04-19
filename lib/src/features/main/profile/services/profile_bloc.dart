@@ -16,11 +16,11 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState>
 
   ProfileBloc(this._profileRepository, this._authRepository, this._tokenStorage)
       : super(const ProfileState.init()) {
-    on<ProfileEventGetUserProfile>(_onProfileEventGetUserProfile);
-    on<ProfileEventSignOut>(_onProfileEventSignOut);
+    on<ProfileEventGetUserProfile>(_onGetUserProfile);
+    on<ProfileEventSignOut>(_onSignOut);
   }
 
-  FutureOr<void> _onProfileEventGetUserProfile(
+  FutureOr<void> _onGetUserProfile(
     ProfileEventGetUserProfile _,
     Emitter<ProfileState> emit,
   ) async {
@@ -33,7 +33,7 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState>
     }
   }
 
-  Future<FutureOr<void>> _onProfileEventSignOut(
+  Future<FutureOr<void>> _onSignOut(
     ProfileEventSignOut _,
     Emitter<ProfileState> emit,
   ) async {
