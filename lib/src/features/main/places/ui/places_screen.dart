@@ -38,70 +38,72 @@ class _PlacesScreenState extends State<PlacesScreen>
     super.build(context);
 
     return Observer(
-      builder: (context) => Scaffold(
-        body: NestedScrollView(
-          // floatHeaderSlivers: true,
-          headerSliverBuilder: (context, innerBoxIsScrolled) => [
-            SliverAppBar(
-              automaticallyImplyLeading: false,
-              floating: true,
-              snap: true,
-              toolbarHeight: 72,
-              elevation: 4,
-              // forceElevated: innerBoxIsScrolled,
-              title: TextField(
-                controller: vm.searchController,
-                autofocus: true,
-                decoration: InputDecoration(
-                  hintText: context.l10n.placeName,
-                ),
-                textInputAction: TextInputAction.search,
+      builder: (context) => NestedScrollView(
+        physics: const NeverScrollableScrollPhysics(),
+        headerSliverBuilder: (context, innerBoxIsScrolled) => [
+          SliverAppBar(
+            automaticallyImplyLeading: false,
+            floating: true,
+            snap: true,
+            toolbarHeight: 72,
+            elevation: 4,
+            title: TextField(
+              controller: vm.searchController,
+              decoration: InputDecoration(
+                hintText: context.l10n.placeName,
+                suffixIcon: vm.searchController.text.isEmpty
+                    ? null
+                    : IconButton(
+                        icon: const Icon(Icons.close),
+                        onPressed: vm.searchController.clear,
+                      ),
               ),
-              titleSpacing: 24,
-            )
-          ],
-          body: Listener(
-            onPointerDown: (_) => FocusManager.instance.primaryFocus?.unfocus(),
-            child: Stack(
-              alignment: Alignment.center,
-              children: [
-                ListView.separated(
-                  padding: const EdgeInsets.symmetric(horizontal: 24),
-                  itemCount: vm.places.length + 1,
-                  itemBuilder: (context, index) {
-                    if (vm.places.isEmpty) {
-                      return const SizedBox.shrink();
-                    }
-                    if (index == vm.places.length) {
-                      vm.nextPage();
-
-                      return const Center(
-                        child: Padding(
-                          padding: EdgeInsets.only(bottom: 16),
-                          child: WtgtCircularProgressIndicator(),
-                        ),
-                      );
-                    } else {
-                      final place = vm.places[index];
-
-                      return PlaceCard(
-                        key: ValueKey(place.id),
-                        vm: PlaceCardVm(
-                          context,
-                          place: place,
-                          locationService: vm.locationService,
-                        ),
-                      );
-                    }
-                  },
-                  separatorBuilder: (ctx, index) => const SizedBox(height: 16),
-                ),
-                if (vm.loading && vm.places.isEmpty)
-                  const WtgtCircularProgressIndicator()
-                else
-                  const SizedBox.shrink(),
-              ],
+              textInputAction: TextInputAction.search,
             ),
+            titleSpacing: 24,
+          ),
+        ],
+        body: Listener(
+          onPointerDown: (_) => FocusManager.instance.primaryFocus?.unfocus(),
+          child: Stack(
+            alignment: Alignment.center,
+            children: [
+              ListView.separated(
+                padding: const EdgeInsets.symmetric(horizontal: 24),
+                itemCount: vm.places.length + 1,
+                itemBuilder: (context, index) {
+                  if (vm.places.isEmpty) {
+                    return const SizedBox.shrink();
+                  }
+                  if (index == vm.places.length) {
+                    vm.nextPage();
+
+                    return const Center(
+                      child: Padding(
+                        padding: EdgeInsets.only(bottom: 16),
+                        child: WtgtCircularProgressIndicator(),
+                      ),
+                    );
+                  } else {
+                    final place = vm.places[index];
+
+                    return PlaceCard(
+                      key: ValueKey(place.id),
+                      vm: PlaceCardVm(
+                        context,
+                        place: place,
+                        locationService: vm.locationService,
+                      ),
+                    );
+                  }
+                },
+                separatorBuilder: (ctx, index) => const SizedBox(height: 16),
+              ),
+              if (vm.loading && vm.places.isEmpty)
+                const WtgtCircularProgressIndicator()
+              else
+                const SizedBox.shrink(),
+            ],
           ),
         ),
       ),

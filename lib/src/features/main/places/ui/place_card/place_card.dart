@@ -6,23 +6,43 @@ import 'package:where_to_go_today/src/features/main/places/ui/place_card/place_c
 import 'package:where_to_go_today/src/localization/l10n.dart';
 import 'package:where_to_go_today/src/res/asset.dart';
 
-class PlaceCard extends StatelessWidget {
+class PlaceCard extends StatefulWidget {
   final PlaceCardVm vm;
 
   const PlaceCard({Key? key, required this.vm}) : super(key: key);
 
   @override
+  State<PlaceCard> createState() => _PlaceCardState();
+}
+
+class _PlaceCardState extends State<PlaceCard> {
+  bool _animate = false;
+
+  @override
+  void initState() {
+    super.initState();
+    Future.delayed(
+      const Duration(milliseconds: 500),
+      _startAnimate,
+    );
+  }
+
+  @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => vm.openPlaceDetails(context),
+      onTap: () => widget.vm.openPlaceDetails(context),
       child: Card(
         child: Column(
           children: [
-            CachedNetworkImage(
-              imageUrl: vm.place.imageUrl,
-              width: double.infinity,
-              height: 300,
-              fit: BoxFit.cover,
+            AnimatedScale(
+              duration: const Duration(milliseconds: 500),
+              scale: _animate ? 1 : 0.9,
+              child: CachedNetworkImage(
+                imageUrl: widget.vm.place.imageUrl,
+                width: double.infinity,
+                height: 300,
+                fit: BoxFit.cover,
+              ),
             ),
             SizedBox(
               height: 82,
@@ -42,17 +62,17 @@ class PlaceCard extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          vm.place.name,
+                          widget.vm.place.name,
                           maxLines: 1,
                           overflow: TextOverflow.ellipsis,
                         ),
                         Observer(
-                          builder: (context) => vm.distance == null
+                          builder: (context) => widget.vm.distance == null
                               ? const SizedBox.shrink()
                               : Padding(
                                   padding: const EdgeInsets.only(top: 4),
                                   child: Text(
-                                    '${vm.distance} ${context.l10n.m}',
+                                    '${widget.vm.distance} ${context.l10n.m}',
                                   ),
                                 ),
                         ),
@@ -62,7 +82,7 @@ class PlaceCard extends StatelessWidget {
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 16),
                     child: IconButton(
-                      onPressed: vm.sharePlace,
+                      onPressed: widget.vm.sharePlace,
                       icon: SvgPicture.asset(
                         Asset.svg.iconShare,
                         width: 24,
@@ -77,5 +97,11 @@ class PlaceCard extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  void _startAnimate() {
+    setState(() {
+      _animate = true;
+    });
   }
 }
