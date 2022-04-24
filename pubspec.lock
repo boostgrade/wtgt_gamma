@@ -294,7 +294,7 @@ packages:
       name: firebase_auth_web
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "3.3.11"
+    version: "3.3.10"
   firebase_core:
     dependency: "direct main"
     description:
@@ -818,7 +818,7 @@ packages:
       name: share_plus
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "4.0.3"
+    version: "4.0.4"
   share_plus_linux:
     dependency: transitive
     description:
