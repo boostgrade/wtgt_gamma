@@ -2,9 +2,12 @@ import 'package:flutter/foundation.dart';
 import 'package:where_to_go_today/src/core/domain/place.dart';
 
 class PlacesRepository {
-  Future<List<Place>> getPlaces(String searchText) async {
+  Future<List<Place>> getPlaces(
+    int page,
+    String searchText,
+  ) async {
     await Future<void>.delayed(const Duration(seconds: 1));
-    debugPrint('!!! searchText = $searchText');
+    debugPrint('!!! page = $page, searchText = $searchText');
 
     return _stubPlaces;
   }

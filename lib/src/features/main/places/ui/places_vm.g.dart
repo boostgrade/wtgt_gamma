@@ -42,11 +42,11 @@ mixin _$PlacesVm on _PlacesVm, Store {
   final _$_PlacesVmActionController = ActionController(name: '_PlacesVm');
 
   @override
-  void searchPlaces() {
+  void nextPage() {
     final _$actionInfo =
-        _$_PlacesVmActionController.startAction(name: '_PlacesVm.searchPlaces');
+        _$_PlacesVmActionController.startAction(name: '_PlacesVm.nextPage');
     try {
-      return super.searchPlaces();
+      return super.nextPage();
     } finally {
       _$_PlacesVmActionController.endAction(_$actionInfo);
     }

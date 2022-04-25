@@ -17,8 +17,9 @@ final _privateConstructorUsedError = UnsupportedError(
 class _$PlacesEventTearOff {
   const _$PlacesEventTearOff();
 
-  PlacesEventGetPlaces getPlaces(String searchText) {
+  PlacesEventGetPlaces getPlaces(int page, String searchText) {
     return PlacesEventGetPlaces(
+      page,
       searchText,
     );
   }
@@ -35,22 +36,22 @@ const $PlacesEvent = _$PlacesEventTearOff();
 
 /// @nodoc
 mixin _$PlacesEvent {
+  int get page => throw _privateConstructorUsedError;
+  String get searchText => throw _privateConstructorUsedError;
+
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String searchText) getPlaces,
-    required TResult Function(int placeId) getPlace,
+    required TResult Function(int page, String searchText) getPlaces,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(String searchText)? getPlaces,
-    TResult Function(int placeId)? getPlace,
+    TResult Function(int page, String searchText)? getPlaces,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String searchText)? getPlaces,
-    TResult Function(int placeId)? getPlace,
+    TResult Function(int page, String searchText)? getPlaces,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -80,6 +81,7 @@ abstract class $PlacesEventCopyWith<$Res> {
   factory $PlacesEventCopyWith(
           PlacesEvent value, $Res Function(PlacesEvent) then) =
       _$PlacesEventCopyWithImpl<$Res>;
+  $Res call({int page, String searchText});
 }
 
 /// @nodoc
@@ -89,6 +91,23 @@ class _$PlacesEventCopyWithImpl<$Res> implements $PlacesEventCopyWith<$Res> {
   final PlacesEvent _value;
   // ignore: unused_field
   final $Res Function(PlacesEvent) _then;
+
+  @override
+  $Res call({
+    Object? page = freezed,
+    Object? searchText = freezed,
+  }) {
+    return _then(_value.copyWith(
+      page: page == freezed
+          ? _value.page
+          : page // ignore: cast_nullable_to_non_nullable
+              as int,
+      searchText: searchText == freezed
+          ? _value.searchText
+          : searchText // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
 }
 
 /// @nodoc
@@ -96,7 +115,8 @@ abstract class $PlacesEventGetPlacesCopyWith<$Res> {
   factory $PlacesEventGetPlacesCopyWith(PlacesEventGetPlaces value,
           $Res Function(PlacesEventGetPlaces) then) =
       _$PlacesEventGetPlacesCopyWithImpl<$Res>;
-  $Res call({String searchText});
+  @override
+  $Res call({int page, String searchText});
 }
 
 /// @nodoc
@@ -112,9 +132,14 @@ class _$PlacesEventGetPlacesCopyWithImpl<$Res>
 
   @override
   $Res call({
+    Object? page = freezed,
     Object? searchText = freezed,
   }) {
     return _then(PlacesEventGetPlaces(
+      page == freezed
+          ? _value.page
+          : page // ignore: cast_nullable_to_non_nullable
+              as int,
       searchText == freezed
           ? _value.searchText
           : searchText // ignore: cast_nullable_to_non_nullable
@@ -126,14 +151,16 @@ class _$PlacesEventGetPlacesCopyWithImpl<$Res>
 /// @nodoc
 
 class _$PlacesEventGetPlaces implements PlacesEventGetPlaces {
-  const _$PlacesEventGetPlaces(this.searchText);
+  const _$PlacesEventGetPlaces(this.page, this.searchText);
 
+  @override
+  final int page;
   @override
   final String searchText;
 
   @override
   String toString() {
-    return 'PlacesEvent.getPlaces(searchText: $searchText)';
+    return 'PlacesEvent.getPlaces(page: $page, searchText: $searchText)';
   }
 
   @override
@@ -141,13 +168,16 @@ class _$PlacesEventGetPlaces implements PlacesEventGetPlaces {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is PlacesEventGetPlaces &&
+            const DeepCollectionEquality().equals(other.page, page) &&
             const DeepCollectionEquality()
                 .equals(other.searchText, searchText));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(searchText));
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(page),
+      const DeepCollectionEquality().hash(searchText));
 
   @JsonKey(ignore: true)
   @override
@@ -158,30 +188,30 @@ class _$PlacesEventGetPlaces implements PlacesEventGetPlaces {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String searchText) getPlaces,
     required TResult Function(int placeId) getPlace,
+    required TResult Function(int page, String searchText) getPlaces,
   }) {
-    return getPlaces(searchText);
+    return getPlaces(page, searchText);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(String searchText)? getPlaces,
     TResult Function(int placeId)? getPlace,
+    TResult Function(int page, String searchText)? getPlaces,
   }) {
-    return getPlaces?.call(searchText);
+    return getPlaces?.call(page, searchText);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String searchText)? getPlaces,
     TResult Function(int placeId)? getPlace,
+    TResult Function(int page, String searchText)? getPlaces,
     required TResult orElse(),
   }) {
     if (getPlaces != null) {
-      return getPlaces(searchText);
+      return getPlaces(page, searchText);
     }
     return orElse();
   }
@@ -219,9 +249,12 @@ class _$PlacesEventGetPlaces implements PlacesEventGetPlaces {
 }
 
 abstract class PlacesEventGetPlaces implements PlacesEvent {
-  const factory PlacesEventGetPlaces(String searchText) =
+  const factory PlacesEventGetPlaces(int page, String searchText) =
       _$PlacesEventGetPlaces;
 
+  @override
+  int get page;
+  @override
   String get searchText;
   @JsonKey(ignore: true)
   $PlacesEventGetPlacesCopyWith<PlacesEventGetPlaces> get copyWith =>

@@ -16,6 +16,7 @@ part 'places_vm.g.dart';
 class PlacesVm = _PlacesVm with _$PlacesVm;
 
 abstract class _PlacesVm extends ViewModel with Store {
+  static const _itemsPerPage = 5;
   late final TextEditingController searchController;
   final LocationService locationService;
   final PlacesBloc _bloc;
@@ -28,6 +29,7 @@ abstract class _PlacesVm extends ViewModel with Store {
 
   String _lastSearchText = '';
   Timer? _debounce;
+  int _page = 0;
 
   String get _searchText => searchController.text;
 
@@ -46,19 +48,22 @@ abstract class _PlacesVm extends ViewModel with Store {
   }
 
   @action
-  void searchPlaces() {
-    _bloc.add(PlacesEvent.getPlaces(_searchText));
-  }
-
-  void sharePlace(int index) {
-    final place = places[index];
-    debugPrint('!!! sharePlace(${place.name})');
+  void nextPage() {
+    _bloc.add(PlacesEvent.getPlaces(_page, _searchText));
   }
 
   void _init() {
     observeBloc<PlacesState, PlacesBloc>(_bloc, _handleStates);
     searchController = TextEditingController();
     searchController.addListener(_searchListener);
+    locationService.getCurrentLocation();
+    _startSearch();
+  }
+
+  void _startSearch() {
+    _page = 0;
+    places.clear();
+    nextPage();
   }
 
   void _searchListener() {
@@ -68,10 +73,16 @@ abstract class _PlacesVm extends ViewModel with Store {
       () {
         if (_lastSearchText != _searchText) {
           _lastSearchText = _searchText;
-          searchPlaces();
+          _startSearch();
         }
       },
     );
+  }
+
+  void _incrementPage(int newPartLength) {
+    if (newPartLength != 0 && newPartLength % _itemsPerPage == 0) {
+      _page++;
+    }
   }
 
   void _handleStates(PlacesState state) {
@@ -79,7 +90,8 @@ abstract class _PlacesVm extends ViewModel with Store {
     if (state is PlacesStateLoading) {
       loading = true;
     } else if (state is PlacesStateLoaded) {
-      places = state.places;
+      places.addAll(state.places);
+      _incrementPage(state.places.length);
     } else if (state is PlacesStateError) {
       _bloc.onError(ServerErrorException(), state.stackTrace);
     }
