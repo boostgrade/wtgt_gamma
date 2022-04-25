@@ -24,6 +24,8 @@ const _place = Place(
       'Phasellus odio ipsum, sollicitudin quis magna vitae, tempus pellentesque massa. Vestibulum ullamcorper sem ut placerat sollicitudin. Pellentesque at lacus ultricies, maximus elit aliquam, vestibulum enim. Pellentesque eleifend tellus id augue auctor, et venenatis ante ullamcorper. Maecenas vitae dictum magna. Proin efficitur cursus interdum. Ut lobortis mauris et orci posuere blandit. Pellentesque congue, libero ut imperdiet malesuada, orci erat rhoncus lorem, quis cursus est elit vel nunc. Aenean aliquam mauris quis convallis consequat. Proin bibendum, lorem non tempor pellentesque, lacus urna vehicula lorem, sit amet finibus lorem mi eu sem. Aenean tempor dolor felis, in ultrices leo tempor non. Sed in risus nec urna tincidunt imperdiet molestie ut quam. Ut ultricies, purus eu mollis posuere, sapien lacus molestie arcu, ut suscipit risus dui ac ex. Quisque augue dui, iaculis et lorem vitae, tristique tincidunt eros. Phasellus id arcu suscipit diam lacinia accumsan at a tortor.',
   imageUrl:
       'https://images.pexels.com/photos/1402407/pexels-photo-1402407.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260',
+  latitude: 1,
+  longitude: 1,
 );
 
 const _stubPlaces = [

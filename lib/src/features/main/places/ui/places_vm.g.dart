@@ -53,17 +53,6 @@ mixin _$PlacesVm on _PlacesVm, Store {
   }
 
   @override
-  void getPlace(int placeId) {
-    final _$actionInfo =
-        _$_PlacesVmActionController.startAction(name: '_PlacesVm.getPlace');
-    try {
-      return super.getPlace(placeId);
-    } finally {
-      _$_PlacesVmActionController.endAction(_$actionInfo);
-    }
-  }
-
-  @override
   String toString() {
     return '''
 places: ${places},

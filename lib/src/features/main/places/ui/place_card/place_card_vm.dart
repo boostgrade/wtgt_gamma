@@ -5,7 +5,7 @@ import 'package:share_plus/share_plus.dart';
 import 'package:where_to_go_today/src/core/domain/place.dart';
 import 'package:where_to_go_today/src/features/location/location_model.dart';
 import 'package:where_to_go_today/src/features/location/location_service.dart';
-import 'package:where_to_go_today/src/features/place_detail/place_detail_route.dart';
+import 'package:where_to_go_today/src/features/main/places/ui/place/place_route.dart';
 import 'package:where_to_go_today/src/localization/l10n.dart';
 
 part 'place_card_vm.g.dart';
@@ -28,16 +28,16 @@ abstract class _PlaceCardVm with Store {
     _updateDistance();
   }
 
-  void openPlaceDetails(BuildContext context) {
-    Routemaster.of(context).push('${PlaceDetailRoute.routeName}/${place.id}');
-  }
-
   void sharePlace() {
     final subject = _context.l10n.sharePlaceSubject;
     Share.share(
       '$subject ${place.name}',
       subject: subject,
     );
+  }
+
+  void openPlaceDetails(BuildContext context) {
+    Routemaster.of(_context).push('${PlaceRoute.routeName}/${place.id}');
   }
 
   Future<void> _updateDistance() async {

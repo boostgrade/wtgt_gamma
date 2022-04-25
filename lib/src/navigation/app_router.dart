@@ -3,8 +3,8 @@ import 'package:where_to_go_today/src/features/auth/code/code_route.dart';
 import 'package:where_to_go_today/src/features/auth/register/register_route.dart';
 import 'package:where_to_go_today/src/features/auth/sign_in/sign_in_route.dart';
 import 'package:where_to_go_today/src/features/main/main_route.dart';
+import 'package:where_to_go_today/src/features/main/places/ui/place/place_route.dart';
 import 'package:where_to_go_today/src/features/onboard/ui/onboarding_route.dart';
-import 'package:where_to_go_today/src/features/places/place_route.dart';
 import 'package:where_to_go_today/src/features/settings/ui/settings_route.dart';
 
 /// Класс, в котором описываем навигацию в приложении.
