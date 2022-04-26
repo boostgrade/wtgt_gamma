@@ -46,7 +46,7 @@ class _PlacesApi implements PlacesApi {
     final _result = await _dio.fetch<Map<String, dynamic>>(
         _setStreamType<Place>(
             Options(method: 'GET', headers: _headers, extra: _extra)
-                .compose(_dio.options, '/places/${id}',
+                .compose(_dio.options, '/place/${id}',
                     queryParameters: queryParameters, data: _data)
                 .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value = Place.fromJson(_result.data!);
@@ -61,7 +61,7 @@ class _PlacesApi implements PlacesApi {
     final _data = body;
     await _dio.fetch<void>(_setStreamType<void>(
         Options(method: 'PUT', headers: _headers, extra: _extra)
-            .compose(_dio.options, '/places/${id}/favorite',
+            .compose(_dio.options, '/place/${id}/favourite',
                 queryParameters: queryParameters, data: _data)
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     return null;

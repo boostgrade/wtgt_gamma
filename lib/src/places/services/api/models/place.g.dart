@@ -29,17 +29,6 @@ Place _$PlaceFromJson(Map<String, dynamic> json) => $checkedCreate(
       },
     );
 
-Map<String, dynamic> _$PlaceToJson(Place instance) => <String, dynamic>{
-      'id': instance.id,
-      'name': instance.name,
-      'description': instance.description,
-      'isFavourite': instance.isFavourite,
-      'imageUrl': instance.imageUrl,
-      'type': _$PlaceTypeEnumMap[instance.type],
-      'shareLink': instance.shareLink,
-      'sales': instance.sales,
-    };
-
 const _$PlaceTypeEnumMap = {
   PlaceType.bar: 'bar',
   PlaceType.cafe: 'cafe',

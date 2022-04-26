@@ -18,9 +18,3 @@ Metadata _$MetadataFromJson(Map<String, dynamic> json) => $checkedCreate(
         return val;
       },
     );
-
-Map<String, dynamic> _$MetadataToJson(Metadata instance) => <String, dynamic>{
-      'limit': instance.limit,
-      'offset': instance.offset,
-      'fullCount': instance.fullCount,
-    };

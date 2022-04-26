@@ -4,6 +4,7 @@ part 'places_event.freezed.dart';
 
 @freezed
 class PlacesEvent with _$PlacesEvent {
+  const factory PlacesEvent.getPlace(int placeId) = PlacesEventGetPlace;
   const factory PlacesEvent.getPlaces(
     int page,
     String searchText,

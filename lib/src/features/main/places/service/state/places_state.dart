@@ -13,6 +13,8 @@ class PlacesState with _$PlacesState {
     List<Place> places,
   ) = PlacesStateLoaded;
 
+  const factory PlacesState.placeLoaded(Place place) = PlacesStatePlaceLoaded;
+
   const factory PlacesState.error(
     // ignore: avoid_annotating_with_dynamic
     dynamic error,

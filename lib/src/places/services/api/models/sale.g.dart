@@ -17,8 +17,3 @@ Sale _$SaleFromJson(Map<String, dynamic> json) => $checkedCreate(
         return val;
       },
     );
-
-Map<String, dynamic> _$SaleToJson(Sale instance) => <String, dynamic>{
-      'imageUrl': instance.imageUrl,
-      'text': instance.text,
-    };

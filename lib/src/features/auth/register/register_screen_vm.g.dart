@@ -9,7 +9,8 @@ part of 'register_screen_vm.dart';
 // ignore_for_file: non_constant_identifier_names, unnecessary_brace_in_string_interps, unnecessary_lambdas, prefer_expression_function_bodies, lines_longer_than_80_chars, avoid_as, avoid_annotating_with_dynamic
 
 mixin _$RegisterScreenVm on _RegisterScreenVm, Store {
-  final _$vmStateAtom = Atom(name: '_RegisterScreenVm.vmState');
+  late final _$vmStateAtom =
+      Atom(name: '_RegisterScreenVm.vmState', context: context);
 
   @override
   RegisterVmState get vmState {
@@ -24,7 +25,8 @@ mixin _$RegisterScreenVm on _RegisterScreenVm, Store {
     });
   }
 
-  final _$checkboxValueAtom = Atom(name: '_RegisterScreenVm.checkboxValue');
+  late final _$checkboxValueAtom =
+      Atom(name: '_RegisterScreenVm.checkboxValue', context: context);
 
   @override
   bool get checkboxValue {
@@ -39,7 +41,8 @@ mixin _$RegisterScreenVm on _RegisterScreenVm, Store {
     });
   }
 
-  final _$isFormEnteredAtom = Atom(name: '_RegisterScreenVm.isFormEntered');
+  late final _$isFormEnteredAtom =
+      Atom(name: '_RegisterScreenVm.isFormEntered', context: context);
 
   @override
   bool get isFormEntered {
@@ -54,8 +57,8 @@ mixin _$RegisterScreenVm on _RegisterScreenVm, Store {
     });
   }
 
-  final _$_RegisterScreenVmActionController =
-      ActionController(name: '_RegisterScreenVm');
+  late final _$_RegisterScreenVmActionController =
+      ActionController(name: '_RegisterScreenVm', context: context);
 
   @override
   void onChangedCheckbox(bool? value) {

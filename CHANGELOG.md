@@ -1,5 +1,6 @@
 # Changelog
 
+- feat: place detail info
 - feat: Places Screen
 - feat: Place Card
 - feat: CodeVm - add authorization via OTP

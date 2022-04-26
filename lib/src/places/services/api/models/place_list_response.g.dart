@@ -23,9 +23,3 @@ PlaceListResponse _$PlaceListResponseFromJson(Map<String, dynamic> json) =>
         return val;
       },
     );
-
-Map<String, dynamic> _$PlaceListResponseToJson(PlaceListResponse instance) =>
-    <String, dynamic>{
-      'data': instance.data,
-      'metadata': instance.metadata,
-    };

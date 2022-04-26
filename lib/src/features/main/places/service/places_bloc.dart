@@ -13,6 +13,7 @@ class PlacesBloc extends Bloc<PlacesEvent, PlacesState>
 
   PlacesBloc(this._placesService) : super(const PlacesState.init()) {
     on<PlacesEventGetPlaces>(_onGetPlaces);
+    on<PlacesEventGetPlace>(_onGetPlace);
   }
 
   FutureOr<void> _onGetPlaces(
@@ -26,6 +27,20 @@ class PlacesBloc extends Bloc<PlacesEvent, PlacesState>
         event.searchText,
       );
       emit(PlacesState.loaded(result));
+    } on Exception catch (e, s) {
+      emit(PlacesState.error(e, s));
+    }
+  }
+
+  Future<void> _onGetPlace(
+    PlacesEventGetPlace event,
+    Emitter<PlacesState> emit,
+  ) async {
+    emit(const PlacesState.loading());
+    try {
+      final place = await _placesService.getPlace(event.placeId);
+
+      emit(PlacesState.placeLoaded(place));
     } on Exception catch (e, s) {
       emit(PlacesState.error(e, s));
     }
