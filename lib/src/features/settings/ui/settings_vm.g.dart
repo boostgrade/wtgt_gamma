@@ -9,7 +9,8 @@ part of 'settings_vm.dart';
 // ignore_for_file: non_constant_identifier_names, unnecessary_brace_in_string_interps, unnecessary_lambdas, prefer_expression_function_bodies, lines_longer_than_80_chars, avoid_as, avoid_annotating_with_dynamic
 
 mixin _$SettingsVm on _SettingsVm, Store {
-  final _$themeModeAtom = Atom(name: '_SettingsVm.themeMode');
+  late final _$themeModeAtom =
+      Atom(name: '_SettingsVm.themeMode', context: context);
 
   @override
   ThemeMode get themeMode {
@@ -24,7 +25,8 @@ mixin _$SettingsVm on _SettingsVm, Store {
     });
   }
 
-  final _$_SettingsVmActionController = ActionController(name: '_SettingsVm');
+  late final _$_SettingsVmActionController =
+      ActionController(name: '_SettingsVm', context: context);
 
   @override
   void updateTheme(ThemeMode? mode) {

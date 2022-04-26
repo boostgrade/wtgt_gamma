@@ -9,7 +9,7 @@ part of 'places_vm.dart';
 // ignore_for_file: non_constant_identifier_names, unnecessary_brace_in_string_interps, unnecessary_lambdas, prefer_expression_function_bodies, lines_longer_than_80_chars, avoid_as, avoid_annotating_with_dynamic
 
 mixin _$PlacesVm on _PlacesVm, Store {
-  final _$placesAtom = Atom(name: '_PlacesVm.places');
+  late final _$placesAtom = Atom(name: '_PlacesVm.places', context: context);
 
   @override
   List<Place> get places {
@@ -24,7 +24,7 @@ mixin _$PlacesVm on _PlacesVm, Store {
     });
   }
 
-  final _$loadingAtom = Atom(name: '_PlacesVm.loading');
+  late final _$loadingAtom = Atom(name: '_PlacesVm.loading', context: context);
 
   @override
   bool get loading {
@@ -39,7 +39,8 @@ mixin _$PlacesVm on _PlacesVm, Store {
     });
   }
 
-  final _$_PlacesVmActionController = ActionController(name: '_PlacesVm');
+  late final _$_PlacesVmActionController =
+      ActionController(name: '_PlacesVm', context: context);
 
   @override
   void nextPage() {

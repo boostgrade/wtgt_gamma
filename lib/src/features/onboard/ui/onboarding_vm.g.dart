@@ -9,7 +9,8 @@ part of 'onboarding_vm.dart';
 // ignore_for_file: non_constant_identifier_names, unnecessary_brace_in_string_interps, unnecessary_lambdas, prefer_expression_function_bodies, lines_longer_than_80_chars, avoid_as, avoid_annotating_with_dynamic
 
 mixin _$OnboardingVm on _OnboardingVm, Store {
-  final _$isLastPageAtom = Atom(name: '_OnboardingVm.isLastPage');
+  late final _$isLastPageAtom =
+      Atom(name: '_OnboardingVm.isLastPage', context: context);
 
   @override
   bool get isLastPage {
@@ -24,8 +25,8 @@ mixin _$OnboardingVm on _OnboardingVm, Store {
     });
   }
 
-  final _$_OnboardingVmActionController =
-      ActionController(name: '_OnboardingVm');
+  late final _$_OnboardingVmActionController =
+      ActionController(name: '_OnboardingVm', context: context);
 
   @override
   void changeButtonLabel(int pageIndex) {

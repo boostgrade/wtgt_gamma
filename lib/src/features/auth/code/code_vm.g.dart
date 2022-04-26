@@ -23,7 +23,7 @@ mixin _$CodeVm on _CodeVm, Store {
           Computed<bool>(() => super.isLoading, name: '_CodeVm.isLoading'))
       .value;
 
-  final _$vmStateAtom = Atom(name: '_CodeVm.vmState');
+  late final _$vmStateAtom = Atom(name: '_CodeVm.vmState', context: context);
 
   @override
   CodeVmState get vmState {
@@ -38,7 +38,8 @@ mixin _$CodeVm on _CodeVm, Store {
     });
   }
 
-  final _$isValidCodeAtom = Atom(name: '_CodeVm.isValidCode');
+  late final _$isValidCodeAtom =
+      Atom(name: '_CodeVm.isValidCode', context: context);
 
   @override
   bool get isValidCode {
@@ -53,7 +54,8 @@ mixin _$CodeVm on _CodeVm, Store {
     });
   }
 
-  final _$countdownAtom = Atom(name: '_CodeVm.countdown');
+  late final _$countdownAtom =
+      Atom(name: '_CodeVm.countdown', context: context);
 
   @override
   int get countdown {
@@ -68,14 +70,16 @@ mixin _$CodeVm on _CodeVm, Store {
     });
   }
 
-  final _$requestCodeAsyncAction = AsyncAction('_CodeVm.requestCode');
+  late final _$requestCodeAsyncAction =
+      AsyncAction('_CodeVm.requestCode', context: context);
 
   @override
   Future<void> requestCode(String phone) {
     return _$requestCodeAsyncAction.run(() => super.requestCode(phone));
   }
 
-  final _$_CodeVmActionController = ActionController(name: '_CodeVm');
+  late final _$_CodeVmActionController =
+      ActionController(name: '_CodeVm', context: context);
 
   @override
   void startTimer() {

@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'place_card_vm.dart';
+part of 'place_vm.dart';
 
 // **************************************************************************
 // StoreGenerator
@@ -8,27 +8,11 @@ part of 'place_card_vm.dart';
 
 // ignore_for_file: non_constant_identifier_names, unnecessary_brace_in_string_interps, unnecessary_lambdas, prefer_expression_function_bodies, lines_longer_than_80_chars, avoid_as, avoid_annotating_with_dynamic
 
-mixin _$PlaceCardVm on _PlaceCardVm, Store {
-  late final _$distanceAtom =
-      Atom(name: '_PlaceCardVm.distance', context: context);
-
-  @override
-  int? get distance {
-    _$distanceAtom.reportRead();
-    return super.distance;
-  }
-
-  @override
-  set distance(int? value) {
-    _$distanceAtom.reportWrite(value, super.distance, () {
-      super.distance = value;
-    });
-  }
-
+mixin _$PlaceVm on _PlaceVm, Store {
   @override
   String toString() {
     return '''
-distance: ${distance}
+
     ''';
   }
 }

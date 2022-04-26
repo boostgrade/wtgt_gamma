@@ -17,7 +17,8 @@ mixin _$SignInScreenVm on _SignInScreenVm, Store {
               name: '_SignInScreenVm.isLoading'))
           .value;
 
-  final _$vmStateAtom = Atom(name: '_SignInScreenVm.vmState');
+  late final _$vmStateAtom =
+      Atom(name: '_SignInScreenVm.vmState', context: context);
 
   @override
   SignInVmState get vmState {
@@ -32,7 +33,8 @@ mixin _$SignInScreenVm on _SignInScreenVm, Store {
     });
   }
 
-  final _$isPhoneValidAtom = Atom(name: '_SignInScreenVm.isPhoneValid');
+  late final _$isPhoneValidAtom =
+      Atom(name: '_SignInScreenVm.isPhoneValid', context: context);
 
   @override
   bool get isPhoneValid {
@@ -47,15 +49,16 @@ mixin _$SignInScreenVm on _SignInScreenVm, Store {
     });
   }
 
-  final _$requestCodeAsyncAction = AsyncAction('_SignInScreenVm.requestCode');
+  late final _$requestCodeAsyncAction =
+      AsyncAction('_SignInScreenVm.requestCode', context: context);
 
   @override
   Future<void> requestCode(String phone) {
     return _$requestCodeAsyncAction.run(() => super.requestCode(phone));
   }
 
-  final _$_SignInScreenVmActionController =
-      ActionController(name: '_SignInScreenVm');
+  late final _$_SignInScreenVmActionController =
+      ActionController(name: '_SignInScreenVm', context: context);
 
   @override
   void verifyPhone(String phone) {

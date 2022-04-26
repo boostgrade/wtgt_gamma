@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:routemaster/routemaster.dart';
+import 'package:where_to_go_today/src/core/domain/place.dart';
 import 'package:where_to_go_today/src/core/ui/res/colors/project_colors.dart';
 import 'package:where_to_go_today/src/core/ui/res/typography/app_typography.dart';
 import 'package:where_to_go_today/src/res/asset.dart';
 
 class CustomSliverAppBar extends SliverPersistentHeaderDelegate {
   final double expandedHeight;
+  final Place place;
 
   @override
   double get maxExtent => expandedHeight;
@@ -13,7 +15,7 @@ class CustomSliverAppBar extends SliverPersistentHeaderDelegate {
   @override
   double get minExtent => kToolbarHeight + 50;
 
-  CustomSliverAppBar({required this.expandedHeight});
+  CustomSliverAppBar({required this.expandedHeight, required this.place});
 
   @override
   bool shouldRebuild(SliverPersistentHeaderDelegate oldDelegate) => true;
@@ -42,12 +44,12 @@ class CustomSliverAppBar extends SliverPersistentHeaderDelegate {
                 ),
               ),
             ),
-            child: const Align(
+            child: Align(
               child: Padding(
-                padding: EdgeInsets.only(left: 24.0, bottom: 20),
+                padding: const EdgeInsets.only(left: 24.0, bottom: 20),
                 child: Text(
-                  'El Cafe Noir',
-                  style: AppTypography.s24w600h20(
+                  place.name,
+                  style: const AppTypography.s24w600h20(
                     color: ProjectColors.onSecondaryColor,
                   ),
                 ),
@@ -60,11 +62,11 @@ class CustomSliverAppBar extends SliverPersistentHeaderDelegate {
           opacity: appear(shrinkOffset),
           child: AppBar(
             backgroundColor: ProjectColors.secondaryColor,
-            title: const Padding(
-              padding: EdgeInsets.only(left: 56),
+            title: Padding(
+              padding: const EdgeInsets.only(left: 56),
               child: Text(
-                'El Cafe Noir',
-                style: AppTypography.s24w600h20(
+                place.name,
+                style: const AppTypography.s24w600h20(
                   color: ProjectColors.onSecondaryColor,
                 ),
               ),
