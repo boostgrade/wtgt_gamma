@@ -18,6 +18,7 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState>
       : super(const ProfileState.init()) {
     on<ProfileEventGetUserProfile>(_onGetUserProfile);
     on<ProfileEventSignOut>(_onSignOut);
+    on<ProfileEventAvatarUpdate>(_onAvatarUpdate);
   }
 
   FutureOr<void> _onGetUserProfile(
@@ -45,5 +46,13 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState>
     } on Exception catch (e, s) {
       emit(ProfileState.error(e, s));
     }
+  }
+
+  FutureOr<void> _onAvatarUpdate(
+    ProfileEventAvatarUpdate _,
+    Emitter<ProfileState> emit,
+  ) {
+    emit(const ProfileState.loading());
+    // TODO(any): обработать нажатие на кнопку
   }
 }

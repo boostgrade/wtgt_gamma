@@ -24,6 +24,18 @@ class _$ProfileEventTearOff {
   ProfileEventSignOut signOut() {
     return const ProfileEventSignOut();
   }
+
+  ProfileEventAvatarUpdate avatarUpdate() {
+    return const ProfileEventAvatarUpdate();
+  }
+
+  ProfileEventProfileUpdate profileUpdate() {
+    return const ProfileEventProfileUpdate();
+  }
+
+  ProfileEventSettingsUpdate settingsUpdate() {
+    return const ProfileEventSettingsUpdate();
+  }
 }
 
 /// @nodoc
@@ -35,18 +47,27 @@ mixin _$ProfileEvent {
   TResult when<TResult extends Object?>({
     required TResult Function() getUserProfile,
     required TResult Function() signOut,
+    required TResult Function() avatarUpdate,
+    required TResult Function() profileUpdate,
+    required TResult Function() settingsUpdate,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? getUserProfile,
     TResult Function()? signOut,
+    TResult Function()? avatarUpdate,
+    TResult Function()? profileUpdate,
+    TResult Function()? settingsUpdate,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? getUserProfile,
     TResult Function()? signOut,
+    TResult Function()? avatarUpdate,
+    TResult Function()? profileUpdate,
+    TResult Function()? settingsUpdate,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -54,18 +75,27 @@ mixin _$ProfileEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(ProfileEventGetUserProfile value) getUserProfile,
     required TResult Function(ProfileEventSignOut value) signOut,
+    required TResult Function(ProfileEventAvatarUpdate value) avatarUpdate,
+    required TResult Function(ProfileEventProfileUpdate value) profileUpdate,
+    required TResult Function(ProfileEventSettingsUpdate value) settingsUpdate,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(ProfileEventGetUserProfile value)? getUserProfile,
     TResult Function(ProfileEventSignOut value)? signOut,
+    TResult Function(ProfileEventAvatarUpdate value)? avatarUpdate,
+    TResult Function(ProfileEventProfileUpdate value)? profileUpdate,
+    TResult Function(ProfileEventSettingsUpdate value)? settingsUpdate,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(ProfileEventGetUserProfile value)? getUserProfile,
     TResult Function(ProfileEventSignOut value)? signOut,
+    TResult Function(ProfileEventAvatarUpdate value)? avatarUpdate,
+    TResult Function(ProfileEventProfileUpdate value)? profileUpdate,
+    TResult Function(ProfileEventSettingsUpdate value)? settingsUpdate,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -132,6 +162,9 @@ class _$ProfileEventGetUserProfile implements ProfileEventGetUserProfile {
   TResult when<TResult extends Object?>({
     required TResult Function() getUserProfile,
     required TResult Function() signOut,
+    required TResult Function() avatarUpdate,
+    required TResult Function() profileUpdate,
+    required TResult Function() settingsUpdate,
   }) {
     return getUserProfile();
   }
@@ -141,6 +174,9 @@ class _$ProfileEventGetUserProfile implements ProfileEventGetUserProfile {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? getUserProfile,
     TResult Function()? signOut,
+    TResult Function()? avatarUpdate,
+    TResult Function()? profileUpdate,
+    TResult Function()? settingsUpdate,
   }) {
     return getUserProfile?.call();
   }
@@ -150,6 +186,9 @@ class _$ProfileEventGetUserProfile implements ProfileEventGetUserProfile {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? getUserProfile,
     TResult Function()? signOut,
+    TResult Function()? avatarUpdate,
+    TResult Function()? profileUpdate,
+    TResult Function()? settingsUpdate,
     required TResult orElse(),
   }) {
     if (getUserProfile != null) {
@@ -163,6 +202,9 @@ class _$ProfileEventGetUserProfile implements ProfileEventGetUserProfile {
   TResult map<TResult extends Object?>({
     required TResult Function(ProfileEventGetUserProfile value) getUserProfile,
     required TResult Function(ProfileEventSignOut value) signOut,
+    required TResult Function(ProfileEventAvatarUpdate value) avatarUpdate,
+    required TResult Function(ProfileEventProfileUpdate value) profileUpdate,
+    required TResult Function(ProfileEventSettingsUpdate value) settingsUpdate,
   }) {
     return getUserProfile(this);
   }
@@ -172,6 +214,9 @@ class _$ProfileEventGetUserProfile implements ProfileEventGetUserProfile {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(ProfileEventGetUserProfile value)? getUserProfile,
     TResult Function(ProfileEventSignOut value)? signOut,
+    TResult Function(ProfileEventAvatarUpdate value)? avatarUpdate,
+    TResult Function(ProfileEventProfileUpdate value)? profileUpdate,
+    TResult Function(ProfileEventSettingsUpdate value)? settingsUpdate,
   }) {
     return getUserProfile?.call(this);
   }
@@ -181,6 +226,9 @@ class _$ProfileEventGetUserProfile implements ProfileEventGetUserProfile {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(ProfileEventGetUserProfile value)? getUserProfile,
     TResult Function(ProfileEventSignOut value)? signOut,
+    TResult Function(ProfileEventAvatarUpdate value)? avatarUpdate,
+    TResult Function(ProfileEventProfileUpdate value)? profileUpdate,
+    TResult Function(ProfileEventSettingsUpdate value)? settingsUpdate,
     required TResult orElse(),
   }) {
     if (getUserProfile != null) {
@@ -237,6 +285,9 @@ class _$ProfileEventSignOut implements ProfileEventSignOut {
   TResult when<TResult extends Object?>({
     required TResult Function() getUserProfile,
     required TResult Function() signOut,
+    required TResult Function() avatarUpdate,
+    required TResult Function() profileUpdate,
+    required TResult Function() settingsUpdate,
   }) {
     return signOut();
   }
@@ -246,6 +297,9 @@ class _$ProfileEventSignOut implements ProfileEventSignOut {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? getUserProfile,
     TResult Function()? signOut,
+    TResult Function()? avatarUpdate,
+    TResult Function()? profileUpdate,
+    TResult Function()? settingsUpdate,
   }) {
     return signOut?.call();
   }
@@ -255,6 +309,9 @@ class _$ProfileEventSignOut implements ProfileEventSignOut {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? getUserProfile,
     TResult Function()? signOut,
+    TResult Function()? avatarUpdate,
+    TResult Function()? profileUpdate,
+    TResult Function()? settingsUpdate,
     required TResult orElse(),
   }) {
     if (signOut != null) {
@@ -268,6 +325,9 @@ class _$ProfileEventSignOut implements ProfileEventSignOut {
   TResult map<TResult extends Object?>({
     required TResult Function(ProfileEventGetUserProfile value) getUserProfile,
     required TResult Function(ProfileEventSignOut value) signOut,
+    required TResult Function(ProfileEventAvatarUpdate value) avatarUpdate,
+    required TResult Function(ProfileEventProfileUpdate value) profileUpdate,
+    required TResult Function(ProfileEventSettingsUpdate value) settingsUpdate,
   }) {
     return signOut(this);
   }
@@ -277,6 +337,9 @@ class _$ProfileEventSignOut implements ProfileEventSignOut {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(ProfileEventGetUserProfile value)? getUserProfile,
     TResult Function(ProfileEventSignOut value)? signOut,
+    TResult Function(ProfileEventAvatarUpdate value)? avatarUpdate,
+    TResult Function(ProfileEventProfileUpdate value)? profileUpdate,
+    TResult Function(ProfileEventSettingsUpdate value)? settingsUpdate,
   }) {
     return signOut?.call(this);
   }
@@ -286,6 +349,9 @@ class _$ProfileEventSignOut implements ProfileEventSignOut {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(ProfileEventGetUserProfile value)? getUserProfile,
     TResult Function(ProfileEventSignOut value)? signOut,
+    TResult Function(ProfileEventAvatarUpdate value)? avatarUpdate,
+    TResult Function(ProfileEventProfileUpdate value)? profileUpdate,
+    TResult Function(ProfileEventSettingsUpdate value)? settingsUpdate,
     required TResult orElse(),
   }) {
     if (signOut != null) {
@@ -297,4 +363,378 @@ class _$ProfileEventSignOut implements ProfileEventSignOut {
 
 abstract class ProfileEventSignOut implements ProfileEvent {
   const factory ProfileEventSignOut() = _$ProfileEventSignOut;
+}
+
+/// @nodoc
+abstract class $ProfileEventAvatarUpdateCopyWith<$Res> {
+  factory $ProfileEventAvatarUpdateCopyWith(ProfileEventAvatarUpdate value,
+          $Res Function(ProfileEventAvatarUpdate) then) =
+      _$ProfileEventAvatarUpdateCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class _$ProfileEventAvatarUpdateCopyWithImpl<$Res>
+    extends _$ProfileEventCopyWithImpl<$Res>
+    implements $ProfileEventAvatarUpdateCopyWith<$Res> {
+  _$ProfileEventAvatarUpdateCopyWithImpl(ProfileEventAvatarUpdate _value,
+      $Res Function(ProfileEventAvatarUpdate) _then)
+      : super(_value, (v) => _then(v as ProfileEventAvatarUpdate));
+
+  @override
+  ProfileEventAvatarUpdate get _value =>
+      super._value as ProfileEventAvatarUpdate;
+}
+
+/// @nodoc
+
+class _$ProfileEventAvatarUpdate implements ProfileEventAvatarUpdate {
+  const _$ProfileEventAvatarUpdate();
+
+  @override
+  String toString() {
+    return 'ProfileEvent.avatarUpdate()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is ProfileEventAvatarUpdate);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() getUserProfile,
+    required TResult Function() signOut,
+    required TResult Function() avatarUpdate,
+    required TResult Function() profileUpdate,
+    required TResult Function() settingsUpdate,
+  }) {
+    return avatarUpdate();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? getUserProfile,
+    TResult Function()? signOut,
+    TResult Function()? avatarUpdate,
+    TResult Function()? profileUpdate,
+    TResult Function()? settingsUpdate,
+  }) {
+    return avatarUpdate?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? getUserProfile,
+    TResult Function()? signOut,
+    TResult Function()? avatarUpdate,
+    TResult Function()? profileUpdate,
+    TResult Function()? settingsUpdate,
+    required TResult orElse(),
+  }) {
+    if (avatarUpdate != null) {
+      return avatarUpdate();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(ProfileEventGetUserProfile value) getUserProfile,
+    required TResult Function(ProfileEventSignOut value) signOut,
+    required TResult Function(ProfileEventAvatarUpdate value) avatarUpdate,
+    required TResult Function(ProfileEventProfileUpdate value) profileUpdate,
+    required TResult Function(ProfileEventSettingsUpdate value) settingsUpdate,
+  }) {
+    return avatarUpdate(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(ProfileEventGetUserProfile value)? getUserProfile,
+    TResult Function(ProfileEventSignOut value)? signOut,
+    TResult Function(ProfileEventAvatarUpdate value)? avatarUpdate,
+    TResult Function(ProfileEventProfileUpdate value)? profileUpdate,
+    TResult Function(ProfileEventSettingsUpdate value)? settingsUpdate,
+  }) {
+    return avatarUpdate?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(ProfileEventGetUserProfile value)? getUserProfile,
+    TResult Function(ProfileEventSignOut value)? signOut,
+    TResult Function(ProfileEventAvatarUpdate value)? avatarUpdate,
+    TResult Function(ProfileEventProfileUpdate value)? profileUpdate,
+    TResult Function(ProfileEventSettingsUpdate value)? settingsUpdate,
+    required TResult orElse(),
+  }) {
+    if (avatarUpdate != null) {
+      return avatarUpdate(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class ProfileEventAvatarUpdate implements ProfileEvent {
+  const factory ProfileEventAvatarUpdate() = _$ProfileEventAvatarUpdate;
+}
+
+/// @nodoc
+abstract class $ProfileEventProfileUpdateCopyWith<$Res> {
+  factory $ProfileEventProfileUpdateCopyWith(ProfileEventProfileUpdate value,
+          $Res Function(ProfileEventProfileUpdate) then) =
+      _$ProfileEventProfileUpdateCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class _$ProfileEventProfileUpdateCopyWithImpl<$Res>
+    extends _$ProfileEventCopyWithImpl<$Res>
+    implements $ProfileEventProfileUpdateCopyWith<$Res> {
+  _$ProfileEventProfileUpdateCopyWithImpl(ProfileEventProfileUpdate _value,
+      $Res Function(ProfileEventProfileUpdate) _then)
+      : super(_value, (v) => _then(v as ProfileEventProfileUpdate));
+
+  @override
+  ProfileEventProfileUpdate get _value =>
+      super._value as ProfileEventProfileUpdate;
+}
+
+/// @nodoc
+
+class _$ProfileEventProfileUpdate implements ProfileEventProfileUpdate {
+  const _$ProfileEventProfileUpdate();
+
+  @override
+  String toString() {
+    return 'ProfileEvent.profileUpdate()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is ProfileEventProfileUpdate);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() getUserProfile,
+    required TResult Function() signOut,
+    required TResult Function() avatarUpdate,
+    required TResult Function() profileUpdate,
+    required TResult Function() settingsUpdate,
+  }) {
+    return profileUpdate();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? getUserProfile,
+    TResult Function()? signOut,
+    TResult Function()? avatarUpdate,
+    TResult Function()? profileUpdate,
+    TResult Function()? settingsUpdate,
+  }) {
+    return profileUpdate?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? getUserProfile,
+    TResult Function()? signOut,
+    TResult Function()? avatarUpdate,
+    TResult Function()? profileUpdate,
+    TResult Function()? settingsUpdate,
+    required TResult orElse(),
+  }) {
+    if (profileUpdate != null) {
+      return profileUpdate();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(ProfileEventGetUserProfile value) getUserProfile,
+    required TResult Function(ProfileEventSignOut value) signOut,
+    required TResult Function(ProfileEventAvatarUpdate value) avatarUpdate,
+    required TResult Function(ProfileEventProfileUpdate value) profileUpdate,
+    required TResult Function(ProfileEventSettingsUpdate value) settingsUpdate,
+  }) {
+    return profileUpdate(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(ProfileEventGetUserProfile value)? getUserProfile,
+    TResult Function(ProfileEventSignOut value)? signOut,
+    TResult Function(ProfileEventAvatarUpdate value)? avatarUpdate,
+    TResult Function(ProfileEventProfileUpdate value)? profileUpdate,
+    TResult Function(ProfileEventSettingsUpdate value)? settingsUpdate,
+  }) {
+    return profileUpdate?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(ProfileEventGetUserProfile value)? getUserProfile,
+    TResult Function(ProfileEventSignOut value)? signOut,
+    TResult Function(ProfileEventAvatarUpdate value)? avatarUpdate,
+    TResult Function(ProfileEventProfileUpdate value)? profileUpdate,
+    TResult Function(ProfileEventSettingsUpdate value)? settingsUpdate,
+    required TResult orElse(),
+  }) {
+    if (profileUpdate != null) {
+      return profileUpdate(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class ProfileEventProfileUpdate implements ProfileEvent {
+  const factory ProfileEventProfileUpdate() = _$ProfileEventProfileUpdate;
+}
+
+/// @nodoc
+abstract class $ProfileEventSettingsUpdateCopyWith<$Res> {
+  factory $ProfileEventSettingsUpdateCopyWith(ProfileEventSettingsUpdate value,
+          $Res Function(ProfileEventSettingsUpdate) then) =
+      _$ProfileEventSettingsUpdateCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class _$ProfileEventSettingsUpdateCopyWithImpl<$Res>
+    extends _$ProfileEventCopyWithImpl<$Res>
+    implements $ProfileEventSettingsUpdateCopyWith<$Res> {
+  _$ProfileEventSettingsUpdateCopyWithImpl(ProfileEventSettingsUpdate _value,
+      $Res Function(ProfileEventSettingsUpdate) _then)
+      : super(_value, (v) => _then(v as ProfileEventSettingsUpdate));
+
+  @override
+  ProfileEventSettingsUpdate get _value =>
+      super._value as ProfileEventSettingsUpdate;
+}
+
+/// @nodoc
+
+class _$ProfileEventSettingsUpdate implements ProfileEventSettingsUpdate {
+  const _$ProfileEventSettingsUpdate();
+
+  @override
+  String toString() {
+    return 'ProfileEvent.settingsUpdate()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is ProfileEventSettingsUpdate);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() getUserProfile,
+    required TResult Function() signOut,
+    required TResult Function() avatarUpdate,
+    required TResult Function() profileUpdate,
+    required TResult Function() settingsUpdate,
+  }) {
+    return settingsUpdate();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? getUserProfile,
+    TResult Function()? signOut,
+    TResult Function()? avatarUpdate,
+    TResult Function()? profileUpdate,
+    TResult Function()? settingsUpdate,
+  }) {
+    return settingsUpdate?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? getUserProfile,
+    TResult Function()? signOut,
+    TResult Function()? avatarUpdate,
+    TResult Function()? profileUpdate,
+    TResult Function()? settingsUpdate,
+    required TResult orElse(),
+  }) {
+    if (settingsUpdate != null) {
+      return settingsUpdate();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(ProfileEventGetUserProfile value) getUserProfile,
+    required TResult Function(ProfileEventSignOut value) signOut,
+    required TResult Function(ProfileEventAvatarUpdate value) avatarUpdate,
+    required TResult Function(ProfileEventProfileUpdate value) profileUpdate,
+    required TResult Function(ProfileEventSettingsUpdate value) settingsUpdate,
+  }) {
+    return settingsUpdate(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(ProfileEventGetUserProfile value)? getUserProfile,
+    TResult Function(ProfileEventSignOut value)? signOut,
+    TResult Function(ProfileEventAvatarUpdate value)? avatarUpdate,
+    TResult Function(ProfileEventProfileUpdate value)? profileUpdate,
+    TResult Function(ProfileEventSettingsUpdate value)? settingsUpdate,
+  }) {
+    return settingsUpdate?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(ProfileEventGetUserProfile value)? getUserProfile,
+    TResult Function(ProfileEventSignOut value)? signOut,
+    TResult Function(ProfileEventAvatarUpdate value)? avatarUpdate,
+    TResult Function(ProfileEventProfileUpdate value)? profileUpdate,
+    TResult Function(ProfileEventSettingsUpdate value)? settingsUpdate,
+    required TResult orElse(),
+  }) {
+    if (settingsUpdate != null) {
+      return settingsUpdate(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class ProfileEventSettingsUpdate implements ProfileEvent {
+  const factory ProfileEventSettingsUpdate() = _$ProfileEventSettingsUpdate;
 }

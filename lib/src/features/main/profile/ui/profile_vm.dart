@@ -67,7 +67,7 @@ abstract class _ProfileVm extends ViewModel with Store {
 
   @action
   void onAvatar() {
-    // TODO(any): обработать нажатие на кнопку
+    _bloc.add(const ProfileEventAvatarUpdate());
   }
 
   @action

@@ -7,4 +7,10 @@ class ProfileEvent with _$ProfileEvent {
   const factory ProfileEvent.getUserProfile() = ProfileEventGetUserProfile;
 
   const factory ProfileEvent.signOut() = ProfileEventSignOut;
+
+  const factory ProfileEvent.avatarUpdate() = ProfileEventAvatarUpdate;
+
+  const factory ProfileEvent.profileUpdate() = ProfileEventProfileUpdate;
+
+  const factory ProfileEvent.settingsUpdate() = ProfileEventSettingsUpdate;
 }
