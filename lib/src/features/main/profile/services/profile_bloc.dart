@@ -27,7 +27,7 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState>
   ) async {
     emit(const ProfileState.init());
     try {
-      final result = await _profileRepository.getProfile();
+      final result = await _profileRepository.getStubProfile();
       emit(ProfileState.loaded(result));
     } on Exception catch (e, s) {
       emit(ProfileState.error(e, s));

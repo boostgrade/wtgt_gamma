@@ -21,7 +21,10 @@ class PlacesBloc extends Bloc<PlacesEvent, PlacesState>
   ) async {
     emit(const PlacesState.loading());
     try {
-      final result = await _placesService.getPlaces(event.searchText);
+      final result = await _placesService.getPlaces(
+        event.page,
+        event.searchText,
+      );
       emit(PlacesState.loaded(result));
     } on Exception catch (e, s) {
       emit(PlacesState.error(e, s));

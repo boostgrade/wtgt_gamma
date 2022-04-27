@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:where_to_go_today/src/features/main/main_vm.dart';
 import 'package:where_to_go_today/src/localization/l10n.dart';
 
@@ -44,31 +43,29 @@ class _MainScreenState extends State<MainScreen>
 
   @override
   Widget build(BuildContext context) {
-    return Observer(
-      builder: (_) => Scaffold(
-        body: TabBarView(
-          controller: _tabController,
-          physics: const NeverScrollableScrollPhysics(),
-          children: widget.screens,
-        ),
-        bottomNavigationBar: BottomNavigationBar(
-          onTap: _tabClicked,
-          currentIndex: _tabController.index,
-          items: [
-            BottomNavigationBarItem(
-              icon: const Icon(Icons.search),
-              label: context.l10n.placesTabName,
-            ),
-            BottomNavigationBarItem(
-              icon: const Icon(Icons.card_giftcard),
-              label: context.l10n.cardTabName,
-            ),
-            BottomNavigationBarItem(
-              icon: const Icon(Icons.account_circle),
-              label: context.l10n.profileTabName,
-            ),
-          ],
-        ),
+    return Scaffold(
+      body: TabBarView(
+        controller: _tabController,
+        physics: const NeverScrollableScrollPhysics(),
+        children: widget.screens,
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        onTap: _tabClicked,
+        currentIndex: _tabController.index,
+        items: [
+          BottomNavigationBarItem(
+            icon: const Icon(Icons.search),
+            label: context.l10n.placesTabName,
+          ),
+          BottomNavigationBarItem(
+            icon: const Icon(Icons.card_giftcard),
+            label: context.l10n.cardTabName,
+          ),
+          BottomNavigationBarItem(
+            icon: const Icon(Icons.account_circle),
+            label: context.l10n.profileTabName,
+          ),
+        ],
       ),
     );
   }

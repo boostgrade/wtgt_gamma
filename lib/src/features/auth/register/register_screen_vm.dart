@@ -20,7 +20,7 @@ abstract class _RegisterScreenVm extends ViewModel with Store {
   static const _emailRegexp =
       r'''(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])''';
 
-  final BuildContext context;
+  final BuildContext _context;
 
   final AuthBloc _bloc;
 
@@ -50,8 +50,9 @@ abstract class _RegisterScreenVm extends ViewModel with Store {
   _RegisterScreenVm(
     this._bloc, {
     required ErrorHandler errorHandler,
-    required this.context,
-  }) : super(errorHandler) {
+    required BuildContext context,
+  })  : _context = context,
+        super(errorHandler) {
     observeBloc<AuthState, AuthBloc>(_bloc, _handleBlocStates);
   }
 
@@ -59,7 +60,7 @@ abstract class _RegisterScreenVm extends ViewModel with Store {
     final regex = RegExp(_emailRegexp, caseSensitive: false);
 
     if (value == null || value.isEmpty || !regex.hasMatch(value)) {
-      return AppLocalizations.of(context)?.valueIsIncorrect;
+      return AppLocalizations.of(_context)?.valueIsIncorrect;
     }
 
     return null;
@@ -70,7 +71,7 @@ abstract class _RegisterScreenVm extends ViewModel with Store {
         value.isEmpty ||
         value.characters.first == '-' ||
         value.characters.last == '-') {
-      return AppLocalizations.of(context)?.valueIsIncorrect;
+      return AppLocalizations.of(_context)?.valueIsIncorrect;
     }
 
     return null;
@@ -83,10 +84,10 @@ abstract class _RegisterScreenVm extends ViewModel with Store {
       final hundredYearsAgo = now.subtract(const Duration(days: 365 * 100));
 
       return birthday.isAfter(now) || birthday.isBefore(hundredYearsAgo)
-          ? AppLocalizations.of(context)?.valueIsIncorrect
+          ? AppLocalizations.of(_context)?.valueIsIncorrect
           : null;
     } on FormatException {
-      return AppLocalizations.of(context)?.valueIsIncorrect;
+      return AppLocalizations.of(_context)?.valueIsIncorrect;
     }
   }
 
