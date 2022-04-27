@@ -24,7 +24,7 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState>
     ProfileEventGetUserProfile _,
     Emitter<ProfileState> emit,
   ) async {
-    emit(const ProfileState.loading());
+    emit(const ProfileState.init());
     try {
       final result = await _profileRepository.getProfile();
       emit(ProfileState.loaded(result));
@@ -37,7 +37,7 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState>
     ProfileEventSignOut _,
     Emitter<ProfileState> emit,
   ) async {
-    emit(const ProfileState.signingOut());
+    emit(const ProfileState.loading());
     try {
       await _authRepository.logout();
       _tokenStorage.clearToken();

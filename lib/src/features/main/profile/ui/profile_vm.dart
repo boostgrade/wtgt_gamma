@@ -46,10 +46,10 @@ abstract class _ProfileVm extends ViewModel with Store {
   );
 
   @observable
-  bool loading = true;
+  bool init = true;
 
   @observable
-  bool signingOut = false;
+  bool loading = false;
 
   _ProfileVm(
     this._context,
@@ -95,14 +95,14 @@ abstract class _ProfileVm extends ViewModel with Store {
   }
 
   void _handleStates(ProfileState state) {
+    init = false;
     loading = false;
-    signingOut = false;
-    if (state is ProfileStateLoading) {
+    if (state is ProfileStateInit) {
+      init = true;
+    } else if (state is ProfileStateLoading) {
       loading = true;
     } else if (state is ProfileStateLoaded) {
       profile = state.profile;
-    } else if (state is ProfileStateSigningOut) {
-      signingOut = true;
     } else if (state is ProfileStateSignedOut) {
       _authBloc.add(const AuthEvent.logout());
     } else if (state is ProfileStateError) {

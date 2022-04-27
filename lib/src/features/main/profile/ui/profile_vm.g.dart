@@ -24,6 +24,21 @@ mixin _$ProfileVm on _ProfileVm, Store {
     });
   }
 
+  final _$initAtom = Atom(name: '_ProfileVm.init');
+
+  @override
+  bool get init {
+    _$initAtom.reportRead();
+    return super.init;
+  }
+
+  @override
+  set init(bool value) {
+    _$initAtom.reportWrite(value, super.init, () {
+      super.init = value;
+    });
+  }
+
   final _$loadingAtom = Atom(name: '_ProfileVm.loading');
 
   @override
@@ -36,21 +51,6 @@ mixin _$ProfileVm on _ProfileVm, Store {
   set loading(bool value) {
     _$loadingAtom.reportWrite(value, super.loading, () {
       super.loading = value;
-    });
-  }
-
-  final _$signingOutAtom = Atom(name: '_ProfileVm.signingOut');
-
-  @override
-  bool get signingOut {
-    _$signingOutAtom.reportRead();
-    return super.signingOut;
-  }
-
-  @override
-  set signingOut(bool value) {
-    _$signingOutAtom.reportWrite(value, super.signingOut, () {
-      super.signingOut = value;
     });
   }
 
@@ -126,8 +126,8 @@ mixin _$ProfileVm on _ProfileVm, Store {
   String toString() {
     return '''
 profile: ${profile},
-loading: ${loading},
-signingOut: ${signingOut}
+init: ${init},
+loading: ${loading}
     ''';
   }
 }

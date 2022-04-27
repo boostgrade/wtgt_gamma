@@ -41,7 +41,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
   Widget build(BuildContext context) {
     return Observer(
       builder: (context) {
-        if (vm.signingOut) {
+        if (vm.loading) {
           return const Center(
             child: WtgtCircularProgressIndicator(),
           );
@@ -131,9 +131,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   style: const AppTypography.s24w600h20(),
                 ),
                 SliverToBoxAdapter(
-                  child: vm.loading
+                  child: vm.init
                       ? Shimmer.fromColors(
-                          enabled: vm.loading,
+                          enabled: vm.init,
                           baseColor: Colors.grey.shade300,
                           highlightColor: Colors.grey.shade100,
                           child: FavoritePlaces(

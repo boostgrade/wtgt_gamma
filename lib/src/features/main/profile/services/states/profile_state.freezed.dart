@@ -31,10 +31,6 @@ class _$ProfileStateTearOff {
     );
   }
 
-  ProfileStateSigningOut signingOut() {
-    return const ProfileStateSigningOut();
-  }
-
   ProfileStateSignedOut signedOut() {
     return const ProfileStateSignedOut();
   }
@@ -57,7 +53,6 @@ mixin _$ProfileState {
     required TResult Function() init,
     required TResult Function() loading,
     required TResult Function(User profile) loaded,
-    required TResult Function() signingOut,
     required TResult Function() signedOut,
     required TResult Function(dynamic error, StackTrace stackTrace) error,
   }) =>
@@ -67,7 +62,6 @@ mixin _$ProfileState {
     TResult Function()? init,
     TResult Function()? loading,
     TResult Function(User profile)? loaded,
-    TResult Function()? signingOut,
     TResult Function()? signedOut,
     TResult Function(dynamic error, StackTrace stackTrace)? error,
   }) =>
@@ -77,7 +71,6 @@ mixin _$ProfileState {
     TResult Function()? init,
     TResult Function()? loading,
     TResult Function(User profile)? loaded,
-    TResult Function()? signingOut,
     TResult Function()? signedOut,
     TResult Function(dynamic error, StackTrace stackTrace)? error,
     required TResult orElse(),
@@ -88,7 +81,6 @@ mixin _$ProfileState {
     required TResult Function(ProfileStateInit value) init,
     required TResult Function(ProfileStateLoading value) loading,
     required TResult Function(ProfileStateLoaded value) loaded,
-    required TResult Function(ProfileStateSigningOut value) signingOut,
     required TResult Function(ProfileStateSignedOut value) signedOut,
     required TResult Function(ProfileStateError value) error,
   }) =>
@@ -98,7 +90,6 @@ mixin _$ProfileState {
     TResult Function(ProfileStateInit value)? init,
     TResult Function(ProfileStateLoading value)? loading,
     TResult Function(ProfileStateLoaded value)? loaded,
-    TResult Function(ProfileStateSigningOut value)? signingOut,
     TResult Function(ProfileStateSignedOut value)? signedOut,
     TResult Function(ProfileStateError value)? error,
   }) =>
@@ -108,7 +99,6 @@ mixin _$ProfileState {
     TResult Function(ProfileStateInit value)? init,
     TResult Function(ProfileStateLoading value)? loading,
     TResult Function(ProfileStateLoaded value)? loaded,
-    TResult Function(ProfileStateSigningOut value)? signingOut,
     TResult Function(ProfileStateSignedOut value)? signedOut,
     TResult Function(ProfileStateError value)? error,
     required TResult orElse(),
@@ -176,7 +166,6 @@ class _$ProfileStateInit implements ProfileStateInit {
     required TResult Function() init,
     required TResult Function() loading,
     required TResult Function(User profile) loaded,
-    required TResult Function() signingOut,
     required TResult Function() signedOut,
     required TResult Function(dynamic error, StackTrace stackTrace) error,
   }) {
@@ -189,7 +178,6 @@ class _$ProfileStateInit implements ProfileStateInit {
     TResult Function()? init,
     TResult Function()? loading,
     TResult Function(User profile)? loaded,
-    TResult Function()? signingOut,
     TResult Function()? signedOut,
     TResult Function(dynamic error, StackTrace stackTrace)? error,
   }) {
@@ -202,7 +190,6 @@ class _$ProfileStateInit implements ProfileStateInit {
     TResult Function()? init,
     TResult Function()? loading,
     TResult Function(User profile)? loaded,
-    TResult Function()? signingOut,
     TResult Function()? signedOut,
     TResult Function(dynamic error, StackTrace stackTrace)? error,
     required TResult orElse(),
@@ -219,7 +206,6 @@ class _$ProfileStateInit implements ProfileStateInit {
     required TResult Function(ProfileStateInit value) init,
     required TResult Function(ProfileStateLoading value) loading,
     required TResult Function(ProfileStateLoaded value) loaded,
-    required TResult Function(ProfileStateSigningOut value) signingOut,
     required TResult Function(ProfileStateSignedOut value) signedOut,
     required TResult Function(ProfileStateError value) error,
   }) {
@@ -232,7 +218,6 @@ class _$ProfileStateInit implements ProfileStateInit {
     TResult Function(ProfileStateInit value)? init,
     TResult Function(ProfileStateLoading value)? loading,
     TResult Function(ProfileStateLoaded value)? loaded,
-    TResult Function(ProfileStateSigningOut value)? signingOut,
     TResult Function(ProfileStateSignedOut value)? signedOut,
     TResult Function(ProfileStateError value)? error,
   }) {
@@ -245,7 +230,6 @@ class _$ProfileStateInit implements ProfileStateInit {
     TResult Function(ProfileStateInit value)? init,
     TResult Function(ProfileStateLoading value)? loading,
     TResult Function(ProfileStateLoaded value)? loaded,
-    TResult Function(ProfileStateSigningOut value)? signingOut,
     TResult Function(ProfileStateSignedOut value)? signedOut,
     TResult Function(ProfileStateError value)? error,
     required TResult orElse(),
@@ -305,7 +289,6 @@ class _$ProfileStateLoading implements ProfileStateLoading {
     required TResult Function() init,
     required TResult Function() loading,
     required TResult Function(User profile) loaded,
-    required TResult Function() signingOut,
     required TResult Function() signedOut,
     required TResult Function(dynamic error, StackTrace stackTrace) error,
   }) {
@@ -318,7 +301,6 @@ class _$ProfileStateLoading implements ProfileStateLoading {
     TResult Function()? init,
     TResult Function()? loading,
     TResult Function(User profile)? loaded,
-    TResult Function()? signingOut,
     TResult Function()? signedOut,
     TResult Function(dynamic error, StackTrace stackTrace)? error,
   }) {
@@ -331,7 +313,6 @@ class _$ProfileStateLoading implements ProfileStateLoading {
     TResult Function()? init,
     TResult Function()? loading,
     TResult Function(User profile)? loaded,
-    TResult Function()? signingOut,
     TResult Function()? signedOut,
     TResult Function(dynamic error, StackTrace stackTrace)? error,
     required TResult orElse(),
@@ -348,7 +329,6 @@ class _$ProfileStateLoading implements ProfileStateLoading {
     required TResult Function(ProfileStateInit value) init,
     required TResult Function(ProfileStateLoading value) loading,
     required TResult Function(ProfileStateLoaded value) loaded,
-    required TResult Function(ProfileStateSigningOut value) signingOut,
     required TResult Function(ProfileStateSignedOut value) signedOut,
     required TResult Function(ProfileStateError value) error,
   }) {
@@ -361,7 +341,6 @@ class _$ProfileStateLoading implements ProfileStateLoading {
     TResult Function(ProfileStateInit value)? init,
     TResult Function(ProfileStateLoading value)? loading,
     TResult Function(ProfileStateLoaded value)? loaded,
-    TResult Function(ProfileStateSigningOut value)? signingOut,
     TResult Function(ProfileStateSignedOut value)? signedOut,
     TResult Function(ProfileStateError value)? error,
   }) {
@@ -374,7 +353,6 @@ class _$ProfileStateLoading implements ProfileStateLoading {
     TResult Function(ProfileStateInit value)? init,
     TResult Function(ProfileStateLoading value)? loading,
     TResult Function(ProfileStateLoaded value)? loaded,
-    TResult Function(ProfileStateSigningOut value)? signingOut,
     TResult Function(ProfileStateSignedOut value)? signedOut,
     TResult Function(ProfileStateError value)? error,
     required TResult orElse(),
@@ -458,7 +436,6 @@ class _$ProfileStateLoaded implements ProfileStateLoaded {
     required TResult Function() init,
     required TResult Function() loading,
     required TResult Function(User profile) loaded,
-    required TResult Function() signingOut,
     required TResult Function() signedOut,
     required TResult Function(dynamic error, StackTrace stackTrace) error,
   }) {
@@ -471,7 +448,6 @@ class _$ProfileStateLoaded implements ProfileStateLoaded {
     TResult Function()? init,
     TResult Function()? loading,
     TResult Function(User profile)? loaded,
-    TResult Function()? signingOut,
     TResult Function()? signedOut,
     TResult Function(dynamic error, StackTrace stackTrace)? error,
   }) {
@@ -484,7 +460,6 @@ class _$ProfileStateLoaded implements ProfileStateLoaded {
     TResult Function()? init,
     TResult Function()? loading,
     TResult Function(User profile)? loaded,
-    TResult Function()? signingOut,
     TResult Function()? signedOut,
     TResult Function(dynamic error, StackTrace stackTrace)? error,
     required TResult orElse(),
@@ -501,7 +476,6 @@ class _$ProfileStateLoaded implements ProfileStateLoaded {
     required TResult Function(ProfileStateInit value) init,
     required TResult Function(ProfileStateLoading value) loading,
     required TResult Function(ProfileStateLoaded value) loaded,
-    required TResult Function(ProfileStateSigningOut value) signingOut,
     required TResult Function(ProfileStateSignedOut value) signedOut,
     required TResult Function(ProfileStateError value) error,
   }) {
@@ -514,7 +488,6 @@ class _$ProfileStateLoaded implements ProfileStateLoaded {
     TResult Function(ProfileStateInit value)? init,
     TResult Function(ProfileStateLoading value)? loading,
     TResult Function(ProfileStateLoaded value)? loaded,
-    TResult Function(ProfileStateSigningOut value)? signingOut,
     TResult Function(ProfileStateSignedOut value)? signedOut,
     TResult Function(ProfileStateError value)? error,
   }) {
@@ -527,7 +500,6 @@ class _$ProfileStateLoaded implements ProfileStateLoaded {
     TResult Function(ProfileStateInit value)? init,
     TResult Function(ProfileStateLoading value)? loading,
     TResult Function(ProfileStateLoaded value)? loaded,
-    TResult Function(ProfileStateSigningOut value)? signingOut,
     TResult Function(ProfileStateSignedOut value)? signedOut,
     TResult Function(ProfileStateError value)? error,
     required TResult orElse(),
@@ -546,135 +518,6 @@ abstract class ProfileStateLoaded implements ProfileState {
   @JsonKey(ignore: true)
   $ProfileStateLoadedCopyWith<ProfileStateLoaded> get copyWith =>
       throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $ProfileStateSigningOutCopyWith<$Res> {
-  factory $ProfileStateSigningOutCopyWith(ProfileStateSigningOut value,
-          $Res Function(ProfileStateSigningOut) then) =
-      _$ProfileStateSigningOutCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class _$ProfileStateSigningOutCopyWithImpl<$Res>
-    extends _$ProfileStateCopyWithImpl<$Res>
-    implements $ProfileStateSigningOutCopyWith<$Res> {
-  _$ProfileStateSigningOutCopyWithImpl(ProfileStateSigningOut _value,
-      $Res Function(ProfileStateSigningOut) _then)
-      : super(_value, (v) => _then(v as ProfileStateSigningOut));
-
-  @override
-  ProfileStateSigningOut get _value => super._value as ProfileStateSigningOut;
-}
-
-/// @nodoc
-
-class _$ProfileStateSigningOut implements ProfileStateSigningOut {
-  const _$ProfileStateSigningOut();
-
-  @override
-  String toString() {
-    return 'ProfileState.signingOut()';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is ProfileStateSigningOut);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() init,
-    required TResult Function() loading,
-    required TResult Function(User profile) loaded,
-    required TResult Function() signingOut,
-    required TResult Function() signedOut,
-    required TResult Function(dynamic error, StackTrace stackTrace) error,
-  }) {
-    return signingOut();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? init,
-    TResult Function()? loading,
-    TResult Function(User profile)? loaded,
-    TResult Function()? signingOut,
-    TResult Function()? signedOut,
-    TResult Function(dynamic error, StackTrace stackTrace)? error,
-  }) {
-    return signingOut?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? init,
-    TResult Function()? loading,
-    TResult Function(User profile)? loaded,
-    TResult Function()? signingOut,
-    TResult Function()? signedOut,
-    TResult Function(dynamic error, StackTrace stackTrace)? error,
-    required TResult orElse(),
-  }) {
-    if (signingOut != null) {
-      return signingOut();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(ProfileStateInit value) init,
-    required TResult Function(ProfileStateLoading value) loading,
-    required TResult Function(ProfileStateLoaded value) loaded,
-    required TResult Function(ProfileStateSigningOut value) signingOut,
-    required TResult Function(ProfileStateSignedOut value) signedOut,
-    required TResult Function(ProfileStateError value) error,
-  }) {
-    return signingOut(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(ProfileStateInit value)? init,
-    TResult Function(ProfileStateLoading value)? loading,
-    TResult Function(ProfileStateLoaded value)? loaded,
-    TResult Function(ProfileStateSigningOut value)? signingOut,
-    TResult Function(ProfileStateSignedOut value)? signedOut,
-    TResult Function(ProfileStateError value)? error,
-  }) {
-    return signingOut?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(ProfileStateInit value)? init,
-    TResult Function(ProfileStateLoading value)? loading,
-    TResult Function(ProfileStateLoaded value)? loaded,
-    TResult Function(ProfileStateSigningOut value)? signingOut,
-    TResult Function(ProfileStateSignedOut value)? signedOut,
-    TResult Function(ProfileStateError value)? error,
-    required TResult orElse(),
-  }) {
-    if (signingOut != null) {
-      return signingOut(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class ProfileStateSigningOut implements ProfileState {
-  const factory ProfileStateSigningOut() = _$ProfileStateSigningOut;
 }
 
 /// @nodoc
@@ -721,7 +564,6 @@ class _$ProfileStateSignedOut implements ProfileStateSignedOut {
     required TResult Function() init,
     required TResult Function() loading,
     required TResult Function(User profile) loaded,
-    required TResult Function() signingOut,
     required TResult Function() signedOut,
     required TResult Function(dynamic error, StackTrace stackTrace) error,
   }) {
@@ -734,7 +576,6 @@ class _$ProfileStateSignedOut implements ProfileStateSignedOut {
     TResult Function()? init,
     TResult Function()? loading,
     TResult Function(User profile)? loaded,
-    TResult Function()? signingOut,
     TResult Function()? signedOut,
     TResult Function(dynamic error, StackTrace stackTrace)? error,
   }) {
@@ -747,7 +588,6 @@ class _$ProfileStateSignedOut implements ProfileStateSignedOut {
     TResult Function()? init,
     TResult Function()? loading,
     TResult Function(User profile)? loaded,
-    TResult Function()? signingOut,
     TResult Function()? signedOut,
     TResult Function(dynamic error, StackTrace stackTrace)? error,
     required TResult orElse(),
@@ -764,7 +604,6 @@ class _$ProfileStateSignedOut implements ProfileStateSignedOut {
     required TResult Function(ProfileStateInit value) init,
     required TResult Function(ProfileStateLoading value) loading,
     required TResult Function(ProfileStateLoaded value) loaded,
-    required TResult Function(ProfileStateSigningOut value) signingOut,
     required TResult Function(ProfileStateSignedOut value) signedOut,
     required TResult Function(ProfileStateError value) error,
   }) {
@@ -777,7 +616,6 @@ class _$ProfileStateSignedOut implements ProfileStateSignedOut {
     TResult Function(ProfileStateInit value)? init,
     TResult Function(ProfileStateLoading value)? loading,
     TResult Function(ProfileStateLoaded value)? loaded,
-    TResult Function(ProfileStateSigningOut value)? signingOut,
     TResult Function(ProfileStateSignedOut value)? signedOut,
     TResult Function(ProfileStateError value)? error,
   }) {
@@ -790,7 +628,6 @@ class _$ProfileStateSignedOut implements ProfileStateSignedOut {
     TResult Function(ProfileStateInit value)? init,
     TResult Function(ProfileStateLoading value)? loading,
     TResult Function(ProfileStateLoaded value)? loaded,
-    TResult Function(ProfileStateSigningOut value)? signingOut,
     TResult Function(ProfileStateSignedOut value)? signedOut,
     TResult Function(ProfileStateError value)? error,
     required TResult orElse(),
@@ -885,7 +722,6 @@ class _$ProfileStateError implements ProfileStateError {
     required TResult Function() init,
     required TResult Function() loading,
     required TResult Function(User profile) loaded,
-    required TResult Function() signingOut,
     required TResult Function() signedOut,
     required TResult Function(dynamic error, StackTrace stackTrace) error,
   }) {
@@ -898,7 +734,6 @@ class _$ProfileStateError implements ProfileStateError {
     TResult Function()? init,
     TResult Function()? loading,
     TResult Function(User profile)? loaded,
-    TResult Function()? signingOut,
     TResult Function()? signedOut,
     TResult Function(dynamic error, StackTrace stackTrace)? error,
   }) {
@@ -911,7 +746,6 @@ class _$ProfileStateError implements ProfileStateError {
     TResult Function()? init,
     TResult Function()? loading,
     TResult Function(User profile)? loaded,
-    TResult Function()? signingOut,
     TResult Function()? signedOut,
     TResult Function(dynamic error, StackTrace stackTrace)? error,
     required TResult orElse(),
@@ -928,7 +762,6 @@ class _$ProfileStateError implements ProfileStateError {
     required TResult Function(ProfileStateInit value) init,
     required TResult Function(ProfileStateLoading value) loading,
     required TResult Function(ProfileStateLoaded value) loaded,
-    required TResult Function(ProfileStateSigningOut value) signingOut,
     required TResult Function(ProfileStateSignedOut value) signedOut,
     required TResult Function(ProfileStateError value) error,
   }) {
@@ -941,7 +774,6 @@ class _$ProfileStateError implements ProfileStateError {
     TResult Function(ProfileStateInit value)? init,
     TResult Function(ProfileStateLoading value)? loading,
     TResult Function(ProfileStateLoaded value)? loaded,
-    TResult Function(ProfileStateSigningOut value)? signingOut,
     TResult Function(ProfileStateSignedOut value)? signedOut,
     TResult Function(ProfileStateError value)? error,
   }) {
@@ -954,7 +786,6 @@ class _$ProfileStateError implements ProfileStateError {
     TResult Function(ProfileStateInit value)? init,
     TResult Function(ProfileStateLoading value)? loading,
     TResult Function(ProfileStateLoaded value)? loaded,
-    TResult Function(ProfileStateSigningOut value)? signingOut,
     TResult Function(ProfileStateSignedOut value)? signedOut,
     TResult Function(ProfileStateError value)? error,
     required TResult orElse(),
