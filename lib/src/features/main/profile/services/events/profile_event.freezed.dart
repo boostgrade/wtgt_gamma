@@ -25,8 +25,12 @@ class _$ProfileEventTearOff {
     return const ProfileEventSignOut();
   }
 
-  ProfileEventAvatarUpdate avatarUpdate() {
-    return const ProfileEventAvatarUpdate();
+  ProfileEventUpdateAvatarFromGallery updateAvatarFromGallery() {
+    return const ProfileEventUpdateAvatarFromGallery();
+  }
+
+  ProfileEventUpdateAvatarFromCamera updateAvatarFromCamera() {
+    return const ProfileEventUpdateAvatarFromCamera();
   }
 
   ProfileEventProfileUpdate profileUpdate() {
@@ -47,7 +51,8 @@ mixin _$ProfileEvent {
   TResult when<TResult extends Object?>({
     required TResult Function() getUserProfile,
     required TResult Function() signOut,
-    required TResult Function() avatarUpdate,
+    required TResult Function() updateAvatarFromGallery,
+    required TResult Function() updateAvatarFromCamera,
     required TResult Function() profileUpdate,
     required TResult Function() settingsUpdate,
   }) =>
@@ -56,7 +61,8 @@ mixin _$ProfileEvent {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? getUserProfile,
     TResult Function()? signOut,
-    TResult Function()? avatarUpdate,
+    TResult Function()? updateAvatarFromGallery,
+    TResult Function()? updateAvatarFromCamera,
     TResult Function()? profileUpdate,
     TResult Function()? settingsUpdate,
   }) =>
@@ -65,7 +71,8 @@ mixin _$ProfileEvent {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? getUserProfile,
     TResult Function()? signOut,
-    TResult Function()? avatarUpdate,
+    TResult Function()? updateAvatarFromGallery,
+    TResult Function()? updateAvatarFromCamera,
     TResult Function()? profileUpdate,
     TResult Function()? settingsUpdate,
     required TResult orElse(),
@@ -75,7 +82,10 @@ mixin _$ProfileEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(ProfileEventGetUserProfile value) getUserProfile,
     required TResult Function(ProfileEventSignOut value) signOut,
-    required TResult Function(ProfileEventAvatarUpdate value) avatarUpdate,
+    required TResult Function(ProfileEventUpdateAvatarFromGallery value)
+        updateAvatarFromGallery,
+    required TResult Function(ProfileEventUpdateAvatarFromCamera value)
+        updateAvatarFromCamera,
     required TResult Function(ProfileEventProfileUpdate value) profileUpdate,
     required TResult Function(ProfileEventSettingsUpdate value) settingsUpdate,
   }) =>
@@ -84,7 +94,10 @@ mixin _$ProfileEvent {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(ProfileEventGetUserProfile value)? getUserProfile,
     TResult Function(ProfileEventSignOut value)? signOut,
-    TResult Function(ProfileEventAvatarUpdate value)? avatarUpdate,
+    TResult Function(ProfileEventUpdateAvatarFromGallery value)?
+        updateAvatarFromGallery,
+    TResult Function(ProfileEventUpdateAvatarFromCamera value)?
+        updateAvatarFromCamera,
     TResult Function(ProfileEventProfileUpdate value)? profileUpdate,
     TResult Function(ProfileEventSettingsUpdate value)? settingsUpdate,
   }) =>
@@ -93,7 +106,10 @@ mixin _$ProfileEvent {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(ProfileEventGetUserProfile value)? getUserProfile,
     TResult Function(ProfileEventSignOut value)? signOut,
-    TResult Function(ProfileEventAvatarUpdate value)? avatarUpdate,
+    TResult Function(ProfileEventUpdateAvatarFromGallery value)?
+        updateAvatarFromGallery,
+    TResult Function(ProfileEventUpdateAvatarFromCamera value)?
+        updateAvatarFromCamera,
     TResult Function(ProfileEventProfileUpdate value)? profileUpdate,
     TResult Function(ProfileEventSettingsUpdate value)? settingsUpdate,
     required TResult orElse(),
@@ -162,7 +178,8 @@ class _$ProfileEventGetUserProfile implements ProfileEventGetUserProfile {
   TResult when<TResult extends Object?>({
     required TResult Function() getUserProfile,
     required TResult Function() signOut,
-    required TResult Function() avatarUpdate,
+    required TResult Function() updateAvatarFromGallery,
+    required TResult Function() updateAvatarFromCamera,
     required TResult Function() profileUpdate,
     required TResult Function() settingsUpdate,
   }) {
@@ -174,7 +191,8 @@ class _$ProfileEventGetUserProfile implements ProfileEventGetUserProfile {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? getUserProfile,
     TResult Function()? signOut,
-    TResult Function()? avatarUpdate,
+    TResult Function()? updateAvatarFromGallery,
+    TResult Function()? updateAvatarFromCamera,
     TResult Function()? profileUpdate,
     TResult Function()? settingsUpdate,
   }) {
@@ -186,7 +204,8 @@ class _$ProfileEventGetUserProfile implements ProfileEventGetUserProfile {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? getUserProfile,
     TResult Function()? signOut,
-    TResult Function()? avatarUpdate,
+    TResult Function()? updateAvatarFromGallery,
+    TResult Function()? updateAvatarFromCamera,
     TResult Function()? profileUpdate,
     TResult Function()? settingsUpdate,
     required TResult orElse(),
@@ -202,7 +221,10 @@ class _$ProfileEventGetUserProfile implements ProfileEventGetUserProfile {
   TResult map<TResult extends Object?>({
     required TResult Function(ProfileEventGetUserProfile value) getUserProfile,
     required TResult Function(ProfileEventSignOut value) signOut,
-    required TResult Function(ProfileEventAvatarUpdate value) avatarUpdate,
+    required TResult Function(ProfileEventUpdateAvatarFromGallery value)
+        updateAvatarFromGallery,
+    required TResult Function(ProfileEventUpdateAvatarFromCamera value)
+        updateAvatarFromCamera,
     required TResult Function(ProfileEventProfileUpdate value) profileUpdate,
     required TResult Function(ProfileEventSettingsUpdate value) settingsUpdate,
   }) {
@@ -214,7 +236,10 @@ class _$ProfileEventGetUserProfile implements ProfileEventGetUserProfile {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(ProfileEventGetUserProfile value)? getUserProfile,
     TResult Function(ProfileEventSignOut value)? signOut,
-    TResult Function(ProfileEventAvatarUpdate value)? avatarUpdate,
+    TResult Function(ProfileEventUpdateAvatarFromGallery value)?
+        updateAvatarFromGallery,
+    TResult Function(ProfileEventUpdateAvatarFromCamera value)?
+        updateAvatarFromCamera,
     TResult Function(ProfileEventProfileUpdate value)? profileUpdate,
     TResult Function(ProfileEventSettingsUpdate value)? settingsUpdate,
   }) {
@@ -226,7 +251,10 @@ class _$ProfileEventGetUserProfile implements ProfileEventGetUserProfile {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(ProfileEventGetUserProfile value)? getUserProfile,
     TResult Function(ProfileEventSignOut value)? signOut,
-    TResult Function(ProfileEventAvatarUpdate value)? avatarUpdate,
+    TResult Function(ProfileEventUpdateAvatarFromGallery value)?
+        updateAvatarFromGallery,
+    TResult Function(ProfileEventUpdateAvatarFromCamera value)?
+        updateAvatarFromCamera,
     TResult Function(ProfileEventProfileUpdate value)? profileUpdate,
     TResult Function(ProfileEventSettingsUpdate value)? settingsUpdate,
     required TResult orElse(),
@@ -285,7 +313,8 @@ class _$ProfileEventSignOut implements ProfileEventSignOut {
   TResult when<TResult extends Object?>({
     required TResult Function() getUserProfile,
     required TResult Function() signOut,
-    required TResult Function() avatarUpdate,
+    required TResult Function() updateAvatarFromGallery,
+    required TResult Function() updateAvatarFromCamera,
     required TResult Function() profileUpdate,
     required TResult Function() settingsUpdate,
   }) {
@@ -297,7 +326,8 @@ class _$ProfileEventSignOut implements ProfileEventSignOut {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? getUserProfile,
     TResult Function()? signOut,
-    TResult Function()? avatarUpdate,
+    TResult Function()? updateAvatarFromGallery,
+    TResult Function()? updateAvatarFromCamera,
     TResult Function()? profileUpdate,
     TResult Function()? settingsUpdate,
   }) {
@@ -309,7 +339,8 @@ class _$ProfileEventSignOut implements ProfileEventSignOut {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? getUserProfile,
     TResult Function()? signOut,
-    TResult Function()? avatarUpdate,
+    TResult Function()? updateAvatarFromGallery,
+    TResult Function()? updateAvatarFromCamera,
     TResult Function()? profileUpdate,
     TResult Function()? settingsUpdate,
     required TResult orElse(),
@@ -325,7 +356,10 @@ class _$ProfileEventSignOut implements ProfileEventSignOut {
   TResult map<TResult extends Object?>({
     required TResult Function(ProfileEventGetUserProfile value) getUserProfile,
     required TResult Function(ProfileEventSignOut value) signOut,
-    required TResult Function(ProfileEventAvatarUpdate value) avatarUpdate,
+    required TResult Function(ProfileEventUpdateAvatarFromGallery value)
+        updateAvatarFromGallery,
+    required TResult Function(ProfileEventUpdateAvatarFromCamera value)
+        updateAvatarFromCamera,
     required TResult Function(ProfileEventProfileUpdate value) profileUpdate,
     required TResult Function(ProfileEventSettingsUpdate value) settingsUpdate,
   }) {
@@ -337,7 +371,10 @@ class _$ProfileEventSignOut implements ProfileEventSignOut {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(ProfileEventGetUserProfile value)? getUserProfile,
     TResult Function(ProfileEventSignOut value)? signOut,
-    TResult Function(ProfileEventAvatarUpdate value)? avatarUpdate,
+    TResult Function(ProfileEventUpdateAvatarFromGallery value)?
+        updateAvatarFromGallery,
+    TResult Function(ProfileEventUpdateAvatarFromCamera value)?
+        updateAvatarFromCamera,
     TResult Function(ProfileEventProfileUpdate value)? profileUpdate,
     TResult Function(ProfileEventSettingsUpdate value)? settingsUpdate,
   }) {
@@ -349,7 +386,10 @@ class _$ProfileEventSignOut implements ProfileEventSignOut {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(ProfileEventGetUserProfile value)? getUserProfile,
     TResult Function(ProfileEventSignOut value)? signOut,
-    TResult Function(ProfileEventAvatarUpdate value)? avatarUpdate,
+    TResult Function(ProfileEventUpdateAvatarFromGallery value)?
+        updateAvatarFromGallery,
+    TResult Function(ProfileEventUpdateAvatarFromCamera value)?
+        updateAvatarFromCamera,
     TResult Function(ProfileEventProfileUpdate value)? profileUpdate,
     TResult Function(ProfileEventSettingsUpdate value)? settingsUpdate,
     required TResult orElse(),
@@ -366,39 +406,43 @@ abstract class ProfileEventSignOut implements ProfileEvent {
 }
 
 /// @nodoc
-abstract class $ProfileEventAvatarUpdateCopyWith<$Res> {
-  factory $ProfileEventAvatarUpdateCopyWith(ProfileEventAvatarUpdate value,
-          $Res Function(ProfileEventAvatarUpdate) then) =
-      _$ProfileEventAvatarUpdateCopyWithImpl<$Res>;
+abstract class $ProfileEventUpdateAvatarFromGalleryCopyWith<$Res> {
+  factory $ProfileEventUpdateAvatarFromGalleryCopyWith(
+          ProfileEventUpdateAvatarFromGallery value,
+          $Res Function(ProfileEventUpdateAvatarFromGallery) then) =
+      _$ProfileEventUpdateAvatarFromGalleryCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class _$ProfileEventAvatarUpdateCopyWithImpl<$Res>
+class _$ProfileEventUpdateAvatarFromGalleryCopyWithImpl<$Res>
     extends _$ProfileEventCopyWithImpl<$Res>
-    implements $ProfileEventAvatarUpdateCopyWith<$Res> {
-  _$ProfileEventAvatarUpdateCopyWithImpl(ProfileEventAvatarUpdate _value,
-      $Res Function(ProfileEventAvatarUpdate) _then)
-      : super(_value, (v) => _then(v as ProfileEventAvatarUpdate));
+    implements $ProfileEventUpdateAvatarFromGalleryCopyWith<$Res> {
+  _$ProfileEventUpdateAvatarFromGalleryCopyWithImpl(
+      ProfileEventUpdateAvatarFromGallery _value,
+      $Res Function(ProfileEventUpdateAvatarFromGallery) _then)
+      : super(_value, (v) => _then(v as ProfileEventUpdateAvatarFromGallery));
 
   @override
-  ProfileEventAvatarUpdate get _value =>
-      super._value as ProfileEventAvatarUpdate;
+  ProfileEventUpdateAvatarFromGallery get _value =>
+      super._value as ProfileEventUpdateAvatarFromGallery;
 }
 
 /// @nodoc
 
-class _$ProfileEventAvatarUpdate implements ProfileEventAvatarUpdate {
-  const _$ProfileEventAvatarUpdate();
+class _$ProfileEventUpdateAvatarFromGallery
+    implements ProfileEventUpdateAvatarFromGallery {
+  const _$ProfileEventUpdateAvatarFromGallery();
 
   @override
   String toString() {
-    return 'ProfileEvent.avatarUpdate()';
+    return 'ProfileEvent.updateAvatarFromGallery()';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is ProfileEventAvatarUpdate);
+        (other.runtimeType == runtimeType &&
+            other is ProfileEventUpdateAvatarFromGallery);
   }
 
   @override
@@ -409,11 +453,12 @@ class _$ProfileEventAvatarUpdate implements ProfileEventAvatarUpdate {
   TResult when<TResult extends Object?>({
     required TResult Function() getUserProfile,
     required TResult Function() signOut,
-    required TResult Function() avatarUpdate,
+    required TResult Function() updateAvatarFromGallery,
+    required TResult Function() updateAvatarFromCamera,
     required TResult Function() profileUpdate,
     required TResult Function() settingsUpdate,
   }) {
-    return avatarUpdate();
+    return updateAvatarFromGallery();
   }
 
   @override
@@ -421,11 +466,12 @@ class _$ProfileEventAvatarUpdate implements ProfileEventAvatarUpdate {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? getUserProfile,
     TResult Function()? signOut,
-    TResult Function()? avatarUpdate,
+    TResult Function()? updateAvatarFromGallery,
+    TResult Function()? updateAvatarFromCamera,
     TResult Function()? profileUpdate,
     TResult Function()? settingsUpdate,
   }) {
-    return avatarUpdate?.call();
+    return updateAvatarFromGallery?.call();
   }
 
   @override
@@ -433,13 +479,14 @@ class _$ProfileEventAvatarUpdate implements ProfileEventAvatarUpdate {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? getUserProfile,
     TResult Function()? signOut,
-    TResult Function()? avatarUpdate,
+    TResult Function()? updateAvatarFromGallery,
+    TResult Function()? updateAvatarFromCamera,
     TResult Function()? profileUpdate,
     TResult Function()? settingsUpdate,
     required TResult orElse(),
   }) {
-    if (avatarUpdate != null) {
-      return avatarUpdate();
+    if (updateAvatarFromGallery != null) {
+      return updateAvatarFromGallery();
     }
     return orElse();
   }
@@ -449,11 +496,14 @@ class _$ProfileEventAvatarUpdate implements ProfileEventAvatarUpdate {
   TResult map<TResult extends Object?>({
     required TResult Function(ProfileEventGetUserProfile value) getUserProfile,
     required TResult Function(ProfileEventSignOut value) signOut,
-    required TResult Function(ProfileEventAvatarUpdate value) avatarUpdate,
+    required TResult Function(ProfileEventUpdateAvatarFromGallery value)
+        updateAvatarFromGallery,
+    required TResult Function(ProfileEventUpdateAvatarFromCamera value)
+        updateAvatarFromCamera,
     required TResult Function(ProfileEventProfileUpdate value) profileUpdate,
     required TResult Function(ProfileEventSettingsUpdate value) settingsUpdate,
   }) {
-    return avatarUpdate(this);
+    return updateAvatarFromGallery(this);
   }
 
   @override
@@ -461,11 +511,14 @@ class _$ProfileEventAvatarUpdate implements ProfileEventAvatarUpdate {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(ProfileEventGetUserProfile value)? getUserProfile,
     TResult Function(ProfileEventSignOut value)? signOut,
-    TResult Function(ProfileEventAvatarUpdate value)? avatarUpdate,
+    TResult Function(ProfileEventUpdateAvatarFromGallery value)?
+        updateAvatarFromGallery,
+    TResult Function(ProfileEventUpdateAvatarFromCamera value)?
+        updateAvatarFromCamera,
     TResult Function(ProfileEventProfileUpdate value)? profileUpdate,
     TResult Function(ProfileEventSettingsUpdate value)? settingsUpdate,
   }) {
-    return avatarUpdate?.call(this);
+    return updateAvatarFromGallery?.call(this);
   }
 
   @override
@@ -473,20 +526,165 @@ class _$ProfileEventAvatarUpdate implements ProfileEventAvatarUpdate {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(ProfileEventGetUserProfile value)? getUserProfile,
     TResult Function(ProfileEventSignOut value)? signOut,
-    TResult Function(ProfileEventAvatarUpdate value)? avatarUpdate,
+    TResult Function(ProfileEventUpdateAvatarFromGallery value)?
+        updateAvatarFromGallery,
+    TResult Function(ProfileEventUpdateAvatarFromCamera value)?
+        updateAvatarFromCamera,
     TResult Function(ProfileEventProfileUpdate value)? profileUpdate,
     TResult Function(ProfileEventSettingsUpdate value)? settingsUpdate,
     required TResult orElse(),
   }) {
-    if (avatarUpdate != null) {
-      return avatarUpdate(this);
+    if (updateAvatarFromGallery != null) {
+      return updateAvatarFromGallery(this);
     }
     return orElse();
   }
 }
 
-abstract class ProfileEventAvatarUpdate implements ProfileEvent {
-  const factory ProfileEventAvatarUpdate() = _$ProfileEventAvatarUpdate;
+abstract class ProfileEventUpdateAvatarFromGallery implements ProfileEvent {
+  const factory ProfileEventUpdateAvatarFromGallery() =
+      _$ProfileEventUpdateAvatarFromGallery;
+}
+
+/// @nodoc
+abstract class $ProfileEventUpdateAvatarFromCameraCopyWith<$Res> {
+  factory $ProfileEventUpdateAvatarFromCameraCopyWith(
+          ProfileEventUpdateAvatarFromCamera value,
+          $Res Function(ProfileEventUpdateAvatarFromCamera) then) =
+      _$ProfileEventUpdateAvatarFromCameraCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class _$ProfileEventUpdateAvatarFromCameraCopyWithImpl<$Res>
+    extends _$ProfileEventCopyWithImpl<$Res>
+    implements $ProfileEventUpdateAvatarFromCameraCopyWith<$Res> {
+  _$ProfileEventUpdateAvatarFromCameraCopyWithImpl(
+      ProfileEventUpdateAvatarFromCamera _value,
+      $Res Function(ProfileEventUpdateAvatarFromCamera) _then)
+      : super(_value, (v) => _then(v as ProfileEventUpdateAvatarFromCamera));
+
+  @override
+  ProfileEventUpdateAvatarFromCamera get _value =>
+      super._value as ProfileEventUpdateAvatarFromCamera;
+}
+
+/// @nodoc
+
+class _$ProfileEventUpdateAvatarFromCamera
+    implements ProfileEventUpdateAvatarFromCamera {
+  const _$ProfileEventUpdateAvatarFromCamera();
+
+  @override
+  String toString() {
+    return 'ProfileEvent.updateAvatarFromCamera()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is ProfileEventUpdateAvatarFromCamera);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() getUserProfile,
+    required TResult Function() signOut,
+    required TResult Function() updateAvatarFromGallery,
+    required TResult Function() updateAvatarFromCamera,
+    required TResult Function() profileUpdate,
+    required TResult Function() settingsUpdate,
+  }) {
+    return updateAvatarFromCamera();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? getUserProfile,
+    TResult Function()? signOut,
+    TResult Function()? updateAvatarFromGallery,
+    TResult Function()? updateAvatarFromCamera,
+    TResult Function()? profileUpdate,
+    TResult Function()? settingsUpdate,
+  }) {
+    return updateAvatarFromCamera?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? getUserProfile,
+    TResult Function()? signOut,
+    TResult Function()? updateAvatarFromGallery,
+    TResult Function()? updateAvatarFromCamera,
+    TResult Function()? profileUpdate,
+    TResult Function()? settingsUpdate,
+    required TResult orElse(),
+  }) {
+    if (updateAvatarFromCamera != null) {
+      return updateAvatarFromCamera();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(ProfileEventGetUserProfile value) getUserProfile,
+    required TResult Function(ProfileEventSignOut value) signOut,
+    required TResult Function(ProfileEventUpdateAvatarFromGallery value)
+        updateAvatarFromGallery,
+    required TResult Function(ProfileEventUpdateAvatarFromCamera value)
+        updateAvatarFromCamera,
+    required TResult Function(ProfileEventProfileUpdate value) profileUpdate,
+    required TResult Function(ProfileEventSettingsUpdate value) settingsUpdate,
+  }) {
+    return updateAvatarFromCamera(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(ProfileEventGetUserProfile value)? getUserProfile,
+    TResult Function(ProfileEventSignOut value)? signOut,
+    TResult Function(ProfileEventUpdateAvatarFromGallery value)?
+        updateAvatarFromGallery,
+    TResult Function(ProfileEventUpdateAvatarFromCamera value)?
+        updateAvatarFromCamera,
+    TResult Function(ProfileEventProfileUpdate value)? profileUpdate,
+    TResult Function(ProfileEventSettingsUpdate value)? settingsUpdate,
+  }) {
+    return updateAvatarFromCamera?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(ProfileEventGetUserProfile value)? getUserProfile,
+    TResult Function(ProfileEventSignOut value)? signOut,
+    TResult Function(ProfileEventUpdateAvatarFromGallery value)?
+        updateAvatarFromGallery,
+    TResult Function(ProfileEventUpdateAvatarFromCamera value)?
+        updateAvatarFromCamera,
+    TResult Function(ProfileEventProfileUpdate value)? profileUpdate,
+    TResult Function(ProfileEventSettingsUpdate value)? settingsUpdate,
+    required TResult orElse(),
+  }) {
+    if (updateAvatarFromCamera != null) {
+      return updateAvatarFromCamera(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class ProfileEventUpdateAvatarFromCamera implements ProfileEvent {
+  const factory ProfileEventUpdateAvatarFromCamera() =
+      _$ProfileEventUpdateAvatarFromCamera;
 }
 
 /// @nodoc
@@ -534,7 +732,8 @@ class _$ProfileEventProfileUpdate implements ProfileEventProfileUpdate {
   TResult when<TResult extends Object?>({
     required TResult Function() getUserProfile,
     required TResult Function() signOut,
-    required TResult Function() avatarUpdate,
+    required TResult Function() updateAvatarFromGallery,
+    required TResult Function() updateAvatarFromCamera,
     required TResult Function() profileUpdate,
     required TResult Function() settingsUpdate,
   }) {
@@ -546,7 +745,8 @@ class _$ProfileEventProfileUpdate implements ProfileEventProfileUpdate {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? getUserProfile,
     TResult Function()? signOut,
-    TResult Function()? avatarUpdate,
+    TResult Function()? updateAvatarFromGallery,
+    TResult Function()? updateAvatarFromCamera,
     TResult Function()? profileUpdate,
     TResult Function()? settingsUpdate,
   }) {
@@ -558,7 +758,8 @@ class _$ProfileEventProfileUpdate implements ProfileEventProfileUpdate {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? getUserProfile,
     TResult Function()? signOut,
-    TResult Function()? avatarUpdate,
+    TResult Function()? updateAvatarFromGallery,
+    TResult Function()? updateAvatarFromCamera,
     TResult Function()? profileUpdate,
     TResult Function()? settingsUpdate,
     required TResult orElse(),
@@ -574,7 +775,10 @@ class _$ProfileEventProfileUpdate implements ProfileEventProfileUpdate {
   TResult map<TResult extends Object?>({
     required TResult Function(ProfileEventGetUserProfile value) getUserProfile,
     required TResult Function(ProfileEventSignOut value) signOut,
-    required TResult Function(ProfileEventAvatarUpdate value) avatarUpdate,
+    required TResult Function(ProfileEventUpdateAvatarFromGallery value)
+        updateAvatarFromGallery,
+    required TResult Function(ProfileEventUpdateAvatarFromCamera value)
+        updateAvatarFromCamera,
     required TResult Function(ProfileEventProfileUpdate value) profileUpdate,
     required TResult Function(ProfileEventSettingsUpdate value) settingsUpdate,
   }) {
@@ -586,7 +790,10 @@ class _$ProfileEventProfileUpdate implements ProfileEventProfileUpdate {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(ProfileEventGetUserProfile value)? getUserProfile,
     TResult Function(ProfileEventSignOut value)? signOut,
-    TResult Function(ProfileEventAvatarUpdate value)? avatarUpdate,
+    TResult Function(ProfileEventUpdateAvatarFromGallery value)?
+        updateAvatarFromGallery,
+    TResult Function(ProfileEventUpdateAvatarFromCamera value)?
+        updateAvatarFromCamera,
     TResult Function(ProfileEventProfileUpdate value)? profileUpdate,
     TResult Function(ProfileEventSettingsUpdate value)? settingsUpdate,
   }) {
@@ -598,7 +805,10 @@ class _$ProfileEventProfileUpdate implements ProfileEventProfileUpdate {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(ProfileEventGetUserProfile value)? getUserProfile,
     TResult Function(ProfileEventSignOut value)? signOut,
-    TResult Function(ProfileEventAvatarUpdate value)? avatarUpdate,
+    TResult Function(ProfileEventUpdateAvatarFromGallery value)?
+        updateAvatarFromGallery,
+    TResult Function(ProfileEventUpdateAvatarFromCamera value)?
+        updateAvatarFromCamera,
     TResult Function(ProfileEventProfileUpdate value)? profileUpdate,
     TResult Function(ProfileEventSettingsUpdate value)? settingsUpdate,
     required TResult orElse(),
@@ -659,7 +869,8 @@ class _$ProfileEventSettingsUpdate implements ProfileEventSettingsUpdate {
   TResult when<TResult extends Object?>({
     required TResult Function() getUserProfile,
     required TResult Function() signOut,
-    required TResult Function() avatarUpdate,
+    required TResult Function() updateAvatarFromGallery,
+    required TResult Function() updateAvatarFromCamera,
     required TResult Function() profileUpdate,
     required TResult Function() settingsUpdate,
   }) {
@@ -671,7 +882,8 @@ class _$ProfileEventSettingsUpdate implements ProfileEventSettingsUpdate {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? getUserProfile,
     TResult Function()? signOut,
-    TResult Function()? avatarUpdate,
+    TResult Function()? updateAvatarFromGallery,
+    TResult Function()? updateAvatarFromCamera,
     TResult Function()? profileUpdate,
     TResult Function()? settingsUpdate,
   }) {
@@ -683,7 +895,8 @@ class _$ProfileEventSettingsUpdate implements ProfileEventSettingsUpdate {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? getUserProfile,
     TResult Function()? signOut,
-    TResult Function()? avatarUpdate,
+    TResult Function()? updateAvatarFromGallery,
+    TResult Function()? updateAvatarFromCamera,
     TResult Function()? profileUpdate,
     TResult Function()? settingsUpdate,
     required TResult orElse(),
@@ -699,7 +912,10 @@ class _$ProfileEventSettingsUpdate implements ProfileEventSettingsUpdate {
   TResult map<TResult extends Object?>({
     required TResult Function(ProfileEventGetUserProfile value) getUserProfile,
     required TResult Function(ProfileEventSignOut value) signOut,
-    required TResult Function(ProfileEventAvatarUpdate value) avatarUpdate,
+    required TResult Function(ProfileEventUpdateAvatarFromGallery value)
+        updateAvatarFromGallery,
+    required TResult Function(ProfileEventUpdateAvatarFromCamera value)
+        updateAvatarFromCamera,
     required TResult Function(ProfileEventProfileUpdate value) profileUpdate,
     required TResult Function(ProfileEventSettingsUpdate value) settingsUpdate,
   }) {
@@ -711,7 +927,10 @@ class _$ProfileEventSettingsUpdate implements ProfileEventSettingsUpdate {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(ProfileEventGetUserProfile value)? getUserProfile,
     TResult Function(ProfileEventSignOut value)? signOut,
-    TResult Function(ProfileEventAvatarUpdate value)? avatarUpdate,
+    TResult Function(ProfileEventUpdateAvatarFromGallery value)?
+        updateAvatarFromGallery,
+    TResult Function(ProfileEventUpdateAvatarFromCamera value)?
+        updateAvatarFromCamera,
     TResult Function(ProfileEventProfileUpdate value)? profileUpdate,
     TResult Function(ProfileEventSettingsUpdate value)? settingsUpdate,
   }) {
@@ -723,7 +942,10 @@ class _$ProfileEventSettingsUpdate implements ProfileEventSettingsUpdate {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(ProfileEventGetUserProfile value)? getUserProfile,
     TResult Function(ProfileEventSignOut value)? signOut,
-    TResult Function(ProfileEventAvatarUpdate value)? avatarUpdate,
+    TResult Function(ProfileEventUpdateAvatarFromGallery value)?
+        updateAvatarFromGallery,
+    TResult Function(ProfileEventUpdateAvatarFromCamera value)?
+        updateAvatarFromCamera,
     TResult Function(ProfileEventProfileUpdate value)? profileUpdate,
     TResult Function(ProfileEventSettingsUpdate value)? settingsUpdate,
     required TResult orElse(),

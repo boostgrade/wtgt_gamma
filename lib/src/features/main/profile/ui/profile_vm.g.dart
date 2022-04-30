@@ -9,7 +9,7 @@ part of 'profile_vm.dart';
 // ignore_for_file: non_constant_identifier_names, unnecessary_brace_in_string_interps, unnecessary_lambdas, prefer_expression_function_bodies, lines_longer_than_80_chars, avoid_as, avoid_annotating_with_dynamic
 
 mixin _$ProfileVm on _ProfileVm, Store {
-  final _$profileAtom = Atom(name: '_ProfileVm.profile');
+  late final _$profileAtom = Atom(name: '_ProfileVm.profile', context: context);
 
   @override
   User get profile {
@@ -24,7 +24,7 @@ mixin _$ProfileVm on _ProfileVm, Store {
     });
   }
 
-  final _$initAtom = Atom(name: '_ProfileVm.init');
+  late final _$initAtom = Atom(name: '_ProfileVm.init', context: context);
 
   @override
   bool get init {
@@ -39,7 +39,7 @@ mixin _$ProfileVm on _ProfileVm, Store {
     });
   }
 
-  final _$loadingAtom = Atom(name: '_ProfileVm.loading');
+  late final _$loadingAtom = Atom(name: '_ProfileVm.loading', context: context);
 
   @override
   bool get loading {
@@ -54,7 +54,8 @@ mixin _$ProfileVm on _ProfileVm, Store {
     });
   }
 
-  final _$_ProfileVmActionController = ActionController(name: '_ProfileVm');
+  late final _$_ProfileVmActionController =
+      ActionController(name: '_ProfileVm', context: context);
 
   @override
   void getProfile() {
@@ -68,11 +69,11 @@ mixin _$ProfileVm on _ProfileVm, Store {
   }
 
   @override
-  void onAvatar() {
-    final _$actionInfo =
-        _$_ProfileVmActionController.startAction(name: '_ProfileVm.onAvatar');
+  void onAvatarUpdateFromCamera() {
+    final _$actionInfo = _$_ProfileVmActionController.startAction(
+        name: '_ProfileVm.onAvatarUpdateFromCamera');
     try {
-      return super.onAvatar();
+      return super.onAvatarUpdateFromCamera();
     } finally {
       _$_ProfileVmActionController.endAction(_$actionInfo);
     }

@@ -28,5 +28,8 @@
   "m": "м",
   "profileFavoritesTitle": "Избранное",
   "profileSignOut": "Выйти из профиля",
-  "sharePlaceSubject": "Хэй! Зацени это место:"
+  "sharePlaceSubject": "Хэй! Зацени это место:",
+  "profile_photo_title": "Изменить фото профиля",
+  "profile_photo_camera": "Камера",
+  "profile_photo_gallery": "Галерея"
 }

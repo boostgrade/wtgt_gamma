@@ -76,7 +76,41 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                   clipBehavior: Clip.hardEdge,
                                   color: Colors.transparent,
                                   child: InkWell(
-                                    onTap: () => vm.onAvatar(),
+                                    onTap: () => showModalBottomSheet<void>(
+                                      context: context,
+                                      builder: (context) {
+                                        return SizedBox(
+                                          height: 200,
+                                          child: Padding(
+                                            padding: const EdgeInsets.symmetric(
+                                              horizontal: 30,
+                                            ),
+                                            child: Column(
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.spaceEvenly,
+                                              children: [
+                                                Text(
+                                                  context
+                                                      .l10n.profile_photo_title,
+                                                  style: const AppTypography
+                                                      .s18w500h20ls(),
+                                                ),
+                                                WtgtButton(
+                                                  label: context.l10n
+                                                      .profile_photo_camera,
+                                                  onPressed: () => vm.onAvatarUpdateFromCamera(),
+                                                ),
+                                                WtgtButton(
+                                                  label: context.l10n
+                                                      .profile_photo_gallery,
+                                                  onPressed: () => vm.onAvatarUpdateFromGallery(),
+                                                ),
+                                              ],
+                                            ),
+                                          ),
+                                        );
+                                      },
+                                    ),
                                   ),
                                 ),
                               ),

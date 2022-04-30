@@ -8,7 +8,9 @@ class ProfileEvent with _$ProfileEvent {
 
   const factory ProfileEvent.signOut() = ProfileEventSignOut;
 
-  const factory ProfileEvent.avatarUpdate() = ProfileEventAvatarUpdate;
+  const factory ProfileEvent.updateAvatarFromGallery() = ProfileEventUpdateAvatarFromGallery;
+
+  const factory ProfileEvent.updateAvatarFromCamera() = ProfileEventUpdateAvatarFromCamera;
 
   const factory ProfileEvent.profileUpdate() = ProfileEventProfileUpdate;
 

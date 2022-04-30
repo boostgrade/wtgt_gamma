@@ -66,8 +66,12 @@ abstract class _ProfileVm extends ViewModel with Store {
   }
 
   @action
-  void onAvatar() {
-    _bloc.add(const ProfileEventAvatarUpdate());
+  void onAvatarUpdateFromCamera() {
+    _bloc.add(const ProfileEvent.updateAvatarFromCamera());
+  }
+
+  void onAvatarUpdateFromGallery() {
+    _bloc.add(const ProfileEvent.updateAvatarFromGallery());
   }
 
   @action

@@ -16,6 +16,7 @@ import 'package:where_to_go_today/src/features/location/location_service.dart';
 import 'package:where_to_go_today/src/features/main/places/service/places_bloc.dart';
 import 'package:where_to_go_today/src/features/main/places/service/repository/places_repository.dart';
 import 'package:where_to_go_today/src/features/main/profile/services/api/profile_api.dart';
+import 'package:where_to_go_today/src/features/main/profile/services/avatar/avatar_picker.dart';
 import 'package:where_to_go_today/src/features/main/profile/services/profile_bloc.dart';
 import 'package:where_to_go_today/src/features/main/profile/services/repository/profile_repository.dart';
 import 'package:where_to_go_today/src/features/onboard/services/onboarding_bloc.dart';
@@ -52,10 +53,15 @@ class AppDependencies extends DependencyBundle {
     placesRepository,
   );
 
+  final avatarPicker = AvatarPicker();
   late final profileApi = ProfileApi(dio);
   late final profileRepository = ProfileRepository(profileApi);
-  late final profileBloc =
-      ProfileBloc(profileRepository, authRepository, tokenStorage);
+  late final profileBloc = ProfileBloc(
+    profileRepository,
+    authRepository,
+    tokenStorage,
+    avatarPicker,
+  );
 
   late final messageController = DefaultMessageController();
   late final errorHandler = ScenarioErrorHandler(

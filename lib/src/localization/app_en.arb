@@ -31,5 +31,8 @@
   "m": "m",
   "profileFavoritesTitle": "Favorites",
   "profileSignOut": "Sign out",
-  "sharePlaceSubject": "Hey! Check out this place:"
+  "sharePlaceSubject": "Hey! Check out this place:",
+  "profile_photo_title": "Edit profile photo",
+  "profile_photo_camera": "Camera",
+  "profile_photo_gallery": "Gallery"
 }
