@@ -4,5 +4,6 @@ part 'onboarding_event.freezed.dart';
 
 @freezed
 class OnboardingEvent with _$OnboardingEvent {
-  const factory OnboardingEvent.started() = OnboardingEventStarted;
+  const factory OnboardingEvent.onboardingInited() = OnboardingInited;
+  const factory OnboardingEvent.onboardingSkipped() = OnboardingSkipped;
 }

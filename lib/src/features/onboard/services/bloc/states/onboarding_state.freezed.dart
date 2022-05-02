@@ -17,8 +17,16 @@ final _privateConstructorUsedError = UnsupportedError(
 class _$OnboardingStateTearOff {
   const _$OnboardingStateTearOff();
 
-  OnboardingStateInit init() {
-    return const OnboardingStateInit();
+  OnboardingInitial initial() {
+    return const OnboardingInitial();
+  }
+
+  OnboardingLoadInProgress loadInProgress() {
+    return const OnboardingLoadInProgress();
+  }
+
+  OnboardingSkipSuccess skipSuccess() {
+    return const OnboardingSkipSuccess();
   }
 }
 
@@ -29,33 +37,45 @@ const $OnboardingState = _$OnboardingStateTearOff();
 mixin _$OnboardingState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() init,
+    required TResult Function() initial,
+    required TResult Function() loadInProgress,
+    required TResult Function() skipSuccess,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? init,
+    TResult Function()? initial,
+    TResult Function()? loadInProgress,
+    TResult Function()? skipSuccess,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? init,
+    TResult Function()? initial,
+    TResult Function()? loadInProgress,
+    TResult Function()? skipSuccess,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(OnboardingStateInit value) init,
+    required TResult Function(OnboardingInitial value) initial,
+    required TResult Function(OnboardingLoadInProgress value) loadInProgress,
+    required TResult Function(OnboardingSkipSuccess value) skipSuccess,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(OnboardingStateInit value)? init,
+    TResult Function(OnboardingInitial value)? initial,
+    TResult Function(OnboardingLoadInProgress value)? loadInProgress,
+    TResult Function(OnboardingSkipSuccess value)? skipSuccess,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(OnboardingStateInit value)? init,
+    TResult Function(OnboardingInitial value)? initial,
+    TResult Function(OnboardingLoadInProgress value)? loadInProgress,
+    TResult Function(OnboardingSkipSuccess value)? skipSuccess,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -79,38 +99,38 @@ class _$OnboardingStateCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class $OnboardingStateInitCopyWith<$Res> {
-  factory $OnboardingStateInitCopyWith(
-          OnboardingStateInit value, $Res Function(OnboardingStateInit) then) =
-      _$OnboardingStateInitCopyWithImpl<$Res>;
+abstract class $OnboardingInitialCopyWith<$Res> {
+  factory $OnboardingInitialCopyWith(
+          OnboardingInitial value, $Res Function(OnboardingInitial) then) =
+      _$OnboardingInitialCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class _$OnboardingStateInitCopyWithImpl<$Res>
+class _$OnboardingInitialCopyWithImpl<$Res>
     extends _$OnboardingStateCopyWithImpl<$Res>
-    implements $OnboardingStateInitCopyWith<$Res> {
-  _$OnboardingStateInitCopyWithImpl(
-      OnboardingStateInit _value, $Res Function(OnboardingStateInit) _then)
-      : super(_value, (v) => _then(v as OnboardingStateInit));
+    implements $OnboardingInitialCopyWith<$Res> {
+  _$OnboardingInitialCopyWithImpl(
+      OnboardingInitial _value, $Res Function(OnboardingInitial) _then)
+      : super(_value, (v) => _then(v as OnboardingInitial));
 
   @override
-  OnboardingStateInit get _value => super._value as OnboardingStateInit;
+  OnboardingInitial get _value => super._value as OnboardingInitial;
 }
 
 /// @nodoc
 
-class _$OnboardingStateInit implements OnboardingStateInit {
-  const _$OnboardingStateInit();
+class _$OnboardingInitial implements OnboardingInitial {
+  const _$OnboardingInitial();
 
   @override
   String toString() {
-    return 'OnboardingState.init()';
+    return 'OnboardingState.initial()';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is OnboardingStateInit);
+        (other.runtimeType == runtimeType && other is OnboardingInitial);
   }
 
   @override
@@ -119,27 +139,33 @@ class _$OnboardingStateInit implements OnboardingStateInit {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() init,
+    required TResult Function() initial,
+    required TResult Function() loadInProgress,
+    required TResult Function() skipSuccess,
   }) {
-    return init();
+    return initial();
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? init,
+    TResult Function()? initial,
+    TResult Function()? loadInProgress,
+    TResult Function()? skipSuccess,
   }) {
-    return init?.call();
+    return initial?.call();
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? init,
+    TResult Function()? initial,
+    TResult Function()? loadInProgress,
+    TResult Function()? skipSuccess,
     required TResult orElse(),
   }) {
-    if (init != null) {
-      return init();
+    if (initial != null) {
+      return initial();
     }
     return orElse();
   }
@@ -147,32 +173,261 @@ class _$OnboardingStateInit implements OnboardingStateInit {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(OnboardingStateInit value) init,
+    required TResult Function(OnboardingInitial value) initial,
+    required TResult Function(OnboardingLoadInProgress value) loadInProgress,
+    required TResult Function(OnboardingSkipSuccess value) skipSuccess,
   }) {
-    return init(this);
+    return initial(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(OnboardingStateInit value)? init,
+    TResult Function(OnboardingInitial value)? initial,
+    TResult Function(OnboardingLoadInProgress value)? loadInProgress,
+    TResult Function(OnboardingSkipSuccess value)? skipSuccess,
   }) {
-    return init?.call(this);
+    return initial?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(OnboardingStateInit value)? init,
+    TResult Function(OnboardingInitial value)? initial,
+    TResult Function(OnboardingLoadInProgress value)? loadInProgress,
+    TResult Function(OnboardingSkipSuccess value)? skipSuccess,
     required TResult orElse(),
   }) {
-    if (init != null) {
-      return init(this);
+    if (initial != null) {
+      return initial(this);
     }
     return orElse();
   }
 }
 
-abstract class OnboardingStateInit implements OnboardingState {
-  const factory OnboardingStateInit() = _$OnboardingStateInit;
+abstract class OnboardingInitial implements OnboardingState {
+  const factory OnboardingInitial() = _$OnboardingInitial;
+}
+
+/// @nodoc
+abstract class $OnboardingLoadInProgressCopyWith<$Res> {
+  factory $OnboardingLoadInProgressCopyWith(OnboardingLoadInProgress value,
+          $Res Function(OnboardingLoadInProgress) then) =
+      _$OnboardingLoadInProgressCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class _$OnboardingLoadInProgressCopyWithImpl<$Res>
+    extends _$OnboardingStateCopyWithImpl<$Res>
+    implements $OnboardingLoadInProgressCopyWith<$Res> {
+  _$OnboardingLoadInProgressCopyWithImpl(OnboardingLoadInProgress _value,
+      $Res Function(OnboardingLoadInProgress) _then)
+      : super(_value, (v) => _then(v as OnboardingLoadInProgress));
+
+  @override
+  OnboardingLoadInProgress get _value =>
+      super._value as OnboardingLoadInProgress;
+}
+
+/// @nodoc
+
+class _$OnboardingLoadInProgress implements OnboardingLoadInProgress {
+  const _$OnboardingLoadInProgress();
+
+  @override
+  String toString() {
+    return 'OnboardingState.loadInProgress()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is OnboardingLoadInProgress);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loadInProgress,
+    required TResult Function() skipSuccess,
+  }) {
+    return loadInProgress();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loadInProgress,
+    TResult Function()? skipSuccess,
+  }) {
+    return loadInProgress?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loadInProgress,
+    TResult Function()? skipSuccess,
+    required TResult orElse(),
+  }) {
+    if (loadInProgress != null) {
+      return loadInProgress();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(OnboardingInitial value) initial,
+    required TResult Function(OnboardingLoadInProgress value) loadInProgress,
+    required TResult Function(OnboardingSkipSuccess value) skipSuccess,
+  }) {
+    return loadInProgress(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(OnboardingInitial value)? initial,
+    TResult Function(OnboardingLoadInProgress value)? loadInProgress,
+    TResult Function(OnboardingSkipSuccess value)? skipSuccess,
+  }) {
+    return loadInProgress?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(OnboardingInitial value)? initial,
+    TResult Function(OnboardingLoadInProgress value)? loadInProgress,
+    TResult Function(OnboardingSkipSuccess value)? skipSuccess,
+    required TResult orElse(),
+  }) {
+    if (loadInProgress != null) {
+      return loadInProgress(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class OnboardingLoadInProgress implements OnboardingState {
+  const factory OnboardingLoadInProgress() = _$OnboardingLoadInProgress;
+}
+
+/// @nodoc
+abstract class $OnboardingSkipSuccessCopyWith<$Res> {
+  factory $OnboardingSkipSuccessCopyWith(OnboardingSkipSuccess value,
+          $Res Function(OnboardingSkipSuccess) then) =
+      _$OnboardingSkipSuccessCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class _$OnboardingSkipSuccessCopyWithImpl<$Res>
+    extends _$OnboardingStateCopyWithImpl<$Res>
+    implements $OnboardingSkipSuccessCopyWith<$Res> {
+  _$OnboardingSkipSuccessCopyWithImpl(
+      OnboardingSkipSuccess _value, $Res Function(OnboardingSkipSuccess) _then)
+      : super(_value, (v) => _then(v as OnboardingSkipSuccess));
+
+  @override
+  OnboardingSkipSuccess get _value => super._value as OnboardingSkipSuccess;
+}
+
+/// @nodoc
+
+class _$OnboardingSkipSuccess implements OnboardingSkipSuccess {
+  const _$OnboardingSkipSuccess();
+
+  @override
+  String toString() {
+    return 'OnboardingState.skipSuccess()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is OnboardingSkipSuccess);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loadInProgress,
+    required TResult Function() skipSuccess,
+  }) {
+    return skipSuccess();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loadInProgress,
+    TResult Function()? skipSuccess,
+  }) {
+    return skipSuccess?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loadInProgress,
+    TResult Function()? skipSuccess,
+    required TResult orElse(),
+  }) {
+    if (skipSuccess != null) {
+      return skipSuccess();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(OnboardingInitial value) initial,
+    required TResult Function(OnboardingLoadInProgress value) loadInProgress,
+    required TResult Function(OnboardingSkipSuccess value) skipSuccess,
+  }) {
+    return skipSuccess(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(OnboardingInitial value)? initial,
+    TResult Function(OnboardingLoadInProgress value)? loadInProgress,
+    TResult Function(OnboardingSkipSuccess value)? skipSuccess,
+  }) {
+    return skipSuccess?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(OnboardingInitial value)? initial,
+    TResult Function(OnboardingLoadInProgress value)? loadInProgress,
+    TResult Function(OnboardingSkipSuccess value)? skipSuccess,
+    required TResult orElse(),
+  }) {
+    if (skipSuccess != null) {
+      return skipSuccess(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class OnboardingSkipSuccess implements OnboardingState {
+  const factory OnboardingSkipSuccess() = _$OnboardingSkipSuccess;
 }

@@ -83,6 +83,7 @@ class _OnboardingScreenState extends State<OnboardingScreen>
         builder: (_) => WtgtButton(
           onPressed: vm.onSkipButtonClick,
           label: vm.buttonLabel,
+          loading: vm.isLoading,
           width: 151,
         ),
       ),
