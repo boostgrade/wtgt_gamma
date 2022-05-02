@@ -16,8 +16,9 @@ class PlacesScreen extends StatefulWidget {
 }
 
 class _PlacesScreenState extends State<PlacesScreen>
-    with AutomaticKeepAliveClientMixin, ChangeNotifier {
+    with AutomaticKeepAliveClientMixin {
   late final PlacesVm vm;
+  ScrollController? bodyScrollController;
 
   @override
   bool get wantKeepAlive => true;
@@ -26,6 +27,12 @@ class _PlacesScreenState extends State<PlacesScreen>
   void initState() {
     super.initState();
     vm = widget.vm;
+  }
+
+  @override
+  void dispose() {
+    bodyScrollController = null;
+    super.dispose();
   }
 
   @override
@@ -71,7 +78,7 @@ class _PlacesScreenState extends State<PlacesScreen>
                     return const SizedBox.shrink();
                   }
                   if (index == vm.places.length) {
-                    _addEndOfBodyScrollListener(context);
+                    _addBodyScrollListener(context);
 
                     return Visibility(
                       visible: vm.loading,
@@ -109,18 +116,22 @@ class _PlacesScreenState extends State<PlacesScreen>
     );
   }
 
-  void _addEndOfBodyScrollListener(BuildContext context) {
-    final innerController = context
-        .findAncestorStateOfType<NestedScrollViewState>()!
-        .innerController;
-    if (innerController.hasListeners) {
-      return;
-    }
-    innerController.addListener(() {
-      if (innerController.offset >= innerController.position.maxScrollExtent &&
-          !innerController.position.outOfRange) {
-        vm.nextPage();
+  void _addBodyScrollListener(BuildContext context) {
+    if (bodyScrollController == null) {
+      bodyScrollController = context
+          .findAncestorStateOfType<NestedScrollViewState>()!
+          .innerController;
+      if (bodyScrollController != null) {
+        bodyScrollController!.addListener(_endOfScrollListener);
       }
-    });
+    }
+  }
+
+  void _endOfScrollListener() {
+    if (bodyScrollController!.offset >=
+            bodyScrollController!.position.maxScrollExtent &&
+        !bodyScrollController!.position.outOfRange) {
+      vm.nextPage();
+    }
   }
 }
