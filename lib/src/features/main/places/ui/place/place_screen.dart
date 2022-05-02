@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
-import 'package:where_to_go_today/src/core/domain/place.dart';
-import 'package:where_to_go_today/src/core/ui/base/view_model_disposer_mixin.dart';
 import 'package:where_to_go_today/src/features/main/places/ui/place/custom_sliver_app_bar.dart';
 import 'package:where_to_go_today/src/features/main/places/ui/place/place_vm.dart';
 import 'package:where_to_go_today/src/localization/l10n.dart';
