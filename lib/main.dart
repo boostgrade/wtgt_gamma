@@ -15,6 +15,7 @@ Future<void> main() async {
       child: App(
         vm: AppVm(
           globalDeps.settingsController,
+          globalDeps.authBloc,
           globalDeps.errorHandler,
         ),
       ),

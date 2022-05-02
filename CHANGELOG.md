@@ -11,6 +11,7 @@
 - feat: profile Api
 - feat: places api
 - feat: profile slivers
+- feat: profile bloc
 
 ## 0.3.0
 

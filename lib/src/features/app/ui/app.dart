@@ -35,7 +35,8 @@ class _AppState extends State<App> with ViewModelDisposerMixin<App, AppVm> {
           scaffoldMessengerKey:
               context.read<AppDependencies>().messageController.scaffoldKey,
           routerDelegate: RoutemasterDelegate(
-            routesBuilder: (_) => AppRouter.routes,
+            routesBuilder: (_) =>
+                vm.loggedIn ? AppRouter.routes : AppRouter.loggedOutRoutes,
           ),
           routeInformationParser: const RoutemasterParser(),
           restorationScopeId: 'app',

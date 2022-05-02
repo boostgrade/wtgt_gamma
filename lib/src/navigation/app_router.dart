@@ -29,4 +29,14 @@ class AppRouter {
           PlaceDetailRoute(routeData.pathParameters['placeId'] ?? ''),
     },
   );
+
+  static final loggedOutRoutes = RouteMap(
+    onUnknownRoute: (path) => const Redirect(initialRoute),
+    routes: {
+      initialRoute: (_) => SignInRoute(),
+      RegisterRoute.routeName: (_) => RegisterRoute(),
+      '${CodeRoute.routeName}/:phone': (routeData) =>
+          CodeRoute(routeData.pathParameters['phone'] ?? ''),
+    },
+  );
 }
