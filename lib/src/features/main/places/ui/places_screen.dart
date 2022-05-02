@@ -16,7 +16,7 @@ class PlacesScreen extends StatefulWidget {
 }
 
 class _PlacesScreenState extends State<PlacesScreen>
-    with AutomaticKeepAliveClientMixin {
+    with AutomaticKeepAliveClientMixin, ChangeNotifier {
   late final PlacesVm vm;
 
   @override
@@ -26,11 +26,6 @@ class _PlacesScreenState extends State<PlacesScreen>
   void initState() {
     super.initState();
     vm = widget.vm;
-  }
-
-  @override
-  void dispose() {
-    super.dispose();
   }
 
   @override
@@ -76,12 +71,16 @@ class _PlacesScreenState extends State<PlacesScreen>
                     return const SizedBox.shrink();
                   }
                   if (index == vm.places.length) {
-                    vm.nextPage();
+                    _addEndOfBodyScrollListener(context);
 
-                    return const Center(
-                      child: Padding(
-                        padding: EdgeInsets.only(bottom: 16),
-                        child: WtgtCircularProgressIndicator(),
+                    return Visibility(
+                      visible: vm.loading,
+                      replacement: const SizedBox(height: 46),
+                      child: const Center(
+                        child: Padding(
+                          padding: EdgeInsets.only(bottom: 16),
+                          child: WtgtCircularProgressIndicator(),
+                        ),
                       ),
                     );
                   } else {
@@ -99,14 +98,29 @@ class _PlacesScreenState extends State<PlacesScreen>
                 },
                 separatorBuilder: (ctx, index) => const SizedBox(height: 16),
               ),
-              if (vm.loading && vm.places.isEmpty)
-                const WtgtCircularProgressIndicator()
-              else
-                const SizedBox.shrink(),
+              Visibility(
+                visible: vm.loading && vm.places.isEmpty,
+                child: const WtgtCircularProgressIndicator(),
+              ),
             ],
           ),
         ),
       ),
     );
+  }
+
+  void _addEndOfBodyScrollListener(BuildContext context) {
+    final innerController = context
+        .findAncestorStateOfType<NestedScrollViewState>()!
+        .innerController;
+    if (innerController.hasListeners) {
+      return;
+    }
+    innerController.addListener(() {
+      if (innerController.offset >= innerController.position.maxScrollExtent &&
+          !innerController.position.outOfRange) {
+        vm.nextPage();
+      }
+    });
   }
 }
