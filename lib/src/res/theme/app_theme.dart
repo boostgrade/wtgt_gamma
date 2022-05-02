@@ -50,6 +50,7 @@ class AppTheme {
       ),
     ),
     labelStyle: AppTypography.s16w400h20(),
+    suffixIconColor: ProjectColors.textColorPrimary,
   );
 
   static const _progressIndicatorTheme = ProgressIndicatorThemeData(

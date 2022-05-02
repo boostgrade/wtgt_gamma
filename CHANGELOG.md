@@ -1,5 +1,6 @@
 # Changelog
 
+- feat: Places Screen
 - feat: Place Card
 - feat: CodeVm - add authorization via OTP
 - feat: SignInScreenVm - add phone authorization
@@ -11,6 +12,7 @@
 - feat: profile Api
 - feat: places api
 - feat: profile slivers
+- feat: profile bloc
 
 ## 0.3.0
 

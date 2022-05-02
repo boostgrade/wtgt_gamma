@@ -24,10 +24,26 @@ mixin _$AppVm on _AppVm, Store {
     });
   }
 
+  final _$loggedInAtom = Atom(name: '_AppVm.loggedIn');
+
+  @override
+  bool get loggedIn {
+    _$loggedInAtom.reportRead();
+    return super.loggedIn;
+  }
+
+  @override
+  set loggedIn(bool value) {
+    _$loggedInAtom.reportWrite(value, super.loggedIn, () {
+      super.loggedIn = value;
+    });
+  }
+
   @override
   String toString() {
     return '''
-themeMode: ${themeMode}
+themeMode: ${themeMode},
+loggedIn: ${loggedIn}
     ''';
   }
 }

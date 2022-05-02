@@ -5,7 +5,7 @@ import 'package:where_to_go_today/src/features/main/main_screen.dart';
 import 'package:where_to_go_today/src/features/main/main_vm.dart';
 import 'package:where_to_go_today/src/features/main/my_card/my_card_screen_widget.dart';
 import 'package:where_to_go_today/src/features/main/places/ui/places_screen_widget.dart';
-import 'package:where_to_go_today/src/features/main/profile/profile_screen_widget.dart';
+import 'package:where_to_go_today/src/features/main/profile/ui/profile_screen_widget.dart';
 
 @immutable
 class MainRoute extends MaterialPage<void> {
