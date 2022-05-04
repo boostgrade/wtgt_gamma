@@ -12,6 +12,7 @@
 - feat: places api
 - feat: profile slivers
 - feat: profile bloc
+- feat: profile image update 
 
 ## 0.3.0
 
