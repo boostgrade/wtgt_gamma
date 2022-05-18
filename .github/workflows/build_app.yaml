@@ -42,7 +42,7 @@ jobs:
           fatal-warnings: true
 
       - name: dart-code-metrics
-        uses: dart-code-checker/dart-code-metrics-action@v1.5.0
+        uses: dart-code-checker/dart-code-metrics-action@v2.0.0
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           folders: "lib, test"
