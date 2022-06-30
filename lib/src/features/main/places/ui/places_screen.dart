@@ -18,6 +18,7 @@ class PlacesScreen extends StatefulWidget {
 class _PlacesScreenState extends State<PlacesScreen>
     with AutomaticKeepAliveClientMixin {
   late final PlacesVm vm;
+  ScrollController? bodyScrollController;
 
   @override
   bool get wantKeepAlive => true;
@@ -30,6 +31,7 @@ class _PlacesScreenState extends State<PlacesScreen>
 
   @override
   void dispose() {
+    bodyScrollController = null;
     super.dispose();
   }
 
@@ -76,12 +78,16 @@ class _PlacesScreenState extends State<PlacesScreen>
                     return const SizedBox.shrink();
                   }
                   if (index == vm.places.length) {
-                    vm.nextPage();
+                    _addBodyScrollListener(context);
 
-                    return const Center(
-                      child: Padding(
-                        padding: EdgeInsets.only(bottom: 16),
-                        child: WtgtCircularProgressIndicator(),
+                    return Visibility(
+                      visible: vm.loading,
+                      replacement: const SizedBox(height: 46),
+                      child: const Center(
+                        child: Padding(
+                          padding: EdgeInsets.only(bottom: 16),
+                          child: WtgtCircularProgressIndicator(),
+                        ),
                       ),
                     );
                   } else {
@@ -99,14 +105,33 @@ class _PlacesScreenState extends State<PlacesScreen>
                 },
                 separatorBuilder: (ctx, index) => const SizedBox(height: 16),
               ),
-              if (vm.loading && vm.places.isEmpty)
-                const WtgtCircularProgressIndicator()
-              else
-                const SizedBox.shrink(),
+              Visibility(
+                visible: vm.loading && vm.places.isEmpty,
+                child: const WtgtCircularProgressIndicator(),
+              ),
             ],
           ),
         ),
       ),
     );
+  }
+
+  void _addBodyScrollListener(BuildContext context) {
+    if (bodyScrollController == null) {
+      bodyScrollController = context
+          .findAncestorStateOfType<NestedScrollViewState>()!
+          .innerController;
+      if (bodyScrollController != null) {
+        bodyScrollController!.addListener(_endOfScrollListener);
+      }
+    }
+  }
+
+  void _endOfScrollListener() {
+    if (bodyScrollController!.offset >=
+            bodyScrollController!.position.maxScrollExtent &&
+        !bodyScrollController!.position.outOfRange) {
+      vm.nextPage();
+    }
   }
 }
